@@ -1,0 +1,25 @@
+MATCH (n: User) WHERE n.upvotes > 1000 RETURN DISTINCT n
+MATCH (n: User) WHERE n.upvotes > 400 RETURN DISTINCT n
+MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN DISTINCT n
+MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN DISTINCT n
+MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN DISTINCT po
+MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN DISTINCT po
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN DISTINCT n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN DISTINCT m
+MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN DISTINCT betterPost
+MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN DISTINCT n
+MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN DISTINCT  n
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN DISTINCT m
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN DISTINCT m
+MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 UNWIND NODES(p) AS nodes RETURN DISTINCT nodes
+MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 UNWIND NODES(p) AS nodes RETURN DISTINCT nodes
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 UNWIND NODES(p) AS nodes RETURN DISTINCT nodes
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 UNWIND NODES(p) AS nodes RETURN DISTINCT nodes
+MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 UNWIND NODES(p) AS nodes RETURN DISTINCT nodes
+MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 UNWIND NODES(p) AS nodes RETURN DISTINCT nodes
+MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 UNWIND NODES(p) AS nodes RETURN DISTINCT nodes
+MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation UNWIND NODES(p) AS nodes RETURN DISTINCT nodes
+MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score UNWIND NODES(p) AS nodes RETURN DISTINCT nodes
+MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' UNWIND NODES(p) AS nodes RETURN DISTINCT nodes
+MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' UNWIND NODES(p) AS nodes RETURN DISTINCT nodes
+

@@ -1,0 +1,63 @@
+CREATE VIEW AS V1_1 MATCH (n:Comment) WHERE n.browserUsed = "Safari" RETURN n
+CREATE VIEW AS V1_2 MATCH (n:Comment) WHERE NOT n.browserUsed = "Safari" RETURN n
+CREATE VIEW AS V2_1 MATCH (po:Post) WHERE po.language = "ar"  RETURN po
+CREATE VIEW AS V2_2 MATCH (po:Post) WHERE NOT po.language = "ar" RETURN po
+CREATE VIEW AS V3_1 MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar"  RETURN po
+CREATE VIEW AS V3_2 MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE NOT po.language = "ar" RETURN po
+CREATE VIEW AS V4_1 MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" AND f.title STARTS WITH "Wall" RETURN po
+CREATE VIEW AS V4_2 MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE NOT po.language = "ar" OR NOT f.title STARTS WITH "Wall" RETURN f
+CREATE VIEW AS V5 MATCH (c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed RETURN c
+CREATE VIEW AS V6_1 MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" RETURN s
+CREATE VIEW AS V6_2 MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE NOT c.browserUsed = m.browserUsed OR NOT s.gender = "male"  RETURN s
+CREATE VIEW AS V7_1 MATCH (c:Message)-[:HAS_CREATOR]->(s:Person)-[:KNOWS]-(t:Person)<-[:HAS_CREATOR]-(b:Message) WHERE s.birthday > t.birthday+ 1000000000 OR s.birthday < t.birthday-1000000000 OR c.creationDate > b.creationDate+10000000000 RETURN b
+CREATE VIEW AS V7_2 MATCH (c:Message)-[:HAS_CREATOR]->(s:Person)-[:KNOWS]-(t:Person)<-[:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 RETURN b
+CREATE VIEW AS V8_1 MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1265000000000 RETURN p
+CREATE VIEW AS V8_2 MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f.creationDate>1265000000000 RETURN p
+CREATE VIEW AS V9_1 MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" AND f.title STARTS WITH "Wall" RETURN p
+CREATE VIEW AS V9_2 MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE NOT po.language = "ar" OR NOT f.title STARTS WITH "Wall"  RETURN p
+CREATE VIEW AS V10 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed RETURN p
+CREATE VIEW AS V11_1 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" RETURN p
+CREATE VIEW AS V11_2 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE NOT c.browserUsed = m.browserUsed OR NOT s.gender = "male" RETURN p
+CREATE VIEW AS V12_2 MATCH p=(c:Message)-[:HAS_CREATOR]->(s:Person)-[:KNOWS]-(t:Person)<-[:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 RETURN p
+CREATE VIEW AS V14_1 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE  s.gender='male' RETURN p
+CREATE VIEW AS V14_2 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE NOT s.gender='male' RETURN p
+CREATE VIEW AS V20 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS V21_1 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS V21_2 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE NOT c.browserUsed = m.browserUsed OR NOT s.gender = "male" CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS V22_2 MATCH p=(c:Message)-[:HAS_CREATOR]->(s:Person)-[:KNOWS]-(t:Person)<-[:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS V24_1 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE  s.gender='male' CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS V24_2 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE NOT s.gender='male' CONSTRUCT p RETURN GRAPH
+
+WITH VIEWS V4_1 V3_1 LOCAL MATCH (n) WHERE n IN V4_1 AND n IN V3_1 RETURN n
+WITH VIEWS V2_1 V4_1 LOCAL MATCH (n) WHERE n IN V2_1 AND n IN V4_1 RETURN n
+WITH VIEWS V11_2 V7_2 LOCAL MATCH (n) WHERE n IN V11_2 AND n IN V7_2 RETURN n
+WITH VIEWS V3_2 V14_1 LOCAL MATCH (n) WHERE n IN V3_2 AND n IN V14_1 RETURN n
+WITH VIEWS V8_2 V9_2 LOCAL MATCH (n) WHERE n IN V8_2 AND n IN V9_2 RETURN n
+WITH VIEWS V11_2 V7_2 LOCAL MATCH (n) WHERE n IN V11_2 AND n IN V7_2 RETURN n
+WITH VIEWS V4_1 V3_1 LOCAL MATCH (n) WHERE n IN V4_1 AND n IN V3_1 RETURN n
+WITH VIEWS V3_2 V14_1 LOCAL MATCH (n) WHERE n IN V3_2 AND n IN V14_1 RETURN n
+WITH VIEWS V2_1 V4_1 LOCAL MATCH (n) WHERE n IN V2_1 AND n IN V4_1 RETURN n
+WITH VIEWS V8_2 V9_2 LOCAL MATCH (n) WHERE n IN V8_2 AND n IN V9_2 RETURN n
+WITH VIEWS V2_1 V4_1 LOCAL MATCH (n) WHERE n IN V2_1 AND n IN V4_1 RETURN n
+WITH VIEWS V3_2 V14_1 LOCAL MATCH (n) WHERE n IN V3_2 AND n IN V14_1 RETURN n
+WITH VIEWS V8_2 V9_2 LOCAL MATCH (n) WHERE n IN V8_2 AND n IN V9_2 RETURN n
+WITH VIEWS V4_1 V3_1 LOCAL MATCH (n) WHERE n IN V4_1 AND n IN V3_1 RETURN n
+WITH VIEWS V11_2 V7_2 LOCAL MATCH (n) WHERE n IN V11_2 AND n IN V7_2 RETURN n
+WITH VIEWS V4_1 V3_1 LOCAL MATCH (n) WHERE n IN V4_1 AND n IN V3_1 RETURN n
+WITH VIEWS V8_2 V9_2 LOCAL MATCH (n) WHERE n IN V8_2 AND n IN V9_2 RETURN n
+WITH VIEWS V11_2 V7_2 LOCAL MATCH (n) WHERE n IN V11_2 AND n IN V7_2 RETURN n
+WITH VIEWS V3_2 V14_1 LOCAL MATCH (n) WHERE n IN V3_2 AND n IN V14_1 RETURN n
+WITH VIEWS V2_1 V4_1 LOCAL MATCH (n) WHERE n IN V2_1 AND n IN V4_1 RETURN n
+WITH VIEWS V11_2 V7_2 LOCAL MATCH (n) WHERE n IN V11_2 AND n IN V7_2 RETURN n
+WITH VIEWS V4_1 V3_1 LOCAL MATCH (n) WHERE n IN V4_1 AND n IN V3_1 RETURN n
+WITH VIEWS V3_2 V14_1 LOCAL MATCH (n) WHERE n IN V3_2 AND n IN V14_1 RETURN n
+WITH VIEWS V2_1 V4_1 LOCAL MATCH (n) WHERE n IN V2_1 AND n IN V4_1 RETURN n
+WITH VIEWS V8_2 V9_2 LOCAL MATCH (n) WHERE n IN V8_2 AND n IN V9_2 RETURN n
+
+WITH VIEWS V20 LOCAL MATCH (n1)-[r1:REPLY_OF]->(m)<-[r2:REPLY_OF]-(n2) RETURN m
+WITH VIEWS V21_1 LOCAL MATCH (n1)-[r1:REPLY_OF]->(m)<-[r2:REPLY_OF]-(n2) RETURN m
+WITH VIEWS V21_2 LOCAL MATCH (n1)-[r1:REPLY_OF]->(m)<-[r2:REPLY_OF]-(n2) RETURN m
+WITH VIEWS V22_2 LOCAL MATCH (n1)-[r1:REPLY_OF]->(m)<-[r2:REPLY_OF]-(n2) RETURN m
+WITH VIEWS V24_1 LOCAL MATCH (n1)-[r1:REPLY_OF]->(m)<-[r2:REPLY_OF]-(n2) RETURN m
+WITH VIEWS V24_2 LOCAL MATCH (n1)-[r1:REPLY_OF]->(m)<-[r2:REPLY_OF]-(n2) RETURN m
+WITH VIEWS V22_2 LOCAL MATCH (n:Message)-[r1:HAS_CREATOR]-(s:Person)-[r2:KNOWS]-(t:Person)-[r3:KNOWS]-(k:Person)-[r4:HAS_CREATOR]-(b:Message) RETURN s

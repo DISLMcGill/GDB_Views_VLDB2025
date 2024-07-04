@@ -1,0 +1,33 @@
+U12: MATCH p1=(n:User)-[r1:POSTED]-(betterPost:Post) WITH p1 as p1,betterPost as betterPost MATCH p2=(betterPost)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(p1) + COLLECT(p2) AS allPaths UNWIND allPaths AS path RETURN DISTINCT path
+U13:  MATCH p1=(n:User)-[r1:POSTED]-(betterPost:Post) WITH p1 as p1,betterPost as betterPost MATCH p2=(betterPost)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(p1) AS allPaths UNWIND allPaths AS path RETURN DISTINCT path
+U16: MATCH p1=(n:User)-[r1:POSTED]-(po1:Post),p2=(po1)-[r2:PARENT_OF]-(po2:Post)-[r3:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation*10 WITH COLLECT(p1) + COLLECT(p2) AS allPaths UNWIND allPaths AS path RETURN DISTINCT path
+U17:  MATCH p1=(n:User)-[r1:POSTED]-(po1:Post),p2=(po1)-[r2:PARENT_OF]-(po2:Post)-[r3:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation*10 WITH COLLECT(p1) AS allPaths UNWIND allPaths AS path RETURN DISTINCT path
+U23: MATCH p1=(n:User)-[:POSTED]-(po:Post), p2=(po)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'html'  WITH COLLECT(p2) AS allPaths UNWIND allPaths AS path RETURN DISTINCT path
+U35: MATCH p1=(n:User)-[:POSTED]-(betterPost:Post) WHERE n.reputation < 850 AND n.upvotes > 400 WITH p1, betterPost MATCH p2=(betterPost)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(p1) AS allPaths UNWIND allPaths AS path RETURN DISTINCT path
+
+U14: WITH VIEWS V11_4 LOCAL MATCH p=* RETURN p
+U15: WITH VIEWS V11_4 LOCAL MATCH p=* WHERE p IN V11_4.p2 RETURN p
+U16: WITH VIEWS V12_3 LOCAL MATCH p=* RETURN p
+U17: WITH VIEWS V12_3 LOCAL MATCH p=* WHERE p IN V12_3.p1 RETURN p
+U18: WITH VIEWS V12_4 LOCAL MATCH p=* RETURN p
+U19: WITH VIEWS V12_4 LOCAL MATCH p=* WHERE p IN V12_4.p2 RETURN p
+U20: WITH VIEWS V12_5 LOCAL MATCH p=* RETURN p
+U21: WITH VIEWS V12_5 LOCAL MATCH p=* WHERE p IN V12_5.p1 RETURN p
+U22: WITH VIEWS V14_3 LOCAL MATCH p=* RETURN p
+U23: WITH VIEWS V14_3 LOCAL MATCH p=* WHERE p IN V14_3.p2 RETURN p
+U24: WITH VIEWS V14_4 LOCAL MATCH p=* RETURN p
+U25: WITH VIEWS V14_4 LOCAL MATCH p=* WHERE p IN V14_4.p2 RETURN p
+U26: WITH VIEWS V19_1 LOCAL MATCH p=(n)-[r1]-(m) RETURN p
+U27: WITH VIEWS V19_1 V16_1 LOCAL MATCH p=(n)-[r1]-(m) WHERE r1 IN V19_1.r2 AND r1 IN V16_1.r1 RETURN p
+U28: WITH VIEWS V17_1 GLOBAL MATCH p=(n:User)-[r1:POSTED]->(betterPost:Post)-[r2:PARENT_OF]->(worstPost:Post) WHERE r2 IN V17_1.r1 RETURN p
+U29: WITH VIEWS V18_1 GLOBAL MATCH p=(n:User)-[r1:POSTED]->(p1:Post) WHERE r1 IN V18_1.r1 RETURN p
+U30: WITH VIEWS V18_1 GLOBAL MATCH p=(betterPost:Post)-[r2:PARENT_OF]->(worstPost:Post) WHERE r2 IN V18_1.r2 RETURN p
+U31: WITH VIEWS V18_2 GLOBAL MATCH p=(n:User)-[r1:POSTED]-(p1:Post)-[r2:PARENT_OF]-(p2:Post) WHERE r1 IN V18_2.r1 RETURN p2
+U32: WITH VIEWS V3_4 V6_4 GLOBAL MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post) WHERE p1 IN V3_4.po AND n IN V6_4.n RETURN DISTINCT p2
+U33: WITH VIEWS V7_3 V6_3 GLOBAL MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n IN V7_3.m AND m IN V6_3.n RETURN DISTINCT p2
+U34: WITH VIEWS V7_4 GLOBAL MATCH (n:User)-[:POSTED]-(m:Post) WHERE n IN V7_4.m RETURN m
+U35: WITH VIEWS V11_4 LOCAL MATCH p=(n:User)-[:POSTED]-(p1:Post) WHERE p IN V11_4.p1 AND n.upvotes > 400 RETURN DISTINCT p1
+U36: WITH VIEWS V12_4 LOCAL MATCH p=(po1:Post)-[:PARENT_OF]-(po2:Post)-[:POSTED]-(m:User) WHERE p IN V12_4.p2 AND po2.score > 38 RETURN DISTINCT p
+U37: WITH VIEWS V11_3 GLOBAL MATCH p1=(n:User)-[:POSTED]-(betterPost:Post) WHERE p1 IN V11_3.p1 WITH betterPost MATCH p2=(betterPost)-[:PARENT_OF]->(worstPost:Post) WHERE p2 IN V11_3.p2 WITH worstPost MATCH (m:User)-[:POSTED]-(worstPost) RETURN DISTINCT m
+U38: WITH VIEWS V11_4 GLOBAL MATCH p1=(n:User)-[:POSTED]-(betterPost:Post) WHERE p1 IN V11_4.p1 AND n.upvotes > 400 WITH betterPost MATCH p2=(betterPost)-[:PARENT_OF]->(worstPost:Post) WHERE p2 IN V11_4.p2 WITH worstPost MATCH (m:User)-[:POSTED]-(worstPost) RETURN DISTINCT m
+U39: WITH VIEWS V11_4 GLOBAL MATCH p1=(n:User)-[:POSTED]-(betterPost:Post) WHERE p1 IN V11_4.p1 AND n.upvotes > 400 WITH betterPost MATCH p2=(betterPost)-[:PARENT_OF]->(worstPost:Post) WHERE p2 IN V11_4.p2 WITH worstPost MATCH (m:User)-[r3:POSTED]-(worstPost) RETURN DISTINCT r3

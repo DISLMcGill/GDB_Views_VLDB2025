@@ -1,0 +1,79 @@
+MATCH (n: User) WHERE n.upvotes > 1000 WITH DISTINCT(n) SET n.V1_1 = "n" RETURN n
+MATCH (n: User) WHERE n.upvotes > 400 WITH DISTINCT(n) SET n.V1_2 = "n" RETURN n
+MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 WITH DISTINCT(n) SET n.V2_1 = "n" RETURN n
+MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 WITH DISTINCT(n) SET n.V2_2 = "n" RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 WITH DISTINCT(po) SET po.V3_1 = "po" RETURN po
+MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 WITH DISTINCT(po) SET po.V3_2 = "po" RETURN po
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH DISTINCT(n) SET n.V4_1 = "n" RETURN n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 WITH DISTINCT(m) SET m.V4_2 = "m" RETURN m
+MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10  WITH DISTINCT(betterPost) SET betterPost.V5 = "betterPost" RETURN betterPost
+MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH DISTINCT(n) SET n.V6_1 = "n" RETURN n
+MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH DISTINCT(n) SET n.V6_2 = "n" RETURN n
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH DISTINCT(m) SET m.V7_1 = "m" RETURN m
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH DISTINCT(m) SET m.V7_2 = "m" RETURN m
+
+
+//separate node/edge
+
+MATCH p=(n:User)-[r:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT(p)) as allP1,n,r,po UNWIND RANGE(0,SIZE(allP1)-1) as pos WITH pos,nodes(allP1[pos])[0] as start,n,po,r,relationships(allP1[pos]) AS relList  SET n.V8_1 = 'n' SET po.V8_1='po' SET r.V8_1='r' SET start.V8_1_p = CASE WHEN start.V8_1_p IS NOT NULL THEN start.V8_1_p +pos ELSE pos END WITH relList,pos UNWIND relList as rel SET rel.V8_1_p = CASE WHEN rel.V8_1_p IS NOT NULL THEN rel.V8_1_p +pos ELSE pos END RETURN pos
+ MATCH p=(n:User)-[r:POSTED]-(po:Post) WHERE po.score > 38 WITH COLLECT(DISTINCT(p)) as allP1,n,r,po UNWIND RANGE(0,SIZE(allP1)-1) as pos WITH pos,nodes(allP1[pos])[0] as start,n,po,r,relationships(allP1[pos]) AS relList  SET n.V8_2 = 'n' SET po.V8_2='po' SET r.V8_2='r' SET start.V8_2_p = CASE WHEN start.V8_2_p IS NOT NULL THEN start.V8_2_p +pos ELSE pos END WITH relList,pos UNWIND relList as rel SET rel.V8_2_p = CASE WHEN rel.V8_2_p IS NOT NULL THEN rel.V8_2_p +pos ELSE pos END RETURN pos
+MATCH p=(n:Post)-[r:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH COLLECT(DISTINCT(p)) as allP1,n,r,m UNWIND RANGE(0,SIZE(allP1)-1) as pos WITH pos,nodes(allP1[pos])[0] as start,n,m,r,relationships(allP1[pos]) AS relList  SET n.V9_1 = 'n' SET m.V9_1='m' SET r.V9_1='r' SET start.V9_1_p = CASE WHEN start.V9_1_p IS NOT NULL THEN start.V9_1_p +pos ELSE pos END WITH relList,pos UNWIND relList as rel SET rel.V9_1_p = CASE WHEN rel.V9_1_p IS NOT NULL THEN rel.V9_1_p +pos ELSE pos END RETURN pos
+MATCH p=(n:User)-[r1:POSTED]-(betterPost:Post)-[r2:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT(p)) as allP1,n,r1,r2,betterPost,worstPost UNWIND RANGE(0,SIZE(allP1)-1) as pos WITH pos,nodes(allP1[pos])[0] as start,n,r1,r2,betterPost,worstPost,relationships(allP1[pos]) AS relList  SET n.V11_1 = 'n' SET betterPost.V11_1='betterPost' SET worstPost.V11_1='worstPost' SET r1.V11_1='r1' SET start.V11_1_p = CASE WHEN start.V11_1_p IS NOT NULL THEN start.V11_1_p +pos ELSE pos END WITH relList,pos UNWIND relList as rel SET rel.V11_1_p = CASE WHEN rel.V11_1_p IS NOT NULL THEN rel.V11_1_p +pos ELSE pos END RETURN pos
+
+MATCH p=(n:User)-[r1:POSTED]-(p1:Post)-[r2:PARENT_OF]-(p2:Post)-[r3:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT(p)) as allP1,n,r1,p1,r2,p2,r3,m UNWIND RANGE(0,SIZE(allP1)-1) as pos WITH pos,nodes(allP1[pos])[0] as start,n,r1,p1,r2,p2,r3,m,relationships(allP1[pos]) AS relList  SET n.V12_1 = 'n' SET m.V12_1='m' SET p1.V12_1='p1' SET p2.V12_1='p2' SET r1.V12_1='r1' SET r2.V12_1='r2' SET r3.V12_1='r3' SET start.V12_1_p = CASE WHEN start.V12_1_p IS NOT NULL THEN start.V12_1_p +pos ELSE pos END WITH relList,pos UNWIND relList as rel SET rel.V12_1_p = CASE WHEN rel.V12_1_p IS NOT NULL THEN rel.V12_1_p +pos ELSE pos END RETURN pos
+
+
+MATCH p=(n:User)-[r:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT(p)) as allP1,n,r,po UNWIND RANGE(0,SIZE(allP1)-1) as pos WITH pos,nodes(allP1[pos])[0] as start,n,po,r,relationships(allP1[pos])[0] AS firstR  SET n.V8_1 = 'n' SET po.V8_1='po' SET r.V8_1='r' SET start.V8_1_p = CASE WHEN start.V8_1_p IS NOT NULL THEN start.V8_1_p +pos ELSE pos END WITH firstR,pos SET firstR.V8_1_p = CASE WHEN firstR.V8_1_p IS NOT NULL THEN firstR.V8_1_p + "pos.0," ELSE "pos.0," END RETURN pos
+
+
+
+
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+CREATE VIEW AS V8_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN p
+CREATE VIEW AS V8_2 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN p
+CREATE VIEW AS V9_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN p
+CREATE VIEW AS V9_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN p
+CREATE VIEW AS V10 MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+CREATE VIEW AS V11_1 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+CREATE VIEW AS V11_2 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+CREATE VIEW AS V12_1 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN p
+CREATE VIEW AS V12_2 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN p
+CREATE VIEW AS V14_1 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' RETURN p
+CREATE VIEW AS V14_2 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' RETURN p
+WITH VIEWS V2_1 GLOBAL MATCH (n:User)-[:POSTED]-(p:Post)   WHERE p IN V2_1 RETURN DISTINCT n
+WITH VIEWS V3_2 V6_2 GLOBAL MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post) WHERE p1 IN V3_2 AND n IN V6_2 RETURN DISTINCT p2
+WITH VIEWS V9_1 GLOBAL MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n IN V9_1 RETURN DISTINCT m
+WITH VIEWS V7_1 V6_1 GLOBAL MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n IN V7_1 AND m IN V6_1 RETURN DISTINCT p2
+WITH VIEWS V7_2 GLOBAL MATCH (n:User)-[:POSTED]-(m:Post) WHERE n IN V7_2 RETURN m
+WITH VIEWS V2_1 GLOBAL MATCH (n:User)-[:POSTED]-(p:Post)   WHERE p IN V2_1 RETURN DISTINCT n
+WITH VIEWS V9_1 GLOBAL MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n IN V9_1 RETURN DISTINCT m
+WITH VIEWS V3_2 V6_2 GLOBAL MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post) WHERE p1 IN V3_2 AND n IN V6_2 RETURN DISTINCT p2
+WITH VIEWS V7_1 V6_1 GLOBAL MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n IN V7_1 AND m IN V6_1 RETURN DISTINCT p2
+WITH VIEWS V3_2 V6_2 GLOBAL MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post) WHERE p1 IN V3_2 AND n IN V6_2 RETURN DISTINCT p2
+WITH VIEWS V7_2 GLOBAL MATCH (n:User)-[:POSTED]-(m:Post) WHERE n IN V7_2 RETURN m
+WITH VIEWS V2_1 GLOBAL MATCH (n:User)-[:POSTED]-(p:Post)   WHERE p IN V2_1 RETURN DISTINCT n
+WITH VIEWS V9_1 GLOBAL MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n IN V9_1 RETURN DISTINCT m
+WITH VIEWS V7_1 V6_1 GLOBAL MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n IN V7_1 AND m IN V6_1 RETURN DISTINCT p2
+WITH VIEWS V7_2 GLOBAL MATCH (n:User)-[:POSTED]-(m:Post) WHERE n IN V7_2 RETURN m
+WITH VIEWS V3_2 V6_2 GLOBAL MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post) WHERE p1 IN V3_2 AND n IN V6_2 RETURN DISTINCT p2
+WITH VIEWS V7_2 GLOBAL MATCH (n:User)-[:POSTED]-(m:Post) WHERE n IN V7_2 RETURN m
+WITH VIEWS V7_1 V6_1 GLOBAL MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n IN V7_1 AND m IN V6_1 RETURN DISTINCT p2
+WITH VIEWS V9_1 GLOBAL MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n IN V9_1 RETURN DISTINCT m
+WITH VIEWS V2_1 GLOBAL MATCH (n:User)-[:POSTED]-(p:Post)   WHERE p IN V2_1 RETURN DISTINCT n
+WITH VIEWS V7_2 GLOBAL MATCH (n:User)-[:POSTED]-(m:Post) WHERE n IN V7_2 RETURN m
+WITH VIEWS V7_1 V6_1 GLOBAL MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n IN V7_1 AND m IN V6_1 RETURN DISTINCT p2
+WITH VIEWS V3_2 V6_2 GLOBAL MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post) WHERE p1 IN V3_2 AND n IN V6_2 RETURN DISTINCT p2
+WITH VIEWS V9_1 GLOBAL MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n IN V9_1 RETURN DISTINCT m
+WITH VIEWS V2_1 GLOBAL MATCH (n:User)-[:POSTED]-(p:Post)   WHERE p IN V2_1 RETURN DISTINCT n

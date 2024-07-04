@@ -1,0 +1,1515 @@
+CREATE VIEW AS V14_2 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' RETURN p
+In enterRoot ctx is CREATE VIEW ASV14_2MATCHp=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n)WHEREt.tagId='java'ORt.tagId='c#'RETURNp
+ViewSql is CREATE VIEW AS V14_2 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' RETURN p
+VarLables of the input is {po2=Post, t=Tag, _ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_2=HAS_TAG, n=_ENTRY_SPECIAL_NODE_STAR_, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_2" IN pathnode.views THEN [] ELSE ["V14_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_2" IN pathnode.views THEN [] ELSE ["V14_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' RETURN p
+Return set contains 106128
+There are 58930 nodes
+Took 22187ms to create views
+*********************************
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_2MATCH(n:Post)WHEREn.score<1500ANDn.score>10RETURNn
+ViewSql is CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_2" IN n.views THEN [] ELSE ["V2_2"] END) + n.views
+Executing query:  MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN DISTINCT ID(n)
+Execution done
+There are 521823 nodes
+Took 2617ms to create views
+*********************************
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNpo
+ViewSql is CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_5=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_1" IN po.views THEN [] ELSE ["V3_1"] END) + po.views
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN DISTINCT ID(po)
+Execution done
+There are 56691 nodes
+Took 184ms to create views
+*********************************
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_2MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNm
+ViewSql is CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, m=User, n=User, _ENTRY_SPECIAL_NO_REL_NAME_6=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_7=PARENT_OF}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_2" IN m.views THEN [] ELSE ["V7_2"] END) + m.views
+Executing query:  MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN DISTINCT ID(m)
+Execution done
+There are 18275 nodes
+Took 5749ms to create views
+*********************************
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNn
+ViewSql is CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_9=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V4_1" IN n.views THEN [] ELSE ["V4_1"] END) + n.views
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN DISTINCT ID(n)
+Execution done
+There are 17665 nodes
+Took 1536ms to create views
+*********************************
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_1MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 1000 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_1" IN n.views THEN [] ELSE ["V1_1"] END) + n.views
+Executing query:  MATCH (n: User) WHERE n.upvotes > 1000 RETURN DISTINCT ID(n)
+Execution done
+There are 2341 nodes
+Took 47ms to create views
+*********************************
+CREATE VIEW AS V8_2 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN p
+In enterRoot ctx is CREATE VIEW ASV8_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNp
+ViewSql is CREATE VIEW AS V8_2 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_10=POSTED, n=User, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_2" IN pathnode.views THEN [] ELSE ["V8_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_2" IN pathnode.views THEN [] ELSE ["V8_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN p
+Return set contains 56570
+There are 67687 nodes
+Took 1607ms to create views
+*********************************
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+In enterRoot ctx is CREATE VIEW ASV4_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNm
+ViewSql is CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_11=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V4_2" IN m.views THEN [] ELSE ["V4_2"] END) + m.views
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN DISTINCT ID(m)
+Execution done
+There are 5941 nodes
+Took 1952ms to create views
+*********************************
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_1MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_12=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_13=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_1" IN n.views THEN [] ELSE ["V6_1"] END) + n.views
+Executing query:  MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN DISTINCT ID(n)
+Execution done
+There are 19275 nodes
+Took 3807ms to create views
+*********************************
+CREATE VIEW AS V14_1 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' RETURN p
+In enterRoot ctx is CREATE VIEW ASV14_1MATCHp=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n)WHEREt.tagId='java'RETURNp
+ViewSql is CREATE VIEW AS V14_1 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' RETURN p
+VarLables of the input is {po2=Post, t=Tag, _ENTRY_SPECIAL_NO_REL_NAME_14=POSTED, n=_ENTRY_SPECIAL_NODE_STAR_, po=Post, _ENTRY_SPECIAL_NO_REL_NAME_15=HAS_TAG}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_1" IN pathnode.views THEN [] ELSE ["V14_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_1" IN pathnode.views THEN [] ELSE ["V14_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' RETURN p
+Return set contains 35868
+There are 20289 nodes
+Took 3153ms to create views
+*********************************
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_1MATCH(n:Post)WHEREn.score<1500ANDn.score>20RETURNn
+ViewSql is CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_1" IN n.views THEN [] ELSE ["V2_1"] END) + n.views
+Executing query:  MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN DISTINCT ID(n)
+Execution done
+There are 272559 nodes
+Took 2392ms to create views
+*********************************
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_1MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_18=POSTED, p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_19=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_1" IN m.views THEN [] ELSE ["V7_1"] END) + m.views
+Executing query:  MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN DISTINCT ID(m)
+Execution done
+There are 22714 nodes
+Took 5599ms to create views
+*********************************
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNpo
+ViewSql is CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_21=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_2" IN po.views THEN [] ELSE ["V3_2"] END) + po.views
+Executing query:  MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN DISTINCT ID(po)
+Execution done
+There are 56570 nodes
+Took 1405ms to create views
+*********************************
+CREATE VIEW AS V10 MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+In enterRoot ctx is CREATE VIEW ASV10MATCHp=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNp
+ViewSql is CREATE VIEW AS V10 MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_22=PARENT_OF, betterPost=Post}
+Return Type is PATH
+ MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V10" IN pathnode.views THEN [] ELSE ["V10"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V10" IN pathnode.views THEN [] ELSE ["V10"] END) + pathnode.views)
+Executing query:  MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+Return set contains 1404783
+There are 2272251 nodes
+Took 11025ms to create views
+*********************************
+CREATE VIEW AS V12_1 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN p
+In enterRoot ctx is CREATE VIEW ASV12_1MATCHp=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNp
+ViewSql is CREATE VIEW AS V12_1 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN p
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_23=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_24=PARENT_OF, m=User, n=User}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_1" IN pathnode.views THEN [] ELSE ["V12_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_1" IN pathnode.views THEN [] ELSE ["V12_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN p
+Return set contains 644604
+There are 411243 nodes
+Took 8430ms to create views
+*********************************
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_2MATCH(n:User)WHEREn.upvotes>400RETURNn
+ViewSql is CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 400 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_2" IN n.views THEN [] ELSE ["V1_2"] END) + n.views
+Executing query:  MATCH (n: User) WHERE n.upvotes > 400 RETURN DISTINCT ID(n)
+Execution done
+There are 5290 nodes
+Took 26ms to create views
+*********************************
+CREATE VIEW AS V8_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN p
+In enterRoot ctx is CREATE VIEW ASV8_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNp
+ViewSql is CREATE VIEW AS V8_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN p
+VarLables of the input is {n=User, _ENTRY_SPECIAL_NO_REL_NAME_26=POSTED, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_1" IN pathnode.views THEN [] ELSE ["V8_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_1" IN pathnode.views THEN [] ELSE ["V8_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN p
+Return set contains 56691
+There are 66786 nodes
+Took 205ms to create views
+*********************************
+CREATE VIEW AS V12_2 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN p
+In enterRoot ctx is CREATE VIEW ASV12_2MATCHp=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNp
+ViewSql is CREATE VIEW AS V12_2 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN p
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, _ENTRY_SPECIAL_NO_REL_NAME_28=PARENT_OF, p2=Post, m=User, n=User, _ENTRY_SPECIAL_NO_REL_NAME_27=POSTED}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_2" IN pathnode.views THEN [] ELSE ["V12_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_2" IN pathnode.views THEN [] ELSE ["V12_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN p
+Return set contains 488272
+There are 318253 nodes
+Took 7650ms to create views
+*********************************
+CREATE VIEW AS V11_1 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+In enterRoot ctx is CREATE VIEW ASV11_1MATCHp=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNp
+ViewSql is CREATE VIEW AS V11_1 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_30=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_31=PARENT_OF, n=User, betterPost=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_1" IN pathnode.views THEN [] ELSE ["V11_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_1" IN pathnode.views THEN [] ELSE ["V11_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+Return set contains 340201
+There are 356640 nodes
+Took 4102ms to create views
+*********************************
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_32=PARENT_OF, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(betterPost.views) THEN betterPost END).views = [] SET betterPost.views = (CASE WHEN "V5" IN betterPost.views THEN [] ELSE ["V5"] END) + betterPost.views
+Executing query:  MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN DISTINCT ID(betterPost)
+Execution done
+There are 1042055 nodes
+Took 9724ms to create views
+*********************************
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_2MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_34=PARENT_OF, _ENTRY_SPECIAL_NO_REL_NAME_33=POSTED, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_2" IN n.views THEN [] ELSE ["V6_2"] END) + n.views
+Executing query:  MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN DISTINCT ID(n)
+Execution done
+There are 5868 nodes
+Took 231ms to create views
+*********************************
+CREATE VIEW AS V9_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN p
+In enterRoot ctx is CREATE VIEW ASV9_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNp
+ViewSql is CREATE VIEW AS V9_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_35=PARENT_OF, m=Post, n=Post}
+Return Type is PATH
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_1" IN pathnode.views THEN [] ELSE ["V9_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_1" IN pathnode.views THEN [] ELSE ["V9_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN p
+Return set contains 9898
+There are 17665 nodes
+Took 1575ms to create views
+*********************************
+CREATE VIEW AS V11_2 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+In enterRoot ctx is CREATE VIEW ASV11_2MATCHp=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNp
+ViewSql is CREATE VIEW AS V11_2 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_36=POSTED, n=User, betterPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_37=PARENT_OF}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_2" IN pathnode.views THEN [] ELSE ["V11_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_2" IN pathnode.views THEN [] ELSE ["V11_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+Return set contains 25592
+There are 30372 nodes
+Took 255ms to create views
+*********************************
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_1MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, _ENTRY_SPECIAL_NO_REL_NAME_39=PARENT_OF, p2=Post, m=User, n=User, _ENTRY_SPECIAL_NO_REL_NAME_38=POSTED}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_1" IN m.views THEN [] ELSE ["V7_1"] END) + m.views
+Executing query:  MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN DISTINCT ID(m)
+Execution done
+There are 22714 nodes
+Took 5574ms to create views
+*********************************
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNn
+ViewSql is CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_41=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V4_1" IN n.views THEN [] ELSE ["V4_1"] END) + n.views
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN DISTINCT ID(n)
+Execution done
+There are 17665 nodes
+Took 1493ms to create views
+*********************************
+CREATE VIEW AS V10 MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+In enterRoot ctx is CREATE VIEW ASV10MATCHp=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNp
+ViewSql is CREATE VIEW AS V10 MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_42=PARENT_OF, betterPost=Post}
+Return Type is PATH
+ MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V10" IN pathnode.views THEN [] ELSE ["V10"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V10" IN pathnode.views THEN [] ELSE ["V10"] END) + pathnode.views)
+Executing query:  MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+Return set contains 1404783
+There are 2272251 nodes
+Took 11762ms to create views
+*********************************
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_1MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 1000 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_1" IN n.views THEN [] ELSE ["V1_1"] END) + n.views
+Executing query:  MATCH (n: User) WHERE n.upvotes > 1000 RETURN DISTINCT ID(n)
+Execution done
+There are 2341 nodes
+Took 20ms to create views
+*********************************
+CREATE VIEW AS V9_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN p
+In enterRoot ctx is CREATE VIEW ASV9_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNp
+ViewSql is CREATE VIEW AS V9_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_43=PARENT_OF, m=Post, n=Post}
+Return Type is PATH
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_2" IN pathnode.views THEN [] ELSE ["V9_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_2" IN pathnode.views THEN [] ELSE ["V9_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN p
+Return set contains 16192
+There are 21329 nodes
+Took 2534ms to create views
+*********************************
+CREATE VIEW AS V14_1 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' RETURN p
+In enterRoot ctx is CREATE VIEW ASV14_1MATCHp=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n)WHEREt.tagId='java'RETURNp
+ViewSql is CREATE VIEW AS V14_1 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' RETURN p
+VarLables of the input is {po2=Post, t=Tag, _ENTRY_SPECIAL_NO_REL_NAME_45=HAS_TAG, _ENTRY_SPECIAL_NO_REL_NAME_44=POSTED, n=_ENTRY_SPECIAL_NODE_STAR_, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_1" IN pathnode.views THEN [] ELSE ["V14_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_1" IN pathnode.views THEN [] ELSE ["V14_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' RETURN p
+Return set contains 35868
+There are 20289 nodes
+Took 3466ms to create views
+*********************************
+CREATE VIEW AS V11_1 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+In enterRoot ctx is CREATE VIEW ASV11_1MATCHp=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNp
+ViewSql is CREATE VIEW AS V11_1 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, n=User, betterPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_49=PARENT_OF, _ENTRY_SPECIAL_NO_REL_NAME_48=POSTED}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_1" IN pathnode.views THEN [] ELSE ["V11_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_1" IN pathnode.views THEN [] ELSE ["V11_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+Return set contains 340201
+There are 356640 nodes
+Took 3790ms to create views
+*********************************
+CREATE VIEW AS V12_1 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN p
+In enterRoot ctx is CREATE VIEW ASV12_1MATCHp=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNp
+ViewSql is CREATE VIEW AS V12_1 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN p
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_50=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_51=PARENT_OF, m=User, n=User}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_1" IN pathnode.views THEN [] ELSE ["V12_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_1" IN pathnode.views THEN [] ELSE ["V12_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN p
+Return set contains 644604
+There are 411243 nodes
+Took 8395ms to create views
+*********************************
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_1MATCH(n:Post)WHEREn.score<1500ANDn.score>20RETURNn
+ViewSql is CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_1" IN n.views THEN [] ELSE ["V2_1"] END) + n.views
+Executing query:  MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN DISTINCT ID(n)
+Execution done
+There are 272559 nodes
+Took 2288ms to create views
+*********************************
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_2MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNm
+ViewSql is CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_54=PARENT_OF, _ENTRY_SPECIAL_NO_REL_NAME_53=POSTED, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_2" IN m.views THEN [] ELSE ["V7_2"] END) + m.views
+Executing query:  MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN DISTINCT ID(m)
+Execution done
+There are 18275 nodes
+Took 4953ms to create views
+*********************************
+CREATE VIEW AS V9_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN p
+In enterRoot ctx is CREATE VIEW ASV9_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNp
+ViewSql is CREATE VIEW AS V9_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_56=PARENT_OF, m=Post, n=Post}
+Return Type is PATH
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_2" IN pathnode.views THEN [] ELSE ["V9_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_2" IN pathnode.views THEN [] ELSE ["V9_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN p
+Return set contains 16192
+There are 21329 nodes
+Took 1829ms to create views
+*********************************
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_57=PARENT_OF, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(betterPost.views) THEN betterPost END).views = [] SET betterPost.views = (CASE WHEN "V5" IN betterPost.views THEN [] ELSE ["V5"] END) + betterPost.views
+Executing query:  MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN DISTINCT ID(betterPost)
+Execution done
+There are 1042055 nodes
+Took 8614ms to create views
+*********************************
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_2MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_58=POSTED, n=User, betterPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_59=PARENT_OF}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_2" IN n.views THEN [] ELSE ["V6_2"] END) + n.views
+Executing query:  MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN DISTINCT ID(n)
+Execution done
+There are 5868 nodes
+Took 258ms to create views
+*********************************
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+In enterRoot ctx is CREATE VIEW ASV4_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNm
+ViewSql is CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_60=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V4_2" IN m.views THEN [] ELSE ["V4_2"] END) + m.views
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN DISTINCT ID(m)
+Execution done
+There are 5941 nodes
+Took 1851ms to create views
+*********************************
+CREATE VIEW AS V8_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN p
+In enterRoot ctx is CREATE VIEW ASV8_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNp
+ViewSql is CREATE VIEW AS V8_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_61=POSTED, n=User, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_1" IN pathnode.views THEN [] ELSE ["V8_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_1" IN pathnode.views THEN [] ELSE ["V8_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN p
+Return set contains 56691
+There are 66786 nodes
+Took 159ms to create views
+*********************************
+CREATE VIEW AS V12_2 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN p
+In enterRoot ctx is CREATE VIEW ASV12_2MATCHp=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNp
+ViewSql is CREATE VIEW AS V12_2 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN p
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_63=PARENT_OF, _ENTRY_SPECIAL_NO_REL_NAME_62=POSTED, m=User, n=User}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_2" IN pathnode.views THEN [] ELSE ["V12_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_2" IN pathnode.views THEN [] ELSE ["V12_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN p
+Return set contains 488272
+There are 318253 nodes
+Took 6922ms to create views
+*********************************
+CREATE VIEW AS V9_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN p
+In enterRoot ctx is CREATE VIEW ASV9_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNp
+ViewSql is CREATE VIEW AS V9_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_65=PARENT_OF, m=Post, n=Post}
+Return Type is PATH
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_1" IN pathnode.views THEN [] ELSE ["V9_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_1" IN pathnode.views THEN [] ELSE ["V9_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN p
+Return set contains 9898
+There are 17665 nodes
+Took 1592ms to create views
+*********************************
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNpo
+ViewSql is CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_66=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_2" IN po.views THEN [] ELSE ["V3_2"] END) + po.views
+Executing query:  MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN DISTINCT ID(po)
+Execution done
+There are 56570 nodes
+Took 1325ms to create views
+*********************************
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNpo
+ViewSql is CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_67=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_1" IN po.views THEN [] ELSE ["V3_1"] END) + po.views
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN DISTINCT ID(po)
+Execution done
+There are 56691 nodes
+Took 79ms to create views
+*********************************
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_1MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_69=PARENT_OF, _ENTRY_SPECIAL_NO_REL_NAME_68=POSTED, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_1" IN n.views THEN [] ELSE ["V6_1"] END) + n.views
+Executing query:  MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN DISTINCT ID(n)
+Execution done
+There are 19275 nodes
+Took 4463ms to create views
+*********************************
+CREATE VIEW AS V8_2 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN p
+In enterRoot ctx is CREATE VIEW ASV8_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNp
+ViewSql is CREATE VIEW AS V8_2 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_70=POSTED, n=User, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_2" IN pathnode.views THEN [] ELSE ["V8_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_2" IN pathnode.views THEN [] ELSE ["V8_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN p
+Return set contains 56570
+There are 67687 nodes
+Took 1432ms to create views
+*********************************
+CREATE VIEW AS V11_2 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+In enterRoot ctx is CREATE VIEW ASV11_2MATCHp=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNp
+ViewSql is CREATE VIEW AS V11_2 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_72=PARENT_OF, _ENTRY_SPECIAL_NO_REL_NAME_71=POSTED, worstPost=Post, n=User, betterPost=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_2" IN pathnode.views THEN [] ELSE ["V11_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_2" IN pathnode.views THEN [] ELSE ["V11_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+Return set contains 25592
+There are 30372 nodes
+Took 251ms to create views
+*********************************
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_2MATCH(n:Post)WHEREn.score<1500ANDn.score>10RETURNn
+ViewSql is CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_2" IN n.views THEN [] ELSE ["V2_2"] END) + n.views
+Executing query:  MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN DISTINCT ID(n)
+Execution done
+There are 521823 nodes
+Took 2363ms to create views
+*********************************
+CREATE VIEW AS V14_2 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' RETURN p
+In enterRoot ctx is CREATE VIEW ASV14_2MATCHp=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n)WHEREt.tagId='java'ORt.tagId='c#'RETURNp
+ViewSql is CREATE VIEW AS V14_2 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' RETURN p
+VarLables of the input is {po2=Post, t=Tag, _ENTRY_SPECIAL_NO_REL_NAME_74=HAS_TAG, _ENTRY_SPECIAL_NO_REL_NAME_73=POSTED, n=_ENTRY_SPECIAL_NODE_STAR_, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_2" IN pathnode.views THEN [] ELSE ["V14_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_2" IN pathnode.views THEN [] ELSE ["V14_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' RETURN p
+Return set contains 106128
+There are 58930 nodes
+Took 12483ms to create views
+*********************************
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_2MATCH(n:User)WHEREn.upvotes>400RETURNn
+ViewSql is CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 400 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_2" IN n.views THEN [] ELSE ["V1_2"] END) + n.views
+Executing query:  MATCH (n: User) WHERE n.upvotes > 400 RETURN DISTINCT ID(n)
+Execution done
+There are 5290 nodes
+Took 20ms to create views
+*********************************
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+In enterRoot ctx is CREATE VIEW ASV4_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNm
+ViewSql is CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_77=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V4_2" IN m.views THEN [] ELSE ["V4_2"] END) + m.views
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN DISTINCT ID(m)
+Execution done
+There are 5941 nodes
+Took 1807ms to create views
+*********************************
+CREATE VIEW AS V9_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN p
+In enterRoot ctx is CREATE VIEW ASV9_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNp
+ViewSql is CREATE VIEW AS V9_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_78=PARENT_OF, m=Post, n=Post}
+Return Type is PATH
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_1" IN pathnode.views THEN [] ELSE ["V9_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_1" IN pathnode.views THEN [] ELSE ["V9_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN p
+Return set contains 9898
+There are 17665 nodes
+Took 1472ms to create views
+*********************************
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_1MATCH(n:Post)WHEREn.score<1500ANDn.score>20RETURNn
+ViewSql is CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_1" IN n.views THEN [] ELSE ["V2_1"] END) + n.views
+Executing query:  MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN DISTINCT ID(n)
+Execution done
+There are 272559 nodes
+Took 2162ms to create views
+*********************************
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_2MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNm
+ViewSql is CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_80=PARENT_OF, _ENTRY_SPECIAL_NO_REL_NAME_79=POSTED, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_2" IN m.views THEN [] ELSE ["V7_2"] END) + m.views
+Executing query:  MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN DISTINCT ID(m)
+Execution done
+There are 18275 nodes
+Took 4918ms to create views
+*********************************
+CREATE VIEW AS V12_1 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN p
+In enterRoot ctx is CREATE VIEW ASV12_1MATCHp=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNp
+ViewSql is CREATE VIEW AS V12_1 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN p
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_83=PARENT_OF, _ENTRY_SPECIAL_NO_REL_NAME_82=POSTED, m=User, n=User}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_1" IN pathnode.views THEN [] ELSE ["V12_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_1" IN pathnode.views THEN [] ELSE ["V12_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN p
+Return set contains 644604
+There are 411243 nodes
+Took 7225ms to create views
+*********************************
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_1MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_85=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_86=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_1" IN n.views THEN [] ELSE ["V6_1"] END) + n.views
+Executing query:  MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN DISTINCT ID(n)
+Execution done
+There are 19275 nodes
+Took 4869ms to create views
+*********************************
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_1MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_87=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_88=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_1" IN m.views THEN [] ELSE ["V7_1"] END) + m.views
+Executing query:  MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN DISTINCT ID(m)
+Execution done
+There are 22714 nodes
+Took 6729ms to create views
+*********************************
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_2MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_90=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_91=PARENT_OF, worstPost=Post, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_2" IN n.views THEN [] ELSE ["V6_2"] END) + n.views
+Executing query:  MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN DISTINCT ID(n)
+Execution done
+There are 5868 nodes
+Took 219ms to create views
+*********************************
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNpo
+ViewSql is CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_92=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_1" IN po.views THEN [] ELSE ["V3_1"] END) + po.views
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN DISTINCT ID(po)
+Execution done
+There are 56691 nodes
+Took 80ms to create views
+*********************************
+CREATE VIEW AS V11_2 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+In enterRoot ctx is CREATE VIEW ASV11_2MATCHp=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNp
+ViewSql is CREATE VIEW AS V11_2 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_94=PARENT_OF, _ENTRY_SPECIAL_NO_REL_NAME_93=POSTED, worstPost=Post, n=User, betterPost=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_2" IN pathnode.views THEN [] ELSE ["V11_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_2" IN pathnode.views THEN [] ELSE ["V11_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+Return set contains 25592
+There are 30372 nodes
+Took 252ms to create views
+*********************************
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNpo
+ViewSql is CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_95=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_2" IN po.views THEN [] ELSE ["V3_2"] END) + po.views
+Executing query:  MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN DISTINCT ID(po)
+Execution done
+There are 56570 nodes
+Took 1347ms to create views
+*********************************
+CREATE VIEW AS V8_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN p
+In enterRoot ctx is CREATE VIEW ASV8_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNp
+ViewSql is CREATE VIEW AS V8_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_96=POSTED, n=User, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_1" IN pathnode.views THEN [] ELSE ["V8_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_1" IN pathnode.views THEN [] ELSE ["V8_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN p
+Return set contains 56691
+There are 66786 nodes
+Took 176ms to create views
+*********************************
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNn
+ViewSql is CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_97=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V4_1" IN n.views THEN [] ELSE ["V4_1"] END) + n.views
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN DISTINCT ID(n)
+Execution done
+There are 17665 nodes
+Took 1685ms to create views
+*********************************
+CREATE VIEW AS V14_2 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' RETURN p
+In enterRoot ctx is CREATE VIEW ASV14_2MATCHp=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n)WHEREt.tagId='java'ORt.tagId='c#'RETURNp
+ViewSql is CREATE VIEW AS V14_2 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' RETURN p
+VarLables of the input is {po2=Post, t=Tag, _ENTRY_SPECIAL_NO_REL_NAME_98=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_99=HAS_TAG, n=_ENTRY_SPECIAL_NODE_STAR_, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_2" IN pathnode.views THEN [] ELSE ["V14_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_2" IN pathnode.views THEN [] ELSE ["V14_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' RETURN p
+Return set contains 106128
+There are 58930 nodes
+Took 12546ms to create views
+*********************************
+CREATE VIEW AS V9_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN p
+In enterRoot ctx is CREATE VIEW ASV9_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNp
+ViewSql is CREATE VIEW AS V9_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_102=PARENT_OF, m=Post, n=Post}
+Return Type is PATH
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_2" IN pathnode.views THEN [] ELSE ["V9_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_2" IN pathnode.views THEN [] ELSE ["V9_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN p
+Return set contains 16192
+There are 21329 nodes
+Took 1817ms to create views
+*********************************
+CREATE VIEW AS V10 MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+In enterRoot ctx is CREATE VIEW ASV10MATCHp=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNp
+ViewSql is CREATE VIEW AS V10 MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, betterPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_103=PARENT_OF}
+Return Type is PATH
+ MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V10" IN pathnode.views THEN [] ELSE ["V10"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V10" IN pathnode.views THEN [] ELSE ["V10"] END) + pathnode.views)
+Executing query:  MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+Return set contains 1404783
+There are 2272251 nodes
+Took 10901ms to create views
+*********************************
+CREATE VIEW AS V8_2 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN p
+In enterRoot ctx is CREATE VIEW ASV8_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNp
+ViewSql is CREATE VIEW AS V8_2 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN p
+VarLables of the input is {n=User, _ENTRY_SPECIAL_NO_REL_NAME_104=POSTED, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_2" IN pathnode.views THEN [] ELSE ["V8_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_2" IN pathnode.views THEN [] ELSE ["V8_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN p
+Return set contains 56570
+There are 67687 nodes
+Took 1436ms to create views
+*********************************
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_2MATCH(n:Post)WHEREn.score<1500ANDn.score>10RETURNn
+ViewSql is CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_2" IN n.views THEN [] ELSE ["V2_2"] END) + n.views
+Executing query:  MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN DISTINCT ID(n)
+Execution done
+There are 521823 nodes
+Took 2544ms to create views
+*********************************
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_1MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 1000 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_1" IN n.views THEN [] ELSE ["V1_1"] END) + n.views
+Executing query:  MATCH (n: User) WHERE n.upvotes > 1000 RETURN DISTINCT ID(n)
+Execution done
+There are 2341 nodes
+Took 17ms to create views
+*********************************
+CREATE VIEW AS V14_1 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' RETURN p
+In enterRoot ctx is CREATE VIEW ASV14_1MATCHp=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n)WHEREt.tagId='java'RETURNp
+ViewSql is CREATE VIEW AS V14_1 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' RETURN p
+VarLables of the input is {po2=Post, t=Tag, _ENTRY_SPECIAL_NO_REL_NAME_105=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_106=HAS_TAG, n=_ENTRY_SPECIAL_NODE_STAR_, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_1" IN pathnode.views THEN [] ELSE ["V14_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_1" IN pathnode.views THEN [] ELSE ["V14_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' RETURN p
+Return set contains 35868
+There are 20289 nodes
+Took 3191ms to create views
+*********************************
+CREATE VIEW AS V11_1 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+In enterRoot ctx is CREATE VIEW ASV11_1MATCHp=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNp
+ViewSql is CREATE VIEW AS V11_1 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_110=PARENT_OF, _ENTRY_SPECIAL_NO_REL_NAME_109=POSTED, worstPost=Post, n=User, betterPost=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_1" IN pathnode.views THEN [] ELSE ["V11_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_1" IN pathnode.views THEN [] ELSE ["V11_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+Return set contains 340201
+There are 356640 nodes
+Took 3586ms to create views
+*********************************
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_111=PARENT_OF, worstPost=Post, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(betterPost.views) THEN betterPost END).views = [] SET betterPost.views = (CASE WHEN "V5" IN betterPost.views THEN [] ELSE ["V5"] END) + betterPost.views
+Executing query:  MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN DISTINCT ID(betterPost)
+Execution done
+There are 1042055 nodes
+Took 9587ms to create views
+*********************************
+CREATE VIEW AS V12_2 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN p
+In enterRoot ctx is CREATE VIEW ASV12_2MATCHp=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNp
+ViewSql is CREATE VIEW AS V12_2 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN p
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_112=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_113=PARENT_OF, m=User, n=User}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_2" IN pathnode.views THEN [] ELSE ["V12_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_2" IN pathnode.views THEN [] ELSE ["V12_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN p
+Return set contains 488272
+There are 318253 nodes
+Took 6617ms to create views
+*********************************
+CREATE VIEW AS V11_1 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+In enterRoot ctx is CREATE VIEW ASV11_1MATCHp=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNp
+ViewSql is CREATE VIEW AS V11_1 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_116=PARENT_OF, n=User, betterPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_115=POSTED}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_1" IN pathnode.views THEN [] ELSE ["V11_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_1" IN pathnode.views THEN [] ELSE ["V11_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+Return set contains 340201
+There are 356640 nodes
+Took 4122ms to create views
+*********************************
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_2MATCH(n:User)WHEREn.upvotes>400RETURNn
+ViewSql is CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 400 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_2" IN n.views THEN [] ELSE ["V1_2"] END) + n.views
+Executing query:  MATCH (n: User) WHERE n.upvotes > 400 RETURN DISTINCT ID(n)
+Execution done
+There are 5290 nodes
+Took 16ms to create views
+*********************************
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_2MATCH(n:Post)WHEREn.score<1500ANDn.score>10RETURNn
+ViewSql is CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_2" IN n.views THEN [] ELSE ["V2_2"] END) + n.views
+Executing query:  MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN DISTINCT ID(n)
+Execution done
+There are 521823 nodes
+Took 2514ms to create views
+*********************************
+CREATE VIEW AS V8_2 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN p
+In enterRoot ctx is CREATE VIEW ASV8_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNp
+ViewSql is CREATE VIEW AS V8_2 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_117=POSTED, n=User, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_2" IN pathnode.views THEN [] ELSE ["V8_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_2" IN pathnode.views THEN [] ELSE ["V8_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN p
+Return set contains 56570
+There are 67687 nodes
+Took 1452ms to create views
+*********************************
+CREATE VIEW AS V12_1 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN p
+In enterRoot ctx is CREATE VIEW ASV12_1MATCHp=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNp
+ViewSql is CREATE VIEW AS V12_1 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN p
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_118=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_119=PARENT_OF, m=User, n=User}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_1" IN pathnode.views THEN [] ELSE ["V12_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_1" IN pathnode.views THEN [] ELSE ["V12_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN p
+Return set contains 644604
+There are 411243 nodes
+Took 8843ms to create views
+*********************************
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_2MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNm
+ViewSql is CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, _ENTRY_SPECIAL_NO_REL_NAME_121=POSTED, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_122=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_2" IN m.views THEN [] ELSE ["V7_2"] END) + m.views
+Executing query:  MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN DISTINCT ID(m)
+Execution done
+There are 18275 nodes
+Took 6583ms to create views
+*********************************
+CREATE VIEW AS V8_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN p
+In enterRoot ctx is CREATE VIEW ASV8_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNp
+ViewSql is CREATE VIEW AS V8_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_124=POSTED, n=User, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_1" IN pathnode.views THEN [] ELSE ["V8_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_1" IN pathnode.views THEN [] ELSE ["V8_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN p
+Return set contains 56691
+There are 66786 nodes
+Took 181ms to create views
+*********************************
+CREATE VIEW AS V12_2 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN p
+In enterRoot ctx is CREATE VIEW ASV12_2MATCHp=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNp
+ViewSql is CREATE VIEW AS V12_2 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN p
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, m=User, n=User, _ENTRY_SPECIAL_NO_REL_NAME_125=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_126=PARENT_OF}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_2" IN pathnode.views THEN [] ELSE ["V12_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_2" IN pathnode.views THEN [] ELSE ["V12_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN p
+Return set contains 488272
+There are 318253 nodes
+Took 7593ms to create views
+*********************************
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+In enterRoot ctx is CREATE VIEW ASV4_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNm
+ViewSql is CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_128=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V4_2" IN m.views THEN [] ELSE ["V4_2"] END) + m.views
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN DISTINCT ID(m)
+Execution done
+There are 5941 nodes
+Took 1844ms to create views
+*********************************
+CREATE VIEW AS V14_1 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' RETURN p
+In enterRoot ctx is CREATE VIEW ASV14_1MATCHp=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n)WHEREt.tagId='java'RETURNp
+ViewSql is CREATE VIEW AS V14_1 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_130=HAS_TAG, po2=Post, t=Tag, _ENTRY_SPECIAL_NO_REL_NAME_129=POSTED, n=_ENTRY_SPECIAL_NODE_STAR_, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_1" IN pathnode.views THEN [] ELSE ["V14_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_1" IN pathnode.views THEN [] ELSE ["V14_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' RETURN p
+Return set contains 35868
+There are 20289 nodes
+Took 3120ms to create views
+*********************************
+CREATE VIEW AS V10 MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+In enterRoot ctx is CREATE VIEW ASV10MATCHp=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNp
+ViewSql is CREATE VIEW AS V10 MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_133=PARENT_OF, worstPost=Post, betterPost=Post}
+Return Type is PATH
+ MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V10" IN pathnode.views THEN [] ELSE ["V10"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V10" IN pathnode.views THEN [] ELSE ["V10"] END) + pathnode.views)
+Executing query:  MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+Return set contains 1404783
+There are 2272251 nodes
+Took 10991ms to create views
+*********************************
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_2MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_134=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_135=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_2" IN n.views THEN [] ELSE ["V6_2"] END) + n.views
+Executing query:  MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN DISTINCT ID(n)
+Execution done
+There are 5868 nodes
+Took 218ms to create views
+*********************************
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_1MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 1000 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_1" IN n.views THEN [] ELSE ["V1_1"] END) + n.views
+Executing query:  MATCH (n: User) WHERE n.upvotes > 1000 RETURN DISTINCT ID(n)
+Execution done
+There are 2341 nodes
+Took 18ms to create views
+*********************************
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_1MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, m=User, n=User, _ENTRY_SPECIAL_NO_REL_NAME_136=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_137=PARENT_OF}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_1" IN m.views THEN [] ELSE ["V7_1"] END) + m.views
+Executing query:  MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN DISTINCT ID(m)
+Execution done
+There are 22714 nodes
+Took 6021ms to create views
+*********************************
+CREATE VIEW AS V9_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN p
+In enterRoot ctx is CREATE VIEW ASV9_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNp
+ViewSql is CREATE VIEW AS V9_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_139=PARENT_OF, m=Post, n=Post}
+Return Type is PATH
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_1" IN pathnode.views THEN [] ELSE ["V9_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_1" IN pathnode.views THEN [] ELSE ["V9_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN p
+Return set contains 9898
+There are 17665 nodes
+Took 1474ms to create views
+*********************************
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_1MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_141=PARENT_OF, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_140=POSTED, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_1" IN n.views THEN [] ELSE ["V6_1"] END) + n.views
+Executing query:  MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN DISTINCT ID(n)
+Execution done
+There are 19275 nodes
+Took 3934ms to create views
+*********************************
+CREATE VIEW AS V11_2 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+In enterRoot ctx is CREATE VIEW ASV11_2MATCHp=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNp
+ViewSql is CREATE VIEW AS V11_2 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_142=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_143=PARENT_OF, worstPost=Post, n=User, betterPost=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_2" IN pathnode.views THEN [] ELSE ["V11_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_2" IN pathnode.views THEN [] ELSE ["V11_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+Return set contains 25592
+There are 30372 nodes
+Took 249ms to create views
+*********************************
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNpo
+ViewSql is CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_144=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_1" IN po.views THEN [] ELSE ["V3_1"] END) + po.views
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN DISTINCT ID(po)
+Execution done
+There are 56691 nodes
+Took 80ms to create views
+*********************************
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNn
+ViewSql is CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_145=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V4_1" IN n.views THEN [] ELSE ["V4_1"] END) + n.views
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN DISTINCT ID(n)
+Execution done
+There are 17665 nodes
+Took 1449ms to create views
+*********************************
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_1MATCH(n:Post)WHEREn.score<1500ANDn.score>20RETURNn
+ViewSql is CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_1" IN n.views THEN [] ELSE ["V2_1"] END) + n.views
+Executing query:  MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN DISTINCT ID(n)
+Execution done
+There are 272559 nodes
+Took 2139ms to create views
+*********************************
+CREATE VIEW AS V14_2 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' RETURN p
+In enterRoot ctx is CREATE VIEW ASV14_2MATCHp=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n)WHEREt.tagId='java'ORt.tagId='c#'RETURNp
+ViewSql is CREATE VIEW AS V14_2 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' RETURN p
+VarLables of the input is {po2=Post, t=Tag, _ENTRY_SPECIAL_NO_REL_NAME_146=POSTED, n=_ENTRY_SPECIAL_NODE_STAR_, _ENTRY_SPECIAL_NO_REL_NAME_147=HAS_TAG, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_2" IN pathnode.views THEN [] ELSE ["V14_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_2" IN pathnode.views THEN [] ELSE ["V14_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' RETURN p
+Return set contains 106128
+There are 58930 nodes
+Took 12239ms to create views
+*********************************
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_150=PARENT_OF, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(betterPost.views) THEN betterPost END).views = [] SET betterPost.views = (CASE WHEN "V5" IN betterPost.views THEN [] ELSE ["V5"] END) + betterPost.views
+Executing query:  MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN DISTINCT ID(betterPost)
+Execution done
+There are 1042055 nodes
+Took 8690ms to create views
+*********************************
+CREATE VIEW AS V9_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN p
+In enterRoot ctx is CREATE VIEW ASV9_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNp
+ViewSql is CREATE VIEW AS V9_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_151=PARENT_OF, m=Post, n=Post}
+Return Type is PATH
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_2" IN pathnode.views THEN [] ELSE ["V9_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_2" IN pathnode.views THEN [] ELSE ["V9_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN p
+Return set contains 16192
+There are 21329 nodes
+Took 1890ms to create views
+*********************************
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNpo
+ViewSql is CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_152=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_2" IN po.views THEN [] ELSE ["V3_2"] END) + po.views
+Executing query:  MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN DISTINCT ID(po)
+Execution done
+There are 56570 nodes
+Took 1376ms to create views
+*********************************
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_2MATCH(n:User)WHEREn.upvotes>400RETURNn
+ViewSql is CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 400 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_2" IN n.views THEN [] ELSE ["V1_2"] END) + n.views
+Executing query:  MATCH (n: User) WHERE n.upvotes > 400 RETURN DISTINCT ID(n)
+Execution done
+There are 5290 nodes
+Took 19ms to create views
+*********************************
+CREATE VIEW AS V14_1 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' RETURN p
+In enterRoot ctx is CREATE VIEW ASV14_1MATCHp=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n)WHEREt.tagId='java'RETURNp
+ViewSql is CREATE VIEW AS V14_1 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_153=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_154=HAS_TAG, po2=Post, t=Tag, n=_ENTRY_SPECIAL_NODE_STAR_, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_1" IN pathnode.views THEN [] ELSE ["V14_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_1" IN pathnode.views THEN [] ELSE ["V14_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' RETURN p
+Return set contains 35868
+There are 20289 nodes
+Took 3192ms to create views
+*********************************
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_2MATCH(n:User)WHEREn.upvotes>400RETURNn
+ViewSql is CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 400 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_2" IN n.views THEN [] ELSE ["V1_2"] END) + n.views
+Executing query:  MATCH (n: User) WHERE n.upvotes > 400 RETURN DISTINCT ID(n)
+Execution done
+There are 5290 nodes
+Took 16ms to create views
+*********************************
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_1MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_157=POSTED, n=User, betterPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_158=PARENT_OF}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_1" IN n.views THEN [] ELSE ["V6_1"] END) + n.views
+Executing query:  MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN DISTINCT ID(n)
+Execution done
+There are 19275 nodes
+Took 3800ms to create views
+*********************************
+CREATE VIEW AS V12_1 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN p
+In enterRoot ctx is CREATE VIEW ASV12_1MATCHp=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNp
+ViewSql is CREATE VIEW AS V12_1 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN p
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_160=PARENT_OF, m=User, n=User, _ENTRY_SPECIAL_NO_REL_NAME_159=POSTED}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_1" IN pathnode.views THEN [] ELSE ["V12_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_1" IN pathnode.views THEN [] ELSE ["V12_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN p
+Return set contains 644604
+There are 411243 nodes
+Took 7127ms to create views
+*********************************
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNn
+ViewSql is CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_162=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V4_1" IN n.views THEN [] ELSE ["V4_1"] END) + n.views
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN DISTINCT ID(n)
+Execution done
+There are 17665 nodes
+Took 1578ms to create views
+*********************************
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_1MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_163=POSTED, p1=Post, _ENTRY_SPECIAL_NO_REL_NAME_164=PARENT_OF, p2=Post, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_1" IN m.views THEN [] ELSE ["V7_1"] END) + m.views
+Executing query:  MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN DISTINCT ID(m)
+Execution done
+There are 22714 nodes
+Took 5647ms to create views
+*********************************
+CREATE VIEW AS V8_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN p
+In enterRoot ctx is CREATE VIEW ASV8_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNp
+ViewSql is CREATE VIEW AS V8_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_166=POSTED, n=User, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_1" IN pathnode.views THEN [] ELSE ["V8_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_1" IN pathnode.views THEN [] ELSE ["V8_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN p
+Return set contains 56691
+There are 66786 nodes
+Took 159ms to create views
+*********************************
+CREATE VIEW AS V11_1 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+In enterRoot ctx is CREATE VIEW ASV11_1MATCHp=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNp
+ViewSql is CREATE VIEW AS V11_1 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_167=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_168=PARENT_OF, n=User, betterPost=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_1" IN pathnode.views THEN [] ELSE ["V11_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_1" IN pathnode.views THEN [] ELSE ["V11_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+Return set contains 340201
+There are 356640 nodes
+Took 3925ms to create views
+*********************************
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNpo
+ViewSql is CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+VarLables of the input is {n=User, _ENTRY_SPECIAL_NO_REL_NAME_169=POSTED, po=Post}
+Return Type is NODE
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_2" IN po.views THEN [] ELSE ["V3_2"] END) + po.views
+Executing query:  MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN DISTINCT ID(po)
+Execution done
+There are 56570 nodes
+Took 1336ms to create views
+*********************************
+CREATE VIEW AS V9_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN p
+In enterRoot ctx is CREATE VIEW ASV9_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNp
+ViewSql is CREATE VIEW AS V9_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_170=PARENT_OF, m=Post, n=Post}
+Return Type is PATH
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_2" IN pathnode.views THEN [] ELSE ["V9_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_2" IN pathnode.views THEN [] ELSE ["V9_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN p
+Return set contains 16192
+There are 21329 nodes
+Took 1928ms to create views
+*********************************
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_1MATCH(n:Post)WHEREn.score<1500ANDn.score>20RETURNn
+ViewSql is CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_1" IN n.views THEN [] ELSE ["V2_1"] END) + n.views
+Executing query:  MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN DISTINCT ID(n)
+Execution done
+There are 272559 nodes
+Took 2174ms to create views
+*********************************
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_2MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_171=POSTED, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_172=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_2" IN n.views THEN [] ELSE ["V6_2"] END) + n.views
+Executing query:  MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN DISTINCT ID(n)
+Execution done
+There are 5868 nodes
+Took 180ms to create views
+*********************************
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_2MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNm
+ViewSql is CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_174=PARENT_OF, p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_173=POSTED, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_2" IN m.views THEN [] ELSE ["V7_2"] END) + m.views
+Executing query:  MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN DISTINCT ID(m)
+Execution done
+There are 18275 nodes
+Took 4876ms to create views
+*********************************
+CREATE VIEW AS V12_2 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN p
+In enterRoot ctx is CREATE VIEW ASV12_2MATCHp=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNp
+ViewSql is CREATE VIEW AS V12_2 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN p
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, _ENTRY_SPECIAL_NO_REL_NAME_176=POSTED, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_177=PARENT_OF, m=User, n=User}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_2" IN pathnode.views THEN [] ELSE ["V12_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_2" IN pathnode.views THEN [] ELSE ["V12_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN p
+Return set contains 488272
+There are 318253 nodes
+Took 6861ms to create views
+*********************************
+CREATE VIEW AS V10 MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+In enterRoot ctx is CREATE VIEW ASV10MATCHp=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNp
+ViewSql is CREATE VIEW AS V10 MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_179=PARENT_OF, betterPost=Post}
+Return Type is PATH
+ MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V10" IN pathnode.views THEN [] ELSE ["V10"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V10" IN pathnode.views THEN [] ELSE ["V10"] END) + pathnode.views)
+Executing query:  MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+Return set contains 1404783
+There are 2272251 nodes
+Took 11873ms to create views
+*********************************
+CREATE VIEW AS V11_2 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+In enterRoot ctx is CREATE VIEW ASV11_2MATCHp=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNp
+ViewSql is CREATE VIEW AS V11_2 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_181=PARENT_OF, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_180=POSTED, n=User, betterPost=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_2" IN pathnode.views THEN [] ELSE ["V11_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_2" IN pathnode.views THEN [] ELSE ["V11_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+Return set contains 25592
+There are 30372 nodes
+Took 263ms to create views
+*********************************
+CREATE VIEW AS V9_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN p
+In enterRoot ctx is CREATE VIEW ASV9_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNp
+ViewSql is CREATE VIEW AS V9_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_182=PARENT_OF, m=Post, n=Post}
+Return Type is PATH
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_1" IN pathnode.views THEN [] ELSE ["V9_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_1" IN pathnode.views THEN [] ELSE ["V9_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN p
+Return set contains 9898
+There are 17665 nodes
+Took 1920ms to create views
+*********************************
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_183=PARENT_OF, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(betterPost.views) THEN betterPost END).views = [] SET betterPost.views = (CASE WHEN "V5" IN betterPost.views THEN [] ELSE ["V5"] END) + betterPost.views
+Executing query:  MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN DISTINCT ID(betterPost)
+Execution done
+There are 1042055 nodes
+Took 9593ms to create views
+*********************************
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_1MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 1000 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_1" IN n.views THEN [] ELSE ["V1_1"] END) + n.views
+Executing query:  MATCH (n: User) WHERE n.upvotes > 1000 RETURN DISTINCT ID(n)
+Execution done
+There are 2341 nodes
+Took 16ms to create views
+*********************************
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_2MATCH(n:Post)WHEREn.score<1500ANDn.score>10RETURNn
+ViewSql is CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_2" IN n.views THEN [] ELSE ["V2_2"] END) + n.views
+Executing query:  MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN DISTINCT ID(n)
+Execution done
+There are 521823 nodes
+Took 2344ms to create views
+*********************************
+CREATE VIEW AS V14_2 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' RETURN p
+In enterRoot ctx is CREATE VIEW ASV14_2MATCHp=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n)WHEREt.tagId='java'ORt.tagId='c#'RETURNp
+ViewSql is CREATE VIEW AS V14_2 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_185=HAS_TAG, po2=Post, t=Tag, _ENTRY_SPECIAL_NO_REL_NAME_184=POSTED, n=_ENTRY_SPECIAL_NODE_STAR_, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_2" IN pathnode.views THEN [] ELSE ["V14_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_2" IN pathnode.views THEN [] ELSE ["V14_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' RETURN p
+Return set contains 106128
+There are 58930 nodes
+Took 12584ms to create views
+*********************************
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNpo
+ViewSql is CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_188=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_1" IN po.views THEN [] ELSE ["V3_1"] END) + po.views
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN DISTINCT ID(po)
+Execution done
+There are 56691 nodes
+Took 80ms to create views
+*********************************
+CREATE VIEW AS V8_2 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN p
+In enterRoot ctx is CREATE VIEW ASV8_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNp
+ViewSql is CREATE VIEW AS V8_2 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_189=POSTED, n=User, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_2" IN pathnode.views THEN [] ELSE ["V8_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_2" IN pathnode.views THEN [] ELSE ["V8_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN p
+Return set contains 56570
+There are 67687 nodes
+Took 1435ms to create views
+*********************************
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+In enterRoot ctx is CREATE VIEW ASV4_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNm
+ViewSql is CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_190=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V4_2" IN m.views THEN [] ELSE ["V4_2"] END) + m.views
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN DISTINCT ID(m)
+Execution done
+There are 5941 nodes
+Took 1801ms to create views
+*********************************

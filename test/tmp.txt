@@ -1,0 +1,148 @@
+neo4j graph connector set-up done.
+0
+>> In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, worstPost=Post, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(betterPost.views) THEN betterPost END).views = [] SET betterPost.views = (CASE WHEN "V5" IN betterPost.views THEN [] ELSE ["V5"] END) + betterPost.views
+Execution done
+Size of the returned nodes: 0
+There are 1042055 nodes
+Took 10901ms to create views
+>> In enterRoot ctx is WITH VIEWSV5GLOBALMATCH(p1:Post)-[:PARENT_OF]->(p2:Post)WHEREp1INV5RETURNp2
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF}
+Return Type is DEFAULT
+FullQuery:: MATCH  (p1:Post)-[:PARENT_OF]->(p2:Post) WHERE p1 IN V5 RETURN p2
+cmd:: WITH VIEWS V5 GLOBAL MATCH (p1:Post)-[:PARENT_OF]->(p2:Post) WHERE p1 IN V5 RETURN p2
+Scope:GLOBAL
+9202794
+Before calling execute query
+Took 145039 to execute transaction
+Before assigning rows
+After assigning rows and before commiting the transaction
+Step Name : ProduceResults
+DB hits : 0 Rows: 1801584
+Id: 0
+PageCacheMisses: 0
+runtime-impl: SLOTTED
+planner-impl: IDP
+DbHits: 0
+runtime-version: 5.3
+Details: p2
+planner-version: 5.3
+EstimatedRows: 3845685.000000001
+planner: COST
+GlobalMemory: 12583048
+runtime: SLOTTED
+Rows: 1801584
+PageCacheHits: 0
+Start of Children Steps information  for step ProduceResults
+Step Name : Filter
+DB hits : 3845685 Rows: 1801584
+Id: 1
+DbHits: 3845685
+Details: p1:Post AND ID(p1) IN $autolist_0
+EstimatedRows: 3845685.000000001
+Memory: 12582984
+PageCacheMisses: 0
+Rows: 1801584
+PageCacheHits: 0
+Start of Children Steps information  for step Filter
+Step Name : Expand(All)
+DB hits : 19621548 Rows: 3845685
+Id: 2
+PageCacheMisses: 0
+DbHits: 19621548
+Details: (p2)<-[anon_0:PARENT_OF]-(p1)
+EstimatedRows: 3845685.0
+Rows: 3845685
+PageCacheHits: 0
+Start of Children Steps information  for step Expand(All)
+Step Name : NodeByLabelScan
+DB hits : 5583818 Rows: 5583817
+Id: 3
+PageCacheMisses: 0
+DbHits: 5583818
+Details: p2:Post
+EstimatedRows: 5583817.0
+Rows: 5583817
+PageCacheHits: 0
+Start of Children Steps information  for step NodeByLabelScan
+End of Children Steps information  for step NodeByLabelScan
+End of Children Steps information  for step Expand(All)
+End of Children Steps information  for step Filter
+End of Children Steps information  for step ProduceResults
+Execution done
+Size of the returned nodes: 1801584
+After the call to execute query
+Took 154100ms to use view
+>> In enterRoot ctx is WITH VIEWSV5GLOBALMATCH(p1:Post)-[:PARENT_OF]->(p2:Post)WHEREp1INV5RETURNp2
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_3=PARENT_OF}
+Return Type is DEFAULT
+FullQuery:: MATCH  (p1:Post)-[:PARENT_OF]->(p2:Post) WHERE p1 IN V5 RETURN p2
+cmd:: WITH VIEWS V5 GLOBAL MATCH (p1:Post)-[:PARENT_OF]->(p2:Post) WHERE p1 IN V5 RETURN p2
+Scope:GLOBAL
+9202794
+Before calling execute query
+Took 88 to execute transaction
+Before assigning rows
+After assigning rows and before commiting the transaction
+Step Name : ProduceResults
+DB hits : 0 Rows: 1801584
+Id: 0
+PageCacheMisses: 0
+runtime-impl: SLOTTED
+planner-impl: IDP
+DbHits: 0
+runtime-version: 5.3
+Details: p2
+planner-version: 5.3
+EstimatedRows: 3845685.000000001
+planner: COST
+GlobalMemory: 12583048
+runtime: SLOTTED
+Rows: 1801584
+PageCacheHits: 0
+Start of Children Steps information  for step ProduceResults
+Step Name : Filter
+DB hits : 3845685 Rows: 1801584
+Id: 1
+DbHits: 3845685
+Details: p1:Post AND ID(p1) IN $autolist_0
+EstimatedRows: 3845685.000000001
+Memory: 12582984
+PageCacheMisses: 0
+Rows: 1801584
+PageCacheHits: 0
+Start of Children Steps information  for step Filter
+Step Name : Expand(All)
+DB hits : 19621548 Rows: 3845685
+Id: 2
+PageCacheMisses: 0
+DbHits: 19621548
+Details: (p2)<-[anon_0:PARENT_OF]-(p1)
+EstimatedRows: 3845685.0
+Rows: 3845685
+PageCacheHits: 0
+Start of Children Steps information  for step Expand(All)
+Step Name : NodeByLabelScan
+DB hits : 5583818 Rows: 5583817
+Id: 3
+PageCacheMisses: 0
+DbHits: 5583818
+Details: p2:Post
+EstimatedRows: 5583817.0
+Rows: 5583817
+PageCacheHits: 0
+Start of Children Steps information  for step NodeByLabelScan
+End of Children Steps information  for step NodeByLabelScan
+End of Children Steps information  for step Expand(All)
+End of Children Steps information  for step Filter
+End of Children Steps information  for step ProduceResults
+Execution done
+Size of the returned nodes: 1801584
+After the call to execute query
+Took 8328ms to use view
+>> 

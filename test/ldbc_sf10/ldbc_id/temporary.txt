@@ -1,0 +1,2 @@
+CREATE VIEW AS V6_2 MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" RETURN s
+WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n

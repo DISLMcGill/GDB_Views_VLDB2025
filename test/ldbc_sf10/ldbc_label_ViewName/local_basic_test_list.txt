@@ -1,0 +1,73 @@
+//clean up: MATCH (n) WHERE n.ViewName IS NOT NULL REMOVE n.ViewName
+//for path views: MATCH (v:View) DETACH DELETE v
+
+MATCH (n:Comment) WHERE n.browserUsed = "Safari" WITH DISTINCT(n) SET n.ViewName = CASE WHEN n.ViewName IS NOT NULL THEN n.ViewName + "V1_1" ELSE ["V1_1"] END RETURN n
+MATCH (n:Comment) WHERE n.browserUsed = "Internet Explorer"  WITH DISTINCT(n) SET n.ViewName = CASE WHEN n.ViewName IS NOT NULL THEN n.ViewName + "V1_2" ELSE ["V1_2"] END RETURN n
+MATCH (n:Message) WHERE  n.creationDate > 1310000000000 AND n.creationDate < 1313000000000 WITH DISTINCT(n) SET n.ViewName = CASE WHEN n.ViewName IS NOT NULL THEN n.ViewName + "V2_1" ELSE ["V2_1"] END RETURN n
+MATCH (n:Message) WHERE  n.creationDate > 1310000000000 AND n.creationDate < 1316000000000 WITH DISTINCT(n) SET n.ViewName = CASE WHEN n.ViewName IS NOT NULL THEN n.ViewName + "V2_2" ELSE ["V2_2"] END RETURN n
+MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1265000000000 WITH DISTINCT(po) SET po.ViewName = CASE WHEN po.ViewName IS NOT NULL THEN po.ViewName + "V3_1" ELSE ["V3_1"] END RETURN po
+MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" WITH DISTINCT(po) SET po.ViewName = CASE WHEN po.ViewName IS NOT NULL THEN po.ViewName + "V3_2" ELSE ["V3_2"] END RETURN po
+MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" AND f.title STARTS WITH "Wall" WITH DISTINCT(po) SET po.ViewName = CASE WHEN po.ViewName IS NOT NULL THEN po.ViewName + "V4_1" ELSE ["V4_1"] END RETURN po
+MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.length > 5 AND po.browserUsed = "Opera" WITH DISTINCT(f) SET f.ViewName = CASE WHEN f.ViewName IS NOT NULL THEN f.ViewName + "V4_2" ELSE ["V4_2"] END RETURN f
+MATCH (c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed WITH DISTINCT(c) SET c.ViewName = CASE WHEN c.ViewName IS NOT NULL THEN c.ViewName + "V5" ELSE ["V5"] END RETURN c
+MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed WITH DISTINCT(s) SET s.ViewName = CASE WHEN s.ViewName IS NOT NULL THEN s.ViewName + "V6_1" ELSE ["V6_1"] END RETURN s
+MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" WITH DISTINCT(s) SET s.ViewName = CASE WHEN s.ViewName IS NOT NULL THEN s.ViewName + "V6_2" ELSE ["V6_2"] END RETURN s
+MATCH (c:Message)-[:HAS_CREATOR]->(s:Person)-[:KNOWS]-(t:Person)<-[:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 WITH DISTINCT(b) SET b.ViewName = CASE WHEN b.ViewName IS NOT NULL THEN b.ViewName + "V7_2" ELSE ["V7_2"] END RETURN b
+MATCH p=(f:Forum)-[r1:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1265000000000 WITH collect(id(r1)) AS paths,count(p) AS num,collect(distinct(f))+collect(distinct(po)) AS allnodes MERGE (v:View {ViewName:'V8_1'}) SET v.PATHS = paths WITH num, allnodes UNWIND allnodes AS eachNode SET eachNode.ViewName = CASE WHEN eachNode.ViewName IS NOT NULL THEN eachNode.ViewName + "V8_1" ELSE ["V8_1"] END RETURN num
+MATCH p=(f:Forum)-[r1:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" WITH collect(id(r1)) AS paths,count(p) AS num,collect(distinct(f))+collect(distinct(po)) AS allnodes MERGE (v:View {ViewName :'V8_2'}) SET v.PATHS = paths WITH num, allnodes UNWIND allnodes AS eachNode SET eachNode.ViewName = CASE WHEN eachNode.ViewName IS NOT NULL THEN eachNode.ViewName + "V8_2" ELSE ["V8_2"] END RETURN num
+MATCH p=(f:Forum)-[r1:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" AND f.title STARTS WITH "Wall" WITH collect(id(r1)) AS paths,count(p) AS num, collect(distinct(f))+collect(distinct(po)) AS allnodes MERGE (v:View {ViewName :'V9_1'}) SET v.PATHS = paths WITH num, allnodes UNWIND allnodes AS eachNode SET eachNode.ViewName = CASE WHEN eachNode.ViewName IS NOT NULL THEN eachNode.ViewName + "V9_1" ELSE ["V9_1"] END  RETURN num
+MATCH p=(f:Forum)-[r1:CONTAINER_OF]->(po:Post) WHERE po.length > 5 AND po.browserUsed = "Opera" WITH collect(id(r1)) AS paths,count(p) AS num, collect(distinct(f))+collect(distinct(po)) AS allnodes MERGE (v:View {ViewName :'V9_2'}) SET v.PATHS = paths WITH num, allnodes UNWIND allnodes AS eachNode SET eachNode.ViewName = CASE WHEN eachNode.ViewName IS NOT NULL THEN eachNode.ViewName + "V9_2" ELSE ["V9_2"] END  RETURN num
+MATCH p=(c:Message)-[r1:REPLY_OF]->(m:Message)<-[r2:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed WITH collect(id(r1) + '-' + id(r2)) AS paths,count(p) AS num,collect(distinct(c))+collect(distinct(m))+collect(distinct(s)) AS allnodes MERGE (v:View {ViewName:'V10'}) SET v.PATHS = paths WITH num, allnodes UNWIND allnodes AS eachNode SET eachNode.ViewName = CASE WHEN eachNode.ViewName IS NOT NULL THEN eachNode.ViewName + "V10" ELSE ["V10"] END RETURN num
+MATCH p=(c:Message)-[r1:REPLY_OF]->(m:Message)<-[r2:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed WITH collect(id(r1) + '-' + id(r2)) AS paths,count(p) AS num,collect(distinct(c))+collect(distinct(m))+collect(distinct(s)) AS allnodes MERGE (v:View {ViewName:'V11_1'}) SET v.PATHS = paths WITH num, allnodes UNWIND allnodes AS eachNode SET eachNode.ViewName = CASE WHEN eachNode.ViewName IS NOT NULL THEN eachNode.ViewName + "V11_1" ELSE ["V11_1"] END  RETURN num
+MATCH p=(c:Message)-[r1:REPLY_OF]->(m:Message)<-[r2:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" WITH collect(id(r1) + '-' + id(r2)) AS paths,count(p) AS num,collect(distinct(c))+collect(distinct(m))+collect(distinct(s)) AS allnodes  MERGE (v:View {ViewName:'V11_2'}) SET v.PATHS = paths WITH num, allnodes UNWIND allnodes AS eachNode SET eachNode.ViewName = CASE WHEN eachNode.ViewName IS NOT NULL THEN eachNode.ViewName + "V11_2" ELSE ["V11_2"] END RETURN num
+MATCH p=(c:Message)-[r1:HAS_CREATOR]->(s:Person)-[r2:KNOWS]-(t:Person)<-[r3:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 WITH collect(id(r1) + '-' + id(r2)+ '-' + id(r3)) AS paths,count(p) AS num,collect(distinct(c))+collect(distinct(s))+collect(distinct(t))+collect(distinct(b)) AS allnodes MERGE (v:View {ViewName:'V12_2'}) SET v.PATHS = paths WITH num, allnodes UNWIND allnodes AS eachNode SET eachNode.ViewName = CASE WHEN eachNode.ViewName IS NOT NULL THEN eachNode.ViewName + "V12_2" ELSE ["V12_2"] END RETURN num
+MATCH p=(c:Message)-[r1:REPLY_OF]->(m:Message)<-[r2:LIKES]-(s:Person)<-[r3:HAS_CREATOR]-(c) WHERE  s.gender='male' WITH collect(id(r1) + '-' + id(r2)+ '-' + id(r3)) AS paths,count(p) AS num,collect(distinct(c))+collect(distinct(m))+collect(distinct(s)) AS allnodes  MERGE (v:View {ViewName:'V14_1'}) SET v.PATHS = paths WITH num, allnodes UNWIND allnodes AS eachNode SET eachNode.ViewName = CASE WHEN eachNode.ViewName IS NOT NULL THEN eachNode.ViewName + "V14_1" ELSE ["V14_1"] END  RETURN num
+MATCH p=(c:Message)-[r1:REPLY_OF]->(m:Message)<-[r2:LIKES]-(s:Person)<-[r3:HAS_CREATOR]-(c) WHERE  m.browserUsed='Safari' OR m.browserUsed='Internet Explorer' WITH collect(id(r1) + '-' + id(r2)+ '-' + id(r3)) AS paths,count(p) AS num,collect(distinct(c))+collect(distinct(m))+collect(distinct(s)) AS allnodes MERGE (v:View {ViewName:'V14_2'}) SET v.PATHS = paths WITH num, allnodes UNWIND allnodes AS eachNode SET eachNode.ViewName = CASE WHEN eachNode.ViewName IS NOT NULL THEN eachNode.ViewName + "V14_2" ELSE ["V14_2"] END  RETURN num
+
+
+//usage
+CREATE INDEX v1 FOR (n:Message) on n.ViewName
+CREATE INDEX v2 FOR (n:Person) on n.ViewName
+CREATE INDEX v3 FOR (n:Forum) on n.ViewName
+CREATE INDEX v4 FOR (n:Post) on n.ViewName
+CREATE INDEX v5 FOR (n:Comment) on n.ViewName
+
+
+
+MATCH (n) WHERE 'V1_1' IN n.ViewName return n
+MATCH (n) WHERE 'V1_2' IN n.ViewName return n
+MATCH (n) WHERE 'V2_1' IN n.ViewName return n
+MATCH (n) WHERE 'V2_2' IN n.ViewName return n
+MATCH (n) WHERE 'V3_1' IN n.ViewName return n
+MATCH (n) WHERE 'V3_2' IN n.ViewName return n
+MATCH (n) WHERE 'V4_1' IN n.ViewName return n
+MATCH (n) WHERE 'V4_2' IN n.ViewName return n
+MATCH (n) WHERE 'V5' IN n.ViewName return n
+MATCH (n) WHERE 'V6_1' IN n.ViewName return n
+MATCH (n) WHERE 'V6_2' IN n.ViewName return n
+MATCH (n) WHERE 'V7_2' IN n.ViewName return n
+MATCH (n) WHERE 'V8_1' IN n.ViewName return n
+MATCH (n) WHERE 'V8_2' IN n.ViewName return n
+MATCH (n) WHERE 'V9_1' IN n.ViewName return n
+MATCH (n) WHERE 'V9_2' IN n.ViewName return n
+MATCH (n) WHERE 'V10' IN n.ViewName return n
+MATCH (n) WHERE 'V11_1' IN n.ViewName return n
+MATCH (n) WHERE 'V11_2' IN n.ViewName return n
+MATCH (n) WHERE 'V12_2' IN n.ViewName return n
+MATCH (n) WHERE 'V14_1' IN n.ViewName return n
+MATCH (n) WHERE 'V14_2' IN n.ViewName return n
+
+
+
+
+MATCH (v:View) WHERE v.Name = 'V8_1' UNWIND v.PATHS AS idR1 MATCH p=()-[r1]->() WHERE id(r1) = idR1 RETURN count(p)
+MATCH (v:View) WHERE v.Name = 'V8_2' UNWIND v.PATHS AS idR1 MATCH p=()-[r1]->() WHERE id(r1) = idR1 RETURN count(p)
+MATCH (v:View) WHERE v.Name = 'V9_1' UNWIND v.PATHS AS idR1 MATCH p=()-[r1]->() WHERE id(r1) = idR1 RETURN count(p)
+MATCH (v:View) WHERE v.Name = 'V9_2' UNWIND v.PATHS AS idR1 MATCH p=()-[r1]->() WHERE id(r1) = idR1 RETURN count(p)
+MATCH (v:View) WHERE v.Name = 'V10' UNWIND v.PATHS AS path WITH SPLIT(path, '-') AS idPair, v WITH TOINTEGER(idPair[0]) AS idR1, TOINTEGER(idPair[1]) AS idR2 MATCH p=()-[r1]-()-[r2]-() WHERE id(r1) = idR1 AND id(r2) = idR2 RETURN count(p)
+MATCH (v:View) WHERE v.Name = 'V11_1' UNWIND v.PATHS AS path WITH SPLIT(path, '-') AS idPair, v WITH TOINTEGER(idPair[0]) AS idR1, TOINTEGER(idPair[1]) AS idR2 MATCH p=()-[r1]-()-[r2]-() WHERE id(r1) = idR1 AND id(r2) = idR2 RETURN count(p)
+MATCH (v:View) WHERE v.Name = 'V11_2' UNWIND v.PATHS AS path WITH SPLIT(path, '-') AS idPair, v WITH TOINTEGER(idPair[0]) AS idR1, TOINTEGER(idPair[1]) AS idR2 MATCH p=()-[r1]-()-[r2]-() WHERE id(r1) = idR1 AND id(r2) = idR2 RETURN count(p)
+MATCH (v:View) WHERE v.Name = 'V12_2' UNWIND v.PATHS AS path WITH SPLIT(path, '-') AS idPair, v WITH TOINTEGER(idPair[0]) AS idR1, TOINTEGER(idPair[1]) AS idR2, TOINTEGER(idPair[2]) AS idR3 MATCH p=()-[r1]-()-[r2]-()-[r3]-() WHERE id(r1) = idR1 AND id(r2) = idR2 AND id(r3) = idR3 RETURN count(p)
+MATCH (v:View) WHERE v.Name = 'V14_1' UNWIND v.PATHS AS path WITH SPLIT(path, '-') AS idPair, v WITH TOINTEGER(idPair[0]) AS idR1, TOINTEGER(idPair[1]) AS idR2, TOINTEGER(idPair[2]) AS idR3 MATCH p=()-[r1]-()-[r2]-()-[r3]-() WHERE id(r1) = idR1 AND id(r2) = idR2 AND id(r3) = idR3 RETURN count(p)
+MATCH (v:View) WHERE v.Name = 'V14_2' UNWIND v.PATHS AS path WITH SPLIT(path, '-') AS idPair, v WITH TOINTEGER(idPair[0]) AS idR1, TOINTEGER(idPair[1]) AS idR2, TOINTEGER(idPair[2]) AS idR3 MATCH p=()-[r1]-()-[r2]-()-[r3]-() WHERE id(r1) = idR1 AND id(r2) = idR2 AND id(r3) = idR3 RETURN count(p)
+

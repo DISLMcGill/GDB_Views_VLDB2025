@@ -1,0 +1,34 @@
+CREATE VIEW AS V3_3 MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1265000000000 RETURN f,po
+CREATE VIEW AS V3_4 MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" RETURN f,po
+CREATE VIEW AS V4_3 MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" AND f.title STARTS WITH "Wall" RETURN f,po
+CREATE VIEW AS V4_4 MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.length > 5 AND po.browserUsed = "Opera" RETURN f,po
+CREATE VIEW AS V5_3 MATCH (c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed RETURN c,m
+CREATE VIEW AS V6_3 MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed RETURN c,m,s
+CREATE VIEW AS V6_4 MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" RETURN c,m,s
+CREATE VIEW AS V7_4 MATCH (c:Message)-[:HAS_CREATOR]->(s:Person)-[:KNOWS]-(t:Person)<-[:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 RETURN c,s,t,b
+CREATE VIEW AS V11_3 MATCH p1=(c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed WITH p1,m MATCH p2=(m)<-[:LIKES]-(s:Person) RETURN p1,p2
+CREATE VIEW AS V11_4 MATCH p1=(c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed WITH p1,m MATCH p2=(m)<-[:LIKES]-(s:Person) WHERE s.gender = "male" RETURN p1,p2
+CREATE VIEW AS V12_4 MATCH p1=(c:Message)-[:HAS_CREATOR]->(s:Person),p2=(s)-[:KNOWS]-(t:Person)<-[:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 RETURN p1,p2
+CREATE VIEW AS V12_5 MATCH p1=(c:Message)-[:HAS_CREATOR]->(s:Person)-[:KNOWS]-(t:Person),p2=(t)<-[:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 RETURN p1,p2
+CREATE VIEW AS V14_3 MATCH p1=(c:Message)-[:REPLY_OF]->(m:Message),p2=(m)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE  s.gender='male' RETURN p1,p2
+CREATE VIEW AS V14_4 MATCH p1=(c:Message)-[:REPLY_OF]->(m:Message),p2=(m)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE  m.browserUsed='Safari' OR m.browserUsed='Internet Explorer' RETURN p1,p2
+CREATE VIEW AS V15_1 MATCH (f:Forum)-[r1:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1265000000000 RETURN r1
+CREATE VIEW AS V15_2 MATCH (f:Forum)-[r1:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" RETURN r1
+CREATE VIEW AS V16_1 MATCH (f:Forum)-[r1:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" AND f.title STARTS WITH "Wall" RETURN r1
+CREATE VIEW AS V16_2 MATCH (f:Forum)-[r1:CONTAINER_OF]->(po:Post) WHERE po.length > 5 AND po.browserUsed = "Opera" RETURN r1
+CREATE VIEW AS V17_1 MATCH (c:Message)-[r1:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed RETURN r1
+CREATE VIEW AS V18_1 MATCH (c:Message)-[r1:REPLY_OF]->(m:Message)<-[r2:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed RETURN r1,r2
+CREATE VIEW AS V18_2 MATCH (c:Message)-[r1:REPLY_OF]->(m:Message)<-[r2:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" RETURN r1,r2
+CREATE VIEW AS V19_2 MATCH (c:Message)-[r1:HAS_CREATOR]->(s:Person)-[r2:KNOWS]-(t:Person)<-[r3:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 RETURN r1,r2,r3
+WITH VIEWS V17_1 GLOBAL MATCH p=(person:Person)-[r1:LIKES]->(c:Message)-[r2:REPLY_OF]->(m:Message) WHERE r2 IN V17_1.r1 RETURN p
+WITH VIEWS V18_1 GLOBAL MATCH p=(c:Message)-[r1:REPLY_OF]->(m:Message) WHERE r1 IN V18_1.r1 RETURN p
+WITH VIEWS V18_1 GLOBAL MATCH p=(m:Message)<-[r2:LIKES]-(s:Person) WHERE r2 IN V18_1.r2 RETURN p
+WITH VIEWS V18_2 GLOBAL MATCH p=(c:Message)-[r1:REPLY_OF]->(m:Message)<-[r2:LIKES]-(s:Person) WHERE r1 IN V18_2.r1 RETURN p
+WITH VIEWS V3_4 V6_4 GLOBAL MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE m IN V3_4.po AND s IN V6_4.s RETURN DISTINCT c
+WITH VIEWS V7_4 V5_3 GLOBAL MATCH (n:Message)-[:HAS_CREATOR]->(s:Person)<-[:HAS_MODERATOR]-(f:Forum)-[:CONTAINER_OF]->(m:Message) WHERE n IN V5_3.c AND m IN V7_4.b RETURN DISTINCT s
+WITH VIEWS V11_4 GLOBAL MATCH (s:Person)<-[:HAS_CREATOR]-(m:Message) WHERE m IN V11_4 RETURN DISTINCT s
+WITH VIEWS V11_4 LOCAL MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)  WHERE p IN V11_4.p1 AND m.language = "ar" RETURN DISTINCT c
+WITH VIEWS V12_5 LOCAL MATCH p=(c:Message)-[:HAS_CREATOR]->(s:Person)-[:KNOWS]-(t:Person) WHERE p IN V12_5.p1 AND s.gender='female' RETURN DISTINCT p
+WITH VIEWS V14_3 GLOBAL MATCH p1=(c:Message)-[:REPLY_OF]->(m:Message) WHERE p1 IN V14_3.p1 WITH m,c MATCH p2=(m)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE p2 IN V14_3.p2 WITH s MATCH (s)<-[:HAS_MODERATOR]-(f:Forum) RETURN DISTINCT f
+WITH VIEWS V14_4 GLOBAL MATCH p1=(c:Message)-[:REPLY_OF]->(m:Message) WHERE p1 IN V14_4.p1 AND m.language = "ar" WITH m,c MATCH p2=(m)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE p2 IN V14_4.p2 WITH s MATCH (s)<-[:HAS_MODERATOR]-(f:Forum) RETURN DISTINCT f
+WITH VIEWS V14_4 GLOBAL MATCH p1=(c:Message)-[:REPLY_OF]->(m:Message) WHERE p1 IN V14_4.p1 AND m.language = "ar" WITH m,c MATCH p2=(m)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE p2 IN V14_4.p2 WITH s MATCH (s)<-[r3:HAS_MODERATOR]-(f:Forum) RETURN DISTINCT r3

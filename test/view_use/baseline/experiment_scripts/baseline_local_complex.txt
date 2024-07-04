@@ -1,0 +1,25 @@
+baseline U5 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 AND betterPost.score < 1500 AND betterPost.score > 10 RETURN betterPost
+baseline U1 MATCH p=(po:Post)-[:PARENT_OF]-(m:Post)-[:POSTED]-(n:User) WHERE n.reputation < 850 AND m.score > 300 AND m.score < 450  RETURN m
+baseline U3 MATCH p=(m:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post)-[:POSTED]-(n:User) WHERE n.userId < m.userId AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+baseline U2 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+baseline U4 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' AND n.upvotes > 400 RETURN n
+baseline U2 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+baseline U3 MATCH p=(m:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post)-[:POSTED]-(n:User) WHERE n.userId < m.userId AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+baseline U1 MATCH p=(po:Post)-[:PARENT_OF]-(m:Post)-[:POSTED]-(n:User) WHERE n.reputation < 850 AND m.score > 300 AND m.score < 450  RETURN m
+baseline U4 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' AND n.upvotes > 400 RETURN n
+baseline U5 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 AND betterPost.score < 1500 AND betterPost.score > 10 RETURN betterPost
+baseline U3 MATCH p=(m:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post)-[:POSTED]-(n:User) WHERE n.userId < m.userId AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+baseline U4 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' AND n.upvotes > 400 RETURN n
+baseline U2 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+baseline U5 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 AND betterPost.score < 1500 AND betterPost.score > 10 RETURN betterPost
+baseline U1 MATCH p=(po:Post)-[:PARENT_OF]-(m:Post)-[:POSTED]-(n:User) WHERE n.reputation < 850 AND m.score > 300 AND m.score < 450  RETURN m
+baseline U5 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 AND betterPost.score < 1500 AND betterPost.score > 10 RETURN betterPost
+baseline U4 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' AND n.upvotes > 400 RETURN n
+baseline U2 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+baseline U3 MATCH p=(m:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post)-[:POSTED]-(n:User) WHERE n.userId < m.userId AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+baseline U1 MATCH p=(po:Post)-[:PARENT_OF]-(m:Post)-[:POSTED]-(n:User) WHERE n.reputation < 850 AND m.score > 300 AND m.score < 450  RETURN m
+baseline U4 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' AND n.upvotes > 400 RETURN n
+baseline U5 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 AND betterPost.score < 1500 AND betterPost.score > 10 RETURN betterPost
+baseline U1 MATCH p=(po:Post)-[:PARENT_OF]-(m:Post)-[:POSTED]-(n:User) WHERE n.reputation < 850 AND m.score > 300 AND m.score < 450  RETURN m
+baseline U3 MATCH p=(m:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post)-[:POSTED]-(n:User) WHERE n.userId < m.userId AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+baseline U2 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost

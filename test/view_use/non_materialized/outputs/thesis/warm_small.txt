@@ -1,0 +1,1000 @@
+CREATE VIEW AS V1 MATCH (n:Post) WHERE n.score > 350 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1MATCH(n:Post)WHEREn.score>350RETURNn
+ViewSql is CREATE VIEW AS V1 MATCH (n:Post) WHERE n.score > 350 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score > 350 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1" IN n.views THEN [] ELSE ["V1"] END) + n.views
+Execution done
+There are 11388 nodes
+Took 8883ms to create views
+*********************************
+CREATE VIEW AS V2 MATCH (n:Post) WHERE n.score < 800 AND n.score > 350 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2MATCH(n:Post)WHEREn.score<800ANDn.score>350RETURNn
+ViewSql is CREATE VIEW AS V2 MATCH (n:Post) WHERE n.score < 800 AND n.score > 350 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 800 AND n.score > 350 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2" IN n.views THEN [] ELSE ["V2"] END) + n.views
+Execution done
+There are 8012 nodes
+Took 1970ms to create views
+*********************************
+CREATE VIEW AS V3 MATCH (n:User) WHERE n.upvotes>1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV3MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V3 MATCH (n:User) WHERE n.upvotes>1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n:User) WHERE n.upvotes>1000 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V3" IN n.views THEN [] ELSE ["V3"] END) + n.views
+Execution done
+There are 2341 nodes
+Took 133ms to create views
+*********************************
+CREATE VIEW AS V4 MATCH (n:User) WHERE n.reputation > 90000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4MATCH(n:User)WHEREn.reputation>90000RETURNn
+ViewSql is CREATE VIEW AS V4 MATCH (n:User) WHERE n.reputation > 90000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n:User) WHERE n.reputation > 90000 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V4" IN n.views THEN [] ELSE ["V4"] END) + n.views
+Execution done
+There are 313 nodes
+Took 112ms to create views
+*********************************
+CREATE VIEW AS V5 MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' RETURN n
+In enterRoot ctx is CREATE VIEW ASV5MATCH(n:Tag)WHEREn.tagId='java'ORn.tagId='html'RETURNn
+ViewSql is CREATE VIEW AS V5 MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' RETURN n
+VarLables of the input is {n=Tag}
+Return Type is NODE
+ MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V5" IN n.views THEN [] ELSE ["V5"] END) + n.views
+Execution done
+There are 2 nodes
+Took 125ms to create views
+*********************************
+CREATE VIEW AS V6 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 RETURN p
+In enterRoot ctx is CREATE VIEW ASV6MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<500RETURNp
+ViewSql is CREATE VIEW AS V6 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is PATH
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V6" IN pathnode.views THEN [] ELSE ["V6"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V6" IN pathnode.views THEN [] ELSE ["V6"] END) + pathnode.views)
+Executing query:  MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 RETURN p
+Return set contains 34096
+There are 42081 nodes
+Took 459ms to create views
+*********************************
+CREATE VIEW AS V7 MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 100 AND m.score < 600 RETURN n
+In enterRoot ctx is CREATE VIEW ASV7MATCH(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>100ANDm.score<600RETURNn
+ViewSql is CREATE VIEW AS V7 MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 100 AND m.score < 600 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 100 AND m.score < 600 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V7" IN n.views THEN [] ELSE ["V7"] END) + n.views
+Execution done
+There are 114741 nodes
+Took 2298ms to create views
+*********************************
+CREATE VIEW AS V8 MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10  RETURN po2
+In enterRoot ctx is CREATE VIEW ASV8MATCH(n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post)WHEREn.upvotes>800ANDpo.comments>10RETURNpo2
+ViewSql is CREATE VIEW AS V8 MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10  RETURN po2
+VarLables of the input is {po2=Post, _ENTRY_SPECIAL_NO_REL_NAME_4=PARENT_OF, _ENTRY_SPECIAL_NO_REL_NAME_3=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10  SET(CASE WHEN NOT EXISTS(po2.views) THEN po2 END).views = [] SET po2.views = (CASE WHEN "V8" IN po2.views THEN [] ELSE ["V8"] END) + po2.views
+Execution done
+There are 11173 nodes
+Took 963ms to create views
+*********************************
+CREATE VIEW AS V9 MATCH (n:User)-[:POSTED]-(p:Post) WHERE n.userId = 19 RETURN p
+In enterRoot ctx is CREATE VIEW ASV9MATCH(n:User)-[:POSTED]-(p:Post)WHEREn.userId=19RETURNp
+ViewSql is CREATE VIEW AS V9 MATCH (n:User)-[:POSTED]-(p:Post) WHERE n.userId = 19 RETURN p
+VarLables of the input is {p=Post, _ENTRY_SPECIAL_NO_REL_NAME_5=POSTED, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p:Post) WHERE n.userId = 19 SET(CASE WHEN NOT EXISTS(p.views) THEN p END).views = [] SET p.views = (CASE WHEN "V9" IN p.views THEN [] ELSE ["V9"] END) + p.views
+Execution done
+There are 13 nodes
+Took 104ms to create views
+*********************************
+CREATE VIEW AS V10 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV10MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V10 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, betterPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_6=PARENT_OF}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(betterPost.views) THEN betterPost END).views = [] SET betterPost.views = (CASE WHEN "V10" IN betterPost.views THEN [] ELSE ["V10"] END) + betterPost.views
+Execution done
+There are 1042055 nodes
+Took 9455ms to create views
+*********************************
+CREATE VIEW AS V11 MATCH (n:User)-[:POSTED]-(p:Post) WHERE n.upvotes > 1000 OR p.score > 350 RETURN p
+In enterRoot ctx is CREATE VIEW ASV11MATCH(n:User)-[:POSTED]-(p:Post)WHEREn.upvotes>1000ORp.score>350RETURNp
+ViewSql is CREATE VIEW AS V11 MATCH (n:User)-[:POSTED]-(p:Post) WHERE n.upvotes > 1000 OR p.score > 350 RETURN p
+VarLables of the input is {p=Post, n=User, _ENTRY_SPECIAL_NO_REL_NAME_7=POSTED}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p:Post) WHERE n.upvotes > 1000 OR p.score > 350 SET(CASE WHEN NOT EXISTS(p.views) THEN p END).views = [] SET p.views = (CASE WHEN "V11" IN p.views THEN [] ELSE ["V11"] END) + p.views
+Execution done
+There are 766993 nodes
+Took 2074ms to create views
+*********************************
+CREATE VIEW AS V12 MATCH (p1:Post)-[:HAS_TAG]-(t:Tag) WITH p1, COUNT(t) as numberOfTags WHERE numberOfTags > 20 RETURN p1
+In enterRoot ctx is CREATE VIEW ASV12MATCH(p1:Post)-[:HAS_TAG]-(t:Tag)WITHp1,COUNT(t)asnumberOfTagsWHEREnumberOfTags>20RETURNp1
+ViewSql is CREATE VIEW AS V12 MATCH (p1:Post)-[:HAS_TAG]-(t:Tag) WITH p1, COUNT(t) as numberOfTags WHERE numberOfTags > 20 RETURN p1
+VarLables of the input is {p1=Post, t=Tag, _ENTRY_SPECIAL_NO_REL_NAME_8=HAS_TAG}
+Return Type is NODE
+ MATCH (p1:Post)-[:HAS_TAG]-(t:Tag) WITH p1, COUNT(t) as numberOfTags WHERE numberOfTags > 20 SET(CASE WHEN NOT EXISTS(p1.views) THEN p1 END).views = [] SET p1.views = (CASE WHEN "V12" IN p1.views THEN [] ELSE ["V12"] END) + p1.views
+Execution done
+There are 0 nodes
+Took 4911ms to create views
+*********************************
+CREATE VIEW AS V14 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<50 RETURN m
+In enterRoot ctx is CREATE VIEW ASV14MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<50RETURNm
+ViewSql is CREATE VIEW AS V14 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<50 RETURN m
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_10=PARENT_OF, _ENTRY_SPECIAL_NO_REL_NAME_9=POSTED, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<50 SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V14" IN m.views THEN [] ELSE ["V14"] END) + m.views
+Execution done
+There are 2565 nodes
+Took 275ms to create views
+*********************************
+CREATE VIEW AS V15 MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' RETURN p2
+In enterRoot ctx is CREATE VIEW ASV15MATCH(p2:Post)-[:HAS_TAG]-(t)WHEREt.tagId='html'RETURNp2
+ViewSql is CREATE VIEW AS V15 MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' RETURN p2
+VarLables of the input is {p2=Post, t=_ENTRY_SPECIAL_NODE_STAR_, _ENTRY_SPECIAL_NO_REL_NAME_12=HAS_TAG}
+Return Type is NODE
+ MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' SET(CASE WHEN NOT EXISTS(p2.views) THEN p2 END).views = [] SET p2.views = (CASE WHEN "V15" IN p2.views THEN [] ELSE ["V15"] END) + p2.views
+Execution done
+There are 58015 nodes
+Took 1861ms to create views
+*********************************
+CREATE VIEW AS V16 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 50000 RETURN p
+In enterRoot ctx is CREATE VIEW ASV16MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<50000RETURNp
+ViewSql is CREATE VIEW AS V16 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 50000 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_13=POSTED, n=User, po=Post}
+Return Type is PATH
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 50000 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V16" IN pathnode.views THEN [] ELSE ["V16"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V16" IN pathnode.views THEN [] ELSE ["V16"] END) + pathnode.views)
+Executing query:  MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 50000 RETURN p
+Return set contains 948097
+There are 971805 nodes
+Took 3106ms to create views
+*********************************
+CREATE VIEW AS V17 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV17MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V17 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_14=POSTED, m=User, n=User, _ENTRY_SPECIAL_NO_REL_NAME_15=PARENT_OF}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V17" IN m.views THEN [] ELSE ["V17"] END) + m.views
+Execution done
+There are 22714 nodes
+Took 6249ms to create views
+*********************************
+CREATE VIEW AS V18 MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10  RETURN po2
+In enterRoot ctx is CREATE VIEW ASV18MATCH(n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post)WHEREn.upvotes>0ANDpo.comments>10ANDpo2.comments<10RETURNpo2
+ViewSql is CREATE VIEW AS V18 MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10  RETURN po2
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_18=PARENT_OF, _ENTRY_SPECIAL_NO_REL_NAME_17=POSTED, po2=Post, n=User, po=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10  SET(CASE WHEN NOT EXISTS(po2.views) THEN po2 END).views = [] SET po2.views = (CASE WHEN "V18" IN po2.views THEN [] ELSE ["V18"] END) + po2.views
+Execution done
+There are 16223 nodes
+Took 1513ms to create views
+*********************************
+CREATE VIEW AS V19 MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 RETURN n
+In enterRoot ctx is CREATE VIEW ASV19MATCH(n:Post)-[:PARENT_OF]-(m:Post)WHEREn.score=15ANDm.score=50RETURNn
+ViewSql is CREATE VIEW AS V19 MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_19=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V19" IN n.views THEN [] ELSE ["V19"] END) + n.views
+Execution done
+There are 37 nodes
+Took 1493ms to create views
+*********************************
+CREATE VIEW AS V20 MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' RETURN t
+In enterRoot ctx is CREATE VIEW ASV20MATCH(n:Post)-[:HAS_TAG]-(t)WHEREn.postId='1065111'RETURNt
+ViewSql is CREATE VIEW AS V20 MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' RETURN t
+VarLables of the input is {t=_ENTRY_SPECIAL_NODE_STAR_, _ENTRY_SPECIAL_NO_REL_NAME_20=HAS_TAG, n=Post}
+Return Type is NODE
+ MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' SET(CASE WHEN NOT EXISTS(t.views) THEN t END).views = [] SET t.views = (CASE WHEN "V20" IN t.views THEN [] ELSE ["V20"] END) + t.views
+Execution done
+There are 3 nodes
+Took 2759ms to create views
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V20 LOCAL MATCH (n) RETURN n
+MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 3
+Edge size is 0
+Took 2504 ms to use view
+Non-materialized returned 3 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V7 LOCAL MATCH (n) RETURN n
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 100 AND m.score < 600 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 100 AND m.score < 600 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 114741
+Edge size is 0
+Took 2083 ms to use view
+Non-materialized returned 114741 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS GLOBAL V20 MATCH (n)-[:HAS_TAG]-(p:Post) WHERE n IN V20 RETURN p
+MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS V20
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V20 RETURN DISTINCT(p)
+Executing query: MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS V20
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V20 RETURN DISTINCT(p)
+Execution done
+Node size is 13270
+Edge size is 0
+Took 2431 ms to use view
+Non-materialized returned 13270 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V17 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 22714
+Edge size is 0
+Took 5269 ms to use view
+Non-materialized returned 22714 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V16 LOCAL MATCH (n) RETURN n
+MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 50000 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 50000 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 971805
+Edge size is 0
+Took 1681 ms to use view
+Non-materialized returned 971805 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V5 LOCAL MATCH (n) RETURN n
+MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 2
+Edge size is 0
+Took 212 ms to use view
+Non-materialized returned 2 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V8 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 11173
+Edge size is 0
+Took 775 ms to use view
+Non-materialized returned 11173 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V6 LOCAL MATCH (n) RETURN n
+MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 42081
+Edge size is 0
+Took 93 ms to use view
+Non-materialized returned 42081 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS GLOBAL V5 MATCH(n)-[:HAS_TAG]-(p:Post) WHERE n IN V5 RETURN p
+MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS V5
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V5 RETURN DISTINCT(p)
+Executing query: MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS V5
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V5 RETURN DISTINCT(p)
+Execution done
+Node size is 191539
+Edge size is 0
+Took 244 ms to use view
+Non-materialized returned 191539 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL COMPLEX V18 V19 LOCAL MATCH (n) WHERE n IN V18 AND n IN V19 RETURN n
+Both NODE
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v1 
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH v1, COLLECT(DISTINCT ID(n)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v1 
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH v1, COLLECT(DISTINCT ID(n)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Execution done
+Node size is 0
+Edge size is 0
+Took 3096 ms to use view
+Non-materialized returned 0 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V19 LOCAL MATCH (n) RETURN n
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 37
+Edge size is 0
+Took 1373 ms to use view
+Non-materialized returned 37 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL COMPLEX V1 V8 LOCAL MATCH (n) WHERE n IN V1 AND n IN V8 RETURN n
+Both NODE
+MATCH (n:Post) WHERE n.score > 350 WITH COLLECT(DISTINCT ID(n)) AS v1 
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH v1, COLLECT(DISTINCT ID(po2)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Executing query: MATCH (n:Post) WHERE n.score > 350 WITH COLLECT(DISTINCT ID(n)) AS v1 
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH v1, COLLECT(DISTINCT ID(po2)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Execution done
+Node size is 983
+Edge size is 0
+Took 2110 ms to use view
+Non-materialized returned 983 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V15 LOCAL MATCH (n) RETURN n
+MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 58015
+Edge size is 0
+Took 1719 ms to use view
+Non-materialized returned 58015 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS GLOBAL V15 MATCH (n)-[:POSTED]-(m:User) WHERE n IN V15 RETURN m
+MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS V15
+MATCH (n)-[:POSTED]-(m:User) WHERE ID(n) IN V15 RETURN DISTINCT(m)
+Executing query: MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS V15
+MATCH (n)-[:POSTED]-(m:User) WHERE ID(n) IN V15 RETURN DISTINCT(m)
+Execution done
+Node size is 3118
+Edge size is 0
+Took 1740 ms to use view
+Non-materialized returned 3118 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V18 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 16223
+Edge size is 0
+Took 1322 ms to use view
+Non-materialized returned 16223 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V4 LOCAL MATCH (n) RETURN n
+MATCH (n:User) WHERE n.reputation > 90000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User) WHERE n.reputation > 90000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 313
+Edge size is 0
+Took 39 ms to use view
+Non-materialized returned 313 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V8 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 11173
+Edge size is 0
+Took 706 ms to use view
+Non-materialized returned 11173 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS GLOBAL V5 MATCH(n)-[:HAS_TAG]-(p:Post) WHERE n IN V5 RETURN p
+MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS V5
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V5 RETURN DISTINCT(p)
+Executing query: MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS V5
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V5 RETURN DISTINCT(p)
+Execution done
+Node size is 191539
+Edge size is 0
+Took 176 ms to use view
+Non-materialized returned 191539 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V15 LOCAL MATCH (n) RETURN n
+MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 58015
+Edge size is 0
+Took 1685 ms to use view
+Non-materialized returned 58015 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V19 LOCAL MATCH (n) RETURN n
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 37
+Edge size is 0
+Took 1315 ms to use view
+Non-materialized returned 37 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS GLOBAL V20 MATCH (n)-[:HAS_TAG]-(p:Post) WHERE n IN V20 RETURN p
+MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS V20
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V20 RETURN DISTINCT(p)
+Executing query: MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS V20
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V20 RETURN DISTINCT(p)
+Execution done
+Node size is 13270
+Edge size is 0
+Took 2386 ms to use view
+Non-materialized returned 13270 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL COMPLEX V1 V8 LOCAL MATCH (n) WHERE n IN V1 AND n IN V8 RETURN n
+Both NODE
+MATCH (n:Post) WHERE n.score > 350 WITH COLLECT(DISTINCT ID(n)) AS v1 
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH v1, COLLECT(DISTINCT ID(po2)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Executing query: MATCH (n:Post) WHERE n.score > 350 WITH COLLECT(DISTINCT ID(n)) AS v1 
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH v1, COLLECT(DISTINCT ID(po2)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Execution done
+Node size is 983
+Edge size is 0
+Took 2031 ms to use view
+Non-materialized returned 983 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V4 LOCAL MATCH (n) RETURN n
+MATCH (n:User) WHERE n.reputation > 90000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User) WHERE n.reputation > 90000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 313
+Edge size is 0
+Took 14 ms to use view
+Non-materialized returned 313 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V18 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 16223
+Edge size is 0
+Took 1262 ms to use view
+Non-materialized returned 16223 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V16 LOCAL MATCH (n) RETURN n
+MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 50000 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 50000 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 971805
+Edge size is 0
+Took 1533 ms to use view
+Non-materialized returned 971805 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V20 LOCAL MATCH (n) RETURN n
+MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 3
+Edge size is 0
+Took 2833 ms to use view
+Non-materialized returned 3 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS GLOBAL V15 MATCH (n)-[:POSTED]-(m:User) WHERE n IN V15 RETURN m
+MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS V15
+MATCH (n)-[:POSTED]-(m:User) WHERE ID(n) IN V15 RETURN DISTINCT(m)
+Executing query: MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS V15
+MATCH (n)-[:POSTED]-(m:User) WHERE ID(n) IN V15 RETURN DISTINCT(m)
+Execution done
+Node size is 3118
+Edge size is 0
+Took 1703 ms to use view
+Non-materialized returned 3118 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL COMPLEX V18 V19 LOCAL MATCH (n) WHERE n IN V18 AND n IN V19 RETURN n
+Both NODE
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v1 
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH v1, COLLECT(DISTINCT ID(n)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v1 
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH v1, COLLECT(DISTINCT ID(n)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Execution done
+Node size is 0
+Edge size is 0
+Took 2832 ms to use view
+Non-materialized returned 0 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V6 LOCAL MATCH (n) RETURN n
+MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 42081
+Edge size is 0
+Took 61 ms to use view
+Non-materialized returned 42081 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V7 LOCAL MATCH (n) RETURN n
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 100 AND m.score < 600 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 100 AND m.score < 600 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 114741
+Edge size is 0
+Took 1733 ms to use view
+Non-materialized returned 114741 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V5 LOCAL MATCH (n) RETURN n
+MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 2
+Edge size is 0
+Took 9 ms to use view
+Non-materialized returned 2 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V17 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 22714
+Edge size is 0
+Took 5168 ms to use view
+Non-materialized returned 22714 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS GLOBAL V5 MATCH(n)-[:HAS_TAG]-(p:Post) WHERE n IN V5 RETURN p
+MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS V5
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V5 RETURN DISTINCT(p)
+Executing query: MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS V5
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V5 RETURN DISTINCT(p)
+Execution done
+Node size is 191539
+Edge size is 0
+Took 160 ms to use view
+Non-materialized returned 191539 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V7 LOCAL MATCH (n) RETURN n
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 100 AND m.score < 600 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 100 AND m.score < 600 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 114741
+Edge size is 0
+Took 1745 ms to use view
+Non-materialized returned 114741 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V20 LOCAL MATCH (n) RETURN n
+MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 3
+Edge size is 0
+Took 2367 ms to use view
+Non-materialized returned 3 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V4 LOCAL MATCH (n) RETURN n
+MATCH (n:User) WHERE n.reputation > 90000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User) WHERE n.reputation > 90000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 313
+Edge size is 0
+Took 11 ms to use view
+Non-materialized returned 313 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL COMPLEX V18 V19 LOCAL MATCH (n) WHERE n IN V18 AND n IN V19 RETURN n
+Both NODE
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v1 
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH v1, COLLECT(DISTINCT ID(n)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v1 
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH v1, COLLECT(DISTINCT ID(n)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Execution done
+Node size is 0
+Edge size is 0
+Took 2817 ms to use view
+Non-materialized returned 0 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V8 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 11173
+Edge size is 0
+Took 696 ms to use view
+Non-materialized returned 11173 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V5 LOCAL MATCH (n) RETURN n
+MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 2
+Edge size is 0
+Took 11 ms to use view
+Non-materialized returned 2 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V17 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 22714
+Edge size is 0
+Took 6240 ms to use view
+Non-materialized returned 22714 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V18 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 16223
+Edge size is 0
+Took 1261 ms to use view
+Non-materialized returned 16223 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL COMPLEX V1 V8 LOCAL MATCH (n) WHERE n IN V1 AND n IN V8 RETURN n
+Both NODE
+MATCH (n:Post) WHERE n.score > 350 WITH COLLECT(DISTINCT ID(n)) AS v1 
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH v1, COLLECT(DISTINCT ID(po2)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Executing query: MATCH (n:Post) WHERE n.score > 350 WITH COLLECT(DISTINCT ID(n)) AS v1 
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH v1, COLLECT(DISTINCT ID(po2)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Execution done
+Node size is 983
+Edge size is 0
+Took 2044 ms to use view
+Non-materialized returned 983 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS GLOBAL V20 MATCH (n)-[:HAS_TAG]-(p:Post) WHERE n IN V20 RETURN p
+MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS V20
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V20 RETURN DISTINCT(p)
+Executing query: MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS V20
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V20 RETURN DISTINCT(p)
+Execution done
+Node size is 13270
+Edge size is 0
+Took 2384 ms to use view
+Non-materialized returned 13270 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V16 LOCAL MATCH (n) RETURN n
+MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 50000 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 50000 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 971805
+Edge size is 0
+Took 1598 ms to use view
+Non-materialized returned 971805 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V15 LOCAL MATCH (n) RETURN n
+MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 58015
+Edge size is 0
+Took 1813 ms to use view
+Non-materialized returned 58015 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V6 LOCAL MATCH (n) RETURN n
+MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 42081
+Edge size is 0
+Took 56 ms to use view
+Non-materialized returned 42081 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V19 LOCAL MATCH (n) RETURN n
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 37
+Edge size is 0
+Took 1323 ms to use view
+Non-materialized returned 37 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS GLOBAL V15 MATCH (n)-[:POSTED]-(m:User) WHERE n IN V15 RETURN m
+MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS V15
+MATCH (n)-[:POSTED]-(m:User) WHERE ID(n) IN V15 RETURN DISTINCT(m)
+Executing query: MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS V15
+MATCH (n)-[:POSTED]-(m:User) WHERE ID(n) IN V15 RETURN DISTINCT(m)
+Execution done
+Node size is 3118
+Edge size is 0
+Took 1715 ms to use view
+Non-materialized returned 3118 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V5 LOCAL MATCH (n) RETURN n
+MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 2
+Edge size is 0
+Took 11 ms to use view
+Non-materialized returned 2 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V15 LOCAL MATCH (n) RETURN n
+MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 58015
+Edge size is 0
+Took 1729 ms to use view
+Non-materialized returned 58015 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS GLOBAL V20 MATCH (n)-[:HAS_TAG]-(p:Post) WHERE n IN V20 RETURN p
+MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS V20
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V20 RETURN DISTINCT(p)
+Executing query: MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS V20
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V20 RETURN DISTINCT(p)
+Execution done
+Node size is 13270
+Edge size is 0
+Took 2393 ms to use view
+Non-materialized returned 13270 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V16 LOCAL MATCH (n) RETURN n
+MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 50000 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 50000 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 971805
+Edge size is 0
+Took 1711 ms to use view
+Non-materialized returned 971805 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL COMPLEX V1 V8 LOCAL MATCH (n) WHERE n IN V1 AND n IN V8 RETURN n
+Both NODE
+MATCH (n:Post) WHERE n.score > 350 WITH COLLECT(DISTINCT ID(n)) AS v1 
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH v1, COLLECT(DISTINCT ID(po2)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Executing query: MATCH (n:Post) WHERE n.score > 350 WITH COLLECT(DISTINCT ID(n)) AS v1 
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH v1, COLLECT(DISTINCT ID(po2)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Execution done
+Node size is 983
+Edge size is 0
+Took 2173 ms to use view
+Non-materialized returned 983 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V19 LOCAL MATCH (n) RETURN n
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 37
+Edge size is 0
+Took 1321 ms to use view
+Non-materialized returned 37 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V7 LOCAL MATCH (n) RETURN n
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 100 AND m.score < 600 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 100 AND m.score < 600 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 114741
+Edge size is 0
+Took 1738 ms to use view
+Non-materialized returned 114741 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS GLOBAL V5 MATCH(n)-[:HAS_TAG]-(p:Post) WHERE n IN V5 RETURN p
+MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS V5
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V5 RETURN DISTINCT(p)
+Executing query: MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS V5
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V5 RETURN DISTINCT(p)
+Execution done
+Node size is 191539
+Edge size is 0
+Took 164 ms to use view
+Non-materialized returned 191539 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V4 LOCAL MATCH (n) RETURN n
+MATCH (n:User) WHERE n.reputation > 90000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User) WHERE n.reputation > 90000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 313
+Edge size is 0
+Took 12 ms to use view
+Non-materialized returned 313 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V6 LOCAL MATCH (n) RETURN n
+MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 42081
+Edge size is 0
+Took 68 ms to use view
+Non-materialized returned 42081 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V18 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 16223
+Edge size is 0
+Took 1264 ms to use view
+Non-materialized returned 16223 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V17 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 22714
+Edge size is 0
+Took 6243 ms to use view
+Non-materialized returned 22714 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V20 LOCAL MATCH (n) RETURN n
+MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 3
+Edge size is 0
+Took 2381 ms to use view
+Non-materialized returned 3 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL COMPLEX V18 V19 LOCAL MATCH (n) WHERE n IN V18 AND n IN V19 RETURN n
+Both NODE
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v1 
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH v1, COLLECT(DISTINCT ID(n)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v1 
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH v1, COLLECT(DISTINCT ID(n)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Execution done
+Node size is 0
+Edge size is 0
+Took 2810 ms to use view
+Non-materialized returned 0 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V8 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 11173
+Edge size is 0
+Took 702 ms to use view
+Non-materialized returned 11173 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS GLOBAL V15 MATCH (n)-[:POSTED]-(m:User) WHERE n IN V15 RETURN m
+MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS V15
+MATCH (n)-[:POSTED]-(m:User) WHERE ID(n) IN V15 RETURN DISTINCT(m)
+Executing query: MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS V15
+MATCH (n)-[:POSTED]-(m:User) WHERE ID(n) IN V15 RETURN DISTINCT(m)
+Execution done
+Node size is 3118
+Edge size is 0
+Took 1722 ms to use view
+Non-materialized returned 3118 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V17 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 22714
+Edge size is 0
+Took 6204 ms to use view
+Non-materialized returned 22714 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V8 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 11173
+Edge size is 0
+Took 709 ms to use view
+Non-materialized returned 11173 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS GLOBAL V15 MATCH (n)-[:POSTED]-(m:User) WHERE n IN V15 RETURN m
+MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS V15
+MATCH (n)-[:POSTED]-(m:User) WHERE ID(n) IN V15 RETURN DISTINCT(m)
+Executing query: MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS V15
+MATCH (n)-[:POSTED]-(m:User) WHERE ID(n) IN V15 RETURN DISTINCT(m)
+Execution done
+Node size is 3118
+Edge size is 0
+Took 1738 ms to use view
+Non-materialized returned 3118 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V15 LOCAL MATCH (n) RETURN n
+MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 58015
+Edge size is 0
+Took 1683 ms to use view
+Non-materialized returned 58015 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V16 LOCAL MATCH (n) RETURN n
+MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 50000 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 50000 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 971805
+Edge size is 0
+Took 1667 ms to use view
+Non-materialized returned 971805 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V18 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 16223
+Edge size is 0
+Took 1262 ms to use view
+Non-materialized returned 16223 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS GLOBAL V5 MATCH(n)-[:HAS_TAG]-(p:Post) WHERE n IN V5 RETURN p
+MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS V5
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V5 RETURN DISTINCT(p)
+Executing query: MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS V5
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V5 RETURN DISTINCT(p)
+Execution done
+Node size is 191539
+Edge size is 0
+Took 178 ms to use view
+Non-materialized returned 191539 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS GLOBAL V20 MATCH (n)-[:HAS_TAG]-(p:Post) WHERE n IN V20 RETURN p
+MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS V20
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V20 RETURN DISTINCT(p)
+Executing query: MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS V20
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V20 RETURN DISTINCT(p)
+Execution done
+Node size is 13270
+Edge size is 0
+Took 2559 ms to use view
+Non-materialized returned 13270 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V7 LOCAL MATCH (n) RETURN n
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 100 AND m.score < 600 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 100 AND m.score < 600 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 114741
+Edge size is 0
+Took 1738 ms to use view
+Non-materialized returned 114741 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V4 LOCAL MATCH (n) RETURN n
+MATCH (n:User) WHERE n.reputation > 90000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User) WHERE n.reputation > 90000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 313
+Edge size is 0
+Took 11 ms to use view
+Non-materialized returned 313 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V5 LOCAL MATCH (n) RETURN n
+MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 2
+Edge size is 0
+Took 10 ms to use view
+Non-materialized returned 2 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V19 LOCAL MATCH (n) RETURN n
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 37
+Edge size is 0
+Took 1319 ms to use view
+Non-materialized returned 37 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V6 LOCAL MATCH (n) RETURN n
+MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 42081
+Edge size is 0
+Took 58 ms to use view
+Non-materialized returned 42081 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL COMPLEX V1 V8 LOCAL MATCH (n) WHERE n IN V1 AND n IN V8 RETURN n
+Both NODE
+MATCH (n:Post) WHERE n.score > 350 WITH COLLECT(DISTINCT ID(n)) AS v1 
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH v1, COLLECT(DISTINCT ID(po2)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Executing query: MATCH (n:Post) WHERE n.score > 350 WITH COLLECT(DISTINCT ID(n)) AS v1 
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH v1, COLLECT(DISTINCT ID(po2)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Execution done
+Node size is 983
+Edge size is 0
+Took 2019 ms to use view
+Non-materialized returned 983 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL COMPLEX V18 V19 LOCAL MATCH (n) WHERE n IN V18 AND n IN V19 RETURN n
+Both NODE
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v1 
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH v1, COLLECT(DISTINCT ID(n)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v1 
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH v1, COLLECT(DISTINCT ID(n)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Execution done
+Node size is 0
+Edge size is 0
+Took 2824 ms to use view
+Non-materialized returned 0 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V20 LOCAL MATCH (n) RETURN n
+MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 3
+Edge size is 0
+Took 2384 ms to use view
+Non-materialized returned 3 elements
+*********************************

@@ -1,0 +1,1 @@
+Ignore this folder; output from compiling View.g4 in parent folder should go here. This is useful if you want to change the parser (as it is not perfect there are definitely bugs).

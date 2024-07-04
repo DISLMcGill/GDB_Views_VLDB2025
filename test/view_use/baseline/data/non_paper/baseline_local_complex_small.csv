@@ -1,0 +1,6 @@
+Use_Query,Average_Baseline_Time,Average_Cold_Baseline_Time,Average_Cold_Baseline_Time_With_Init_Load
+U1,96.2,8596.0,496.0
+U2,246.4,8690.0,985.0
+U3,4249.8,13209.5,5959.5
+U4,1889.6,10426.0,2920.0
+U5,4180.0,11635.5,3766.0

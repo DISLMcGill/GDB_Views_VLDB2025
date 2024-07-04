@@ -1,0 +1,7 @@
+MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1265000000000 RETURN f,po
+MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1265000000000 RETURN po
+MATCH p1=(c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed WITH p1,m MATCH p2=(m)<-[:LIKES]-(s:Person) RETURN p1,p2
+MATCH p1=(c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed WITH p1,m MATCH p2=(m)<-[:LIKES]-(s:Person) RETURN p1
+MATCH p1=(c:Message)-[:HAS_CREATOR]->(s:Person),p2=(s)-[:KNOWS]-(t:Person)<-[:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 RETURN p2
+MATCH (c:Message)-[r1:HAS_CREATOR]->(s:Person)-[r2:KNOWS]-(t:Person)<-[r3:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 WITH r1,r2,r3 UNWIND [r1,r2,r3] AS R MATCH p=(n)-[R]-(m) RETURN p
+MATCH (f:Forum)-[r1:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1265000000000 WITH r1 MATCH (f2:Forum)-[r1]->(po2:Post) WHERE po2.language = "ar" AND f2.title STARTS WITH "Wall" WITH r1 MATCH p=(n)-[r1]-(m) RETURN p

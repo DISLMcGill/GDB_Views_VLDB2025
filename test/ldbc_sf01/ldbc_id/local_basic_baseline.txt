@@ -1,0 +1,25 @@
+MATCH (n:Comment) WHERE n.browserUsed = "Safari" RETURN n
+MATCH (n:Comment) WHERE n.browserUsed = "Internet Explorer" RETURN n
+MATCH (n:Message) WHERE  n.creationDate > 1310000000000 AND n.creationDate < 1313000000000 RETURN n
+MATCH (n:Message) WHERE  n.creationDate > 1310000000000 AND n.creationDate < 1316000000000 RETURN n
+MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1265000000000 RETURN po
+MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" RETURN po
+MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" AND f.title STARTS WITH "Wall" RETURN po
+MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.length > 5 AND po.browserUsed = "Opera" RETURN f
+MATCH (c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed RETURN c
+MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed RETURN s
+MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" RETURN s
+MATCH (c:Message)-[:HAS_CREATOR]->(s:Person)-[:KNOWS]-(t:Person)<-[:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 RETURN b
+MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1265000000000 RETURN DISTINCT f,po
+MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" RETURN DISTINCT f,po
+MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" AND f.title STARTS WITH "Wall" RETURN DISTINCT f,po
+MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.length > 5 AND po.browserUsed = "Opera" RETURN DISTINCT f,po
+MATCH p=(c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed RETURN DISTINCT c,m
+MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed RETURN DISTINCT c,m,s
+MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" RETURN DISTINCT c,m,s
+MATCH p=(c:Message)-[:HAS_CREATOR]->(s:Person)-[:KNOWS]-(t:Person)<-[:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 RETURN DISTINCT c,s,t,b
+MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE  s.gender='male' RETURN DISTINCT c,m,s
+MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE  m.browserUsed='Safari' OR m.browserUsed='Internet Explorer' RETURN DISTINCT c,m,s
+
+
+

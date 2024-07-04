@@ -1,0 +1,170 @@
+//clean up:MATCH (v)-[:CONTAINING]->(n) where v.ViewName ='V21_2' DETACH DELETE v,n
+
+MERGE (v:View {ViewName:'V1_1'}) WITH v MATCH (n:Comment) WHERE n.browserUsed = "Safari" WITH COLLECT(DISTINCT(n)) AS resultS,v CALL  apoc.refactor.cloneNodes(resultS) YIELD output as clonedComments WITH v,  clonedComments UNWIND  clonedComments as  clonedComment MERGE (v)-[r:CONTAINING]->(clonedComment) RETURN ID(clonedComment)
+MERGE (v:View {ViewName:'V1_2'}) WITH v MATCH (n:Comment) WHERE n.browserUsed = "Internet Explorer" WITH COLLECT(DISTINCT(n)) AS resultS,v CALL  apoc.refactor.cloneNodes(resultS) YIELD output as clonedComments WITH v,  clonedComments UNWIND  clonedComments as  clonedComment MERGE (v)-[r:CONTAINING]->(clonedComment) RETURN ID(clonedComment)
+MERGE (v:View {ViewName:'V2_1'}) WITH v MATCH (n:Message) WHERE  n.creationDate > 1310000000000 AND n.creationDate < 1313000000000 WITH COLLECT(DISTINCT(n)) AS resultS,v CALL  apoc.refactor.cloneNodes(resultS) YIELD output as clonedMessages WITH v, clonedMessages UNWIND  clonedMessages as clonedMessage MERGE (v)-[r:CONTAINING]->(clonedMessage) RETURN ID(clonedMessage)
+MERGE (v:View {ViewName:'V2_2'}) WITH v MATCH (n:Message) WHERE  n.creationDate > 1310000000000 AND n.creationDate < 1316000000000 WITH COLLECT(DISTINCT(n)) AS resultS,v CALL  apoc.refactor.cloneNodes(resultS) YIELD output as clonedMessages WITH v, clonedMessages UNWIND  clonedMessages as clonedMessage MERGE (v)-[r:CONTAINING]->(clonedMessage) RETURN ID(clonedMessage)
+MERGE (v:View {ViewName:'V3_1'}) WITH v MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1265000000000 WITH COLLECT(DISTINCT(po)) AS resultS,v CALL  apoc.refactor.cloneNodes(resultS) YIELD output as clonedPosts WITH v, clonedPosts UNWIND clonedPosts as clonedPost MERGE (v)-[r:CONTAINING]->(clonedPost) RETURN ID(clonedPost)
+MERGE (v:View {ViewName:'V3_2'}) WITH v MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" WITH COLLECT(DISTINCT(po)) AS resultS,v CALL  apoc.refactor.cloneNodes(resultS) YIELD output as clonedPosts WITH v, clonedPosts UNWIND clonedPosts as clonedPost MERGE (v)-[r:CONTAINING]->(clonedPost) RETURN ID(clonedPost)
+MERGE (v:View {ViewName:'V4_1'}) WITH v MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" AND f.title STARTS WITH "Wall" WITH COLLECT(DISTINCT(po)) AS resultS,v CALL  apoc.refactor.cloneNodes(resultS) YIELD output as clonedPosts WITH v, clonedPosts UNWIND clonedPosts as clonedPost MERGE (v)-[r:CONTAINING]->(clonedPost) RETURN ID(clonedPost)
+MERGE (v:View {ViewName:'V4_2'}) WITH v MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.length > 5 AND po.browserUsed = "Opera" WITH COLLECT(DISTINCT(f)) AS resultS,v CALL  apoc.refactor.cloneNodes(resultS) YIELD output as clonedForums WITH v, clonedForums UNWIND clonedForums as clonedForum MERGE (v)-[r:CONTAINING]->(clonedForum) RETURN ID(clonedForum)
+MERGE (v:View {ViewName:'V5'}) WITH v MATCH (c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed WITH COLLECT(DISTINCT(c)) AS resultS,v CALL  apoc.refactor.cloneNodes(resultS) YIELD output as clonedMessages WITH v, clonedMessages UNWIND  clonedMessages as clonedMessage MERGE (v)-[r:CONTAINING]->(clonedMessage) RETURN ID(clonedMessage)
+MERGE (v:View {ViewName:'V6_1'}) WITH v MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed WITH COLLECT(DISTINCT(s)) AS resultS,v CALL  apoc.refactor.cloneNodes(resultS) YIELD output as clonedPeolple WITH v, clonedPeolple UNWIND clonedPeolple as clonedPerson MERGE (v)-[r:CONTAINING]->(clonedPerson) RETURN ID(clonedPerson)
+MERGE (v:View {ViewName:'V6_2'}) WITH v MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" WITH COLLECT(DISTINCT(s)) AS resultS,v CALL  apoc.refactor.cloneNodes(resultS) YIELD output as clonedPeolple WITH v, clonedPeolple UNWIND clonedPeolple as clonedPerson MERGE (v)-[r:CONTAINING]->(clonedPerson) RETURN ID(clonedPerson)
+MERGE (v:View {ViewName:'V7_2'}) WITH v MATCH (c:Message)-[:HAS_CREATOR]->(s:Person)-[:KNOWS]-(t:Person)<-[:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 WITH COLLECT(DISTINCT(b)) AS resultS,v CALL  apoc.refactor.cloneNodes(resultS) YIELD output as clonedMessages WITH v, clonedMessages UNWIND  clonedMessages as clonedMessage MERGE (v)-[r:CONTAINING]->(clonedMessage) RETURN ID(clonedMessage)
+
+
+CREATE VIEW AS V20 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed RETURN GRAPH
+CREATE VIEW AS V21_1 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" RETURN GRAPH
+CREATE VIEW AS V21_2 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE NOT c.browserUsed = m.browserUsed OR NOT s.gender = "male" RETURN GRAPH
+CREATE VIEW AS V22_2 MATCH p=(c:Message)-[:HAS_CREATOR]->(s:Person)-[:KNOWS]-(t:Person)<-[:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 RETURN GRAPH
+CREATE VIEW AS V24_1 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE  s.gender='male' RETURN GRAPH
+CREATE VIEW AS V24_2 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE NOT s.gender='male' RETURN GRAPH
+
+MERGE (v:View {ViewName:'V21_2'}) WITH v MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE NOT c.browserUsed = m.browserUsed OR NOT s.gender = "male" WITH v,COLLECT(p) as paths CALL apoc.refactor.cloneSubgraphFromPaths(paths, {standinNodes:[]}) YIELD input, output, error WITH v,input,output  MERGE (v)-[:CONTAINING]->(output) SET output.originalID=input RETURN v
+
+MERGE (v:View {ViewName:'V22_2'}) WITH v MATCH p=(c:Message)-[:HAS_CREATOR]->(s:Person)-[:KNOWS]-(t:Person)<-[:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 WITH v,COLLECT(p) as paths CALL apoc.refactor.cloneSubgraphFromPaths(paths, {standinNodes:[]}) YIELD input, output, error WITH v,input,output  MERGE (v)-[:CONTAINING]->(output) WITH output,input,v MATCH (n) WHERE ID(n)=input MERGE (output)-[:ORIGIN_IS]->(n) RETURN v
+
+CREATE VIEW AS V1_1 MATCH (n:Comment) WHERE n.browserUsed = "Safari" RETURN n
+CREATE VIEW AS V1_2 MATCH (n:Comment) WHERE n.browserUsed = "Internet Explorer" RETURN n
+CREATE VIEW AS V2_1 MATCH (n:Message) WHERE  n.creationDate > 1310000000000 AND n.creationDate < 1313000000000 RETURN n
+CREATE VIEW AS V2_2 MATCH (n:Message) WHERE  n.creationDate > 1310000000000 AND n.creationDate < 1316000000000 RETURN n
+CREATE VIEW AS V3_1 MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1265000000000 RETURN po
+CREATE VIEW AS V3_2 MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" RETURN po
+CREATE VIEW AS V4_1 MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" AND f.title STARTS WITH "Wall" RETURN po
+CREATE VIEW AS V4_2 MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.length > 5 AND po.browserUsed = "Opera" RETURN f
+CREATE VIEW AS V5 MATCH (c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed RETURN c
+CREATE VIEW AS V6_1 MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed RETURN s
+CREATE VIEW AS V6_2 MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" RETURN s
+CREATE VIEW AS V7_2 MATCH (c:Message)-[:HAS_CREATOR]->(s:Person)-[:KNOWS]-(t:Person)<-[:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 RETURN b
+CREATE VIEW AS V8_1 MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1265000000000 RETURN p
+CREATE VIEW AS V8_2 MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" RETURN p
+CREATE VIEW AS V9_1 MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" AND f.title STARTS WITH "Wall" RETURN p
+CREATE VIEW AS V9_2 MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.length > 5 AND po.browserUsed = "Opera" RETURN p
+CREATE VIEW AS V10 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed RETURN p
+CREATE VIEW AS V11_1 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed RETURN p
+CREATE VIEW AS V11_2 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" RETURN p
+CREATE VIEW AS V12_2 MATCH p=(c:Message)-[:HAS_CREATOR]->(s:Person)-[:KNOWS]-(t:Person)<-[:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 RETURN p
+CREATE VIEW AS V14_1 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE  s.gender='male' RETURN p
+CREATE VIEW AS V14_2 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE  m.browserUsed='Safari' OR m.browserUsed='Internet Explorer' RETURN p
+
+
+MATCH (v)-[r:CONTAINING]->(n) where v.ViewName ='V1_1' return n
+MATCH (v:View) WHERE v.ViewName ='V21_2' CALL apoc.path.subgraphNodes(v, {relationshipFilter: "CONTAINING>",labelFilter: "+Message"}) YIELD node WITH collect(node) AS reachableNodes MATCH (n1)-[r1:REPLY_OF]->(m)<-[r2:REPLY_OF]-(n2) WHERE n1 IN reachableNodes AND n2 IN reachableNodes AND m IN reachableNodes WITH n1,m,n2 MATCH p=(n11)-[:REPLY_OF]->(m11)<-[:REPLY_OF]-(n22) WHERE ID(n11) = n1.originalID AND ID(m11) = m.originalID AND ID(n22) = n2.originalID RETURN p
+//use id tracing verry slow
+MATCH (v:View) WHERE v.ViewName ='V22_2' CALL apoc.path.subgraphNodes(v, {relationshipFilter: "CONTAINING>"}) YIELD node WITH collect(node) AS reachableNodes MATCH (n:Message)-[:HAS_CREATOR]-(s:Person)-[:KNOWS]-(t:Person)-[:KNOWS]-(k:Person)-[:HAS_CREATOR]-(b:Message) WHERE n IN reachableNodes AND s IN reachableNodes AND t IN reachableNodes AND k IN reachableNodes AND b IN reachableNodes WITH n,s,t,k,b MATCH p=(n1:Message)-[:HAS_CREATOR]->(s1:Person)-[:KNOWS]-(t1:Person)-[:KNOWS]-(k1:Person)<-[:HAS_CREATOR]-(b1:Message)  WHERE ID(n1) = n.originalID AND ID(t1) = t.originalID AND ID(s1) = s.originalID AND ID(k1) = k.originalID AND ID(b1) = b.originalID RETURN p
+//use linkage still very slow
+MATCH (v:View) WHERE v.ViewName ='V22_2' CALL apoc.path.subgraphNodes(v, {relationshipFilter: "CONTAINING>"}) YIELD node WITH collect(node) AS reachableNodes MATCH (n:Message)-[:HAS_CREATOR]-(s:Person)-[:KNOWS]-(t:Person)-[:KNOWS]-(k:Person)-[:HAS_CREATOR]-(b:Message),(n)-[:ORIGIN_IS]->(n1),(s)-[:ORIGIN_IS]->(s1),(t)-[:ORIGIN_IS]->(t1),(k)-[:ORIGIN_IS]->(k1),(b)-[:ORIGIN_IS]->(b1), p=(n1)-[]-(s1)-[]-(t1)-[]-(k1)-[]-(b1)  WHERE n IN reachableNodes AND s IN reachableNodes AND t IN reachableNodes AND k IN reachableNodes AND b IN reachableNodes RETURN p
+//what about return a node
+
+
+WITH VIEWS V14_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V8_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V14_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V10 LOCAL MATCH (n) RETURN n
+WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V8_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V12_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V11_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V9_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V11_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V10 LOCAL MATCH (n) RETURN n
+WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V9_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V14_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V11_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V9_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V8_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V12_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V9_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V8_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V11_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V14_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V9_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V11_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V8_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V14_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V9_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V10 LOCAL MATCH (n) RETURN n
+WITH VIEWS V8_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V14_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V11_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+WITH VIEWS V12_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V11_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V8_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V8_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V12_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V14_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V10 LOCAL MATCH (n) RETURN n
+WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V9_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V11_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V14_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+WITH VIEWS V9_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V14_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V8_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V11_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V9_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V12_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V10 LOCAL MATCH (n) RETURN n
+WITH VIEWS V11_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V9_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V14_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+WITH VIEWS V8_2 LOCAL MATCH (n) RETURN n
+WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n

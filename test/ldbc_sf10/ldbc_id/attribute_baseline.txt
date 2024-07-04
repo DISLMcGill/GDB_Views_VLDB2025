@@ -1,0 +1,3 @@
+MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" SET s.viewname = CASE WHEN s.viewname IS NULL THEN ['V1'] WHEN NOT ANY(v IN s.viewname WHERE v ='V1') THEN s.viewname + ['V1'] ELSE s.viewname END RETURN COUNT(DISTINCT(s))
+MATCH (s) where 'V1' IN s.viewname RETURN COUNT(s)
+MATCH (s) REMOVE s.viewname RETURN COUNT(s)

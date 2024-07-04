@@ -1,0 +1,69 @@
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+CREATE VIEW AS V8_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN p
+CREATE VIEW AS V8_2 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN p
+CREATE VIEW AS V9_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN p
+CREATE VIEW AS V9_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN p
+CREATE VIEW AS V10 MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+CREATE VIEW AS V11_1 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+CREATE VIEW AS V11_2 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+CREATE VIEW AS V12_1 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN p
+CREATE VIEW AS V12_2 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN p
+CREATE VIEW AS V14_1 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'html' RETURN p
+CREATE VIEW AS V14_2 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'html' OR t.tagId = 'php' RETURN p
+CREATE VIEW AS V18_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS V18_2 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS V19_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS V19_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS V21_1 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS V21_2 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS V22_1 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS V22_2 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS V24_1 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'html' CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS V24_2 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'html' OR t.tagId = 'php' CONSTRUCT p RETURN GRAPH
+
+
+U40: WITH VIEWS V18_1 LOCAL MATCH p=(po1:Post)-[:POSTED]-(n:User)-[:POSTED]-(po2:Post) RETURN p
+U41: WITH VIEWS V18_2 LOCAL MATCH p=(po1:Post)-[:POSTED]-(n:User)-[:POSTED]-(po2:Post) RETURN p
+U42: WITH VIEWS V19_1 LOCAL MATCH p=(n:Post)<-[:PARENT_OF]-(m:Post)-[:PARENT_OF]->(t:Post) RETURN p
+U43: WITH VIEWS V19_2 LOCAL MATCH p=(n:Post)<-[:PARENT_OF]-(m:Post)-[:PARENT_OF]->(t:Post) RETURN p
+U44: WITH VIEWS V21_1 LOCAL MATCH p=(b:Post)-[:PARENT_OF]->(w:Post) RETURN p
+U45: WITH VIEWS V21_2 LOCAL MATCH p=(b:Post)-[:PARENT_OF]->(w:Post) RETURN p
+
+
+MATCH p=(po1:Post)-[:POSTED]-(n:User)-[:POSTED]-(po2:Post) WHERE n.reputation < 850 RETURN p
+MATCH p=(po1:Post)-[:POSTED]-(n:User)-[:POSTED]-(po2:Post) WHERE po1.score > 38 AND po2.score > 38 RETURN p
+MATCH p=(n:Post)<-[:PARENT_OF]-(m:Post)-[:PARENT_OF]->(t:Post) WHERE m.score > 200 AND n.score > 200 AND t.score > 200 RETURN p
+MATCH p=(n:Post)<-[:PARENT_OF]-(m:Post)-[:PARENT_OF]->(t:Post) WHERE (m.score > 300 AND m.score < 450) OR (n.score > 300 AND n.score < 450 AND t.score > 300 AND t.score < 450) RETURN p
+MATCH (n:User)-[:POSTED]-(betterPost:Post), p =(betterPost)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 return p
+MATCH (n:User)-[:POSTED]-(betterPost:Post), p =(betterPost)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 return p
+
+
+U46: WITH VIEWS V22_1 GLOBAL MATCH p=(po:Post)-[:HAS_TAG]->(t:Tag)<-[:HAS_TAG]-(po2:Post) WHERE po IN V22_1 AND po2 IN V22_1 RETURN t
+U47: WITH VIEWS V22_2 GLOBAL MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag) WHERE n IN V22_2 AND po IN V22_2 RETURN DISTINCT t
+U48: WITH VIEWS V24_1 GLOBAL MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag) WHERE n IN V24_1 AND t IN V24_1 RETURN po
+U49: WITH VIEWS V24_2 GLOBAL MATCH p=(p1:Post)-[:PARENT_OF]->(p2:Post) WHERE p1 IN V24_2 AND p2 IN V24_2 RETURN p
+
+
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(p1)+COLLECT(p2) AS posts MATCH  (po:Post)-[:HAS_TAG]->(t:Tag)<-[:HAS_TAG]-(po2:Post) WHERE po IN posts AND po2 IN posts RETURN t
+MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH COLLECT(p1)+COLLECT(p2) AS posts MATCH (po:Post)-[:HAS_TAG]-(t:Tag) WHERE po IN posts RETURN DISTINCT t 
+MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'html' WITH n, t MATCH (n)-[:POSTED]-(po2:Post)-[:HAS_TAG]-(t) RETURN po2
+MATCH (n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'html' OR t.tagId = 'php' WITH COLLECT(po)+COLLECT(po2) AS posts MATCH p=(p1:Post)-[:PARENT_OF]->(p2:Post) WHERE p1 IN posts AND p2 IN posts RETURN p
+
+
+U13': WITH VIEWS V21_1 LOCAL MATCH p=(n:User)-[:POSTED]-(betterPost:Post) RETURN p
+
+
+
+

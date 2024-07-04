@@ -1,0 +1,215 @@
+neo4j graph connector set-up done.
+1
+baseline U5 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.upvotes > 400 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.upvotes > 400 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+Execution done
+Node size is 11447
+Edge size is 0
+Took 46049 ms to execute baseline query
+Baseline returned 11447 nodes (or edges)
+*********************************
+baseline U2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 AND n.score < 1500 RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 AND n.score < 1500 RETURN n
+Execution done
+Node size is 20096
+Edge size is 0
+Took 2467 ms to execute baseline query
+Baseline returned 20096 nodes (or edges)
+*********************************
+baseline U1 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 AND betterPost.score < 1500 AND betterPost.score > 10 RETURN betterPost
+Executing query: MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 AND betterPost.score < 1500 AND betterPost.score > 10 RETURN betterPost
+Execution done
+Node size is 138724
+Edge size is 0
+Took 13080 ms to execute baseline query
+Baseline returned 138724 nodes (or edges)
+*********************************
+baseline U3 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT n) AS firstSet MATCH (m:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(n2:User) WHERE m.userId < n2.userId AND m.reputation > n2.reputation AND n2 IN firstSet RETURN DISTINCT n2
+Executing query: MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT n) AS firstSet MATCH (m:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(n2:User) WHERE m.userId < n2.userId AND m.reputation > n2.reputation AND n2 IN firstSet RETURN DISTINCT n2
+Execution done
+Node size is 24206
+Edge size is 0
+Took 2233 ms to execute baseline query
+Baseline returned 24206 nodes (or edges)
+*********************************
+baseline U4 MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.reputation < 850 AND po.score > 300 AND po.score < 450 RETURN po
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.reputation < 850 AND po.score > 300 AND po.score < 450 RETURN po
+Execution done
+Node size is 4
+Edge size is 0
+Took 366 ms to execute baseline query
+Baseline returned 4 nodes (or edges)
+*********************************
+--------------------------------------
+neo4j graph connector set-up done.
+1
+baseline U1 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 AND betterPost.score < 1500 AND betterPost.score > 10 RETURN betterPost
+Executing query: MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 AND betterPost.score < 1500 AND betterPost.score > 10 RETURN betterPost
+Execution done
+Node size is 138724
+Edge size is 0
+Took 52293 ms to execute baseline query
+Baseline returned 138724 nodes (or edges)
+*********************************
+baseline U5 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.upvotes > 400 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.upvotes > 400 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+Execution done
+Node size is 11447
+Edge size is 0
+Took 7143 ms to execute baseline query
+Baseline returned 11447 nodes (or edges)
+*********************************
+baseline U3 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT n) AS firstSet MATCH (m:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(n2:User) WHERE m.userId < n2.userId AND m.reputation > n2.reputation AND n2 IN firstSet RETURN DISTINCT n2
+Executing query: MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT n) AS firstSet MATCH (m:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(n2:User) WHERE m.userId < n2.userId AND m.reputation > n2.reputation AND n2 IN firstSet RETURN DISTINCT n2
+Execution done
+Node size is 24206
+Edge size is 0
+Took 2860 ms to execute baseline query
+Baseline returned 24206 nodes (or edges)
+*********************************
+baseline U2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 AND n.score < 1500 RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 AND n.score < 1500 RETURN n
+Execution done
+Node size is 20096
+Edge size is 0
+Took 2258 ms to execute baseline query
+Baseline returned 20096 nodes (or edges)
+*********************************
+baseline U4 MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.reputation < 850 AND po.score > 300 AND po.score < 450 RETURN po
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.reputation < 850 AND po.score > 300 AND po.score < 450 RETURN po
+Execution done
+Node size is 4
+Edge size is 0
+Took 366 ms to execute baseline query
+Baseline returned 4 nodes (or edges)
+*********************************
+--------------------------------------
+neo4j graph connector set-up done.
+1
+baseline U2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 AND n.score < 1500 RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 AND n.score < 1500 RETURN n
+Execution done
+Node size is 20096
+Edge size is 0
+Took 40223 ms to execute baseline query
+Baseline returned 20096 nodes (or edges)
+*********************************
+baseline U3 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT n) AS firstSet MATCH (m:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(n2:User) WHERE m.userId < n2.userId AND m.reputation > n2.reputation AND n2 IN firstSet RETURN DISTINCT n2
+Executing query: MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT n) AS firstSet MATCH (m:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(n2:User) WHERE m.userId < n2.userId AND m.reputation > n2.reputation AND n2 IN firstSet RETURN DISTINCT n2
+Execution done
+Node size is 24206
+Edge size is 0
+Took 2603 ms to execute baseline query
+Baseline returned 24206 nodes (or edges)
+*********************************
+baseline U4 MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.reputation < 850 AND po.score > 300 AND po.score < 450 RETURN po
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.reputation < 850 AND po.score > 300 AND po.score < 450 RETURN po
+Execution done
+Node size is 4
+Edge size is 0
+Took 384 ms to execute baseline query
+Baseline returned 4 nodes (or edges)
+*********************************
+baseline U5 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.upvotes > 400 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.upvotes > 400 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+Execution done
+Node size is 11447
+Edge size is 0
+Took 7753 ms to execute baseline query
+Baseline returned 11447 nodes (or edges)
+*********************************
+baseline U1 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 AND betterPost.score < 1500 AND betterPost.score > 10 RETURN betterPost
+Executing query: MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 AND betterPost.score < 1500 AND betterPost.score > 10 RETURN betterPost
+Execution done
+Node size is 138724
+Edge size is 0
+Took 13718 ms to execute baseline query
+Baseline returned 138724 nodes (or edges)
+*********************************
+--------------------------------------
+neo4j graph connector set-up done.
+1
+baseline U5 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.upvotes > 400 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.upvotes > 400 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+Execution done
+Node size is 11447
+Edge size is 0
+Took 46711 ms to execute baseline query
+Baseline returned 11447 nodes (or edges)
+*********************************
+baseline U4 MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.reputation < 850 AND po.score > 300 AND po.score < 450 RETURN po
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.reputation < 850 AND po.score > 300 AND po.score < 450 RETURN po
+Execution done
+Node size is 4
+Edge size is 0
+Took 533 ms to execute baseline query
+Baseline returned 4 nodes (or edges)
+*********************************
+baseline U1 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 AND betterPost.score < 1500 AND betterPost.score > 10 RETURN betterPost
+Executing query: MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 AND betterPost.score < 1500 AND betterPost.score > 10 RETURN betterPost
+Execution done
+Node size is 138724
+Edge size is 0
+Took 13719 ms to execute baseline query
+Baseline returned 138724 nodes (or edges)
+*********************************
+baseline U3 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT n) AS firstSet MATCH (m:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(n2:User) WHERE m.userId < n2.userId AND m.reputation > n2.reputation AND n2 IN firstSet RETURN DISTINCT n2
+Executing query: MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT n) AS firstSet MATCH (m:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(n2:User) WHERE m.userId < n2.userId AND m.reputation > n2.reputation AND n2 IN firstSet RETURN DISTINCT n2
+Execution done
+Node size is 24206
+Edge size is 0
+Took 2140 ms to execute baseline query
+Baseline returned 24206 nodes (or edges)
+*********************************
+baseline U2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 AND n.score < 1500 RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 AND n.score < 1500 RETURN n
+Execution done
+Node size is 20096
+Edge size is 0
+Took 2183 ms to execute baseline query
+Baseline returned 20096 nodes (or edges)
+*********************************
+--------------------------------------
+neo4j graph connector set-up done.
+1
+baseline U1 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 AND betterPost.score < 1500 AND betterPost.score > 10 RETURN betterPost
+Executing query: MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 AND betterPost.score < 1500 AND betterPost.score > 10 RETURN betterPost
+Execution done
+Node size is 138724
+Edge size is 0
+Took 38131 ms to execute baseline query
+Baseline returned 138724 nodes (or edges)
+*********************************
+baseline U5 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.upvotes > 400 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.upvotes > 400 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+Execution done
+Node size is 11447
+Edge size is 0
+Took 44704 ms to execute baseline query
+Baseline returned 11447 nodes (or edges)
+*********************************
+baseline U3 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT n) AS firstSet MATCH (m:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(n2:User) WHERE m.userId < n2.userId AND m.reputation > n2.reputation AND n2 IN firstSet RETURN DISTINCT n2
+Executing query: MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT n) AS firstSet MATCH (m:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(n2:User) WHERE m.userId < n2.userId AND m.reputation > n2.reputation AND n2 IN firstSet RETURN DISTINCT n2
+Execution done
+Node size is 24206
+Edge size is 0
+Took 2380 ms to execute baseline query
+Baseline returned 24206 nodes (or edges)
+*********************************
+baseline U2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 AND n.score < 1500 RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 AND n.score < 1500 RETURN n
+Execution done
+Node size is 20096
+Edge size is 0
+Took 2362 ms to execute baseline query
+Baseline returned 20096 nodes (or edges)
+*********************************
+baseline U4 MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.reputation < 850 AND po.score > 300 AND po.score < 450 RETURN po
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.reputation < 850 AND po.score > 300 AND po.score < 450 RETURN po
+Execution done
+Node size is 4
+Edge size is 0
+Took 379 ms to execute baseline query
+Baseline returned 4 nodes (or edges)
+*********************************
+--------------------------------------

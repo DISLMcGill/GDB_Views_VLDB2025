@@ -1,0 +1,30 @@
+CREATE TEXT INDEX v1 FOR (n:Comment) ON (n.browserUsed)
+MATCH (n:Comment) WHERE n.browserUsed = "Internet Explorer" RETURN n
+MATCH (n:Comment) WHERE n.browserUsed = "Internet Explorer" RETURN n
+DROP INDEX v1
+
+CREATE INDEX v1 FOR (n:Message) ON (n.creationDate)
+MATCH (n:Message) WHERE  n.creationDate > 1310000000000 AND n.creationDate < 1313000000000 RETURN n
+MATCH (n:Message) WHERE  n.creationDate > 1310000000000 AND n.creationDate < 1313000000000 RETURN n
+DROP INDEX v1
+
+CREATE INDEX v1 FOR (po:Post) ON (po.length)
+CREATE TEXT INDEX v2 FOR (po:Post) ON (po.browserUsed)
+MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.length > 5 AND po.browserUsed = "Opera" RETURN f
+MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.length > 5 AND po.browserUsed = "Opera" RETURN f
+DROP INDEX v1
+DROP INDEX v2
+
+
+CREATE TEXT INDEX v1 FOR (c:Message) ON (c.browserUsed)
+MATCH (c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed RETURN DISTINCT c
+MATCH (c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed RETURN DISTINCT c
+DROP INDEX v1
+
+
+CREATE TEXT INDEX v1 FOR (po:Post) ON (po.language)
+MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" RETURN DISTINCT f,po
+MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" RETURN DISTINCT f,po
+DROP INDEX v1
+
+MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.length > 5 AND po.browserUsed = "Opera" RETURN f,po

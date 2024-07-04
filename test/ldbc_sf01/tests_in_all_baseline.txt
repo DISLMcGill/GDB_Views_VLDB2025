@@ -1,0 +1,30 @@
+CREATE VIEW AS V1_2 MATCH (n:Comment) WHERE n.browserUsed = "Internet Explorer" RETURN n
+CREATE VIEW AS V5 MATCH (c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed RETURN c
+CREATE VIEW AS V8_2 MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" RETURN p
+CREATE VIEW AS V11_2 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" RETURN p
+CREATE VIEW AS V14_1 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE  s.gender='male' RETURN p 
+CREATE VIEW AS V14_3 MATCH p1=(c:Message)-[:REPLY_OF]->(m:Message),p2=(m)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE  s.gender='male' RETURN p1,p2
+CREATE VIEW AS V14_4 MATCH p1=(c:Message)-[:REPLY_OF]->(m:Message),p2=(m)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE  m.browserUsed='Safari' OR m.browserUsed='Internet Explorer' RETURN p1,p2
+CREATE VIEW AS V21_2 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE NOT c.browserUsed = m.browserUsed OR NOT s.gender = "male" CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS V24_2 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE NOT s.gender='male' RETURN GRAPH
+
+WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n:
+MATCH (n:Comment) WHERE n.browserUsed = "Internet Explorer" RETURN DISTINCT n
+WITH VIEWS V5 LOCAL MATCH (n) RETURN n:
+MATCH (c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed RETURN DISTINCT c
+WITH VIEWS V8_2 LOCAL MATCH (n) RETURN n:
+MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" RETURN DISTINCT f,po
+WITH VIEWS V14_1 LOCAL MATCH (n) RETURN n:
+MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE  s.gender='male' RETURN DISTINCT c,m,s
+WITH VIEWS V21_2 LOCAL MATCH (n) RETURN n:
+MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE NOT c.browserUsed = m.browserUsed OR NOT s.gender = "male" RETURN DISTINCT c,m,s
+WITH VIEWS V24_2 LOCAL MATCH (n) RETURN n:
+MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE NOT s.gender='male' RETURN DISTINCT c,m,s
+
+
+S10: MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" WITH c,m UNWIND [c, m] AS M MATCH (s:Person)<-[:HAS_CREATOR]-(M) RETURN DISTINCT s
+S11: MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" RETURN DISTINCT p
+S13: MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE  s.gender='male' RETURN DISTINCT p 
+S23: MATCH p1=(c:Message)-[:REPLY_OF]->(m:Message),p2=(m)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE s.gender='male' WITH DISTINCT s MATCH (s)<-[:HAS_MODERATOR]-(f:Forum) RETURN DISTINCT f
+S24: MATCH p1=(c:Message)-[:REPLY_OF]->(m:Message),p2=(m)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE m.language = "ar" AND (m.browserUsed='Safari' OR m.browserUsed='Internet Explorer') WITH DISTINCT s MATCH (s)<-[:HAS_MODERATOR]-(f:Forum) RETURN DISTINCT f
+S25: MATCH p1=(c:Message)-[:REPLY_OF]->(m:Message),p2=(m)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE m.language = "ar" AND (m.browserUsed='Safari' OR m.browserUsed='Internet Explorer') WITH DISTINCT s MATCH (s)<-[r3:HAS_MODERATOR]-(f:Forum) RETURN DISTINCT r3

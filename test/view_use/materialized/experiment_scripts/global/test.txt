@@ -1,0 +1,10 @@
+CREATE VIEW AS V3_3 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN n,po
+CREATE VIEW AS V3_4 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN n,po
+CREATE VIEW AS V4_3 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n,m
+CREATE VIEW AS V4_4 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN n,m
+CREATE VIEW AS V5_3 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost,worstPost
+CREATE VIEW AS V6_3 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n,betterPost,worstPost
+CREATE VIEW AS V6_4 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n,betterPost,worstPost
+CREATE VIEW AS V7_3 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN n,m,p1,p2
+CREATE VIEW AS V7_4 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN n,m,p1,p2
+

@@ -1,0 +1,1 @@
+UserPostingOneCondition;MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 RETURN p

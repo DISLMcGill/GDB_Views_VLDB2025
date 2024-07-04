@@ -1,0 +1,2760 @@
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19564 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V14_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV14_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V14_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V14_2' IN n.viewname RETURN n
+Took 40 ms to execute transaction
+There are 58930 elements in the query
+Took 5356 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5436ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19188 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V2_2' IN n.viewname RETURN n
+Took 38 ms to execute transaction
+There are 521823 elements in the query
+Took 5401 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5468ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 20469 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V3_1' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 56691 elements in the query
+Took 5791 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5858ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19382 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V7_2' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 18275 elements in the query
+Took 5855 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5922ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19102 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V4_1' IN n.viewname RETURN n
+Took 31 ms to execute transaction
+There are 17665 elements in the query
+Took 5416 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5486ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19499 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V1_1' IN n.viewname RETURN n
+Took 36 ms to execute transaction
+There are 2341 elements in the query
+Took 5575 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5647ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19098 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V8_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV8_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V8_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V8_2' IN n.viewname RETURN n
+Took 40 ms to execute transaction
+There are 67687 elements in the query
+Took 5270 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5350ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19865 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V4_2' IN n.viewname RETURN n
+Took 30 ms to execute transaction
+There are 5941 elements in the query
+Took 5416 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5485ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19422 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V6_1' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 19275 elements in the query
+Took 5637 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5702ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19951 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V14_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV14_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V14_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V14_1' IN n.viewname RETURN n
+Took 35 ms to execute transaction
+There are 20289 elements in the query
+Took 5272 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5349ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19679 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V2_1' IN n.viewname RETURN n
+Took 31 ms to execute transaction
+There are 272559 elements in the query
+Took 5572 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5635ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 18853 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V7_1' IN n.viewname RETURN n
+Took 37 ms to execute transaction
+There are 22714 elements in the query
+Took 5639 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5722ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 20154 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V3_2' IN n.viewname RETURN n
+Took 39 ms to execute transaction
+There are 56570 elements in the query
+Took 5596 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5647ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19246 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V10 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV10LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V10 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V10' IN n.viewname RETURN n
+Took 42 ms to execute transaction
+There are 2272251 elements in the query
+Took 5942 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+Took 6018ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19502 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V12_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV12_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V12_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V12_1' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 411243 elements in the query
+Took 5320 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5388ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19625 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V1_2' IN n.viewname RETURN n
+Took 36 ms to execute transaction
+There are 5290 elements in the query
+Took 5469 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5524ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19173 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V8_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV8_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V8_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V8_1' IN n.viewname RETURN n
+Took 30 ms to execute transaction
+There are 66786 elements in the query
+Took 5843 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5906ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19298 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V12_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV12_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V12_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V12_2' IN n.viewname RETURN n
+Took 30 ms to execute transaction
+There are 318253 elements in the query
+Took 5583 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+Took 5649ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19671 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V11_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV11_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V11_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V11_1' IN n.viewname RETURN n
+Took 34 ms to execute transaction
+There are 356640 elements in the query
+Took 5933 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 6007ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19263 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV5LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V5' IN n.viewname RETURN n
+Took 45 ms to execute transaction
+There are 1042055 elements in the query
+Took 5588 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+Took 5674ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 20701 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V6_2' IN n.viewname RETURN n
+Took 40 ms to execute transaction
+There are 5868 elements in the query
+Took 5233 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5306ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19370 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V9_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV9_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V9_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V9_1' IN n.viewname RETURN n
+Took 37 ms to execute transaction
+There are 17665 elements in the query
+Took 5305 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5384ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19294 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V11_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV11_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V11_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V11_2' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 30372 elements in the query
+Took 5510 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+Took 5584ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 12348 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V9_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV9_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V9_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V9_2' IN n.viewname RETURN n
+Took 31 ms to execute transaction
+There are 21329 elements in the query
+Took 2607 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+Took 2640ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 18998 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V14_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV14_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V14_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V14_2' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 58930 elements in the query
+Took 5552 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5621ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19472 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V2_2' IN n.viewname RETURN n
+Took 30 ms to execute transaction
+There are 521823 elements in the query
+Took 5850 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5894ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19897 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V3_1' IN n.viewname RETURN n
+Took 44 ms to execute transaction
+There are 56691 elements in the query
+Took 5357 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5439ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19104 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V7_2' IN n.viewname RETURN n
+Took 33 ms to execute transaction
+There are 18275 elements in the query
+Took 5436 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5509ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 20839 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V4_1' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 17665 elements in the query
+Took 5640 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5715ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19184 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V1_1' IN n.viewname RETURN n
+Took 49 ms to execute transaction
+There are 2341 elements in the query
+Took 5396 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5479ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19663 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V8_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV8_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V8_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V8_2' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 67687 elements in the query
+Took 5566 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5632ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19329 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V4_2' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 5941 elements in the query
+Took 5567 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5636ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19547 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V6_1' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 19275 elements in the query
+Took 5186 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5256ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19874 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V14_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV14_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V14_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V14_1' IN n.viewname RETURN n
+Took 34 ms to execute transaction
+There are 20289 elements in the query
+Took 5249 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5317ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19229 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V2_1' IN n.viewname RETURN n
+Took 36 ms to execute transaction
+There are 272559 elements in the query
+Took 5437 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5512ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 20245 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V7_1' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 22714 elements in the query
+Took 5602 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5668ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 20304 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V3_2' IN n.viewname RETURN n
+Took 30 ms to execute transaction
+There are 56570 elements in the query
+Took 6037 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 6102ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19460 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V10 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV10LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V10 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V10' IN n.viewname RETURN n
+Took 46 ms to execute transaction
+There are 2272251 elements in the query
+Took 6099 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+Took 6192ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19526 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V12_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV12_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V12_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V12_1' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 411243 elements in the query
+Took 5865 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5928ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19665 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V1_2' IN n.viewname RETURN n
+Took 36 ms to execute transaction
+There are 5290 elements in the query
+Took 5459 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5533ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19227 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V8_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV8_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V8_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V8_1' IN n.viewname RETURN n
+Took 29 ms to execute transaction
+There are 66786 elements in the query
+Took 5396 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5450ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19829 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V12_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV12_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V12_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V12_2' IN n.viewname RETURN n
+Took 30 ms to execute transaction
+There are 318253 elements in the query
+Took 5595 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5665ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19884 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V11_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV11_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V11_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V11_1' IN n.viewname RETURN n
+Took 37 ms to execute transaction
+There are 356640 elements in the query
+Took 5878 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5949ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19130 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV5LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V5' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 1042055 elements in the query
+Took 5724 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5791ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 20943 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V6_2' IN n.viewname RETURN n
+Took 29 ms to execute transaction
+There are 5868 elements in the query
+Took 5737 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5798ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19383 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V9_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV9_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V9_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V9_1' IN n.viewname RETURN n
+Took 43 ms to execute transaction
+There are 17665 elements in the query
+Took 5319 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5402ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19302 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V11_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV11_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V11_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V11_2' IN n.viewname RETURN n
+Took 35 ms to execute transaction
+There are 30372 elements in the query
+Took 5437 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5505ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 14964 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V9_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV9_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V9_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V9_2' IN n.viewname RETURN n
+Took 33 ms to execute transaction
+There are 21329 elements in the query
+Took 3374 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 3410ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19616 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V14_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV14_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V14_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V14_2' IN n.viewname RETURN n
+Took 40 ms to execute transaction
+There are 58930 elements in the query
+Took 5406 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5479ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19878 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V2_2' IN n.viewname RETURN n
+Took 30 ms to execute transaction
+There are 521823 elements in the query
+Took 5312 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5401ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19472 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V3_1' IN n.viewname RETURN n
+Took 37 ms to execute transaction
+There are 56691 elements in the query
+Took 5782 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5858ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19840 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V7_2' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 18275 elements in the query
+Took 5440 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5530ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 20128 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V4_1' IN n.viewname RETURN n
+Took 45 ms to execute transaction
+There are 17665 elements in the query
+Took 5918 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+Took 6011ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19040 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V1_1' IN n.viewname RETURN n
+Took 35 ms to execute transaction
+There are 2341 elements in the query
+Took 5270 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+Took 5337ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19487 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V8_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV8_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V8_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V8_2' IN n.viewname RETURN n
+Took 34 ms to execute transaction
+There are 67687 elements in the query
+Took 5513 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5583ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19326 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V4_2' IN n.viewname RETURN n
+Took 34 ms to execute transaction
+There are 5941 elements in the query
+Took 5414 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5486ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19471 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V6_1' IN n.viewname RETURN n
+Took 38 ms to execute transaction
+There are 19275 elements in the query
+Took 5274 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5348ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19391 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V14_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV14_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V14_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V14_1' IN n.viewname RETURN n
+Took 36 ms to execute transaction
+There are 20289 elements in the query
+Took 5471 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5552ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19096 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V2_1' IN n.viewname RETURN n
+Took 38 ms to execute transaction
+There are 272559 elements in the query
+Took 5498 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+Took 5571ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19579 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V7_1' IN n.viewname RETURN n
+Took 38 ms to execute transaction
+There are 22714 elements in the query
+Took 5397 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5476ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19782 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V3_2' IN n.viewname RETURN n
+Took 35 ms to execute transaction
+There are 56570 elements in the query
+Took 5794 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5865ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19587 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V10 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV10LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V10 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V10' IN n.viewname RETURN n
+Took 31 ms to execute transaction
+There are 2272251 elements in the query
+Took 6213 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 6284ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19687 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V12_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV12_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V12_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V12_1' IN n.viewname RETURN n
+Took 30 ms to execute transaction
+There are 411243 elements in the query
+Took 5841 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5904ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19074 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V1_2' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 5290 elements in the query
+Took 5345 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5421ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19513 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V8_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV8_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V8_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V8_1' IN n.viewname RETURN n
+Took 36 ms to execute transaction
+There are 66786 elements in the query
+Took 5790 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5860ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19784 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V12_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV12_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V12_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V12_2' IN n.viewname RETURN n
+Took 29 ms to execute transaction
+There are 318253 elements in the query
+Took 5556 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5627ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 18999 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V11_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV11_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V11_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V11_1' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 356640 elements in the query
+Took 5329 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5401ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19783 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV5LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V5' IN n.viewname RETURN n
+Took 31 ms to execute transaction
+There are 1042055 elements in the query
+Took 5627 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5698ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19030 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V6_2' IN n.viewname RETURN n
+Took 34 ms to execute transaction
+There are 5868 elements in the query
+Took 5418 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5487ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 20026 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V9_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV9_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V9_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V9_1' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 17665 elements in the query
+Took 5402 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5468ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19546 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V11_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV11_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V11_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V11_2' IN n.viewname RETURN n
+Took 36 ms to execute transaction
+There are 30372 elements in the query
+Took 5605 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5678ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 13892 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V9_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV9_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V9_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V9_2' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 21329 elements in the query
+Took 4028 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+Took 4070ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19854 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V14_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV14_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V14_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V14_2' IN n.viewname RETURN n
+Took 35 ms to execute transaction
+There are 58930 elements in the query
+Took 5381 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5455ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19274 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V2_2' IN n.viewname RETURN n
+Took 38 ms to execute transaction
+There are 521823 elements in the query
+Took 5400 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5473ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19906 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V3_1' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 56691 elements in the query
+Took 5698 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5750ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19815 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V7_2' IN n.viewname RETURN n
+Took 37 ms to execute transaction
+There are 18275 elements in the query
+Took 5673 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+Took 5739ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19243 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V4_1' IN n.viewname RETURN n
+Took 42 ms to execute transaction
+There are 17665 elements in the query
+Took 5442 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+Took 5531ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 20155 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V1_1' IN n.viewname RETURN n
+Took 44 ms to execute transaction
+There are 2341 elements in the query
+Took 5632 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5697ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19479 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V8_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV8_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V8_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V8_2' IN n.viewname RETURN n
+Took 31 ms to execute transaction
+There are 67687 elements in the query
+Took 5553 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5619ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19249 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V4_2' IN n.viewname RETURN n
+Took 31 ms to execute transaction
+There are 5941 elements in the query
+Took 5312 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5377ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19639 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V6_1' IN n.viewname RETURN n
+Took 35 ms to execute transaction
+There are 19275 elements in the query
+Took 5291 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5363ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19023 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V14_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV14_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V14_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V14_1' IN n.viewname RETURN n
+Took 31 ms to execute transaction
+There are 20289 elements in the query
+Took 5402 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5468ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19370 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V2_1' IN n.viewname RETURN n
+Took 35 ms to execute transaction
+There are 272559 elements in the query
+Took 5374 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5446ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19184 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V7_1' IN n.viewname RETURN n
+Took 40 ms to execute transaction
+There are 22714 elements in the query
+Took 5381 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5454ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 20153 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V3_2' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 56570 elements in the query
+Took 5645 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5715ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 20865 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V10 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV10LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V10 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V10' IN n.viewname RETURN n
+Took 31 ms to execute transaction
+There are 2272251 elements in the query
+Took 5969 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 6034ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19149 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V12_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV12_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V12_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V12_1' IN n.viewname RETURN n
+Took 34 ms to execute transaction
+There are 411243 elements in the query
+Took 5494 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5547ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19457 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V1_2' IN n.viewname RETURN n
+Took 38 ms to execute transaction
+There are 5290 elements in the query
+Took 5628 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5714ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 20037 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V8_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV8_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V8_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V8_1' IN n.viewname RETURN n
+Took 31 ms to execute transaction
+There are 66786 elements in the query
+Took 5320 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5396ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19095 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V12_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV12_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V12_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V12_2' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 318253 elements in the query
+Took 5277 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5344ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19372 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V11_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV11_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V11_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V11_1' IN n.viewname RETURN n
+Took 31 ms to execute transaction
+There are 356640 elements in the query
+Took 5573 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+Took 5638ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 18907 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV5LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V5' IN n.viewname RETURN n
+Took 31 ms to execute transaction
+There are 1042055 elements in the query
+Took 5729 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+Took 5795ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19323 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V6_2' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 5868 elements in the query
+Took 5327 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5398ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 21215 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V9_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV9_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V9_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V9_1' IN n.viewname RETURN n
+Took 31 ms to execute transaction
+There are 17665 elements in the query
+Took 5458 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5525ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19290 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V11_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV11_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V11_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V11_2' IN n.viewname RETURN n
+Took 47 ms to execute transaction
+There are 30372 elements in the query
+Took 5494 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5580ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 14859 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V9_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV9_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V9_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V9_2' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 21329 elements in the query
+Took 4387 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 4431ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19437 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V14_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV14_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V14_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V14_2' IN n.viewname RETURN n
+Took 33 ms to execute transaction
+There are 58930 elements in the query
+Took 5478 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5544ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19476 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V2_2' IN n.viewname RETURN n
+Took 39 ms to execute transaction
+There are 521823 elements in the query
+Took 5636 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5711ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19770 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V3_1' IN n.viewname RETURN n
+Took 29 ms to execute transaction
+There are 56691 elements in the query
+Took 5643 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5713ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 18985 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V7_2' IN n.viewname RETURN n
+Took 42 ms to execute transaction
+There are 18275 elements in the query
+Took 5415 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+Took 5491ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19798 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V4_1' IN n.viewname RETURN n
+Took 31 ms to execute transaction
+There are 17665 elements in the query
+Took 5856 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+Took 5925ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 20380 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V1_1' IN n.viewname RETURN n
+Took 38 ms to execute transaction
+There are 2341 elements in the query
+Took 5897 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5971ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19046 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V8_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV8_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V8_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V8_2' IN n.viewname RETURN n
+Took 51 ms to execute transaction
+There are 67687 elements in the query
+Took 5441 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+Took 5532ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19461 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V4_2' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 5941 elements in the query
+Took 5497 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5553ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19398 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V6_1' IN n.viewname RETURN n
+Took 37 ms to execute transaction
+There are 19275 elements in the query
+Took 5210 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5270ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19397 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V14_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV14_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V14_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V14_1' IN n.viewname RETURN n
+Took 35 ms to execute transaction
+There are 20289 elements in the query
+Took 5308 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+Took 5376ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 20196 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V2_1' IN n.viewname RETURN n
+Took 37 ms to execute transaction
+There are 272559 elements in the query
+Took 5568 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5649ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19401 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V7_1' IN n.viewname RETURN n
+Took 29 ms to execute transaction
+There are 22714 elements in the query
+Took 4918 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 4965ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19812 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V3_2' IN n.viewname RETURN n
+Took 29 ms to execute transaction
+There are 56570 elements in the query
+Took 5345 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5411ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 20158 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V10 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV10LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V10 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V10' IN n.viewname RETURN n
+Took 37 ms to execute transaction
+There are 2272251 elements in the query
+Took 5893 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5965ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19467 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V12_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV12_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V12_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V12_1' IN n.viewname RETURN n
+Took 38 ms to execute transaction
+There are 411243 elements in the query
+Took 5568 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5647ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19440 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V1_2' IN n.viewname RETURN n
+Took 34 ms to execute transaction
+There are 5290 elements in the query
+Took 5493 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5562ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19426 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V8_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV8_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V8_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V8_1' IN n.viewname RETURN n
+Took 39 ms to execute transaction
+There are 66786 elements in the query
+Took 5397 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5470ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19484 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V12_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV12_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V12_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V12_2' IN n.viewname RETURN n
+Took 33 ms to execute transaction
+There are 318253 elements in the query
+Took 5437 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5484ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19143 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V11_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV11_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V11_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V11_1' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 356640 elements in the query
+Took 5701 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5779ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19098 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV5LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V5' IN n.viewname RETURN n
+Took 39 ms to execute transaction
+There are 1042055 elements in the query
+Took 5464 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5538ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19317 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V6_2' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 5868 elements in the query
+Took 5503 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+Took 5574ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19599 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V9_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV9_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V9_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V9_1' IN n.viewname RETURN n
+Took 32 ms to execute transaction
+There are 17665 elements in the query
+Took 5290 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5354ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 19744 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V11_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV11_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V11_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V11_2' IN n.viewname RETURN n
+Took 31 ms to execute transaction
+There are 30372 elements in the query
+Took 5289 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 5357ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post)-[]-(m:Post) WHERE n.postId = '3468801' RETURN m
+Execution done
+Node size is 1
+Edge size is 0
+Took 16399 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+WITH VIEWS V9_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV9_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V9_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+Full query: MATCH  (n) WHERE   'V9_2' IN n.viewname RETURN n
+Took 35 ms to execute transaction
+There are 21329 elements in the query
+Took 2855 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+Took 2894ms to use view
+************************************

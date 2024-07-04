@@ -1,0 +1,355 @@
+//Interactive IC2
+:param [{ personId, maxDate }] => { RETURN
+  15151 AS personId,(birthday: 601171200000,firstName: Alfred,lastName: Hoffmann,locationIP: 46.29.29.10)
+  1322000000000 AS maxDate
+}
+
+MATCH (p:Person)-[:KNOWS]-(friend:Person)<-[:HAS_CREATOR]-(message:Message)
+    WHERE ID(p) = $personId AND message.creationDate <= $maxDate
+    RETURN
+        id(friend) AS personId,
+        friend.firstName AS personFirstName,
+        friend.lastName AS personLastName,
+        id(message) AS postOrCommentId,
+        coalesce(message.content,message.imageFile) AS postOrCommentContent,
+        message.creationDate AS postOrCommentCreationDate
+    ORDER BY
+        postOrCommentCreationDate DESC,
+        toInteger(postOrCommentId) ASC
+    LIMIT 20
+    
+CREATE VIEW V2   
+MATCH p1=(p:Person)-[r1:KNOWS]-(friend:Person),p2 = (friend)<-[r2:HAS_CREATOR]-(message:Message)
+    WHERE ID(p) = $personId 
+    CONSTRUCT p2
+    RETURN GRAPH
+   
+WITH VIEWS V2 LOCAL MATCH (friend)<-[r2:HAS_CREATOR]-(message:Message) WHERE message.creationDate <= $maxDate
+ RETURN friend,message
+ ORDER BY
+     message.creationDate DESC,
+     toInteger(id(message)) ASC
+ LIMIT 20
+    
+//IC 5 ---PATH
+:param [{ personId, minDate }] => { RETURN
+   15151 AS personId,
+  1322000000000 AS minDate
+}
+
+MATCH (person:Person)-[:KNOWS*1..2]-(friend)
+WHERE ID(person) = $personId 
+    AND NOT person=friend
+WITH DISTINCT friend
+MATCH (friend)<-[membership:HAS_MEMBER]-(forum)
+WHERE
+    membership.joinDate > 1322000000000
+WITH
+    forum,
+    collect(friend) AS friends
+OPTIONAL MATCH (friend)<-[:HAS_CREATOR]-(post)<-[:CONTAINER_OF]-(forum)
+WHERE
+    friend IN friends
+WITH
+    forum,
+    count(post) AS postCount
+RETURN
+    forum.title AS forumName,
+    postCount
+ORDER BY
+    postCount DESC,
+    forum.id ASC
+LIMIT 20
+
+CREATE VIEW V5 MATCH (person:Person)-[:KNOWS*1..2]-(friend)
+WHERE ID(person) = $personId 
+    AND NOT person=friend
+WITH DISTINCT friend
+MATCH (friend)<-[membership:HAS_MEMBER]-(forum) 
+WITH
+    forum, friend,membership
+    collect(friend) AS friends
+MATCH p= (anyfriend)<-[:HAS_CREATOR]-(post)<-[:CONTAINER_OF]-(forum)-[membership]->(friend)
+WHERE
+    anyfriend IN friends
+RETURN p
+
+
+WITH VIEW V5 LOCAL MATCH p = (anyfriend)<-[:HAS_CREATOR]-(post)<-[:CONTAINER_OF]-(forum)-[membership]->(friend)
+WHERE membership.joinDate > 1322000000000 
+WITH
+    forum,
+    count(post) AS postCount
+RETURN
+    forum.title AS forumName,
+    postCount
+ORDER BY
+    postCount DESC,
+    forum.id ASC
+LIMIT 20
+
+//IC 6 ---NODE
+:param [{ personId, tagName }] => { RETURN
+  15151 AS personId,
+  "Muammar_Gaddafi" AS tagName
+}
+
+MATCH (knownTag:Tag) WHERE knownTag.name= $tagName
+WITH id(knownTag) as knownTagId
+MATCH (person:Person)-[:KNOWS*1..2]-(friend)
+WHERE id(person)= $personId AND NOT person=friend
+WITH
+    knownTagId,
+    collect(distinct friend) as friends
+UNWIND friends as f
+    MATCH (f)<-[:HAS_CREATOR]-(post:Post),
+          (post)-[:HAS_TAG]->(t:Tag),
+          (post)-[:HAS_TAG]->(tag:Tag)
+    WHERE id(t)= knownTagId AND NOT t = tag
+    WITH
+        tag.name as tagName,
+        count(post) as postCount
+RETURN
+    tagName,
+    postCount
+ORDER BY
+    postCount DESC,
+    tagName ASC
+LIMIT 10
+
+
+CREATE VIEW V6
+MATCH (person:Person)-[:KNOWS*1..2]-(friend)
+WHERE id(person)= $personId AND NOT person=friend
+WITH friend
+	MATCH (friend)<-[:HAS_CREATOR]-(post:Post),
+	  p = (tag:Tag)<-[:HAS_TAG]-(post)-[:HAS_TAG]->(t:Tag)
+	    WHERE NOT t = tag
+RETURN p
+
+
+WITH V6 LOCAL p= (tag:Tag)<-[:HAS_TAG]-(post)-[:HAS_TAG]->(t:Tag)
+    WHERE t.name = $tageName AND p IN V6
+    WITH
+        tag.name as tagName,
+        count(post) as postCount
+RETURN
+    tagName,
+    postCount
+ORDER BY
+    postCount DESC,
+    tagName ASC
+LIMIT 10
+
+
+//BI 5
+"Muammar_Gaddafi" AS tag
+MATCH (tag:Tag {name: $tag})<-[:HAS_TAG]-(message:Message)-[:HAS_CREATOR]->(person:Person)
+OPTIONAL MATCH (message)<-[likes:LIKES]-(:Person)
+WITH person, message, count(likes) AS likeCount
+OPTIONAL MATCH (message)<-[:REPLY_OF]-(reply:Comment)
+WITH person, message, likeCount, count(reply) AS replyCount
+WITH person, count(message) AS messageCount, sum(likeCount) AS likeCount, sum(replyCount) AS replyCount
+RETURN
+  person.id,
+  replyCount,
+  likeCount,
+  messageCount,
+  1*messageCount + 2*replyCount + 10*likeCount AS score
+ORDER BY
+  score DESC,
+  person.id ASC
+LIMIT 100
+
+CREATE VIEW VBI_5 
+MATCH MATCH (tag:Tag)<-[:HAS_TAG]-(message:Message), p1=(message)-[:HAS_CREATOR]->(person:Person)
+WHERE tag.name= $tag
+OPTIONAL MATCH p2=(message)<-[likes:LIKES]-(:Person)
+OPTIONAL MATCH p3=(message)<-[:REPLY_OF]-(reply:Comment)
+CONSTRUCT p1,p2,p3
+RETURN GRAPH
+
+WITH VBI_5 GLOBAL
+MATCH p=(message)-[:HAS_CREATOR]->(person:Person) WHERE p IN VBI_5
+OPTIONAL MATCH (message)<-[likes:LIKES]-(:Person)
+WITH person, message, count(likes) AS likeCount
+OPTIONAL MATCH (message)<-[:REPLY_OF]-(reply:Comment)
+WITH person, message, likeCount, count(reply) AS replyCount
+WITH person, count(message) AS messageCount, sum(likeCount) AS likeCount, sum(replyCount) AS replyCount
+RETURN
+  person.id,
+  replyCount,
+  likeCount,
+  messageCount,
+  1*messageCount + 2*replyCount + 10*likeCount AS score
+ORDER BY
+  score DESC,
+  person.id ASC
+LIMIT 100
+
+//BI 17
+"Muammar_Gaddafi" AS tag, 20000000000 AS duration
+MATCH
+  (tag:Tag ),
+  (person1:Person)<-[:HAS_CREATOR]-(message1:Message)-[:REPLY_OF*0..]->(post1:Post)<-[:CONTAINER_OF]-(forum1:Forum),
+  (message1)-[:HAS_TAG]->(tag),
+  (forum1)<-[:HAS_MEMBER]->(person2:Person)<-[:HAS_CREATOR]-(comment:Comment)-[:HAS_TAG]->(tag),
+  (forum1)<-[:HAS_MEMBER]->(person3:Person)<-[:HAS_CREATOR]-(message2:Message),
+  (comment)-[:REPLY_OF]->(message2)-[:REPLY_OF*0..]->(post2:Post)<-[:CONTAINER_OF]-(forum2:Forum)
+WHERE tag.name= $tag 
+MATCH (comment)-[:HAS_TAG]->(tag)
+MATCH (message2)-[:HAS_TAG]->(tag)
+WHERE forum1 <> forum2
+  AND message2.creationDate > message1.creationDate + duration({hours: $delta})
+  AND NOT (forum2)-[:HAS_MEMBER]->(person1)
+RETURN person1.id, count(DISTINCT message2) AS messageCount
+ORDER BY messageCount DESC, person1.id ASC
+LIMIT 10
+
+
+CREATE VIEW VBI_17
+MATCH
+  (tag:Tag ),
+  (person1:Person)<-[:HAS_CREATOR]-(message1:Message)-[:REPLY_OF*0..]->(post1:Post)<-[:CONTAINER_OF]-(forum1:Forum),
+  (message1)-[:HAS_TAG]->(tag),
+  (forum1)<-[:HAS_MEMBER]->(person2:Person)<-[:HAS_CREATOR]-(comment:Comment)-[:HAS_TAG]->(tag),
+  (forum1)<-[:HAS_MEMBER]->(person3:Person)<-[:HAS_CREATOR]-(message2:Message),
+  (comment)-[:REPLY_OF]->(message2)-[:REPLY_OF*0..]->(post2:Post)<-[:CONTAINER_OF]-(forum2:Forum)
+WHERE tag.name= $tag 
+MATCH (comment)-[:HAS_TAG]->(tag)
+MATCH (message2)-[:HAS_TAG]->(tag)
+WHERE forum1 <> forum2
+  AND NOT (forum2)-[:HAS_MEMBER]->(person1)
+MERGE p= (person1)-[:VBI_17]->(message2)-[:VBI_17]->(message1)
+RETURN p
+
+
+WITH VBI_17 LOCAL 
+MATCH p= (person1)-[:VBI_17]->(message2)-[:VBI_17]->(message1)
+WHERE message2.creationDate > message1.creationDate + $duration
+RETURN person1.id, count(DISTINCT message2) AS messageCount
+ORDER BY messageCount DESC, person1.id ASC
+LIMIT 10
+
+
+    
+//short IS2 
+:param personId: 4102(birthday: 606614400000,creationDate: 1302560854838,firstName: Jose,lastName: Fernandez,locationIP: 190.15.146.147)
+
+MATCH (p:Person)<-[:HAS_CREATOR]-(message)
+WHERE ID(p) = $personId
+WITH
+ message,
+ ID(message) AS messageId,
+ message.creationDate AS messageCreationDate
+ORDER BY messageCreationDate DESC, messageId ASC
+LIMIT 10
+MATCH (message)-[:REPLY_OF*0..]->(post:Post)-[:HAS_CREATOR]->(person)
+RETURN
+ messageId,
+ coalesce(message.imageFile,message.content) AS messageContent,
+ messageCreationDate,
+ ID(post) AS postId,
+ ID(person) AS personId,
+ person.firstName AS personFirstName,
+ person.lastName AS personLastName
+ORDER BY messageCreationDate DESC, messageId ASC
+
+
+CREATE VIEW V2_2 MATCH (p:Person)<-[:HAS_CREATOR]-(message)
+WHERE ID(p) = $personId
+RETURN message
+ORDER BY  message.creationDate DESC,  ID(message) ASC
+LIMIT 10
+
+WITH VIEW V2_2 GLOBAL MATCH (message)-[:REPLY_OF*0..]->(post:Post)-[:HAS_CREATOR]->(person)
+WHERE message in V2_2
+RETURN person
+ORDER BY  message.creationDate DESC,  ID(message) ASC
+
+//IS3     ---PATH
+:param personId: 6852(birthday: 623203200000,creationDate: 1326292586465,firstName: Emperor of Brazil,lastName: Dom Pedro II,locationIP: 192.160.111.235)
+
+MATCH (n:Person {id: $personId })-[r:KNOWS]-(friend)
+WHERE ID(n) = $personId 
+RETURN
+    ID(friend) AS personId,
+    friend.firstName AS firstName,
+    friend.lastName AS lastName,
+    r.creationDate AS friendshipCreationDate
+ORDER BY
+    friendshipCreationDate DESC,
+    toInteger(personId) ASC
+
+CREATE VIEW V3 MATCH p=(n:Person)-[r:KNOWS]-(friend)
+WHERE ID(n) = $personId RETURN p 
+ORDER BY
+    r.creationDate DESC,
+    toInteger(ID(friend)) ASC
+    
+WITH VIEW V3 MATCH p=* RETURN p
+
+
+//IS4 ----NODE
+:param messageId: 0(creationDate: 1313591219961,content: yes,browserUsed: Chrome,locationIP: 46.16.217.105)
+MATCH (m:Message) WHERE ID(m) = $messageId
+RETURN
+    m.creationDate as messageCreationDate,
+    coalesce(m.content, m.imageFile) as messageContent
+    
+CREATE VIEW V4 MATCH (m:Message) WHERE ID(m) = $messageID RETURN m
+WITH VIEW V4 MATCH (n) WHERE n IN V4 RETURN n
+
+
+//IS5 ---EDGE
+:param messageId: 7654(content: maybe,creationDate: 1338784107959,locationIP: 119.235.7.103,browserUsed: Firefox)
+MATCH (m:Message)-[:HAS_CREATOR]->(p:Person) WHERE ID(m) = $messageId RETURN p
+
+CREATE VIEW V5 MATCH (m:Message)-[r1:HAS_CREATOR]->(p:Person) WHERE ID(m) = $messageId RETURN r1
+WITH VIEW V5 MATCH ()-[r1]-() WHERE r1 IN V4 RETURN n
+
+//IS6---Node
+:param messageId: 5263(browserUsed: Firefox,creationDate: 1341572517944,imageFile: photo962072674681.jpg,locationIP: 119.235.7.103)
+MATCH (m:Message)-[:REPLY_OF*0..]->(p:Post)<-[:CONTAINER_OF]-(f:Forum)-[:HAS_MODERATOR]->(mod:Person)
+WHERE ID(m) = $messageId
+RETURN
+    ID(f) AS forumId,
+    f.title AS forumTitle,
+    ID(mod) AS moderatorId,
+    mod.firstName AS moderatorFirstName,
+    mod.lastName AS moderatorLastName
+    
+CREATE V6 MATCH p1=(m:Message)-[:REPLY_OF*0..]->(p:Post)<-[:CONTAINER_OF]-(f:Forum)-[:HAS_MODERATOR]->(mod:Person)
+WHERE ID(m) = $messageId RETURN f,mod
+WITH VIEW V6 LOCAL MATCH (n) IN V6 RETURN n
+
+
+
+//IS7  ---NODE
+id = 139398(content: About Ivan Ljubičić,  player or put him out ofAbout Magical Mystery Tour, ted as the official versiAbout Peru, eight of h,creationDate: 1332349892799,locationIP: 186.0.155.248)
+MATCH (m:Message)<-[:REPLY_OF]-(c:Comment)-[:HAS_CREATOR]->(p:Person)
+WHERE ID(m) = $messageId
+    OPTIONAL MATCH (m)-[:HAS_CREATOR]->(a:Person)-[r:KNOWS]-(p)
+    RETURN c.id AS commentId,
+        c.content AS commentContent,
+        c.creationDate AS commentCreationDate,
+        p.id AS replyAuthorId,
+        p.firstName AS replyAuthorFirstName,
+        p.lastName AS replyAuthorLastName,
+        CASE r
+            WHEN null THEN false
+            ELSE true
+        END AS replyAuthorKnowsOriginalMessageAuthor
+    ORDER BY commentCreationDate DESC, replyAuthorId
+    
+CREATE VIEW V7 MATCH (m:Message)<-[:REPLY_OF]-(c:Comment)-[:HAS_CREATOR]->(p:Person) WHERE ID(m) = $messageId RETURN m, p
+WITH VIEW V7 GLOBAL MATCH (m)-[:HAS_CREATOR]->(a:Person)-[r:KNOWS]-(p) WHERE m IN V7.m AND p IN V7.p
+    RETURN ID(p) AS replyAuthorId,
+        p.firstName AS replyAuthorFirstName,
+        p.lastName AS replyAuthorLastName,
+        CASE r
+            WHEN null THEN false
+            ELSE true
+        END AS replyAuthorKnowsOriginalMessageAuthor
+    ORDER BY replyAuthorId
+

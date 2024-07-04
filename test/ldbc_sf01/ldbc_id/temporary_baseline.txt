@@ -1,0 +1,2 @@
+MATCH (s) where 'V1' IN s.viewname RETURN COUNT(s)
+MATCH (s) REMOVE s.viewname RETURN COUNT(s)

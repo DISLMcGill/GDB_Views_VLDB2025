@@ -1,0 +1,64 @@
+//clean up: MATCH (n) WHERE n.ViewName IS NOT NULL REMOVE n.ViewName
+//for path views: MATCH (v:View) DETACH DELETE v
+
+MATCH (n:Comment) WHERE n.browserUsed = "Safari" WITH DISTINCT(n) SET n.V1_1 = "n" RETURN n
+MATCH (n:Comment) WHERE n.browserUsed = "Internet Explorer" WITH DISTINCT(n) SET n.V1_2 = "n" RETURN n
+MATCH (n:Message) WHERE  n.creationDate > 1310000000000 AND n.creationDate < 1313000000000 WITH DISTINCT(n) SET n.V2_1="n" RETURN n
+MATCH (n:Message) WHERE  n.creationDate > 1310000000000 AND n.creationDate < 1316000000000 WITH DISTINCT(n) SET n.V2_2="n" RETURN n
+MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1265000000000 WITH DISTINCT(po) SET po.V3_1="po" RETURN po
+MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" WITH DISTINCT(po) SET po.V3_2="po" RETURN po
+MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" AND f.title STARTS WITH "Wall" WITH DISTINCT(po)  SET po.V4_1="po" RETURN po
+MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.length > 5 AND po.browserUsed = "Opera" WITH DISTINCT(f) SET f.V4_2="f" RETURN f
+MATCH (c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed WITH DISTINCT(c) SET c.V5="c" RETURN c
+MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed WITH DISTINCT(s)  SET s.V6_1="s" RETURN s
+MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" WITH DISTINCT(s) SET s.V6_2="s" RETURN s
+MATCH (c:Message)-[:HAS_CREATOR]->(s:Person)-[:KNOWS]-(t:Person)<-[:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 WITH DISTINCT(b) SET b.V7_2="b" RETURN b
+MATCH p=(f:Forum)-[r1:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1265000000000 WITH id(r1) AS path,f,po,p MERGE (v:View {ViewName:'V8_1'}) SET v.p = CASE WHEN v.p IS NOT NULL THEN v.p + path ELSE [path] END SET f.V8_1="f" SET po.V8_1="po" RETURN count(distinct(p))
+MATCH p=(f:Forum)-[r1:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" WITH id(r1) AS path,p,f,po MERGE (v:View {ViewName :'V8_2'}) SET v.p = CASE WHEN v.p IS NOT NULL THEN v.p + path ELSE [path] END SET f.V8_2="f" SET po.V8_2="po" RETURN count(distinct(p))
+MATCH p=(f:Forum)-[r1:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" AND f.title STARTS WITH "Wall" WITH id(r1) AS path,p,f,po MERGE (v:View {ViewName :'V9_1'}) SET v.p = CASE WHEN v.p IS NOT NULL THEN v.p + path ELSE [path] END SET f.V9_1="f" SET po.V9_1="po" RETURN count(distinct(p))
+MATCH p=(f:Forum)-[r1:CONTAINER_OF]->(po:Post) WHERE po.length > 5 AND po.browserUsed = "Opera" WITH id(r1) AS path,p,f,po MERGE (v:View {ViewName :'V9_2'}) SET v.p = CASE WHEN v.p IS NOT NULL THEN v.p + path ELSE [path] END SET f.V9_2="f" SET po.V9_2="po" RETURN count(distinct(p))
+MATCH p=(c:Message)-[r1:REPLY_OF]->(m:Message)<-[r2:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed WITH id(r1) + '-' + id(r2) AS path,p,c,m,s MERGE (v:View {ViewName:'V10'}) SET v.p = CASE WHEN v.p IS NOT NULL THEN v.p + path ELSE [path] END SET c.V10="c" SET m.V10="m" SET s.V10="s" RETURN count(distinct(p))
+MATCH p=(c:Message)-[r1:REPLY_OF]->(m:Message)<-[r2:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed WITH id(r1) + '-' + id(r2) AS path,p,c,m,s MERGE (v:View {ViewName:'V11_1'}) SET v.p = CASE WHEN v.p IS NOT NULL THEN v.p + path ELSE [path] END  SET c.V11_1="c" SET m.V11_1="m" SET s.V11_1="s"  RETURN count(distinct(p))
+MATCH p=(c:Message)-[r1:REPLY_OF]->(m:Message)<-[r2:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" WITH id(r1) + '-' + id(r2) AS path,p,c,m,s  MERGE (v:View {ViewName:'V11_2'}) SET v.p = CASE WHEN v.p IS NOT NULL THEN v.p + path ELSE [path] END SET c.V11_2="c" SET m.V11_2="m" SET s.V11_2="s" RETURN count(distinct(p))
+MATCH p=(c:Message)-[r1:HAS_CREATOR]->(s:Person)-[r2:KNOWS]-(t:Person)<-[r3:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 WITH id(r1) + '-' + id(r2)+ '-' + id(r3) AS path,p,c,s,t,b MERGE (v:View {ViewName:'V12_2'}) SET v.p = CASE WHEN v.p IS NOT NULL THEN v.p + path ELSE [path] END  SET c.V12_2="c" SET s.V12_2="s" SET t.V12_2="t" SET b.V12_2="b" RETURN count(distinct(p))
+MATCH p=(c:Message)-[r1:REPLY_OF]->(m:Message)<-[r2:LIKES]-(s:Person)<-[r3:HAS_CREATOR]-(c) WHERE  s.gender='male' WITH id(r1) + '-' + id(r2)+ '-' + id(r3) AS path,p,c,m,s MERGE (v:View {ViewName:'V14_1'}) SET v.p = CASE WHEN v.p IS NOT NULL THEN v.p + path ELSE [path] END SET c.V14_1="c" SET m.V14_1="m" SET s.V14_1="s"   RETURN count(distinct(p))
+MATCH p=(c:Message)-[r1:REPLY_OF]->(m:Message)<-[r2:LIKES]-(s:Person)<-[r3:HAS_CREATOR]-(c) WHERE  m.browserUsed='Safari' OR m.browserUsed='Internet Explorer' WITH id(r1) + '-' + id(r2)+ '-' + id(r3) AS path,p,c,m,s MERGE (v:View {ViewName:'V14_2'}) SET v.p = CASE WHEN v.p IS NOT NULL THEN v.p + path ELSE [path] END SET c.V14_2="c" SET m.V14_2="m" SET s.V14_2="s"  RETURN count(distinct(p))
+//usage
+MATCH (n:Message)<-[:LIKES]-(p:Person) WHERE n.V2_2="n" RETURN DISTINCT p
+MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post)-[:HAS_CREATOR]->(s:Person) WHERE po.V3_2="po" AND s.V6_2="s" RETURN DISTINCT f
+MATCH (f:Forum)-[:HAS_MODERATOR]->(s:Person) WHERE f.V9_1="f" RETURN DISTINCT s
+MATCH (n:Message)-[:HAS_CREATOR]->(s:Person)<-[:HAS_MODERATOR]-(f:Forum)-[:CONTAINER_OF]->(m:Message) WHERE n.V5="c" AND m.V7_2="b" RETURN DISTINCT s
+MATCH (s:Person)<-[:HAS_CREATOR]-(m:Message) WHERE m.V11_2="m" OR m.V11_2="c" RETURN DISTINCT s
+
+
+CREATE TEXT INDEX v1 FOR (n:Message) on n.V2_2
+CREATE TEXT INDEX v2 FOR (n:Post) on n.V3_2
+CREATE TEXT INDEX v3 FOR (n:Person) on n.V6_2
+CREATE TEXT INDEX v4 FOR (n:Forum) on n.V9_1
+CREATE TEXT INDEX v5 FOR (n:Message) on n.V5
+CREATE TEXT INDEX v7 FOR (n:Message) on n.V7_2
+CREATE TEXT INDEX v8 FOR (n:Message) on n.V11_2
+
+
+MATCH (n) WHERE n.V1_1 IS NOT NULL REMOVE n.V1_1
+MATCH (n) WHERE n.V1_2 IS NOT NULL REMOVE n.V1_2
+MATCH (n) WHERE n.V2_1 IS NOT NULL REMOVE n.V2_1
+MATCH (n) WHERE n.V2_2 IS NOT NULL REMOVE n.V2_2
+MATCH (n) WHERE n.V3_1 IS NOT NULL REMOVE n.V3_1
+MATCH (n) WHERE n.V3_2 IS NOT NULL REMOVE n.V3_2
+MATCH (n) WHERE n.V4_1 IS NOT NULL REMOVE n.V4_1
+MATCH (n) WHERE n.V4_2 IS NOT NULL REMOVE n.V4_2
+MATCH (n) WHERE n.V5 IS NOT NULL REMOVE n.V5
+MATCH (n) WHERE n.V6_1 IS NOT NULL REMOVE n.V6_1
+MATCH (n) WHERE n.V6_2 IS NOT NULL REMOVE n.V6_2
+MATCH (n) WHERE n.V7_2 IS NOT NULL REMOVE n.V7_2
+MATCH (n) WHERE n.V8_1 IS NOT NULL REMOVE n.V8_1
+MATCH (n) WHERE n.V8_2 IS NOT NULL REMOVE n.V8_2
+MATCH (n) WHERE n.V9_1 IS NOT NULL REMOVE n.V9_1
+MATCH (n) WHERE n.V9_2 IS NOT NULL REMOVE n.V9_2
+MATCH (n) WHERE n.V10 IS NOT NULL REMOVE n.V10
+MATCH (n) WHERE n.V11_1 IS NOT NULL REMOVE n.V11_1
+MATCH (n) WHERE n.V11_2 IS NOT NULL REMOVE n.V11_2
+MATCH (n) WHERE n.V12_2 IS NOT NULL REMOVE n.V12_2
+MATCH (n) WHERE n.V14_1 IS NOT NULL REMOVE n.V14_1
+MATCH (n) WHERE n.V14_2 IS NOT NULL REMOVE n.V14_2
