@@ -1,0 +1,51 @@
+//IS1
+MATCH (n:Person)-[:IS_LOCATED_IN]->(c:City) WHERE ID(n) = 4102 RETURN n.firstName AS firstName, n.lastName AS lastName, n.birthday AS birthday, n.locationIP AS locationIP,n.browserUsed AS browserUsed,   c.id AS cityId, n.gender AS gender, n.creationDate AS creationDate
+CREATE VIEW AS VIS1 MATCH p=(n:Person)-[:IS_LOCATED_IN]->(c:City) WHERE ID(n) = 4102 RETURN COLLECT(p)
+WITH VIEWS VIS1 LOCAL MATCH p=(n:Person)-[:IS_LOCATED_IN]->(c:City) RETURN n.firstName AS firstName, n.lastName AS lastName, n.birthday AS birthday, n.locationIP AS locationIP,n.browserUsed AS browserUsed,   c.id AS cityId, n.gender AS gender, n.creationDate AS creationDate
+//short IS2 
+
+MATCH (p:Person)<-[:HAS_CREATOR]-(message) WHERE ID(p) = 4102 WITH message, ID(message) AS messageId, message.creationDate AS messageCreationDate ORDER BY messageCreationDate DESC, messageId ASC LIMIT 10 MATCH (message)-[:REPLY_OF*0..]->(post:Post)-[:HAS_CREATOR]->(person) RETURN messageId, messageCreationDate, ID(post) AS postId, ID(person) AS personId, person.firstName AS personFirstName, person.lastName AS personLastName ORDER BY messageCreationDate DESC, messageId ASC
+
+CREATE VIEW AS VIS2 MATCH (p:Person)<-[:HAS_CREATOR]-(message) WHERE ID(p) = 4102 RETURN COLLECT(message) ORDER BY  message.creationDate DESC,  ID(message) ASC LIMIT 10
+
+WITH VIEWS VIS2 GLOBAL MATCH (message)-[:REPLY_OF*0..]->(post:Post)-[:HAS_CREATOR]->(person) WHERE message IN VIS2 RETURN ID(message) AS messageId, message.creationDate AS messageCreationDate, ID(post) AS postId, ID(person) AS personId, person.firstName AS personFirstName, person.lastName AS personLastName ORDER BY messageCreationDate DESC, messageId ASC
+
+//IS3   
+:param personId: 6852(birthday: 623203200000,creationDate: 1326292586465,firstName: Emperor of Brazil,lastName: Dom Pedro II,locationIP: 192.160.111.235)
+
+MATCH (n:Person)-[r:KNOWS]-(friend)  WHERE ID(n) = 6852 RETURN ID(friend) AS personId, friend.firstName AS firstName, friend.lastName AS lastName, r.creationDate AS friendshipCreationDate ORDER BY friendshipCreationDate DESC, toInteger(personId) ASC
+
+CREATE VIEW AS VIS3 MATCH p=(n:Person)-[r:KNOWS]-(friend) WHERE ID(n) = 6852 RETURN COLLECT(p)
+WITH VIEWS VIS3 LOCAL MATCH p=(n:Person)-[r:KNOWS]-(friend) RETURN ID(friend) AS personId, friend.firstName AS firstName, friend.lastName AS lastName, r.creationDate AS friendshipCreationDate ORDER BY friendshipCreationDate DESC, toInteger(personId) ASC
+
+
+//IS4 ----NODE
+:param messageId: 0(creationDate: 1313591219961,content: yes,browserUsed: Chrome,locationIP: 46.16.217.105)
+MATCH (m:Message) WHERE ID(m) = 0 RETURN m.creationDate as messageCreationDate, m.content as messageContent
+    
+CREATE VIEW AS VIS4 MATCH (m:Message) WHERE ID(m) = 0 RETURN COLLECT(m)
+WITH VIEWS VIS4 LOCAL MATCH (m:Message) RETURN m.creationDate as messageCreationDate, m.content as messageContent
+
+
+//IS5 
+:param messageId: 7654(content: maybe,creationDate: 1338784107959,locationIP: 119.235.7.103,browserUsed: Firefox)
+MATCH (m:Message)-[:HAS_CREATOR]->(p:Person) WHERE ID(m) =7654 RETURN p.id AS personId,p.firstName AS firstName, p.lastName AS lastName
+
+CREATE VIEW AS VIS5 MATCH (m:Message)-[:HAS_CREATOR]->(p:Person)  WHERE ID(m) = 7654 RETURN COLLECT(p)
+WITH VIEWS VIS5 LOCAL MATCH (p:Person) RETURN p.id AS personId,p.firstName AS firstName, p.lastName AS lastName
+
+//IS6
+:param messageId: 5263(browserUsed: Firefox,creationDate: 1341572517944,imageFile: photo962072674681.jpg,locationIP: 119.235.7.103)
+MATCH (m:Message)-[:REPLY_OF*0..]->(p:Post)<-[:CONTAINER_OF]-(f:Forum)-[:HAS_MODERATOR]->(mod:Person) WHERE ID(m) = 5263 RETURN ID(f) AS forumId, f.title AS forumTitle, ID(mod) AS moderatorId, mod.firstName AS moderatorFirstName, mod.lastName AS moderatorLastName
+    
+CREATE VIEW AS VIS6 MATCH p1=(m:Message)-[:REPLY_OF*0..]->(p:Post)<-[:CONTAINER_OF]-(f:Forum)-[:HAS_MODERATOR]->(mod:Person) WHERE ID(m) = 5263 RETURN f,mod
+WITH VIEWS VIS6 LOCAL MATCH (f:Forum), (mod:Person) WHERE rec(f,mod) IN VIS6.(f,mod) RETURN ID(f) AS forumId, f.title AS forumTitle, ID(mod) AS moderatorId, mod.firstName AS moderatorFirstName, mod.lastName AS moderatorLastName
+
+
+
+//IS7  ---NODE
+id = 139398(content: About Ivan Ljubičić,  player or put him out ofAbout Magical Mystery Tour, ted as the official versiAbout Peru, eight of h,creationDate: 1332349892799,locationIP: 186.0.155.248)
+MATCH (m:Message)<-[:REPLY_OF]-(c:Comment)-[:HAS_CREATOR]->(p:Person) WHERE ID(m) = 139398 OPTIONAL MATCH (m)-[:HAS_CREATOR]->(a:Person)-[r:KNOWS]-(p) RETURN c.id AS commentId,c.content AS commentContent,     c.creationDate AS commentCreationDate, p.id AS replyAuthorId, p.firstName AS replyAuthorFirstName,      p.lastName AS replyAuthorLastName ORDER BY commentCreationDate DESC, replyAuthorId
+    
+CREATE VIEW AS VIS7 MATCH (m:Message)<-[:REPLY_OF]-(c:Comment)-[:HAS_CREATOR]->(p:Person) WHERE ID(m) = 139398 RETURN c,p
+WITH VIEWS VIS7 LOCAL MATCH (c:Comment),(p:Person)  WHERE rec(c,p) IN VIS7.(c,p) RETURN c.id AS commentId,c.content AS commentContent,     c.creationDate AS commentCreationDate, p.id AS replyAuthorId, p.firstName AS replyAuthorFirstName,      p.lastName AS replyAuthorLastName ORDER BY commentCreationDate DESC, replyAuthorId

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="apoc-5.3.0-core">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib2/apoc-5.3.0-core.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib2/apoc-5.3.0-core.jar!/codegen/templates" />
+    </SOURCES>
+  </library>
+</component>

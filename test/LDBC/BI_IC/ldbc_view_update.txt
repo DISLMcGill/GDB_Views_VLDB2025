@@ -1,0 +1,56 @@
+//IC2
+( param: birthday: 601171200000, "firstName": "Alfred","lastName": "Hoffmann","gender": "female", "browserUsed": "Internet Explorer", "locationIP": "46.29.29.10", -- cloned id:17881)
+CREATE VIEW AS VIC2 MATCH (p:Person)-[r1:KNOWS]-(friend:Person) WHERE ID(p) =15151 RETURN COLLECTSET(friend)
+MATCH (p:Person {firstName: "Alfred",birthday: 601171200000,locationIP:"46.29.29.10"}),(n:Person {firstName:"Mahinda",locationIP:"119.235.7.103"}) CREATE (p)-[r:KNOWS]->(n) RETURN ID(r)
+MATCH (p:Person {firstName: "Alfred",birthday: 601171200000,locationIP:"46.29.29.10"})-[r:KNOWS]->(n:Person {firstName:"Mahinda",locationIP:"119.235.7.103"}) DELETE r
+
+//BI5
+CREATE VIEW AS VBI_5 MATCH (tag:Tag)<-[:HAS_TAG]-(message:Message), p=(message)-[r:HAS_CREATOR]->(person:Person) WHERE tag.name= "Muammar_Gaddafi" RETURN COLLECTSET(p)
+MATCH (m:Message {creationDate: 1304982515273,locationIP:"31.7.139.198"}),(n:Person {firstName:"Mahinda",locationIP:"119.235.7.103"}) CREATE (m)-[r:HAS_CREATOR]->(n) RETURN ID(r)
+MATCH (m:Message {creationDate: 1304982515273,locationIP:"31.7.139.198"})-[r:HAS_CREATOR]->(n:Person {firstName:"Mahinda",locationIP:"119.235.7.103"})  DELETE r
+
+//IS1
+CREATE VIEW AS VIS1 MATCH p=(n:Person)-[r:IS_LOCATED_IN]->(c:City) WHERE ID(n) = 4102 RETURN COLLECTSET(p)
+MATCH (p:Person {firstName: "Jose",birthday: 606614400000,locationIP:"190.15.146.147"}),(n:City {name:"Sidney"}) CREATE (p)-[r:IS_LOCATED_IN]->(n) RETURN ID(r)
+MATCH (p:Person {firstName: "Jose",birthday: 606614400000,locationIP:"190.15.146.147"})-[r:IS_LOCATED_IN]->(n:City {name:"Sidney"}) DELETE r
+
+
+//IS2
+:param personId: 4102(birthday: 606614400000,creationDate: 1302560854838,firstName: Jose,lastName: Fernandez,locationIP: 190.15.146.147)---local_id=3556
+CREATE VIEW AS VIS2 MATCH (p:Person)<-[r:HAS_CREATOR]-(message) WHERE ID(p) = 4102 RETURN COLLECTSET(message) 
+MATCH (m:Message {creationDate: 1304982515273,locationIP:"31.7.139.198"}),(n:Person {firstName: "Jose",birthday: 606614400000,locationIP:"190.15.146.147"}) CREATE (m)-[r:HAS_CREATOR]->(n) RETURN ID(r)
+MATCH (m:Message {creationDate: 1304982515273,locationIP:"31.7.139.198"})-[r:HAS_CREATOR]->(n:Person {firstName: "Jose",birthday: 606614400000,locationIP:"190.15.146.147"}) DELETE r
+
+//IS3
+:param personId: 6852(birthday: 623203200000,creationDate: 1326292586465,firstName: Emperor of Brazil,lastName: Dom Pedro II,locationIP: 192.160.111.235)--cloned=10128
+CREATE VIEW AS VIS3 MATCH p=(n:Person)-[r:KNOWS]-(friend) WHERE ID(n) = 6852 RETURN COLLECTSET(p)
+MATCH (p:Person {firstName: "Emperor of Brazil",locationIP:"192.160.111.235"}),(n:Person {firstName:"Mahinda",locationIP:"119.235.7.103"}) CREATE (p)-[r:KNOWS]->(n) RETURN ID(r)
+MATCH (p:Person {firstName: "Emperor of Brazil",locationIP:"192.160.111.235"})-[r:KNOWS]->(n:Person {firstName:"Mahinda",locationIP:"119.235.7.103"}) DELETE r
+
+
+//IS4
+(params:"browserUsed": "Safari", "length": 3, "locationIP": "103.246.108.57", "creationDate": 1313591219961, "content": "yes"--- cloned id:0)
+CREATE VIEW AS V4 MATCH (m:Message) WHERE ID(m) = 0 RETURN COLLECTSET(m)
+CREATE (m:Message{browserUsed:"Firefox",content:"Amelia just created"}) RETURN ID(m)
+MATCH (m:Message{browserUsed:"Firefox",content:"Amelia just created"})  DELETE m
+
+//IS5
+:param messageId: 7654(content: maybe,creationDate: 1338784107959,locationIP: 119.235.7.103,browserUsed: Firefox) --cloned=9292
+CREATE VIEW AS VIS5 MATCH (m:Message)-[r:HAS_CREATOR]->(p:Person)  WHERE ID(m) = 7654 RETURN COLLECTSET(p)
+MATCH (m:Message {browserUsed:"Firefox",locationIP: "119.235.7.103",creationDate: 1338784107959}),(n:Person {firstName:"Carmen",locationIP:"195.20.151.175"}) CREATE (m)-[r:HAS_CREATOR]->(n) RETURN ID(r)
+MATCH (m:Message {browserUsed:"Firefox",locationIP: "119.235.7.103",creationDate: 1338784107959})-[r:HAS_CREATOR]->(n:Person {firstName:"Carmen",locationIP:"195.20.151.175"}) DELETE r
+
+//IS6
+:param messageId: 5263(browserUsed: Firefox,creationDate: 1341572517944,imageFile: photo962072674681.jpg,locationIP: 119.235.7.103)--cloned_id=4717
+CREATE VIEW AS VIS6 MATCH p1=(m:Message)-[:REPLY_OF*0..]->(p:Post)<-[r:CONTAINER_OF]-(f:Forum)-[:HAS_MODERATOR]->(mod:Person) WHERE ID(m) = 5263 RETURN f,mod
+MATCH (f:Forum{creationDate: 1332346866507,title: "Album 0 of Mahinda Perera"}),(m:Message{locationIP: "119.235.7.103",creationDate: 1341572517944})CREATE (f)-[r:CONTAINER_OF]->(m) RETURN ID(r)
+MATCH (f:Forum{creationDate: 1332346866507,title: "Album 0 of Mahinda Perera"})-[r:CONTAINER_OF]->(m:Message{locationIP: "119.235.7.103",creationDate: 1341572517944}) DELETE(r)
+
+
+//IS7
+id = 139398(content: About Ivan Ljubičić,  player or put him out ofAbout Magical Mystery Tour, ted as the official versiAbout Peru, eight of h,creationDate: 1332349892799,locationIP: 186.0.155.248)---cloned_id=146496
+CREATE VIEW AS V7 MATCH p=(m:Message)<-[r1:REPLY_OF]-(c:Comment)-[r2:HAS_CREATOR]->(person:Person) WHERE ID(m) = 139398 RETURN COLLECTSET(p)
+MATCH (p:Person {firstName: "Lin",locationIP:"14.208.255.176"}),(c:Comment {creationDate: 1332381336976,locationIP: "167.252.21.98"}) CREATE (c)-[r:HAS_CREATOR]->(p) RETURN ID(r)
+MATCH (c:Comment {creationDate: 1332381336976,locationIP: "167.252.21.98"})-[r:HAS_CREATOR]->(p:Person {firstName: "Lin",locationIP:"14.208.255.176"}) DELETE r
+
+

@@ -1,0 +1,28 @@
+//IC2_1:
+CREATE VIEW AS VIC2 MATCH p1=(p:Person)-[r1:KNOWS]-(friend:Person),p2 = (friend)<-[r2:HAS_CREATOR]-(message:Message) WHERE ID(p) =15151 CONSTRUCT p2 RETURN GRAPH
+WITH VIEWS VIC2 LOCAL MATCH (friend)<-[r2:HAS_CREATOR]-(message:Message) WHERE message.creationDate <= 1322000000000 RETURN friend,message ORDER BY message.creationDate DESC,toInteger(id(message)) ASC LIMIT 20
+CREATE VIEW AS VIC2 MATCH p1=(p:Person)-[r1:KNOWS]-(friend:Person),p2 = (friend)<-[r2:HAS_CREATOR]-(message:Message) WHERE ID(p) =15151 RETURN COLLECTSET(p2)
+WITH VIEWS VIC2 LOCAL MATCH p=(friend)<-[r2:HAS_CREATOR]-(message:Message) WHERE message.creationDate <= 1322000000000 RETURN friend,message ORDER BY message.creationDate DESC,toInteger(id(message)) ASC LIMIT 20
+
+//IC5_1: 
+CREATE VIEW AS VIC5 MATCH (person:Person)-[:KNOWS*1..2]-(friend) WHERE ID(person) = 15151 AND NOT person=friend WITH DISTINCT friend MATCH (friend)<-[membership:HAS_MEMBER]-(forum) WITH forum, friend,membership, COLLECT(friend) AS friends MATCH p= (anyfriend)<-[:HAS_CREATOR]-(post)<-[:CONTAINER_OF]-(forum)-[membership]->(friend) WHERE anyfriend IN friends RETURN COLLECTSET(p)
+
+WITH VIEWS VIC5 LOCAL MATCH p=(anyfriend)<-[:HAS_CREATOR]-(post)<-[:CONTAINER_OF]-(forum)-[membership]->(friend) WHERE p IN VIC5 AND membership.joinDate > 1322000000000 WITH forum, COUNT(post) AS postCount RETURN forum.title AS forumName, postCount ORDER BY postCount DESC, forum.id ASC LIMIT 20
+
+//IC 6 
+CREATE VIEW AS VIC6_1 MATCH (person:Person)-[:KNOWS*1..2]-(friend) WHERE ID(person)= 15151 AND NOT person=friend WITH friend MATCH (friend)<-[:HAS_CREATOR]-(post:Post), p=(tag:Tag)<-[:HAS_TAG]-(post)-[:HAS_TAG]->(t:Tag) WHERE t.name = "Muammar_Gaddafi" AND NOT t = tag RETURN COLLECTSET(p)
+
+WITH VIEWS VIC6_1 LOCAL MATCH p=(tag:Tag)<-[:HAS_TAG]-(post)-[:HAS_TAG]->(t:Tag) WHERE p IN VIC6_1 WITH tag.name as tagName, COUNT(post) as postCount RETURN tagName, postCount ORDER BY postCount DESC, tagName ASC LIMIT 10
+
+CREATE VIEW AS VIC6_1 MATCH (person:Person)-[:KNOWS*1..2]-(friend) WHERE ID(person)= 15151 AND NOT person=friend WITH friend MATCH (friend)<-[:HAS_CREATOR]-(post:Post), p=(tag:Tag)<-[:HAS_TAG]-(post)-[:HAS_TAG]->(anothertag:Tag) WHERE anothertag.name = "Muammar_Gaddafi" AND NOT anothertag = tag RETURN tag,post
+
+WITH VIEWS VIC6_1 LOCAL MATCH (tag:Tag),(post) WHERE rec(tag,post) IN VIC6_1.(tag,post) WITH tag.name as tagName, COUNT(post) as postCount RETURN tagName, postCount ORDER BY postCount DESC, tagName ASC LIMIT 10
+
+//BI 5
+CREATE VIEW AS VBI_5 MATCH (tag:Tag)<-[r1:HAS_TAG]-(message:Message), p1=(message)-[:HAS_CREATOR]->(person:Person) WHERE tag.name= "Muammar_Gaddafi" OPTIONAL MATCH p2=(message)<-[likes:LIKES]-(person2:Person) OPTIONAL MATCH p3=(message)<-[:REPLY_OF]-(reply:Comment) CONSTRUCT p1,p2,p3 RETURN GRAPH
+
+WITH VIEWS VBI_5 GLOBAL MATCH p=(message)-[r1:HAS_CREATOR]->(person:Person) WHERE p IN VBI_5 OPTIONAL MATCH (message)<-[likes:LIKES]-(person2:Person) WITH person, message, COUNT(likes) AS likeCount OPTIONAL MATCH (message)<-[:REPLY_OF]-(reply:Comment) WITH person, message, likeCount, COUNT(reply) AS replyCount WITH person, COUNT(message) AS messageCount, SUM(likeCount) AS likeCount, SUM(replyCount) AS replyCount RETURN person.id, replyCount, likeCount, messageCount, 1*messageCount + 2*replyCount + 10*likeCount AS score ORDER BY score DESC, person.id ASC LIMIT 100
+
+//BI 17
+CREATE VIEW AS VBI_17 MATCH (tag:Tag ), (person1:Person)<-[:HAS_CREATOR]-(message1:Message)-[:REPLY_OF*0..]->(post1:Post)<-[:CONTAINER_OF]-(forum1:Forum), (message1)-[:HAS_TAG]->(tag), (forum1)<-[:HAS_MEMBER]->(person2:Person)<-[:HAS_CREATOR]-(comment:Comment)-[:HAS_TAG]->(tag), (forum1)<-[:HAS_MEMBER]->(person3:Person)<-[:HAS_CREATOR]-(message2:Message), (comment)-[:REPLY_OF]->(message2)-[:REPLY_OF*0..]->(post2:Post)<-[:CONTAINER_OF]-(forum2:Forum) WHERE tag.name= "Muammar_Gaddafi" MATCH (comment)-[:HAS_TAG]->(tag) MATCH (message2)-[:HAS_TAG]->(tag) WHERE NOT ID(forum1) = ID(forum2) AND NOT (forum2)-[:HAS_MEMBER]->(person1) RETURN person1,message2,message1
+WITH VIEWS VBI_17 LOCAL MATCH (person1:Person),(message2:Message),(message1:Message) WHERE rec(person1,message2,message1) IN VBI_17.(person1,message2,message1) AND message2.creationDate > message1.creationDate + 20000000000 WITH person1, COUNT(DISTINCT(message2)) AS messageCount RETURN ID(person1), messageCount ORDER BY messageCount DESC, ID(person1) ASC LIMIT 10

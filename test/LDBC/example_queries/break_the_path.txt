@@ -1,0 +1,26 @@
+CREATE VIEW AS VCS_1 MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment) WHERE c.browserUsed = 'Chrome'  AND c.length < 10 RETURN COLLECTSET(p)
+CREATE VIEW AS VCS_2 MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person) WHERE s.firstName='Mahinda' AND c.browserUsed = 'Chrome'  AND c.length < 10 AND m.length > 80  RETURN COLLECTSET(p)
+CREATE VIEW AS VCS_3 MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE s.firstName='Mahinda' AND t.browserUsed = m.browserUsed AND c.browserUsed = 'Chrome'  AND c.length < 10 AND t.length < 4 AND m.length > 80  RETURN COLLECTSET(p)
+WITH VIEWS VCS_1 GLOBAL MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment), (m)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE p IN VCS_1 AND s.firstName='Mahinda' AND t.browserUsed = m.browserUsed AND t.length < 4  AND m.length > 80 RETURN DISTINCT t
+WITH VIEWS VCS_2 GLOBAL MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person), (s)<-[:HAS_CREATOR]-(t:Post) WHERE p IN VCS_2 AND t.browserUsed = m.browserUsed AND t.length < 4 RETURN DISTINCT t
+WITH VIEWS VCS_3 LOCAL MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) RETURN DISTINCT t
+original MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE s.firstName='Mahinda' AND t.browserUsed = m.browserUsed AND c.browserUsed = 'Chrome'  AND c.length < 10 AND t.length < 4 AND m.length > 80 RETURN DISTINCT t
+
+
+CREATE VIEW AS VCS_1 MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment) WHERE c.browserUsed = 'Chrome'  AND c.length < 10 CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS VCS_2 MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person) WHERE s.firstName='Mahinda' AND c.browserUsed = 'Chrome'  AND c.length < 10 AND m.length > 80 CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS VCS_3 MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE s.firstName='Mahinda' AND t.browserUsed = m.browserUsed AND c.browserUsed = 'Chrome'  AND c.length < 10 AND t.length < 4 AND m.length > 80 CONSTRUCT p RETURN GRAPH
+WITH VIEWS VCS_1 GLOBAL MATCH p=(c:Comment)-[r1:REPLY_OF]->(m:Comment), (m)<-[r2:LIKES]-(s:Person)<-[r3:HAS_CREATOR]-(t:Post) WHERE p IN VCS_1 AND s.firstName='Mahinda' AND t.browserUsed = m.browserUsed AND c.browserUsed = 'Chrome'  AND c.length < 10 AND t.length < 4 AND m.length > 80 RETURN DISTINCT t
+WITH VIEWS VCS_2 GLOBAL MATCH p=(c:Comment)-[r1:REPLY_OF]->(m:Comment)<-[r2:LIKES]-(s:Person), (s)<-[r3:HAS_CREATOR]-(t:Post) WHERE p IN VCS_2 AND s.firstName='Mahinda' AND t.browserUsed = m.browserUsed AND c.browserUsed = 'Chrome'  AND c.length < 10 AND t.length < 4 AND m.length > 80 RETURN DISTINCT t
+WITH VIEWS VCS_3 LOCAL MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE s.firstName='Mahinda' AND t.browserUsed = m.browserUsed AND c.browserUsed = 'Chrome'  AND c.length < 10 AND t.length < 4 AND m.length > 80 RETURN DISTINCT t
+original MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE s.firstName='Mahinda' AND t.browserUsed = m.browserUsed AND c.browserUsed = 'Chrome'  AND c.length < 10 AND t.length < 4 AND m.length > 80 RETURN DISTINCT t
+
+
+CREATE VIEW AS VCS_1 MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment) WHERE c.browserUsed = 'Chrome'  AND c.length < 10 RETURN c,m
+CREATE VIEW AS VCS_2 MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person) WHERE s.firstName='Mahinda' AND c.browserUsed = 'Chrome'  AND c.length < 10 AND m.length > 80 RETURN c,m,s
+CREATE VIEW AS VCS_3 MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE s.firstName='Mahinda' AND t.browserUsed = m.browserUsed AND c.browserUsed = 'Chrome'  AND c.length < 10 AND t.length < 4 AND m.length > 80  RETURN c,m,s,t
+WITH VIEWS VCS_1 GLOBAL MATCH p=(c:Comment)-[r1:REPLY_OF]->(m:Comment), (m)<-[r2:LIKES]-(s:Person)<-[r3:HAS_CREATOR]-(t:Post) WHERE rec(c,m) IN VCS_1.(c,m)  AND s.firstName='Mahinda' AND t.browserUsed = m.browserUsed AND t.length < 4  AND m.length > 80   RETURN DISTINCT t
+WITH VIEWS VCS_2 GLOBAL MATCH p=(c:Comment)-[r1:REPLY_OF]->(m:Comment)<-[r2:LIKES]-(s:Person), (s)<-[r3:HAS_CREATOR]-(t:Post) WHERE rec(c,m,s) IN VCS_2.(c,m,s)  AND t.browserUsed = m.browserUsed AND t.length < 4 RETURN DISTINCT t
+WITH VIEWS VCS_3 LOCAL MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE rec(c,m,s,t) IN VCS_3.(c,m,s,t) RETURN DISTINCT t
+original MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE s.firstName='Mahinda' AND t.browserUsed = m.browserUsed AND c.browserUsed = 'Chrome'  AND c.length < 10 AND t.length < 4 AND m.length > 80 RETURN DISTINCT t
+

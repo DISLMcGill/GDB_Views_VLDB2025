@@ -1,0 +1,42 @@
+//IC2_1:
+CREATE VIEW AS VIC2 MATCH (p:Person)-[r1:KNOWS]-(friend:Person) WHERE ID(p) =15151 RETURN COLLECTSET(friend)
+   
+WITH VIEWS VIC2 GLOBAL MATCH (friend)<-[r2:HAS_CREATOR]-(message:Message) WHERE message.creationDate <= 1322000000000 RETURN friend,message ORDER BY message.creationDate DESC,toInteger(id(message)) ASC LIMIT 20
+
+CREATE VIEW AS VIC2 MATCH p1=(p:Person)-[r1:KNOWS]-(friend:Person) WHERE ID(p) =15151 RETURN COLLECTSET(p1)
+WITH VIEWS VIC2 GLOBAL MATCH p=(person)-[r1:KNOWS]-(friend:Person), (friend)<-[r2:HAS_CREATOR]-(message:Message) WHERE message.creationDate <= 1322000000000 AND p IN VIC2 RETURN friend,message ORDER BY message.creationDate DESC,toInteger(id(message)) ASC LIMIT 20
+ 
+//IC 5
+CREATE VIEW AS VIC5 MATCH (person:Person)-[:KNOWS*1..2]-(friend) WHERE ID(person) = 15151 AND NOT person=friend RETURN COLLECTSET(friend)
+
+WITH VIEWS VIC5 GLOBAL MATCH p=(friend)<-[membership:HAS_MEMBER]-(forum) WHERE friend IN VIC5 AND membership.joinDate > 1322000000000 WITH forum, COLLECT(friend) AS friends OPTIONAL MATCH (friend)<-[:HAS_CREATOR]-(post)<-[:CONTAINER_OF]-(forum) WHERE friend IN friends WITH forum, COUNT(post) AS postCount RETURN forum.title AS forumName, postCount ORDER BY postCount DESC, forum.id ASC LIMIT 20
+
+original MATCH (person:Person)-[:KNOWS*1..2]-(friend) WHERE ID(person) = 15151 AND NOT person=friend WITH DISTINCT friend MATCH p=(friend)<-[membership:HAS_MEMBER]-(forum) WHERE membership.joinDate > 1322000000000 WITH forum, COLLECT(friend) AS friends OPTIONAL MATCH (friend)<-[:HAS_CREATOR]-(post)<-[:CONTAINER_OF]-(forum) WHERE friend IN friends WITH forum, COUNT(post) AS postCount RETURN forum.title AS forumName, postCount ORDER BY postCount DESC, forum.id ASC LIMIT 20
+
+
+//IC 6
+CREATE VIEW AS VIC6_1 MATCH (person:Person)-[:KNOWS*1..2]-(friend) WHERE ID(person)= 15151 AND NOT person=friend RETURN COLLECTSET(friend)
+WITH VIEWS VIC6_1 GLOBAL MATCH (f)<-[:HAS_CREATOR]-(post:Post), (post)-[:HAS_TAG]->(t:Tag), (post)-[:HAS_TAG]->(tag:Tag) WHERE  t.name= "Muammar_Gaddafi" AND f IN VIC6_1.friend AND NOT t = tag WITH tag.name as tagName, COUNT(post) as postCount RETURN tagName, postCount ORDER BY postCount DESC, tagName ASC LIMIT 10
+
+//BI 5
+CREATE VIEW AS VBI_5 MATCH (tag:Tag)<-[:HAS_TAG]-(message:Message), p=(message)-[:HAS_CREATOR]->(person:Person) WHERE tag.name= "Muammar_Gaddafi" RETURN COLLECTSET(p)
+
+WITH VIEWS VBI_5 GLOBAL MATCH p=(message)-[:HAS_CREATOR]->(person:Person) WHERE p IN VBI_5 OPTIONAL MATCH (message)<-[likes:LIKES]-(person2:Person) WITH person, message, COUNT(likes) AS likeCount OPTIONAL MATCH (message)<-[:REPLY_OF]-(reply:Comment) WITH person, message, likeCount, COUNT(reply) AS replyCount WITH person, COUNT(message) AS messageCount, SUM(likeCount) AS likeCount, SUM(replyCount) AS replyCount RETURN  person.id,  replyCount, likeCount, messageCount, 1*messageCount + 2*replyCount + 10*likeCount AS score ORDER BY score DESC,  person.id ASC LIMIT 100
+
+CREATE VIEW AS VBI_5 MATCH (tag:Tag)<-[:HAS_TAG]-(message:Message), p=(message)-[:HAS_CREATOR]->(person:Person) WHERE tag.name= "Muammar_Gaddafi" RETURN message, person
+
+WITH VIEWS VBI_5 GLOBAL MATCH (message),(person:Person) WHERE rec(message,person) IN VBI_5.(message,person) OPTIONAL MATCH (message)<-[likes:LIKES]-(person2:Person) WITH person, message, COUNT(likes) AS likeCount OPTIONAL MATCH (message)<-[:REPLY_OF]-(reply:Comment) WITH person, message, likeCount, COUNT(reply) AS replyCount WITH person, COUNT(message) AS messageCount, SUM(likeCount) AS likeCount, SUM(replyCount) AS replyCount RETURN  person.id,  replyCount, likeCount, messageCount, 1*messageCount + 2*replyCount + 10*likeCount AS score ORDER BY score DESC,  person.id ASC LIMIT 100
+//BI 17
+//time out
+CREATE VIEW AS VBI_17 MATCH  (tag:Tag), (person1:Person)<-[:HAS_CREATOR]-(message1:Message)-[:REPLY_OF*0..]->(post1:Post)<-[:CONTAINER_OF]-(forum1:Forum), (message1)-[:HAS_TAG]->(tag) WHERE tag.name= "Muammar_Gaddafi" MERGE p=(person1)-[:VBI_17]->(forum1)-[:VBI_17]->(message1)-[:VBI_17]->(tag) RETURN COLLECTSET(p)
+ 
+WITH VIEWS VBI_17 GLOBAL MATCH p=(person1)-[:VBI_17]->(forum1)-[:VBI_17]->(message1:Message)-[:VBI_17]->(tag),  (forum1)<-[:HAS_MEMBER]->(person2:Person)<-[:HAS_CREATOR]-(comment:Comment)-[:HAS_TAG]->(tag), (forum1)<-[:HAS_MEMBER]->(person3:Person)<-[:HAS_CREATOR]-(message2:Message),(comment)-[:REPLY_OF]->(message2)-[:REPLY_OF*0..]->(post2:Post)<-[:CONTAINER_OF]-(forum2:Forum)  WHERE p IN VBI_17 MATCH (comment)-[:HAS_TAG]->(tag) MATCH (message2)-[:HAS_TAG]->(tag) WHERE NOT ID(forum1) = ID(forum2) AND message2.creationDate > message1.creationDate + 20000000000 AND NOT (forum2)-[:HAS_MEMBER]->(person1) WITH person1,COUNT(DISTINCT(message2)) AS messageCount RETURN ID(person1),messageCount ORDER BY messageCount DESC, ID(person1) ASC LIMIT 10
+
+//CREATE VIEW AS VBI_17 MATCH  (tag:Tag), (person1:Person)<-[:HAS_CREATOR]-(message1:Message)-[:REPLY_OF*0..]->(post1:Post)<-[:CONTAINER_OF]-(forum1:Forum), (message1)-[:HAS_TAG]->(tag) WHERE tag.name= "Muammar_Gaddafi" RETURN person1,forum1,message1,tag
+ 
+WITH VIEWS VBI_17 GLOBAL MATCH (person1:Person),(forum1:Forum),(message1:Message),(tag:Tag), (forum1)<-[:HAS_MEMBER]->(person2:Person)<-[:HAS_CREATOR]-(comment:Comment)-[:HAS_TAG]->(tag), (forum1)<-[:HAS_MEMBER]->(person3:Person)<-[:HAS_CREATOR]-(message2:Message),(comment)-[:REPLY_OF]->(message2)-[:REPLY_OF*0..]->(post2:Post)<-[:CONTAINER_OF]-(forum2:Forum)  WHERE rec(person1,forum1,message1,tag) IN VBI_17.(person1,forum1,message1,tag) MATCH (comment)-[:HAS_TAG]->(tag) MATCH (message2)-[:HAS_TAG]->(tag) WHERE NOT ID(forum1) = ID(forum2) AND message2.creationDate > message1.creationDate + 20000000000 AND NOT (forum2)-[:HAS_MEMBER]->(person1) WITH person1,COUNT(DISTINCT(message2)) AS messageCount RETURN ID(person1),messageCount ORDER BY messageCount DESC, ID(person1) ASC LIMIT 10  (86.614s)
+
+//timeout
+CREATE VIEW AS VBI_17 MATCH  (tag:Tag), (person1:Person)<-[:HAS_CREATOR]-(message1:Message)-[:REPLY_OF*0..]->(post1:Post)<-[:CONTAINER_OF]-(forum1:Forum), (message1)-[:HAS_TAG]->(tag) WHERE tag.name= "Muammar_Gaddafi" RETURN COLLECTSET(person1),COLLECTSET(forum1),COLLECTSET(message1),COLLECTSET(tag)
+ 
+WITH VIEWS VBI_17 GLOBAL MATCH (tag:Tag), (person1:Person)<-[:HAS_CREATOR]-(message1:Message)-[:REPLY_OF*0..]->(post1:Post)<-[:CONTAINER_OF]-(forum1:Forum), (message1)-[:HAS_TAG]->(tag), (forum1)<-[:HAS_MEMBER]->(person2:Person)<-[:HAS_CREATOR]-(comment:Comment)-[:HAS_TAG]->(tag), (forum1)<-[:HAS_MEMBER]->(person3:Person)<-[:HAS_CREATOR]-(message2:Message),(comment)-[:REPLY_OF]->(message2)-[:REPLY_OF*0..]->(post2:Post)<-[:CONTAINER_OF]-(forum2:Forum)  WHERE tag IN VBI_17.tag AND person1 IN VBI_17.person1 AND message1 IN VBI_17.message1 AND forum1 IN VBI_17.forum1 MATCH (comment)-[:HAS_TAG]->(tag) MATCH (message2)-[:HAS_TAG]->(tag) WHERE NOT ID(forum1) = ID(forum2) AND message2.creationDate > message1.creationDate + 20000000000 AND NOT (forum2)-[:HAS_MEMBER]->(person1) WITH person1,COUNT(DISTINCT(message2)) AS messageCount RETURN ID(person1),messageCount ORDER BY messageCount DESC, ID(person1) ASC LIMIT 10

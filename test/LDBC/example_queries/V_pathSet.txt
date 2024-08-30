@@ -1,0 +1,39 @@
+CREATE VIEW AS VSL MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) RETURN COLLECTSET(f),COLLECTSET(po)
+WITH VIEWS VSL GLOBAL MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f IN VSL.f AND po IN VSL.po and f.creationDate>0  RETURN p
+CREATE VIEW AS VSL MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) RETURN COLLECTSET(p)
+WITH VIEWS VSL LOCAL MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) RETURN p
+CREATE VIEW AS VSL MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) CONSTRUCT p RETURN GRAPH
+WITH VIEWS VSL LOCAL MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post)  WHERE f.creationDate>0 RETURN p
+CREATE VIEW AS VSL MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) RETURN f,po
+WITH VIEWS VSL GLOBAL MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE rec(f,po) IN VSL.(f,po) RETURN p
+
+CREATE VIEW AS VSS MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1266000000000 RETURN COLLECTSET(f),COLLECTSET(po)
+WITH VIEWS VSS GLOBAL MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f IN VSS.f AND po IN VSS.po AND f.creationDate<1266000000000 RETURN p
+CREATE VIEW AS VSS MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1266000000000 RETURN COLLECTSET(p)
+WITH VIEWS VSS LOCAL MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post)  RETURN p
+CREATE VIEW AS VSS MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1266000000000 CONSTRUCT p RETURN GRAPH
+WITH VIEWS VSS LOCAL MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1266000000000 RETURN p
+CREATE VIEW AS VSS MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1266000000000 RETURN f,po
+WITH VIEWS VSS GLOBAL MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE rec(f,po) IN VSS.(f,po) RETURN p
+
+
+CREATE VIEW AS VCL MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE s.gender='male' AND c.length < 4 AND t.length < 2 AND m.length < 83 AND t.browserUsed = c.browserUsed AND t.browserUsed = m.browserUsed RETURN COLLECTSET(c), COLLECTSET(m), COLLECTSET(s), COLLECTSET(t)
+WITH VIEWS VCL GLOBAL MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE c IN VCL.c AND m IN VCL.m AND s IN VCL.s AND t IN VCL.t AND s.gender='male' AND c.length < 4 AND t.length < 2 AND m.length < 83 AND t.browserUsed = c.browserUsed AND t.browserUsed = m.browserUsed RETURN p
+CREATE VIEW AS VCL MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post)  WHERE s.gender='male' AND c.length < 4 AND t.length < 2 AND m.length < 83 AND t.browserUsed = c.browserUsed AND t.browserUsed = m.browserUsed RETURN COLLECTSET(p)
+WITH VIEWS VCL LOCAL MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) RETURN p
+CREATE VIEW AS VCL MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post)  WHERE s.gender='male' AND c.length < 4 AND t.length < 2 AND m.length < 83 AND t.browserUsed = c.browserUsed AND t.browserUsed = m.browserUsed CONSTRUCT p RETURN GRAPH
+WITH VIEWS VCL LOCAL MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE s.gender='male' AND c.length < 4 AND t.length < 2 AND m.length < 83 AND t.browserUsed = c.browserUsed AND t.browserUsed = m.browserUsed RETURN p
+CREATE VIEW AS VCL MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post)  WHERE s.gender='male' AND c.length < 4 AND t.length < 2 AND m.length < 83 AND t.browserUsed = c.browserUsed AND t.browserUsed = m.browserUsed RETURN c,m,s,t
+WITH VIEWS VCL GLOBAL MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE rec(c,m,s,t) IN VCL.(c,m,s,t) RETURN p
+
+
+CREATE VIEW AS VCS MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE s.firstName='Mahinda' AND t.browserUsed = m.browserUsed AND c.browserUsed = 'Chrome'  AND c.length < 60 AND t.length < 4 RETURN COLLECTSET(c), COLLECTSET(m), COLLECTSET(s), COLLECTSET(t)
+WITH VIEWS VCS GLOBAL MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE c IN VCS.c AND m IN VCS.m AND s IN VCS.s AND t IN VCS.t AND s.firstName='Mahinda' AND t.browserUsed = m.browserUsed AND c.browserUsed = 'Chrome'  AND c.length < 60 AND t.length < 4 RETURN p
+CREATE VIEW AS VCS MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE s.firstName='Mahinda' AND t.browserUsed = m.browserUsed AND c.browserUsed = 'Chrome'  AND c.length < 60 AND t.length < 4 RETURN COLLECTSET(p)
+WITH VIEWS VCS LOCAL MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) RETURN p
+CREATE VIEW AS VCS MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE s.firstName='Mahinda' AND t.browserUsed = m.browserUsed AND c.browserUsed = 'Chrome'  AND c.length < 60 AND t.length < 4 CONSTRUCT p RETURN GRAPH
+WITH VIEWS VCS LOCAL MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE s.firstName='Mahinda' AND t.browserUsed = m.browserUsed AND c.browserUsed = 'Chrome'  AND c.length < 60 AND t.length < 4 RETURN p
+CREATE VIEW AS VCS MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post)  WHERE s.firstName='Mahinda' AND t.browserUsed = m.browserUsed AND c.browserUsed = 'Chrome'  AND c.length < 60 AND t.length < 4 RETURN c,m,s,t
+WITH VIEWS VCS GLOBAL MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE rec(c,m,s,t) IN VCS.(c,m,s,t) RETURN p
+
+

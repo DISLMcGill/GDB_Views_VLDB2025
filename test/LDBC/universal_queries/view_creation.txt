@@ -1,0 +1,38 @@
+CREATE VIEW AS V1_1 MATCH (n:Comment) WHERE n.browserUsed = "Safari" RETURN COLLECTSET(n)
+CREATE VIEW AS V1_2 MATCH (n:Comment) WHERE n.browserUsed = "Internet Explorer" RETURN COLLECTSET(n)
+CREATE VIEW AS V2_1 MATCH (n:Message) WHERE  n.creationDate > 1310000000000 AND n.creationDate < 1313000000000 RETURN COLLECTSET(n)
+CREATE VIEW AS V2_2 MATCH (n:Message) WHERE  n.creationDate > 1310000000000 AND n.creationDate < 1316000000000 RETURN COLLECTSET(n)
+CREATE VIEW AS V3_1 MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1265000000000 RETURN COLLECTSET(po)
+CREATE VIEW AS V3_2 MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" RETURN COLLECTSET(po)
+CREATE VIEW AS V4_1 MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" AND f.title STARTS WITH "Wall" RETURN COLLECTSET(po)
+CREATE VIEW AS V4_2 MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.length > 5 AND po.browserUsed = "Opera" RETURN COLLECTSET(f)
+CREATE VIEW AS V5 MATCH (c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed RETURN COLLECTSET(c)
+CREATE VIEW AS V6_1 MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed RETURN COLLECTSET(s)
+CREATE VIEW AS V6_2 MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" RETURN COLLECTSET(s)
+CREATE VIEW AS V7_2 MATCH (c:Message)-[:HAS_CREATOR]->(s:Person)-[:KNOWS]-(t:Person)<-[:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 RETURN COLLECTSET(b)
+CREATE VIEW AS V8_1 MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1265000000000 RETURN COLLECTSET(p)
+CREATE VIEW AS V8_2 MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" RETURN COLLECTSET(p)
+CREATE VIEW AS V9_1 MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" AND f.title STARTS WITH "Wall" RETURN COLLECTSET(p)
+CREATE VIEW AS V9_2 MATCH p=(f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.length > 5 AND po.browserUsed = "Opera" RETURN COLLECTSET(p)
+CREATE VIEW AS V10 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed RETURN COLLECTSET(p)
+CREATE VIEW AS V11_1 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed RETURN COLLECTSET(p)
+CREATE VIEW AS V11_2 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" RETURN COLLECTSET(p)
+CREATE VIEW AS V12_2 MATCH p=(c:Message)-[:HAS_CREATOR]->(s:Person)-[:KNOWS]-(t:Person)<-[:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 RETURN COLLECTSET(p)
+CREATE VIEW AS V14_1 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE  s.gender='male' RETURN COLLECTSET(p)
+CREATE VIEW AS V14_2 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE  m.browserUsed='Safari' OR m.browserUsed='Internet Explorer' RETURN COLLECTSET(p)
+CREATE VIEW AS V20 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS V21_1 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS V21_2 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE NOT c.browserUsed = m.browserUsed OR NOT s.gender = "male" CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS V22_2 MATCH p=(c:Message)-[:HAS_CREATOR]->(s:Person)-[:KNOWS]-(t:Person)<-[:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS V24_1 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE  s.gender='male' CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS V24_2 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE NOT s.gender='male' CONSTRUCT p RETURN GRAPH
+CREATE VIEW AS Vt3_1 MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE f.creationDate<1265000000000 RETURN f,po
+CREATE VIEW AS Vt3_2 MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" RETURN f,po
+CREATE VIEW AS Vt4_1 MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.language = "ar" AND f.title STARTS WITH "Wall" RETURN f,po
+CREATE VIEW AS Vt4_2 MATCH (f:Forum)-[:CONTAINER_OF]->(po:Post) WHERE po.length > 5 AND po.browserUsed = "Opera" RETURN f,po
+CREATE VIEW AS Vt5 MATCH (c:Message)-[:REPLY_OF]->(m:Message) WHERE c.browserUsed = m.browserUsed RETURN c,m
+CREATE VIEW AS Vt6_1 MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed RETURN c,m,s
+CREATE VIEW AS Vt6_2 MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person) WHERE c.browserUsed = m.browserUsed AND s.gender = "male" RETURN c,m,s
+CREATE VIEW AS Vt7_2 MATCH (c:Message)-[:HAS_CREATOR]->(s:Person)-[:KNOWS]-(t:Person)<-[:HAS_CREATOR]-(b:Message) WHERE s.birthday < t.birthday+ 1000000000 AND  s.birthday > t.birthday-1000000000 AND c.creationDate < b.creationDate+10000000000 RETURN c,s,t,b
+CREATE VIEW AS Vt8_1 MATCH (c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE  s.gender='male' RETURN c,m,s
+CREATE VIEW AS Vt8_2 MATCH p=(c:Message)-[:REPLY_OF]->(m:Message)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(c) WHERE  m.browserUsed='Safari' OR m.browserUsed='Internet Explorer' RETURN c,m,s
