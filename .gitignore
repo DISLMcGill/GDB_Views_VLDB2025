@@ -1,0 +1,4 @@
+.idea/*
+*.log
+out/production/COMP400_code/*
+*.class

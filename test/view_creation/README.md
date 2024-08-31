@@ -1,0 +1,8 @@
+For reproducing the view creation data do the following: 
+1. Run `random_cmd_gen.py` to create a random ordering of the queries for 5 iterations. The results will be written into `create_experiment.txt`.
+2. Run Main.java passing `create_experiment.txt` as an argument. The middleware will execute the CREATE queries on the database and write the logs into `output_[size_of_database].txt`.
+3. Once the execution from last step is done, run `./cold_create.sh > cold_output_[size_of_database].txt` bash script to re-run the same queries but this time for measuting the average time needed to create the views on a cold start. The results of this step will be written into `cold_output_[size_of_database].txt`. 
+4. Once you have the logs on both `output_[size_of_database].txt` and `cold_output_[size_of_database].txt`, you run the python program `plot_maker.py`. This script will create the performance plots and save them under the `evaluation_plots` directory. The script gets three command-line arguments to identify the right inputs. Take the following example as a template for invoking the script: `python3 test/view_creation/plot_maker.py output_small.txt cold_output_small.txt small`.
+5. Similar to the previous step, run `csv_writer.py [output_filename][output_code_filename] size` to store the results into CSV files under `view_creation` directory. (Example: `python3 test/view_creation/csv_writer.py output_small.txt cold_output_small.txt small` from root directory)
+
+In all steps, make sure to feed the `PrintStream` object in the main function with the right file name for saving the logs of the program under it. 

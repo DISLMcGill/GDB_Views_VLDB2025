@@ -1,0 +1,170 @@
+neo4j graph connector set-up done.
+2
+WITH VIEWS V2_2 V11_1 LOCAL MATCH (n) WHERE n IN V2_2 AND n IN V11_1 RETURN n
+In enterRoot ctx is WITH VIEWSV2_2V11_1LOCALMATCH(n)WHEREnINV2_2ANDnINV11_1RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) WHERE n IN V2_2 AND n IN V11_1 RETURN n
+cmd:: WITH VIEWS V2_2 V11_1 LOCAL MATCH (n) WHERE n IN V2_2 AND n IN V11_1 RETURN n
+Scope:LOCAL
+13875571
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 24600ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V3_1 V4_2 LOCAL MATCH (n) WHERE n IN V3_1 AND n IN V4_2 RETURN n
+In enterRoot ctx is WITH VIEWSV3_1V4_2LOCALMATCH(n)WHEREnINV3_1ANDnINV4_2RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) WHERE n IN V3_1 AND n IN V4_2 RETURN n
+cmd:: WITH VIEWS V3_1 V4_2 LOCAL MATCH (n) WHERE n IN V3_1 AND n IN V4_2 RETURN n
+Scope:LOCAL
+2275674
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 4398ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V11_1 V12_2 LOCAL MATCH (n) WHERE n IN V11_1 AND n IN V12_2 RETURN n
+In enterRoot ctx is WITH VIEWSV11_1V12_2LOCALMATCH(n)WHEREnINV11_1ANDnINV12_2RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) WHERE n IN V11_1 AND n IN V12_2 RETURN n
+cmd:: WITH VIEWS V11_1 V12_2 LOCAL MATCH (n) WHERE n IN V11_1 AND n IN V12_2 RETURN n
+Scope:LOCAL
+16238423
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 64090ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V5 V8_1 LOCAL MATCH (n) WHERE n IN V5 AND n IN V8_1 RETURN n
+In enterRoot ctx is WITH VIEWSV5V8_1LOCALMATCH(n)WHEREnINV5ANDnINV8_1RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) WHERE n IN V5 AND n IN V8_1 RETURN n
+cmd:: WITH VIEWS V5 V8_1 LOCAL MATCH (n) WHERE n IN V5 AND n IN V8_1 RETURN n
+Scope:LOCAL
+17908488
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 27296ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V14_2 V1_2 LOCAL MATCH (n) WHERE n IN V14_2 AND n IN V1_2 RETURN n
+In enterRoot ctx is WITH VIEWSV14_2V1_2LOCALMATCH(n)WHEREnINV14_2ANDnINV1_2RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) WHERE n IN V14_2 AND n IN V1_2 RETURN n
+cmd:: WITH VIEWS V14_2 V1_2 LOCAL MATCH (n) WHERE n IN V14_2 AND n IN V1_2 RETURN n
+Scope:LOCAL
+1587231
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 4042ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V2_2 V11_1 LOCAL MATCH (n) WHERE n IN V2_2 AND n IN V11_1 RETURN n
+In enterRoot ctx is WITH VIEWSV2_2V11_1LOCALMATCH(n)WHEREnINV2_2ANDnINV11_1RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) WHERE n IN V2_2 AND n IN V11_1 RETURN n
+cmd:: WITH VIEWS V2_2 V11_1 LOCAL MATCH (n) WHERE n IN V2_2 AND n IN V11_1 RETURN n
+Scope:LOCAL
+13875571
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 24302ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V3_1 V4_2 LOCAL MATCH (n) WHERE n IN V3_1 AND n IN V4_2 RETURN n
+In enterRoot ctx is WITH VIEWSV3_1V4_2LOCALMATCH(n)WHEREnINV3_1ANDnINV4_2RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) WHERE n IN V3_1 AND n IN V4_2 RETURN n
+cmd:: WITH VIEWS V3_1 V4_2 LOCAL MATCH (n) WHERE n IN V3_1 AND n IN V4_2 RETURN n
+Scope:LOCAL
+2275674
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 4284ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V11_1 V12_2 LOCAL MATCH (n) WHERE n IN V11_1 AND n IN V12_2 RETURN n
+In enterRoot ctx is WITH VIEWSV11_1V12_2LOCALMATCH(n)WHEREnINV11_1ANDnINV12_2RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) WHERE n IN V11_1 AND n IN V12_2 RETURN n
+cmd:: WITH VIEWS V11_1 V12_2 LOCAL MATCH (n) WHERE n IN V11_1 AND n IN V12_2 RETURN n
+Scope:LOCAL
+16238423
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 65251ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V5 V8_1 LOCAL MATCH (n) WHERE n IN V5 AND n IN V8_1 RETURN n
+In enterRoot ctx is WITH VIEWSV5V8_1LOCALMATCH(n)WHEREnINV5ANDnINV8_1RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) WHERE n IN V5 AND n IN V8_1 RETURN n
+cmd:: WITH VIEWS V5 V8_1 LOCAL MATCH (n) WHERE n IN V5 AND n IN V8_1 RETURN n
+Scope:LOCAL
+17908488
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 26666ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V14_2 V1_2 LOCAL MATCH (n) WHERE n IN V14_2 AND n IN V1_2 RETURN n
+In enterRoot ctx is WITH VIEWSV14_2V1_2LOCALMATCH(n)WHEREnINV14_2ANDnINV1_2RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) WHERE n IN V14_2 AND n IN V1_2 RETURN n
+cmd:: WITH VIEWS V14_2 V1_2 LOCAL MATCH (n) WHERE n IN V14_2 AND n IN V1_2 RETURN n
+Scope:LOCAL
+1587231
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 3928ms to use view
+************************************

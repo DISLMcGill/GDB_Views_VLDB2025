@@ -1,0 +1,1515 @@
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 27629 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+delete all views
+MATCH (n:Tag) REMOVE n.viewname RETURN n
+MATCH (n:User) REMOVE n.viewname RETURN n
+MATCH (n:Post) REMOVE n.viewname RETURN n
+MATCH ()-[r:POSTED]-() REMOVE r.viewname RETURN r
+MATCH ()-[r:PARENT_OF]-() REMOVE r.viewname RETURN r
+MATCH ()-[r:HAS_TAG]-() REMOVE r.viewname RETURN r
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 26803 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNn
+ViewSql is CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V4_1'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V4_1') THEN n.viewname + ['V4_1'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 3318 ms to execute transaction
+Took 7 ms to count result rows
+Took 502 ms to commit transaction
+Execution done
+There are 21463 nodes
+Took 3830ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 27881 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_2MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V6_2'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V6_2') THEN n.viewname + ['V6_2'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 2377 ms to execute transaction
+Took 9 ms to count result rows
+Took 489 ms to commit transaction
+Execution done
+There are 25959 nodes
+Took 2878ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 29285 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNpo
+ViewSql is CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850  SET po.viewname = CASE WHEN po.viewname IS NULL THEN ['V3_1'] WHEN NOT ANY(v IN po.viewname WHERE v = 'V3_1') THEN po.viewname + ['V3_1'] ELSE po.viewname END RETURN DISTINCT ID(po)
+Took 1934 ms to execute transaction
+Took 46 ms to count result rows
+Took 3989 ms to commit transaction
+Execution done
+There are 253189 nodes
+Took 5971ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 28820 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_1MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation  SET m.viewname = CASE WHEN m.viewname IS NULL THEN ['V7_1'] WHEN NOT ANY(v IN m.viewname WHERE v = 'V7_1') THEN m.viewname + ['V7_1'] ELSE m.viewname END RETURN DISTINCT ID(m)
+Took 21932 ms to execute transaction
+Took 16 ms to count result rows
+Took 1202 ms to commit transaction
+Execution done
+There are 77209 nodes
+Took 23154ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 31016 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_2MATCH(n:Post)WHEREn.score<1500ANDn.score>10RETURNn
+ViewSql is CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V2_2'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V2_2') THEN n.viewname + ['V2_2'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 6255 ms to execute transaction
+Took 107 ms to count result rows
+Took 7225 ms to commit transaction
+Execution done
+There are 718883 nodes
+Took 13593ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 29488 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+In enterRoot ctx is CREATE VIEW ASV4_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNm
+ViewSql is CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450  SET m.viewname = CASE WHEN m.viewname IS NULL THEN ['V4_2'] WHEN NOT ANY(v IN m.viewname WHERE v = 'V4_2') THEN m.viewname + ['V4_2'] ELSE m.viewname END RETURN DISTINCT ID(m)
+Took 3338 ms to execute transaction
+Took 3 ms to count result rows
+Took 360 ms to commit transaction
+Execution done
+There are 7367 nodes
+Took 3706ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 27530 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, worstPost=Post, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10  SET betterPost.viewname = CASE WHEN betterPost.viewname IS NULL THEN ['V5'] WHEN NOT ANY(v IN betterPost.viewname WHERE v = 'V5') THEN betterPost.viewname + ['V5'] ELSE betterPost.viewname END RETURN DISTINCT ID(betterPost)
+Took 22890 ms to execute transaction
+Took 271 ms to count result rows
+Took 13642 ms to commit transaction
+Execution done
+There are 1719664 nodes
+Took 36809ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 28733 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_1MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V6_1'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V6_1') THEN n.viewname + ['V6_1'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 15112 ms to execute transaction
+Took 13 ms to count result rows
+Took 1200 ms to commit transaction
+Execution done
+There are 59909 nodes
+Took 16330ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 26495 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_2MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNm
+ViewSql is CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score  SET m.viewname = CASE WHEN m.viewname IS NULL THEN ['V7_2'] WHEN NOT ANY(v IN m.viewname WHERE v = 'V7_2') THEN m.viewname + ['V7_2'] ELSE m.viewname END RETURN DISTINCT ID(m)
+Took 18501 ms to execute transaction
+Took 14 ms to count result rows
+Took 1170 ms to commit transaction
+Execution done
+There are 57905 nodes
+Took 19688ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 29176 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_1MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 1000  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V1_1'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V1_1') THEN n.viewname + ['V1_1'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 540 ms to execute transaction
+Took 3 ms to count result rows
+Took 334 ms to commit transaction
+Execution done
+There are 5139 nodes
+Took 879ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 29367 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_2MATCH(n:User)WHEREn.upvotes>400RETURNn
+ViewSql is CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 400  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V1_2'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V1_2') THEN n.viewname + ['V1_2'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 650 ms to execute transaction
+Took 5 ms to count result rows
+Took 612 ms to commit transaction
+Execution done
+There are 12036 nodes
+Took 1270ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 27857 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_1MATCH(n:Post)WHEREn.score<1500ANDn.score>20RETURNn
+ViewSql is CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V2_1'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V2_1') THEN n.viewname + ['V2_1'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 5057 ms to execute transaction
+Took 42 ms to count result rows
+Took 5428 ms to commit transaction
+Execution done
+There are 367709 nodes
+Took 10532ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 29127 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNpo
+ViewSql is CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38  SET po.viewname = CASE WHEN po.viewname IS NULL THEN ['V3_2'] WHEN NOT ANY(v IN po.viewname WHERE v = 'V3_2') THEN po.viewname + ['V3_2'] ELSE po.viewname END RETURN DISTINCT ID(po)
+Took 4853 ms to execute transaction
+Took 22 ms to count result rows
+Took 2314 ms to commit transaction
+Execution done
+There are 111876 nodes
+Took 7193ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 32846 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+delete all views
+MATCH (n:Tag) REMOVE n.viewname RETURN n
+MATCH (n:User) REMOVE n.viewname RETURN n
+MATCH (n:Post) REMOVE n.viewname RETURN n
+MATCH ()-[r:POSTED]-() REMOVE r.viewname RETURN r
+MATCH ()-[r:PARENT_OF]-() REMOVE r.viewname RETURN r
+MATCH ()-[r:HAS_TAG]-() REMOVE r.viewname RETURN r
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 35058 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+In enterRoot ctx is CREATE VIEW ASV4_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNm
+ViewSql is CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450  SET m.viewname = CASE WHEN m.viewname IS NULL THEN ['V4_2'] WHEN NOT ANY(v IN m.viewname WHERE v = 'V4_2') THEN m.viewname + ['V4_2'] ELSE m.viewname END RETURN DISTINCT ID(m)
+Took 3368 ms to execute transaction
+Took 4 ms to count result rows
+Took 228 ms to commit transaction
+Execution done
+There are 7367 nodes
+Took 3603ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 33218 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_1MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation  SET m.viewname = CASE WHEN m.viewname IS NULL THEN ['V7_1'] WHEN NOT ANY(v IN m.viewname WHERE v = 'V7_1') THEN m.viewname + ['V7_1'] ELSE m.viewname END RETURN DISTINCT ID(m)
+Took 18671 ms to execute transaction
+Took 16 ms to count result rows
+Took 1030 ms to commit transaction
+Execution done
+There are 77209 nodes
+Took 19720ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 35861 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_2MATCH(n:User)WHEREn.upvotes>400RETURNn
+ViewSql is CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 400  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V1_2'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V1_2') THEN n.viewname + ['V1_2'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 610 ms to execute transaction
+Took 4 ms to count result rows
+Took 513 ms to commit transaction
+Execution done
+There are 12036 nodes
+Took 1132ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 36490 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_2MATCH(n:Post)WHEREn.score<1500ANDn.score>10RETURNn
+ViewSql is CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V2_2'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V2_2') THEN n.viewname + ['V2_2'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 6142 ms to execute transaction
+Took 192 ms to count result rows
+Took 6967 ms to commit transaction
+Execution done
+There are 718883 nodes
+Took 13305ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 27025 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNpo
+ViewSql is CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850  SET po.viewname = CASE WHEN po.viewname IS NULL THEN ['V3_1'] WHEN NOT ANY(v IN po.viewname WHERE v = 'V3_1') THEN po.viewname + ['V3_1'] ELSE po.viewname END RETURN DISTINCT ID(po)
+Took 2098 ms to execute transaction
+Took 41 ms to count result rows
+Took 3396 ms to commit transaction
+Execution done
+There are 253189 nodes
+Took 5539ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 28909 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_2MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V6_2'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V6_2') THEN n.viewname + ['V6_2'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 2370 ms to execute transaction
+Took 8 ms to count result rows
+Took 679 ms to commit transaction
+Execution done
+There are 25959 nodes
+Took 3064ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 27862 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_1MATCH(n:Post)WHEREn.score<1500ANDn.score>20RETURNn
+ViewSql is CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V2_1'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V2_1') THEN n.viewname + ['V2_1'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 5094 ms to execute transaction
+Took 39 ms to count result rows
+Took 4691 ms to commit transaction
+Execution done
+There are 367709 nodes
+Took 9828ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 27666 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNpo
+ViewSql is CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38  SET po.viewname = CASE WHEN po.viewname IS NULL THEN ['V3_2'] WHEN NOT ANY(v IN po.viewname WHERE v = 'V3_2') THEN po.viewname + ['V3_2'] ELSE po.viewname END RETURN DISTINCT ID(po)
+Took 4591 ms to execute transaction
+Took 28 ms to count result rows
+Took 2245 ms to commit transaction
+Execution done
+There are 111876 nodes
+Took 6867ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 28834 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_1MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 1000  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V1_1'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V1_1') THEN n.viewname + ['V1_1'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 571 ms to execute transaction
+Took 3 ms to count result rows
+Took 364 ms to commit transaction
+Execution done
+There are 5139 nodes
+Took 941ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 26721 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_1MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V6_1'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V6_1') THEN n.viewname + ['V6_1'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 14377 ms to execute transaction
+Took 13 ms to count result rows
+Took 1131 ms to commit transaction
+Execution done
+There are 59909 nodes
+Took 15524ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 29813 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNn
+ViewSql is CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V4_1'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V4_1') THEN n.viewname + ['V4_1'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 3047 ms to execute transaction
+Took 7 ms to count result rows
+Took 695 ms to commit transaction
+Execution done
+There are 21463 nodes
+Took 3754ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 30733 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_2MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNm
+ViewSql is CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score  SET m.viewname = CASE WHEN m.viewname IS NULL THEN ['V7_2'] WHEN NOT ANY(v IN m.viewname WHERE v = 'V7_2') THEN m.viewname + ['V7_2'] ELSE m.viewname END RETURN DISTINCT ID(m)
+Took 18572 ms to execute transaction
+Took 14 ms to count result rows
+Took 1050 ms to commit transaction
+Execution done
+There are 57905 nodes
+Took 19639ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 30221 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, worstPost=Post, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10  SET betterPost.viewname = CASE WHEN betterPost.viewname IS NULL THEN ['V5'] WHEN NOT ANY(v IN betterPost.viewname WHERE v = 'V5') THEN betterPost.viewname + ['V5'] ELSE betterPost.viewname END RETURN DISTINCT ID(betterPost)
+Took 22331 ms to execute transaction
+Took 109 ms to count result rows
+Took 13171 ms to commit transaction
+Execution done
+There are 1719664 nodes
+Took 35615ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 26812 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+delete all views
+MATCH (n:Tag) REMOVE n.viewname RETURN n
+MATCH (n:User) REMOVE n.viewname RETURN n
+MATCH (n:Post) REMOVE n.viewname RETURN n
+MATCH ()-[r:POSTED]-() REMOVE r.viewname RETURN r
+MATCH ()-[r:PARENT_OF]-() REMOVE r.viewname RETURN r
+MATCH ()-[r:HAS_TAG]-() REMOVE r.viewname RETURN r
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 27329 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_1MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation  SET m.viewname = CASE WHEN m.viewname IS NULL THEN ['V7_1'] WHEN NOT ANY(v IN m.viewname WHERE v = 'V7_1') THEN m.viewname + ['V7_1'] ELSE m.viewname END RETURN DISTINCT ID(m)
+Took 18349 ms to execute transaction
+Took 15 ms to count result rows
+Took 1071 ms to commit transaction
+Execution done
+There are 77209 nodes
+Took 19440ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 38030 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_2MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V6_2'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V6_2') THEN n.viewname + ['V6_2'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 2565 ms to execute transaction
+Took 7 ms to count result rows
+Took 731 ms to commit transaction
+Execution done
+There are 25959 nodes
+Took 3309ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 43198 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNn
+ViewSql is CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V4_1'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V4_1') THEN n.viewname + ['V4_1'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 3127 ms to execute transaction
+Took 7 ms to count result rows
+Took 456 ms to commit transaction
+Execution done
+There are 21463 nodes
+Took 3593ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 46175 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_2MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNm
+ViewSql is CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score  SET m.viewname = CASE WHEN m.viewname IS NULL THEN ['V7_2'] WHEN NOT ANY(v IN m.viewname WHERE v = 'V7_2') THEN m.viewname + ['V7_2'] ELSE m.viewname END RETURN DISTINCT ID(m)
+Took 19291 ms to execute transaction
+Took 12 ms to count result rows
+Took 1209 ms to commit transaction
+Execution done
+There are 57905 nodes
+Took 20516ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 43989 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_1MATCH(n:Post)WHEREn.score<1500ANDn.score>20RETURNn
+ViewSql is CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V2_1'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V2_1') THEN n.viewname + ['V2_1'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 4844 ms to execute transaction
+Took 37 ms to count result rows
+Took 4406 ms to commit transaction
+Execution done
+There are 367709 nodes
+Took 9290ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 46002 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, worstPost=Post, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10  SET betterPost.viewname = CASE WHEN betterPost.viewname IS NULL THEN ['V5'] WHEN NOT ANY(v IN betterPost.viewname WHERE v = 'V5') THEN betterPost.viewname + ['V5'] ELSE betterPost.viewname END RETURN DISTINCT ID(betterPost)
+Took 23139 ms to execute transaction
+Took 262 ms to count result rows
+Took 12541 ms to commit transaction
+Execution done
+There are 1719664 nodes
+Took 35946ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 40402 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNpo
+ViewSql is CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38  SET po.viewname = CASE WHEN po.viewname IS NULL THEN ['V3_2'] WHEN NOT ANY(v IN po.viewname WHERE v = 'V3_2') THEN po.viewname + ['V3_2'] ELSE po.viewname END RETURN DISTINCT ID(po)
+Took 5465 ms to execute transaction
+Took 22 ms to count result rows
+Took 2163 ms to commit transaction
+Execution done
+There are 111876 nodes
+Took 7660ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 37579 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNpo
+ViewSql is CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850  SET po.viewname = CASE WHEN po.viewname IS NULL THEN ['V3_1'] WHEN NOT ANY(v IN po.viewname WHERE v = 'V3_1') THEN po.viewname + ['V3_1'] ELSE po.viewname END RETURN DISTINCT ID(po)
+Took 2073 ms to execute transaction
+Took 36 ms to count result rows
+Took 3596 ms to commit transaction
+Execution done
+There are 253189 nodes
+Took 5708ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 39034 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_1MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 1000  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V1_1'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V1_1') THEN n.viewname + ['V1_1'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 543 ms to execute transaction
+Took 2 ms to count result rows
+Took 389 ms to commit transaction
+Execution done
+There are 5139 nodes
+Took 943ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 37467 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+In enterRoot ctx is CREATE VIEW ASV4_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNm
+ViewSql is CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450  SET m.viewname = CASE WHEN m.viewname IS NULL THEN ['V4_2'] WHEN NOT ANY(v IN m.viewname WHERE v = 'V4_2') THEN m.viewname + ['V4_2'] ELSE m.viewname END RETURN DISTINCT ID(m)
+Took 3280 ms to execute transaction
+Took 3 ms to count result rows
+Took 304 ms to commit transaction
+Execution done
+There are 7367 nodes
+Took 3592ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 39207 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_2MATCH(n:User)WHEREn.upvotes>400RETURNn
+ViewSql is CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 400  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V1_2'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V1_2') THEN n.viewname + ['V1_2'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 667 ms to execute transaction
+Took 5 ms to count result rows
+Took 502 ms to commit transaction
+Execution done
+There are 12036 nodes
+Took 1177ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 37407 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_1MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V6_1'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V6_1') THEN n.viewname + ['V6_1'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 14573 ms to execute transaction
+Took 13 ms to count result rows
+Took 1548 ms to commit transaction
+Execution done
+There are 59909 nodes
+Took 16142ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 40318 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_2MATCH(n:Post)WHEREn.score<1500ANDn.score>10RETURNn
+ViewSql is CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V2_2'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V2_2') THEN n.viewname + ['V2_2'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 6898 ms to execute transaction
+Took 107 ms to count result rows
+Took 8407 ms to commit transaction
+Execution done
+There are 718883 nodes
+Took 15416ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 37674 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+delete all views
+MATCH (n:Tag) REMOVE n.viewname RETURN n
+MATCH (n:User) REMOVE n.viewname RETURN n
+MATCH (n:Post) REMOVE n.viewname RETURN n
+MATCH ()-[r:POSTED]-() REMOVE r.viewname RETURN r
+MATCH ()-[r:PARENT_OF]-() REMOVE r.viewname RETURN r
+MATCH ()-[r:HAS_TAG]-() REMOVE r.viewname RETURN r
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 62241 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNn
+ViewSql is CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V4_1'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V4_1') THEN n.viewname + ['V4_1'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 3449 ms to execute transaction
+Took 7 ms to count result rows
+Took 554 ms to commit transaction
+Execution done
+There are 21463 nodes
+Took 4015ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 54811 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_2MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V6_2'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V6_2') THEN n.viewname + ['V6_2'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 2638 ms to execute transaction
+Took 8 ms to count result rows
+Took 554 ms to commit transaction
+Execution done
+There are 25959 nodes
+Took 3209ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 60694 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_1MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V6_1'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V6_1') THEN n.viewname + ['V6_1'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 15434 ms to execute transaction
+Took 13 ms to count result rows
+Took 1060 ms to commit transaction
+Execution done
+There are 59909 nodes
+Took 16512ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 53486 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNpo
+ViewSql is CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850  SET po.viewname = CASE WHEN po.viewname IS NULL THEN ['V3_1'] WHEN NOT ANY(v IN po.viewname WHERE v = 'V3_1') THEN po.viewname + ['V3_1'] ELSE po.viewname END RETURN DISTINCT ID(po)
+Took 1875 ms to execute transaction
+Took 57 ms to count result rows
+Took 3242 ms to commit transaction
+Execution done
+There are 253189 nodes
+Took 5178ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 49480 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_2MATCH(n:User)WHEREn.upvotes>400RETURNn
+ViewSql is CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 400  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V1_2'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V1_2') THEN n.viewname + ['V1_2'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 625 ms to execute transaction
+Took 5 ms to count result rows
+Took 527 ms to commit transaction
+Execution done
+There are 12036 nodes
+Took 1163ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 55371 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_2MATCH(n:Post)WHEREn.score<1500ANDn.score>10RETURNn
+ViewSql is CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V2_2'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V2_2') THEN n.viewname + ['V2_2'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 6738 ms to execute transaction
+Took 98 ms to count result rows
+Took 6808 ms to commit transaction
+Execution done
+There are 718883 nodes
+Took 13647ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 54504 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, worstPost=Post, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10  SET betterPost.viewname = CASE WHEN betterPost.viewname IS NULL THEN ['V5'] WHEN NOT ANY(v IN betterPost.viewname WHERE v = 'V5') THEN betterPost.viewname + ['V5'] ELSE betterPost.viewname END RETURN DISTINCT ID(betterPost)
+Took 22755 ms to execute transaction
+Took 116 ms to count result rows
+Took 13410 ms to commit transaction
+Execution done
+There are 1719664 nodes
+Took 36286ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 40148 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_1MATCH(n:Post)WHEREn.score<1500ANDn.score>20RETURNn
+ViewSql is CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V2_1'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V2_1') THEN n.viewname + ['V2_1'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 5270 ms to execute transaction
+Took 48 ms to count result rows
+Took 4566 ms to commit transaction
+Execution done
+There are 367709 nodes
+Took 9891ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 40662 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_1MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 1000  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V1_1'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V1_1') THEN n.viewname + ['V1_1'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 529 ms to execute transaction
+Took 3 ms to count result rows
+Took 358 ms to commit transaction
+Execution done
+There are 5139 nodes
+Took 898ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 37370 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNpo
+ViewSql is CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38  SET po.viewname = CASE WHEN po.viewname IS NULL THEN ['V3_2'] WHEN NOT ANY(v IN po.viewname WHERE v = 'V3_2') THEN po.viewname + ['V3_2'] ELSE po.viewname END RETURN DISTINCT ID(po)
+Took 5067 ms to execute transaction
+Took 21 ms to count result rows
+Took 2119 ms to commit transaction
+Execution done
+There are 111876 nodes
+Took 7212ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 40050 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_1MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation  SET m.viewname = CASE WHEN m.viewname IS NULL THEN ['V7_1'] WHEN NOT ANY(v IN m.viewname WHERE v = 'V7_1') THEN m.viewname + ['V7_1'] ELSE m.viewname END RETURN DISTINCT ID(m)
+Took 18991 ms to execute transaction
+Took 16 ms to count result rows
+Took 1356 ms to commit transaction
+Execution done
+There are 77209 nodes
+Took 20370ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 39601 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+In enterRoot ctx is CREATE VIEW ASV4_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNm
+ViewSql is CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450  SET m.viewname = CASE WHEN m.viewname IS NULL THEN ['V4_2'] WHEN NOT ANY(v IN m.viewname WHERE v = 'V4_2') THEN m.viewname + ['V4_2'] ELSE m.viewname END RETURN DISTINCT ID(m)
+Took 3248 ms to execute transaction
+Took 4 ms to count result rows
+Took 312 ms to commit transaction
+Execution done
+There are 7367 nodes
+Took 3568ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 40357 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_2MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNm
+ViewSql is CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score  SET m.viewname = CASE WHEN m.viewname IS NULL THEN ['V7_2'] WHEN NOT ANY(v IN m.viewname WHERE v = 'V7_2') THEN m.viewname + ['V7_2'] ELSE m.viewname END RETURN DISTINCT ID(m)
+Took 18658 ms to execute transaction
+Took 12 ms to count result rows
+Took 1194 ms to commit transaction
+Execution done
+There are 57905 nodes
+Took 19871ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 37968 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+delete all views
+MATCH (n:Tag) REMOVE n.viewname RETURN n
+MATCH (n:User) REMOVE n.viewname RETURN n
+MATCH (n:Post) REMOVE n.viewname RETURN n
+MATCH ()-[r:POSTED]-() REMOVE r.viewname RETURN r
+MATCH ()-[r:PARENT_OF]-() REMOVE r.viewname RETURN r
+MATCH ()-[r:HAS_TAG]-() REMOVE r.viewname RETURN r
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 37424 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_2MATCH(n:User)WHEREn.upvotes>400RETURNn
+ViewSql is CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 400  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V1_2'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V1_2') THEN n.viewname + ['V1_2'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 587 ms to execute transaction
+Took 5 ms to count result rows
+Took 440 ms to commit transaction
+Execution done
+There are 12036 nodes
+Took 1035ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 39650 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNn
+ViewSql is CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V4_1'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V4_1') THEN n.viewname + ['V4_1'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 3352 ms to execute transaction
+Took 7 ms to count result rows
+Took 542 ms to commit transaction
+Execution done
+There are 21463 nodes
+Took 3904ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 37454 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_1MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation  SET m.viewname = CASE WHEN m.viewname IS NULL THEN ['V7_1'] WHEN NOT ANY(v IN m.viewname WHERE v = 'V7_1') THEN m.viewname + ['V7_1'] ELSE m.viewname END RETURN DISTINCT ID(m)
+Took 18309 ms to execute transaction
+Took 16 ms to count result rows
+Took 1320 ms to commit transaction
+Execution done
+There are 77209 nodes
+Took 19655ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 39721 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, worstPost=Post, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10  SET betterPost.viewname = CASE WHEN betterPost.viewname IS NULL THEN ['V5'] WHEN NOT ANY(v IN betterPost.viewname WHERE v = 'V5') THEN betterPost.viewname + ['V5'] ELSE betterPost.viewname END RETURN DISTINCT ID(betterPost)
+Took 22902 ms to execute transaction
+Took 120 ms to count result rows
+Took 12953 ms to commit transaction
+Execution done
+There are 1719664 nodes
+Took 35978ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 39865 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_1MATCH(n:Post)WHEREn.score<1500ANDn.score>20RETURNn
+ViewSql is CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V2_1'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V2_1') THEN n.viewname + ['V2_1'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 4870 ms to execute transaction
+Took 55 ms to count result rows
+Took 4735 ms to commit transaction
+Execution done
+There are 367709 nodes
+Took 9669ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 37349 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_2MATCH(n:Post)WHEREn.score<1500ANDn.score>10RETURNn
+ViewSql is CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V2_2'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V2_2') THEN n.viewname + ['V2_2'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 7057 ms to execute transaction
+Took 81 ms to count result rows
+Took 8023 ms to commit transaction
+Execution done
+There are 718883 nodes
+Took 15165ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 40642 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNpo
+ViewSql is CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850  SET po.viewname = CASE WHEN po.viewname IS NULL THEN ['V3_1'] WHEN NOT ANY(v IN po.viewname WHERE v = 'V3_1') THEN po.viewname + ['V3_1'] ELSE po.viewname END RETURN DISTINCT ID(po)
+Took 2260 ms to execute transaction
+Took 28 ms to count result rows
+Took 3678 ms to commit transaction
+Execution done
+There are 253189 nodes
+Took 5974ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 44020 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_1MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 1000  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V1_1'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V1_1') THEN n.viewname + ['V1_1'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 486 ms to execute transaction
+Took 2 ms to count result rows
+Took 334 ms to commit transaction
+Execution done
+There are 5139 nodes
+Took 829ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 41827 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_1MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V6_1'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V6_1') THEN n.viewname + ['V6_1'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 14220 ms to execute transaction
+Took 12 ms to count result rows
+Took 1114 ms to commit transaction
+Execution done
+There are 59909 nodes
+Took 15349ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 38024 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNpo
+ViewSql is CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38  SET po.viewname = CASE WHEN po.viewname IS NULL THEN ['V3_2'] WHEN NOT ANY(v IN po.viewname WHERE v = 'V3_2') THEN po.viewname + ['V3_2'] ELSE po.viewname END RETURN DISTINCT ID(po)
+Took 4545 ms to execute transaction
+Took 24 ms to count result rows
+Took 2142 ms to commit transaction
+Execution done
+There are 111876 nodes
+Took 6717ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 38601 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_2MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNm
+ViewSql is CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score  SET m.viewname = CASE WHEN m.viewname IS NULL THEN ['V7_2'] WHEN NOT ANY(v IN m.viewname WHERE v = 'V7_2') THEN m.viewname + ['V7_2'] ELSE m.viewname END RETURN DISTINCT ID(m)
+Took 18850 ms to execute transaction
+Took 41 ms to count result rows
+Took 1095 ms to commit transaction
+Execution done
+There are 57905 nodes
+Took 19989ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 40348 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_2MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10  SET n.viewname = CASE WHEN n.viewname IS NULL THEN ['V6_2'] WHEN NOT ANY(v IN n.viewname WHERE v = 'V6_2') THEN n.viewname + ['V6_2'] ELSE n.viewname END RETURN DISTINCT ID(n)
+Took 2559 ms to execute transaction
+Took 7 ms to count result rows
+Took 759 ms to commit transaction
+Execution done
+There are 25959 nodes
+Took 3329ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+Executing query: MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+Execution done
+Node size is 1
+Edge size is 0
+Took 37490 ms to execute baseline query
+Baseline returned 1 nodes (or edges)
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+In enterRoot ctx is CREATE VIEW ASV4_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNm
+ViewSql is CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450  SET m.viewname = CASE WHEN m.viewname IS NULL THEN ['V4_2'] WHEN NOT ANY(v IN m.viewname WHERE v = 'V4_2') THEN m.viewname + ['V4_2'] ELSE m.viewname END RETURN DISTINCT ID(m)
+Took 3126 ms to execute transaction
+Took 5 ms to count result rows
+Took 304 ms to commit transaction
+Execution done
+There are 7367 nodes
+Took 3442ms to create views
+************************************

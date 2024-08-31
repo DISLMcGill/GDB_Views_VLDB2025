@@ -1,0 +1,2035 @@
+neo4j graph connector set-up done.
+1
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_1MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 1000 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_1" IN n.views THEN [] ELSE ["V1_1"] END) + n.views
+Transaction execute: 945 milliseconds
+While Loop: 343 milliseconds
+Transaction commit Time: 1 milliseconds
+Execution done
+There are 5139 nodes
+Took 1339ms to create views
+*********************************
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_2MATCH(n:User)WHEREn.upvotes>400RETURNn
+ViewSql is CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 400 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_2" IN n.views THEN [] ELSE ["V1_2"] END) + n.views
+Transaction execute: 19 milliseconds
+While Loop: 93 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 12036 nodes
+Took 132ms to create views
+*********************************
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_1MATCH(n:Post)WHEREn.score<1500ANDn.score>20RETURNn
+ViewSql is CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_1" IN n.views THEN [] ELSE ["V2_1"] END) + n.views
+Transaction execute: 67 milliseconds
+While Loop: 30247 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 367709 nodes
+Took 30315ms to create views
+*********************************
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_2MATCH(n:Post)WHEREn.score<1500ANDn.score>10RETURNn
+ViewSql is CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_2" IN n.views THEN [] ELSE ["V2_2"] END) + n.views
+Transaction execute: 11 milliseconds
+While Loop: 3818 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 718883 nodes
+Took 3829ms to create views
+*********************************
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNpo
+ViewSql is CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_1" IN po.views THEN [] ELSE ["V3_1"] END) + po.views
+Transaction execute: 108 milliseconds
+While Loop: 517 milliseconds
+Transaction commit Time: 1 milliseconds
+Execution done
+There are 253189 nodes
+Took 629ms to create views
+*********************************
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNpo
+ViewSql is CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_2=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_2" IN po.views THEN [] ELSE ["V3_2"] END) + po.views
+Transaction execute: 61 milliseconds
+While Loop: 3653 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 111876 nodes
+Took 3714ms to create views
+*********************************
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNn
+ViewSql is CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_3=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V4_1" IN n.views THEN [] ELSE ["V4_1"] END) + n.views
+Transaction execute: 72 milliseconds
+While Loop: 2109 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 21463 nodes
+Took 2182ms to create views
+*********************************
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+In enterRoot ctx is CREATE VIEW ASV4_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNm
+ViewSql is CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_4=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V4_2" IN m.views THEN [] ELSE ["V4_2"] END) + m.views
+Transaction execute: 60 milliseconds
+While Loop: 2581 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 7367 nodes
+Took 2641ms to create views
+*********************************
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_5=PARENT_OF, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(betterPost.views) THEN betterPost END).views = [] SET betterPost.views = (CASE WHEN "V5" IN betterPost.views THEN [] ELSE ["V5"] END) + betterPost.views
+Transaction execute: 67 milliseconds
+While Loop: 14296 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1719664 nodes
+Took 14366ms to create views
+*********************************
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_1MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, n=User, _ENTRY_SPECIAL_NO_REL_NAME_6=POSTED, betterPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_7=PARENT_OF}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_1" IN n.views THEN [] ELSE ["V6_1"] END) + n.views
+Transaction execute: 118 milliseconds
+While Loop: 11470 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 59909 nodes
+Took 11589ms to create views
+*********************************
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_2MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_8=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_9=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_2" IN n.views THEN [] ELSE ["V6_2"] END) + n.views
+Transaction execute: 98 milliseconds
+While Loop: 991 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 25959 nodes
+Took 1089ms to create views
+*********************************
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_1MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_10=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_11=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_1" IN m.views THEN [] ELSE ["V7_1"] END) + m.views
+Transaction execute: 96 milliseconds
+While Loop: 15318 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 77209 nodes
+Took 15416ms to create views
+*********************************
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_2MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNm
+ViewSql is CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_14=PARENT_OF, _ENTRY_SPECIAL_NO_REL_NAME_13=POSTED, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_2" IN m.views THEN [] ELSE ["V7_2"] END) + m.views
+Transaction execute: 78 milliseconds
+While Loop: 14977 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 57905 nodes
+Took 15056ms to create views
+*********************************
+WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+185538
+Before calling execute query
+Took 3043 ms to execute transaction
+There are 21463 elements in the query
+Took 51 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+After the call to execute query
+Took 3103ms to use view
+*********************************
+WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+198685
+Before calling execute query
+Took 1150 ms to execute transaction
+There are 25959 elements in the query
+Took 25 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 1181ms to use view
+*********************************
+WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+2211595
+Before calling execute query
+Took 31318 ms to execute transaction
+There are 253189 elements in the query
+Took 206 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 31561ms to use view
+*********************************
+WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+587743
+Before calling execute query
+Took 4022 ms to execute transaction
+There are 77209 elements in the query
+Took 54 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 4084ms to use view
+*********************************
+WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+6338115
+Before calling execute query
+Took 32631 ms to execute transaction
+There are 718883 elements in the query
+Took 257 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 32942ms to use view
+*********************************
+WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+64106
+Before calling execute query
+Took 787 ms to execute transaction
+There are 7367 elements in the query
+Took 3 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+After the call to execute query
+Took 812ms to use view
+*********************************
+WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV5LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+15326601
+Before calling execute query
+Took 193325 ms to execute transaction
+There are 1719664 elements in the query
+Took 2151 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+After the call to execute query
+Took 195614ms to use view
+*********************************
+WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+453444
+Before calling execute query
+Took 2839 ms to execute transaction
+There are 59909 elements in the query
+Took 21 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 2917ms to use view
+*********************************
+WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+439132
+Before calling execute query
+Took 3177 ms to execute transaction
+There are 57905 elements in the query
+Took 21 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 3204ms to use view
+*********************************
+WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+38278
+Before calling execute query
+Took 212 ms to execute transaction
+There are 5139 elements in the query
+Took 2 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+After the call to execute query
+Took 221ms to use view
+*********************************
+WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+89905
+Before calling execute query
+Took 497 ms to execute transaction
+There are 12036 elements in the query
+Took 5 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 504ms to use view
+*********************************
+WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+3234436
+Before calling execute query
+Took 16058 ms to execute transaction
+There are 367709 elements in the query
+Took 158 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 16246ms to use view
+*********************************
+WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+965497
+Before calling execute query
+Took 6341 ms to execute transaction
+There are 111876 elements in the query
+Took 110 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 6484ms to use view
+*********************************
+--------------------------------------
+neo4j graph connector set-up done.
+1
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_1MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 1000 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_1" IN n.views THEN [] ELSE ["V1_1"] END) + n.views
+Transaction execute: 1018 milliseconds
+While Loop: 404 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 5139 nodes
+Took 1470ms to create views
+*********************************
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_2MATCH(n:User)WHEREn.upvotes>400RETURNn
+ViewSql is CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 400 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_2" IN n.views THEN [] ELSE ["V1_2"] END) + n.views
+Transaction execute: 25 milliseconds
+While Loop: 105 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 12036 nodes
+Took 157ms to create views
+*********************************
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_1MATCH(n:Post)WHEREn.score<1500ANDn.score>20RETURNn
+ViewSql is CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_1" IN n.views THEN [] ELSE ["V2_1"] END) + n.views
+Transaction execute: 76 milliseconds
+While Loop: 30925 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 367709 nodes
+Took 31026ms to create views
+*********************************
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_2MATCH(n:Post)WHEREn.score<1500ANDn.score>10RETURNn
+ViewSql is CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_2" IN n.views THEN [] ELSE ["V2_2"] END) + n.views
+Transaction execute: 12 milliseconds
+While Loop: 3723 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 718883 nodes
+Took 3736ms to create views
+*********************************
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNpo
+ViewSql is CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_1" IN po.views THEN [] ELSE ["V3_1"] END) + po.views
+Transaction execute: 110 milliseconds
+While Loop: 687 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 253189 nodes
+Took 798ms to create views
+*********************************
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNpo
+ViewSql is CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_2=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_2" IN po.views THEN [] ELSE ["V3_2"] END) + po.views
+Transaction execute: 50 milliseconds
+While Loop: 3958 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 111876 nodes
+Took 4009ms to create views
+*********************************
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNn
+ViewSql is CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_3=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V4_1" IN n.views THEN [] ELSE ["V4_1"] END) + n.views
+Transaction execute: 69 milliseconds
+While Loop: 2257 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 21463 nodes
+Took 2326ms to create views
+*********************************
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+In enterRoot ctx is CREATE VIEW ASV4_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNm
+ViewSql is CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_4=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V4_2" IN m.views THEN [] ELSE ["V4_2"] END) + m.views
+Transaction execute: 56 milliseconds
+While Loop: 2718 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 7367 nodes
+Took 2775ms to create views
+*********************************
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_5=PARENT_OF, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(betterPost.views) THEN betterPost END).views = [] SET betterPost.views = (CASE WHEN "V5" IN betterPost.views THEN [] ELSE ["V5"] END) + betterPost.views
+Transaction execute: 95 milliseconds
+While Loop: 14255 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1719664 nodes
+Took 14351ms to create views
+*********************************
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_1MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, n=User, _ENTRY_SPECIAL_NO_REL_NAME_6=POSTED, betterPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_7=PARENT_OF}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_1" IN n.views THEN [] ELSE ["V6_1"] END) + n.views
+Transaction execute: 129 milliseconds
+While Loop: 11409 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 59909 nodes
+Took 11541ms to create views
+*********************************
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_2MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_8=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_9=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_2" IN n.views THEN [] ELSE ["V6_2"] END) + n.views
+Transaction execute: 95 milliseconds
+While Loop: 963 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 25959 nodes
+Took 1059ms to create views
+*********************************
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_1MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_10=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_11=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_1" IN m.views THEN [] ELSE ["V7_1"] END) + m.views
+Transaction execute: 92 milliseconds
+While Loop: 14900 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 77209 nodes
+Took 14993ms to create views
+*********************************
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_2MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNm
+ViewSql is CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_14=PARENT_OF, _ENTRY_SPECIAL_NO_REL_NAME_13=POSTED, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_2" IN m.views THEN [] ELSE ["V7_2"] END) + m.views
+Transaction execute: 83 milliseconds
+While Loop: 14982 milliseconds
+Transaction commit Time: 1 milliseconds
+Execution done
+There are 57905 nodes
+Took 15067ms to create views
+*********************************
+WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+64106
+Before calling execute query
+Took 1082 ms to execute transaction
+There are 7367 elements in the query
+Took 32 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 1121ms to use view
+*********************************
+WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+587743
+Before calling execute query
+Took 10719 ms to execute transaction
+There are 77209 elements in the query
+Took 102 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 10835ms to use view
+*********************************
+WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+89905
+Before calling execute query
+Took 588 ms to execute transaction
+There are 12036 elements in the query
+Took 12 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 606ms to use view
+*********************************
+WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+6338115
+Before calling execute query
+Took 78247 ms to execute transaction
+There are 718883 elements in the query
+Took 287 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 78602ms to use view
+*********************************
+WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+2211595
+Before calling execute query
+Took 12564 ms to execute transaction
+There are 253189 elements in the query
+Took 95 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 12716ms to use view
+*********************************
+WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+198685
+Before calling execute query
+Took 1231 ms to execute transaction
+There are 25959 elements in the query
+Took 11 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 1246ms to use view
+*********************************
+WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+3234436
+Before calling execute query
+Took 17781 ms to execute transaction
+There are 367709 elements in the query
+Took 207 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 18018ms to use view
+*********************************
+WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+965497
+Before calling execute query
+Took 6448 ms to execute transaction
+There are 111876 elements in the query
+Took 46 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 6527ms to use view
+*********************************
+WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+38278
+Before calling execute query
+Took 216 ms to execute transaction
+There are 5139 elements in the query
+Took 2 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 236ms to use view
+*********************************
+WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+453444
+Before calling execute query
+Took 2524 ms to execute transaction
+There are 59909 elements in the query
+Took 20 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 2550ms to use view
+*********************************
+WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+185538
+Before calling execute query
+Took 978 ms to execute transaction
+There are 21463 elements in the query
+Took 9 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 993ms to use view
+*********************************
+WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+439132
+Before calling execute query
+Took 2435 ms to execute transaction
+There are 57905 elements in the query
+Took 20 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 2460ms to use view
+*********************************
+WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV5LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+15326601
+Before calling execute query
+Took 190244 ms to execute transaction
+There are 1719664 elements in the query
+Took 2209 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 192699ms to use view
+*********************************
+--------------------------------------
+neo4j graph connector set-up done.
+1
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_1MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 1000 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_1" IN n.views THEN [] ELSE ["V1_1"] END) + n.views
+Transaction execute: 971 milliseconds
+While Loop: 318 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 5139 nodes
+Took 1325ms to create views
+*********************************
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_2MATCH(n:User)WHEREn.upvotes>400RETURNn
+ViewSql is CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 400 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_2" IN n.views THEN [] ELSE ["V1_2"] END) + n.views
+Transaction execute: 21 milliseconds
+While Loop: 130 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 12036 nodes
+Took 167ms to create views
+*********************************
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_1MATCH(n:Post)WHEREn.score<1500ANDn.score>20RETURNn
+ViewSql is CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_1" IN n.views THEN [] ELSE ["V2_1"] END) + n.views
+Transaction execute: 99 milliseconds
+While Loop: 20273 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 367709 nodes
+Took 20372ms to create views
+*********************************
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_2MATCH(n:Post)WHEREn.score<1500ANDn.score>10RETURNn
+ViewSql is CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_2" IN n.views THEN [] ELSE ["V2_2"] END) + n.views
+Transaction execute: 11 milliseconds
+While Loop: 3867 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 718883 nodes
+Took 3878ms to create views
+*********************************
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNpo
+ViewSql is CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_1" IN po.views THEN [] ELSE ["V3_1"] END) + po.views
+Transaction execute: 112 milliseconds
+While Loop: 539 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 253189 nodes
+Took 652ms to create views
+*********************************
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNpo
+ViewSql is CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_2=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_2" IN po.views THEN [] ELSE ["V3_2"] END) + po.views
+Transaction execute: 61 milliseconds
+While Loop: 3732 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 111876 nodes
+Took 3794ms to create views
+*********************************
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNn
+ViewSql is CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_3=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V4_1" IN n.views THEN [] ELSE ["V4_1"] END) + n.views
+Transaction execute: 71 milliseconds
+While Loop: 2063 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 21463 nodes
+Took 2134ms to create views
+*********************************
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+In enterRoot ctx is CREATE VIEW ASV4_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNm
+ViewSql is CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_4=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V4_2" IN m.views THEN [] ELSE ["V4_2"] END) + m.views
+Transaction execute: 58 milliseconds
+While Loop: 2519 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 7367 nodes
+Took 2578ms to create views
+*********************************
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_5=PARENT_OF, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(betterPost.views) THEN betterPost END).views = [] SET betterPost.views = (CASE WHEN "V5" IN betterPost.views THEN [] ELSE ["V5"] END) + betterPost.views
+Transaction execute: 73 milliseconds
+While Loop: 13515 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1719664 nodes
+Took 13589ms to create views
+*********************************
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_1MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, n=User, _ENTRY_SPECIAL_NO_REL_NAME_6=POSTED, betterPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_7=PARENT_OF}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_1" IN n.views THEN [] ELSE ["V6_1"] END) + n.views
+Transaction execute: 105 milliseconds
+While Loop: 11095 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 59909 nodes
+Took 11201ms to create views
+*********************************
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_2MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_8=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_9=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_2" IN n.views THEN [] ELSE ["V6_2"] END) + n.views
+Transaction execute: 100 milliseconds
+While Loop: 979 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 25959 nodes
+Took 1081ms to create views
+*********************************
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_1MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_10=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_11=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_1" IN m.views THEN [] ELSE ["V7_1"] END) + m.views
+Transaction execute: 111 milliseconds
+While Loop: 15281 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 77209 nodes
+Took 15394ms to create views
+*********************************
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_2MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNm
+ViewSql is CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_14=PARENT_OF, _ENTRY_SPECIAL_NO_REL_NAME_13=POSTED, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_2" IN m.views THEN [] ELSE ["V7_2"] END) + m.views
+Transaction execute: 79 milliseconds
+While Loop: 14886 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 57905 nodes
+Took 14965ms to create views
+*********************************
+WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+587743
+Before calling execute query
+Took 11705 ms to execute transaction
+There are 77209 elements in the query
+Took 118 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 11841ms to use view
+*********************************
+WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+198685
+Before calling execute query
+Took 1213 ms to execute transaction
+There are 25959 elements in the query
+Took 24 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 1243ms to use view
+*********************************
+WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+185538
+Before calling execute query
+Took 1026 ms to execute transaction
+There are 21463 elements in the query
+Took 16 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 1047ms to use view
+*********************************
+WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+439132
+Before calling execute query
+Took 2770 ms to execute transaction
+There are 57905 elements in the query
+Took 25 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 2802ms to use view
+*********************************
+WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+3234436
+Before calling execute query
+Took 45448 ms to execute transaction
+There are 367709 elements in the query
+Took 151 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 45634ms to use view
+*********************************
+WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV5LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+15326601
+Before calling execute query
+Took 193139 ms to execute transaction
+There are 1719664 elements in the query
+Took 2017 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 195298ms to use view
+*********************************
+WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+965497
+Before calling execute query
+Took 5926 ms to execute transaction
+There are 111876 elements in the query
+Took 44 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+After the call to execute query
+Took 6040ms to use view
+*********************************
+WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+2211595
+Before calling execute query
+Took 14124 ms to execute transaction
+There are 253189 elements in the query
+Took 99 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 14241ms to use view
+*********************************
+WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+38278
+Before calling execute query
+Took 579 ms to execute transaction
+There are 5139 elements in the query
+Took 3 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 585ms to use view
+*********************************
+WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+64106
+Before calling execute query
+Took 319 ms to execute transaction
+There are 7367 elements in the query
+Took 4 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 326ms to use view
+*********************************
+WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+89905
+Before calling execute query
+Took 659 ms to execute transaction
+There are 12036 elements in the query
+Took 5 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 667ms to use view
+*********************************
+WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+453444
+Before calling execute query
+Took 2847 ms to execute transaction
+There are 59909 elements in the query
+Took 19 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 2872ms to use view
+*********************************
+WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+6338115
+Before calling execute query
+Took 31629 ms to execute transaction
+There are 718883 elements in the query
+Took 252 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 31926ms to use view
+*********************************
+--------------------------------------
+neo4j graph connector set-up done.
+1
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_1MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 1000 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_1" IN n.views THEN [] ELSE ["V1_1"] END) + n.views
+Transaction execute: 968 milliseconds
+While Loop: 337 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 5139 nodes
+Took 1350ms to create views
+*********************************
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_2MATCH(n:User)WHEREn.upvotes>400RETURNn
+ViewSql is CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 400 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_2" IN n.views THEN [] ELSE ["V1_2"] END) + n.views
+Transaction execute: 19 milliseconds
+While Loop: 85 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 12036 nodes
+Took 124ms to create views
+*********************************
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_1MATCH(n:Post)WHEREn.score<1500ANDn.score>20RETURNn
+ViewSql is CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_1" IN n.views THEN [] ELSE ["V2_1"] END) + n.views
+Transaction execute: 86 milliseconds
+While Loop: 32921 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 367709 nodes
+Took 33008ms to create views
+*********************************
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_2MATCH(n:Post)WHEREn.score<1500ANDn.score>10RETURNn
+ViewSql is CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_2" IN n.views THEN [] ELSE ["V2_2"] END) + n.views
+Transaction execute: 12 milliseconds
+While Loop: 3979 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 718883 nodes
+Took 3991ms to create views
+*********************************
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNpo
+ViewSql is CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_1" IN po.views THEN [] ELSE ["V3_1"] END) + po.views
+Transaction execute: 107 milliseconds
+While Loop: 465 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 253189 nodes
+Took 574ms to create views
+*********************************
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNpo
+ViewSql is CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_2=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_2" IN po.views THEN [] ELSE ["V3_2"] END) + po.views
+Transaction execute: 66 milliseconds
+While Loop: 4126 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 111876 nodes
+Took 4195ms to create views
+*********************************
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNn
+ViewSql is CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_3=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V4_1" IN n.views THEN [] ELSE ["V4_1"] END) + n.views
+Transaction execute: 69 milliseconds
+While Loop: 2458 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 21463 nodes
+Took 2529ms to create views
+*********************************
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+In enterRoot ctx is CREATE VIEW ASV4_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNm
+ViewSql is CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_4=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V4_2" IN m.views THEN [] ELSE ["V4_2"] END) + m.views
+Transaction execute: 61 milliseconds
+While Loop: 2603 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 7367 nodes
+Took 2666ms to create views
+*********************************
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_5=PARENT_OF, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(betterPost.views) THEN betterPost END).views = [] SET betterPost.views = (CASE WHEN "V5" IN betterPost.views THEN [] ELSE ["V5"] END) + betterPost.views
+Transaction execute: 66 milliseconds
+While Loop: 13633 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1719664 nodes
+Took 13702ms to create views
+*********************************
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_1MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, n=User, _ENTRY_SPECIAL_NO_REL_NAME_6=POSTED, betterPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_7=PARENT_OF}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_1" IN n.views THEN [] ELSE ["V6_1"] END) + n.views
+Transaction execute: 107 milliseconds
+While Loop: 11142 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 59909 nodes
+Took 11251ms to create views
+*********************************
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_2MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_8=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_9=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_2" IN n.views THEN [] ELSE ["V6_2"] END) + n.views
+Transaction execute: 97 milliseconds
+While Loop: 937 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 25959 nodes
+Took 1034ms to create views
+*********************************
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_1MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_10=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_11=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_1" IN m.views THEN [] ELSE ["V7_1"] END) + m.views
+Transaction execute: 96 milliseconds
+While Loop: 14818 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 77209 nodes
+Took 14916ms to create views
+*********************************
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_2MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNm
+ViewSql is CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_14=PARENT_OF, _ENTRY_SPECIAL_NO_REL_NAME_13=POSTED, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_2" IN m.views THEN [] ELSE ["V7_2"] END) + m.views
+Transaction execute: 77 milliseconds
+While Loop: 14991 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 57905 nodes
+Took 15070ms to create views
+*********************************
+WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+185538
+Before calling execute query
+Took 2836 ms to execute transaction
+There are 21463 elements in the query
+Took 56 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 2900ms to use view
+*********************************
+WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+198685
+Before calling execute query
+Took 1191 ms to execute transaction
+There are 25959 elements in the query
+Took 16 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 1213ms to use view
+*********************************
+WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+453444
+Before calling execute query
+Took 3169 ms to execute transaction
+There are 59909 elements in the query
+Took 56 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+After the call to execute query
+Took 3236ms to use view
+*********************************
+WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+2211595
+Before calling execute query
+Took 33242 ms to execute transaction
+There are 253189 elements in the query
+Took 136 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 33397ms to use view
+*********************************
+WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+89905
+Before calling execute query
+Took 516 ms to execute transaction
+There are 12036 elements in the query
+Took 5 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 527ms to use view
+*********************************
+WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+6338115
+Before calling execute query
+Took 31986 ms to execute transaction
+There are 718883 elements in the query
+Took 269 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 32308ms to use view
+*********************************
+WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV5LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+15326601
+Before calling execute query
+Took 194983 ms to execute transaction
+There are 1719664 elements in the query
+Took 2067 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 197175ms to use view
+*********************************
+WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+3234436
+Before calling execute query
+Took 16708 ms to execute transaction
+There are 367709 elements in the query
+Took 152 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 16985ms to use view
+*********************************
+WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+38278
+Before calling execute query
+Took 593 ms to execute transaction
+There are 5139 elements in the query
+Took 3 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 600ms to use view
+*********************************
+WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+965497
+Before calling execute query
+Took 5695 ms to execute transaction
+There are 111876 elements in the query
+Took 48 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 5752ms to use view
+*********************************
+WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+587743
+Before calling execute query
+Took 3208 ms to execute transaction
+There are 77209 elements in the query
+Took 27 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 3253ms to use view
+*********************************
+WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+64106
+Before calling execute query
+Took 296 ms to execute transaction
+There are 7367 elements in the query
+Took 5 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 319ms to use view
+*********************************
+WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+439132
+Before calling execute query
+Took 2350 ms to execute transaction
+There are 57905 elements in the query
+Took 21 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 2377ms to use view
+*********************************
+--------------------------------------
+neo4j graph connector set-up done.
+1
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_1MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 1000 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_1" IN n.views THEN [] ELSE ["V1_1"] END) + n.views
+Transaction execute: 940 milliseconds
+While Loop: 344 milliseconds
+Transaction commit Time: 1 milliseconds
+Execution done
+There are 5139 nodes
+Took 1334ms to create views
+*********************************
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_2MATCH(n:User)WHEREn.upvotes>400RETURNn
+ViewSql is CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 400 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_2" IN n.views THEN [] ELSE ["V1_2"] END) + n.views
+Transaction execute: 31 milliseconds
+While Loop: 90 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 12036 nodes
+Took 137ms to create views
+*********************************
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_1MATCH(n:Post)WHEREn.score<1500ANDn.score>20RETURNn
+ViewSql is CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_1" IN n.views THEN [] ELSE ["V2_1"] END) + n.views
+Transaction execute: 79 milliseconds
+While Loop: 33257 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 367709 nodes
+Took 33336ms to create views
+*********************************
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_2MATCH(n:Post)WHEREn.score<1500ANDn.score>10RETURNn
+ViewSql is CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_2" IN n.views THEN [] ELSE ["V2_2"] END) + n.views
+Transaction execute: 12 milliseconds
+While Loop: 3911 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 718883 nodes
+Took 3923ms to create views
+*********************************
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNpo
+ViewSql is CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_1" IN po.views THEN [] ELSE ["V3_1"] END) + po.views
+Transaction execute: 105 milliseconds
+While Loop: 443 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 253189 nodes
+Took 549ms to create views
+*********************************
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNpo
+ViewSql is CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_2=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_2" IN po.views THEN [] ELSE ["V3_2"] END) + po.views
+Transaction execute: 56 milliseconds
+While Loop: 3784 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 111876 nodes
+Took 3841ms to create views
+*********************************
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNn
+ViewSql is CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_3=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V4_1" IN n.views THEN [] ELSE ["V4_1"] END) + n.views
+Transaction execute: 77 milliseconds
+While Loop: 2153 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 21463 nodes
+Took 2231ms to create views
+*********************************
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+In enterRoot ctx is CREATE VIEW ASV4_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNm
+ViewSql is CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_4=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V4_2" IN m.views THEN [] ELSE ["V4_2"] END) + m.views
+Transaction execute: 59 milliseconds
+While Loop: 2437 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 7367 nodes
+Took 2496ms to create views
+*********************************
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_5=PARENT_OF, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(betterPost.views) THEN betterPost END).views = [] SET betterPost.views = (CASE WHEN "V5" IN betterPost.views THEN [] ELSE ["V5"] END) + betterPost.views
+Transaction execute: 68 milliseconds
+While Loop: 13655 milliseconds
+Transaction commit Time: 1 milliseconds
+Execution done
+There are 1719664 nodes
+Took 13725ms to create views
+*********************************
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_1MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, n=User, _ENTRY_SPECIAL_NO_REL_NAME_6=POSTED, betterPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_7=PARENT_OF}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_1" IN n.views THEN [] ELSE ["V6_1"] END) + n.views
+Transaction execute: 110 milliseconds
+While Loop: 11171 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 59909 nodes
+Took 11283ms to create views
+*********************************
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_2MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_8=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_9=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_2" IN n.views THEN [] ELSE ["V6_2"] END) + n.views
+Transaction execute: 96 milliseconds
+While Loop: 931 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 25959 nodes
+Took 1029ms to create views
+*********************************
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_1MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_10=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_11=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_1" IN m.views THEN [] ELSE ["V7_1"] END) + m.views
+Transaction execute: 84 milliseconds
+While Loop: 14814 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 77209 nodes
+Took 14900ms to create views
+*********************************
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_2MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNm
+ViewSql is CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_14=PARENT_OF, _ENTRY_SPECIAL_NO_REL_NAME_13=POSTED, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_2" IN m.views THEN [] ELSE ["V7_2"] END) + m.views
+Transaction execute: 78 milliseconds
+While Loop: 14535 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 57905 nodes
+Took 14613ms to create views
+*********************************
+WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+89905
+Before calling execute query
+Took 1562 ms to execute transaction
+There are 12036 elements in the query
+Took 53 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 1626ms to use view
+*********************************
+WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+185538
+Before calling execute query
+Took 1018 ms to execute transaction
+There are 21463 elements in the query
+Took 27 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 1050ms to use view
+*********************************
+WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+587743
+Before calling execute query
+Took 3593 ms to execute transaction
+There are 77209 elements in the query
+Took 51 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 3653ms to use view
+*********************************
+WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV5LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+15326601
+Before calling execute query
+Took 189898 ms to execute transaction
+There are 1719664 elements in the query
+Took 1970 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 192030ms to use view
+*********************************
+WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+3234436
+Before calling execute query
+Took 48898 ms to execute transaction
+There are 367709 elements in the query
+Took 172 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 49119ms to use view
+*********************************
+WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+6338115
+Before calling execute query
+Took 35099 ms to execute transaction
+There are 718883 elements in the query
+Took 293 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+After the call to execute query
+Took 35445ms to use view
+*********************************
+WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+2211595
+Before calling execute query
+Took 13953 ms to execute transaction
+There are 253189 elements in the query
+Took 124 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 14138ms to use view
+*********************************
+WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+38278
+Before calling execute query
+Took 591 ms to execute transaction
+There are 5139 elements in the query
+Took 2 ms to process result rows
+Took 1 ms to commit transaction
+Execution done
+After the call to execute query
+Took 598ms to use view
+*********************************
+WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+453444
+Before calling execute query
+Took 2599 ms to execute transaction
+There are 59909 elements in the query
+Took 21 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 2627ms to use view
+*********************************
+WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+965497
+Before calling execute query
+Took 5748 ms to execute transaction
+There are 111876 elements in the query
+Took 54 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 5812ms to use view
+*********************************
+WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+439132
+Before calling execute query
+Took 2299 ms to execute transaction
+There are 57905 elements in the query
+Took 20 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 2332ms to use view
+*********************************
+WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+198685
+Before calling execute query
+Took 1019 ms to execute transaction
+There are 25959 elements in the query
+Took 24 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 1049ms to use view
+*********************************
+WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+64106
+Before calling execute query
+Took 291 ms to execute transaction
+There are 7367 elements in the query
+Took 4 ms to process result rows
+Took 0 ms to commit transaction
+Execution done
+After the call to execute query
+Took 298ms to use view
+*********************************
+--------------------------------------

@@ -1,0 +1,1370 @@
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_1MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 1000 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_1" IN n.views THEN [] ELSE ["V1_1"] END) + n.views
+Execution done
+There are 5139 nodes
+Took 1644ms to create views
+*********************************
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_2MATCH(n:User)WHEREn.upvotes>400RETURNn
+ViewSql is CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 400 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_2" IN n.views THEN [] ELSE ["V1_2"] END) + n.views
+Execution done
+There are 12036 nodes
+Took 130ms to create views
+*********************************
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_1MATCH(n:Post)WHEREn.score<1500ANDn.score>20RETURNn
+ViewSql is CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_1" IN n.views THEN [] ELSE ["V2_1"] END) + n.views
+Execution done
+There are 367709 nodes
+Took 12689ms to create views
+*********************************
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_2MATCH(n:Post)WHEREn.score<1500ANDn.score>10RETURNn
+ViewSql is CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_2" IN n.views THEN [] ELSE ["V2_2"] END) + n.views
+Execution done
+There are 718883 nodes
+Took 3822ms to create views
+*********************************
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNpo
+ViewSql is CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_1" IN po.views THEN [] ELSE ["V3_1"] END) + po.views
+Execution done
+There are 253189 nodes
+Took 689ms to create views
+*********************************
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNpo
+ViewSql is CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_2=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_2" IN po.views THEN [] ELSE ["V3_2"] END) + po.views
+Execution done
+There are 111876 nodes
+Took 4188ms to create views
+*********************************
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNn
+ViewSql is CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_3=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V4_1" IN n.views THEN [] ELSE ["V4_1"] END) + n.views
+Execution done
+There are 21463 nodes
+Took 2165ms to create views
+*********************************
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+In enterRoot ctx is CREATE VIEW ASV4_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNm
+ViewSql is CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_4=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V4_2" IN m.views THEN [] ELSE ["V4_2"] END) + m.views
+Execution done
+There are 7367 nodes
+Took 2603ms to create views
+*********************************
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_5=PARENT_OF, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(betterPost.views) THEN betterPost END).views = [] SET betterPost.views = (CASE WHEN "V5" IN betterPost.views THEN [] ELSE ["V5"] END) + betterPost.views
+Execution done
+There are 1719664 nodes
+Took 15005ms to create views
+*********************************
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_1MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, n=User, _ENTRY_SPECIAL_NO_REL_NAME_6=POSTED, betterPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_7=PARENT_OF}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_1" IN n.views THEN [] ELSE ["V6_1"] END) + n.views
+Execution done
+There are 59909 nodes
+Took 11070ms to create views
+*********************************
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_2MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_8=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_9=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_2" IN n.views THEN [] ELSE ["V6_2"] END) + n.views
+Execution done
+There are 25959 nodes
+Took 1138ms to create views
+*********************************
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_1MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_10=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_11=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_1" IN m.views THEN [] ELSE ["V7_1"] END) + m.views
+Execution done
+There are 77209 nodes
+Took 14530ms to create views
+*********************************
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_2MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNm
+ViewSql is CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_14=PARENT_OF, _ENTRY_SPECIAL_NO_REL_NAME_13=POSTED, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_2" IN m.views THEN [] ELSE ["V7_2"] END) + m.views
+Execution done
+There are 57905 nodes
+Took 14556ms to create views
+*********************************
+CREATE VIEW AS V8_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN p
+In enterRoot ctx is CREATE VIEW ASV8_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNp
+ViewSql is CREATE VIEW AS V8_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN p
+VarLables of the input is {n=User, _ENTRY_SPECIAL_NO_REL_NAME_16=POSTED, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_1" IN pathnode.views THEN [] ELSE ["V8_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_1" IN pathnode.views THEN [] ELSE ["V8_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN p
+Return set contains 253189
+There are 301332 nodes
+Took 1036ms to create views
+*********************************
+CREATE VIEW AS V8_2 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN p
+In enterRoot ctx is CREATE VIEW ASV8_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNp
+ViewSql is CREATE VIEW AS V8_2 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_17=POSTED, n=User, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_2" IN pathnode.views THEN [] ELSE ["V8_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V8_2" IN pathnode.views THEN [] ELSE ["V8_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN p
+Return set contains 111876
+There are 138116 nodes
+Took 3910ms to create views
+*********************************
+CREATE VIEW AS V9_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN p
+In enterRoot ctx is CREATE VIEW ASV9_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNp
+ViewSql is CREATE VIEW AS V9_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_18=PARENT_OF, m=Post, n=Post}
+Return Type is PATH
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_1" IN pathnode.views THEN [] ELSE ["V9_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_1" IN pathnode.views THEN [] ELSE ["V9_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN p
+Return set contains 12094
+There are 21463 nodes
+Took 2077ms to create views
+*********************************
+CREATE VIEW AS V9_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN p
+In enterRoot ctx is CREATE VIEW ASV9_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNp
+ViewSql is CREATE VIEW AS V9_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN p
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_19=PARENT_OF, m=Post, n=Post}
+Return Type is PATH
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_2" IN pathnode.views THEN [] ELSE ["V9_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V9_2" IN pathnode.views THEN [] ELSE ["V9_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN p
+Return set contains 20003
+There are 26418 nodes
+Took 2576ms to create views
+*********************************
+CREATE VIEW AS V10 MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+In enterRoot ctx is CREATE VIEW ASV10MATCHp=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNp
+ViewSql is CREATE VIEW AS V10 MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_20=PARENT_OF, betterPost=Post}
+Return Type is PATH
+ MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V10" IN pathnode.views THEN [] ELSE ["V10"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V10" IN pathnode.views THEN [] ELSE ["V10"] END) + pathnode.views)
+Executing query:  MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+Return set contains 2207384
+There are 3624699 nodes
+Took 17948ms to create views
+*********************************
+CREATE VIEW AS V11_1 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+In enterRoot ctx is CREATE VIEW ASV11_1MATCHp=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNp
+ViewSql is CREATE VIEW AS V11_1 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_21=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_22=PARENT_OF, n=User, betterPost=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_1" IN pathnode.views THEN [] ELSE ["V11_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_1" IN pathnode.views THEN [] ELSE ["V11_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+Return set contains 824709
+There are 874164 nodes
+Took 11174ms to create views
+*********************************
+CREATE VIEW AS V11_2 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+In enterRoot ctx is CREATE VIEW ASV11_2MATCHp=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNp
+ViewSql is CREATE VIEW AS V11_2 MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+ckqptPost, score
+Post, score
+VarLables of the input is {worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_23=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_24=PARENT_OF, n=User, betterPost=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_2" IN pathnode.views THEN [] ELSE ["V11_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V11_2" IN pathnode.views THEN [] ELSE ["V11_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p
+Return set contains 103050
+There are 123738 nodes
+Took 1120ms to create views
+*********************************
+CREATE VIEW AS V12_1 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN p
+In enterRoot ctx is CREATE VIEW ASV12_1MATCHp=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNp
+ViewSql is CREATE VIEW AS V12_1 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN p
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_25=POSTED, m=User, n=User, _ENTRY_SPECIAL_NO_REL_NAME_26=PARENT_OF}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_1" IN pathnode.views THEN [] ELSE ["V12_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_1" IN pathnode.views THEN [] ELSE ["V12_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN p
+Return set contains 2274209
+There are 1460732 nodes
+Took 20379ms to create views
+*********************************
+CREATE VIEW AS V12_2 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN p
+In enterRoot ctx is CREATE VIEW ASV12_2MATCHp=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNp
+ViewSql is CREATE VIEW AS V12_2 MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN p
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_29=PARENT_OF, _ENTRY_SPECIAL_NO_REL_NAME_28=POSTED, p1=Post, p2=Post, m=User, n=User}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_2" IN pathnode.views THEN [] ELSE ["V12_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V12_2" IN pathnode.views THEN [] ELSE ["V12_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN p
+Return set contains 1544095
+There are 1014730 nodes
+Took 21217ms to create views
+*********************************
+CREATE VIEW AS V14_1 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' RETURN p
+In enterRoot ctx is CREATE VIEW ASV14_1MATCHp=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n)WHEREt.tagId='java'RETURNp
+ViewSql is CREATE VIEW AS V14_1 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' RETURN p
+VarLables of the input is {po2=Post, t=Tag, _ENTRY_SPECIAL_NO_REL_NAME_32=HAS_TAG, _ENTRY_SPECIAL_NO_REL_NAME_31=POSTED, n=_ENTRY_SPECIAL_NODE_STAR_, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_1" IN pathnode.views THEN [] ELSE ["V14_1"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_1" IN pathnode.views THEN [] ELSE ["V14_1"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' RETURN p
+Return set contains 110960
+There are 62687 nodes
+Took 10425ms to create views
+*********************************
+CREATE VIEW AS V14_2 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' RETURN p
+In enterRoot ctx is CREATE VIEW ASV14_2MATCHp=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n)WHEREt.tagId='java'ORt.tagId='c#'RETURNp
+ViewSql is CREATE VIEW AS V14_2 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' RETURN p
+VarLables of the input is {po2=Post, t=Tag, _ENTRY_SPECIAL_NO_REL_NAME_36=HAS_TAG, _ENTRY_SPECIAL_NO_REL_NAME_35=POSTED, n=_ENTRY_SPECIAL_NODE_STAR_, po=Post}
+Return Type is PATH
+ MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_2" IN pathnode.views THEN [] ELSE ["V14_2"] END) + pathnode.views)
+FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = [] SET pathnode.views = (CASE WHEN "V14_2" IN pathnode.views THEN [] ELSE ["V14_2"] END) + pathnode.views)
+Executing query:  MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' RETURN p
+Return set contains 312509
+There are 172792 nodes
+Took 34187ms to create views
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V14_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po)) + COLLECT(DISTINCT ID(t)) + COLLECT(DISTINCT ID(po2))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po)) + COLLECT(DISTINCT ID(t)) + COLLECT(DISTINCT ID(po2))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 172792
+Edge size is 0
+Took 4277 ms to use view
+Non-materialized returned 172792 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V2_2 LOCAL MATCH (n) RETURN n
+MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 718883
+Edge size is 0
+Took 3394 ms to use view
+Non-materialized returned 718883 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V3_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT ID(po)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT ID(po)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 253189
+Edge size is 0
+Took 479 ms to use view
+Non-materialized returned 253189 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V7_2 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 57905
+Edge size is 0
+Took 15453 ms to use view
+Non-materialized returned 57905 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V4_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 21463
+Edge size is 0
+Took 2081 ms to use view
+Non-materialized returned 21463 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V1_1 LOCAL MATCH (n) RETURN n
+MATCH (n: User) WHERE n.upvotes > 1000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n: User) WHERE n.upvotes > 1000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 5139
+Edge size is 0
+Took 72 ms to use view
+Non-materialized returned 5139 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V8_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 138116
+Edge size is 0
+Took 3569 ms to use view
+Non-materialized returned 138116 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V4_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 7367
+Edge size is 0
+Took 2561 ms to use view
+Non-materialized returned 7367 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V6_1 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 59909
+Edge size is 0
+Took 10927 ms to use view
+Non-materialized returned 59909 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V14_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po)) + COLLECT(DISTINCT ID(t)) + COLLECT(DISTINCT ID(po2))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po)) + COLLECT(DISTINCT ID(t)) + COLLECT(DISTINCT ID(po2))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 62687
+Edge size is 0
+Took 1530 ms to use view
+Non-materialized returned 62687 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V2_1 LOCAL MATCH (n) RETURN n
+MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 367709
+Edge size is 0
+Took 2873 ms to use view
+Non-materialized returned 367709 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V7_1 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 77209
+Edge size is 0
+Took 17073 ms to use view
+Non-materialized returned 77209 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V3_2 LOCAL MATCH (n) RETURN n
+MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 WITH COLLECT(DISTINCT ID(po)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 WITH COLLECT(DISTINCT ID(po)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 111876
+Edge size is 0
+Took 3488 ms to use view
+Non-materialized returned 111876 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V10 LOCAL MATCH (n) RETURN n
+MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 3624699
+Edge size is 0
+Took 16386 ms to use view
+Non-materialized returned 3624699 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V12_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(p1)) + COLLECT(DISTINCT ID(p2)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(p1)) + COLLECT(DISTINCT ID(p2)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 1460732
+Edge size is 0
+Took 20921 ms to use view
+Non-materialized returned 1460732 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V1_2 LOCAL MATCH (n) RETURN n
+MATCH (n: User) WHERE n.upvotes > 400 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n: User) WHERE n.upvotes > 400 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 12036
+Edge size is 0
+Took 60 ms to use view
+Non-materialized returned 12036 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V8_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 301332
+Edge size is 0
+Took 577 ms to use view
+Non-materialized returned 301332 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V12_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(p1)) + COLLECT(DISTINCT ID(p2)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(p1)) + COLLECT(DISTINCT ID(p2)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 1014730
+Edge size is 0
+Took 17378 ms to use view
+Non-materialized returned 1014730 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V11_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 874164
+Edge size is 0
+Took 9220 ms to use view
+Non-materialized returned 874164 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V5 LOCAL MATCH (n) RETURN n
+MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(betterPost)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(betterPost)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 1719664
+Edge size is 0
+Took 15593 ms to use view
+Non-materialized returned 1719664 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V6_2 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 25959
+Edge size is 0
+Took 1148 ms to use view
+Non-materialized returned 25959 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V9_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 21463
+Edge size is 0
+Took 2168 ms to use view
+Non-materialized returned 21463 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V11_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 123738
+Edge size is 0
+Took 917 ms to use view
+Non-materialized returned 123738 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V7_1 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 77209
+Edge size is 0
+Took 16738 ms to use view
+Non-materialized returned 77209 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V4_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 21463
+Edge size is 0
+Took 1987 ms to use view
+Non-materialized returned 21463 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V10 LOCAL MATCH (n) RETURN n
+MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 3624699
+Edge size is 0
+Took 15872 ms to use view
+Non-materialized returned 3624699 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V1_1 LOCAL MATCH (n) RETURN n
+MATCH (n: User) WHERE n.upvotes > 1000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n: User) WHERE n.upvotes > 1000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 5139
+Edge size is 0
+Took 44 ms to use view
+Non-materialized returned 5139 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V9_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 26418
+Edge size is 0
+Took 2614 ms to use view
+Non-materialized returned 26418 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V14_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po)) + COLLECT(DISTINCT ID(t)) + COLLECT(DISTINCT ID(po2))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po)) + COLLECT(DISTINCT ID(t)) + COLLECT(DISTINCT ID(po2))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 62687
+Edge size is 0
+Took 1441 ms to use view
+Non-materialized returned 62687 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V11_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 874164
+Edge size is 0
+Took 8486 ms to use view
+Non-materialized returned 874164 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V12_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(p1)) + COLLECT(DISTINCT ID(p2)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(p1)) + COLLECT(DISTINCT ID(p2)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 1460732
+Edge size is 0
+Took 17288 ms to use view
+Non-materialized returned 1460732 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V2_1 LOCAL MATCH (n) RETURN n
+MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 367709
+Edge size is 0
+Took 3400 ms to use view
+Non-materialized returned 367709 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V7_2 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 57905
+Edge size is 0
+Took 14514 ms to use view
+Non-materialized returned 57905 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V9_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 26418
+Edge size is 0
+Took 2412 ms to use view
+Non-materialized returned 26418 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V5 LOCAL MATCH (n) RETURN n
+MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(betterPost)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(betterPost)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 1719664
+Edge size is 0
+Took 14542 ms to use view
+Non-materialized returned 1719664 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V6_2 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 25959
+Edge size is 0
+Took 1028 ms to use view
+Non-materialized returned 25959 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V4_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 7367
+Edge size is 0
+Took 2468 ms to use view
+Non-materialized returned 7367 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V8_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 301332
+Edge size is 0
+Took 455 ms to use view
+Non-materialized returned 301332 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V12_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(p1)) + COLLECT(DISTINCT ID(p2)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(p1)) + COLLECT(DISTINCT ID(p2)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 1014730
+Edge size is 0
+Took 17857 ms to use view
+Non-materialized returned 1014730 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V9_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 21463
+Edge size is 0
+Took 2596 ms to use view
+Non-materialized returned 21463 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V3_2 LOCAL MATCH (n) RETURN n
+MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 WITH COLLECT(DISTINCT ID(po)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 WITH COLLECT(DISTINCT ID(po)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 111876
+Edge size is 0
+Took 3272 ms to use view
+Non-materialized returned 111876 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V3_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT ID(po)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT ID(po)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 253189
+Edge size is 0
+Took 449 ms to use view
+Non-materialized returned 253189 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V6_1 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 59909
+Edge size is 0
+Took 11667 ms to use view
+Non-materialized returned 59909 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V8_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 138116
+Edge size is 0
+Took 3452 ms to use view
+Non-materialized returned 138116 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V11_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 123738
+Edge size is 0
+Took 875 ms to use view
+Non-materialized returned 123738 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V2_2 LOCAL MATCH (n) RETURN n
+MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 718883
+Edge size is 0
+Took 3209 ms to use view
+Non-materialized returned 718883 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V14_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po)) + COLLECT(DISTINCT ID(t)) + COLLECT(DISTINCT ID(po2))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po)) + COLLECT(DISTINCT ID(t)) + COLLECT(DISTINCT ID(po2))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 172792
+Edge size is 0
+Took 4279 ms to use view
+Non-materialized returned 172792 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V1_2 LOCAL MATCH (n) RETURN n
+MATCH (n: User) WHERE n.upvotes > 400 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n: User) WHERE n.upvotes > 400 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 12036
+Edge size is 0
+Took 58 ms to use view
+Non-materialized returned 12036 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V4_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 7367
+Edge size is 0
+Took 2420 ms to use view
+Non-materialized returned 7367 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V9_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 21463
+Edge size is 0
+Took 2024 ms to use view
+Non-materialized returned 21463 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V2_1 LOCAL MATCH (n) RETURN n
+MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 367709
+Edge size is 0
+Took 2900 ms to use view
+Non-materialized returned 367709 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V7_2 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 57905
+Edge size is 0
+Took 14440 ms to use view
+Non-materialized returned 57905 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V12_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(p1)) + COLLECT(DISTINCT ID(p2)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(p1)) + COLLECT(DISTINCT ID(p2)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 1460732
+Edge size is 0
+Took 17877 ms to use view
+Non-materialized returned 1460732 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V6_1 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 59909
+Edge size is 0
+Took 10983 ms to use view
+Non-materialized returned 59909 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V7_1 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 77209
+Edge size is 0
+Took 16939 ms to use view
+Non-materialized returned 77209 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V6_2 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 25959
+Edge size is 0
+Took 911 ms to use view
+Non-materialized returned 25959 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V3_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT ID(po)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT ID(po)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 253189
+Edge size is 0
+Took 457 ms to use view
+Non-materialized returned 253189 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V11_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 123738
+Edge size is 0
+Took 869 ms to use view
+Non-materialized returned 123738 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V3_2 LOCAL MATCH (n) RETURN n
+MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 WITH COLLECT(DISTINCT ID(po)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 WITH COLLECT(DISTINCT ID(po)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 111876
+Edge size is 0
+Took 3490 ms to use view
+Non-materialized returned 111876 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V8_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 301332
+Edge size is 0
+Took 485 ms to use view
+Non-materialized returned 301332 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V4_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 21463
+Edge size is 0
+Took 2036 ms to use view
+Non-materialized returned 21463 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V14_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po)) + COLLECT(DISTINCT ID(t)) + COLLECT(DISTINCT ID(po2))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po)) + COLLECT(DISTINCT ID(t)) + COLLECT(DISTINCT ID(po2))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 172792
+Edge size is 0
+Took 3832 ms to use view
+Non-materialized returned 172792 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V9_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 26418
+Edge size is 0
+Took 2421 ms to use view
+Non-materialized returned 26418 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V10 LOCAL MATCH (n) RETURN n
+MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 3624699
+Edge size is 0
+Took 15917 ms to use view
+Non-materialized returned 3624699 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V8_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 138116
+Edge size is 0
+Took 3493 ms to use view
+Non-materialized returned 138116 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V2_2 LOCAL MATCH (n) RETURN n
+MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 718883
+Edge size is 0
+Took 3239 ms to use view
+Non-materialized returned 718883 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V1_1 LOCAL MATCH (n) RETURN n
+MATCH (n: User) WHERE n.upvotes > 1000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n: User) WHERE n.upvotes > 1000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 5139
+Edge size is 0
+Took 52 ms to use view
+Non-materialized returned 5139 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V14_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po)) + COLLECT(DISTINCT ID(t)) + COLLECT(DISTINCT ID(po2))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po)) + COLLECT(DISTINCT ID(t)) + COLLECT(DISTINCT ID(po2))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 62687
+Edge size is 0
+Took 1441 ms to use view
+Non-materialized returned 62687 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V11_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 874164
+Edge size is 0
+Took 8394 ms to use view
+Non-materialized returned 874164 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V5 LOCAL MATCH (n) RETURN n
+MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(betterPost)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(betterPost)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 1719664
+Edge size is 0
+Took 15271 ms to use view
+Non-materialized returned 1719664 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V12_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(p1)) + COLLECT(DISTINCT ID(p2)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(p1)) + COLLECT(DISTINCT ID(p2)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 1014730
+Edge size is 0
+Took 17771 ms to use view
+Non-materialized returned 1014730 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V11_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 874164
+Edge size is 0
+Took 9324 ms to use view
+Non-materialized returned 874164 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V1_2 LOCAL MATCH (n) RETURN n
+MATCH (n: User) WHERE n.upvotes > 400 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n: User) WHERE n.upvotes > 400 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 12036
+Edge size is 0
+Took 56 ms to use view
+Non-materialized returned 12036 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V2_2 LOCAL MATCH (n) RETURN n
+MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 718883
+Edge size is 0
+Took 3620 ms to use view
+Non-materialized returned 718883 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V8_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 138116
+Edge size is 0
+Took 3458 ms to use view
+Non-materialized returned 138116 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V12_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(p1)) + COLLECT(DISTINCT ID(p2)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(p1)) + COLLECT(DISTINCT ID(p2)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 1460732
+Edge size is 0
+Took 18978 ms to use view
+Non-materialized returned 1460732 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V7_2 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 57905
+Edge size is 0
+Took 15405 ms to use view
+Non-materialized returned 57905 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V8_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 301332
+Edge size is 0
+Took 486 ms to use view
+Non-materialized returned 301332 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V12_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(p1)) + COLLECT(DISTINCT ID(p2)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(p1)) + COLLECT(DISTINCT ID(p2)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 1014730
+Edge size is 0
+Took 16169 ms to use view
+Non-materialized returned 1014730 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V4_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 7367
+Edge size is 0
+Took 2559 ms to use view
+Non-materialized returned 7367 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V14_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po)) + COLLECT(DISTINCT ID(t)) + COLLECT(DISTINCT ID(po2))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po)) + COLLECT(DISTINCT ID(t)) + COLLECT(DISTINCT ID(po2))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 62687
+Edge size is 0
+Took 1352 ms to use view
+Non-materialized returned 62687 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V10 LOCAL MATCH (n) RETURN n
+MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 3624699
+Edge size is 0
+Took 15843 ms to use view
+Non-materialized returned 3624699 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V6_2 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 25959
+Edge size is 0
+Took 920 ms to use view
+Non-materialized returned 25959 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V1_1 LOCAL MATCH (n) RETURN n
+MATCH (n: User) WHERE n.upvotes > 1000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n: User) WHERE n.upvotes > 1000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 5139
+Edge size is 0
+Took 50 ms to use view
+Non-materialized returned 5139 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V7_1 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 77209
+Edge size is 0
+Took 14201 ms to use view
+Non-materialized returned 77209 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V9_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 21463
+Edge size is 0
+Took 2032 ms to use view
+Non-materialized returned 21463 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V6_1 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 59909
+Edge size is 0
+Took 10798 ms to use view
+Non-materialized returned 59909 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V11_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 123738
+Edge size is 0
+Took 874 ms to use view
+Non-materialized returned 123738 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V3_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT ID(po)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT ID(po)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 253189
+Edge size is 0
+Took 437 ms to use view
+Non-materialized returned 253189 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V4_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 21463
+Edge size is 0
+Took 1996 ms to use view
+Non-materialized returned 21463 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V2_1 LOCAL MATCH (n) RETURN n
+MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 367709
+Edge size is 0
+Took 2931 ms to use view
+Non-materialized returned 367709 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V14_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po)) + COLLECT(DISTINCT ID(t)) + COLLECT(DISTINCT ID(po2))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po)) + COLLECT(DISTINCT ID(t)) + COLLECT(DISTINCT ID(po2))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 172792
+Edge size is 0
+Took 3979 ms to use view
+Non-materialized returned 172792 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V5 LOCAL MATCH (n) RETURN n
+MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(betterPost)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(betterPost)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 1719664
+Edge size is 0
+Took 14445 ms to use view
+Non-materialized returned 1719664 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V9_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 26418
+Edge size is 0
+Took 2857 ms to use view
+Non-materialized returned 26418 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V3_2 LOCAL MATCH (n) RETURN n
+MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 WITH COLLECT(DISTINCT ID(po)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 WITH COLLECT(DISTINCT ID(po)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 111876
+Edge size is 0
+Took 3409 ms to use view
+Non-materialized returned 111876 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V1_2 LOCAL MATCH (n) RETURN n
+MATCH (n: User) WHERE n.upvotes > 400 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n: User) WHERE n.upvotes > 400 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 12036
+Edge size is 0
+Took 56 ms to use view
+Non-materialized returned 12036 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V14_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po)) + COLLECT(DISTINCT ID(t)) + COLLECT(DISTINCT ID(po2))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po)) + COLLECT(DISTINCT ID(t)) + COLLECT(DISTINCT ID(po2))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 62687
+Edge size is 0
+Took 1236 ms to use view
+Non-materialized returned 62687 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V1_2 LOCAL MATCH (n) RETURN n
+MATCH (n: User) WHERE n.upvotes > 400 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n: User) WHERE n.upvotes > 400 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 12036
+Edge size is 0
+Took 55 ms to use view
+Non-materialized returned 12036 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V6_1 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 59909
+Edge size is 0
+Took 10762 ms to use view
+Non-materialized returned 59909 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V12_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(p1)) + COLLECT(DISTINCT ID(p2)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(p1)) + COLLECT(DISTINCT ID(p2)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 1460732
+Edge size is 0
+Took 19818 ms to use view
+Non-materialized returned 1460732 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V4_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 21463
+Edge size is 0
+Took 2356 ms to use view
+Non-materialized returned 21463 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V7_1 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 77209
+Edge size is 0
+Took 14395 ms to use view
+Non-materialized returned 77209 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V8_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 301332
+Edge size is 0
+Took 469 ms to use view
+Non-materialized returned 301332 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V11_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 874164
+Edge size is 0
+Took 9121 ms to use view
+Non-materialized returned 874164 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V3_2 LOCAL MATCH (n) RETURN n
+MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 WITH COLLECT(DISTINCT ID(po)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 WITH COLLECT(DISTINCT ID(po)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 111876
+Edge size is 0
+Took 3825 ms to use view
+Non-materialized returned 111876 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V9_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 26418
+Edge size is 0
+Took 2415 ms to use view
+Non-materialized returned 26418 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V2_1 LOCAL MATCH (n) RETURN n
+MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 367709
+Edge size is 0
+Took 2879 ms to use view
+Non-materialized returned 367709 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V6_2 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 25959
+Edge size is 0
+Took 910 ms to use view
+Non-materialized returned 25959 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V7_2 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 57905
+Edge size is 0
+Took 15528 ms to use view
+Non-materialized returned 57905 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V12_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(p1)) + COLLECT(DISTINCT ID(p2)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(p1)) + COLLECT(DISTINCT ID(p2)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 1014730
+Edge size is 0
+Took 17204 ms to use view
+Non-materialized returned 1014730 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V10 LOCAL MATCH (n) RETURN n
+MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 3624699
+Edge size is 0
+Took 17326 ms to use view
+Non-materialized returned 3624699 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V11_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]->(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(betterPost)) + COLLECT(DISTINCT ID(worstPost))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 123738
+Edge size is 0
+Took 875 ms to use view
+Non-materialized returned 123738 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V9_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(m))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 21463
+Edge size is 0
+Took 2332 ms to use view
+Non-materialized returned 21463 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V5 LOCAL MATCH (n) RETURN n
+MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(betterPost)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT ID(betterPost)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 1719664
+Edge size is 0
+Took 14932 ms to use view
+Non-materialized returned 1719664 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V1_1 LOCAL MATCH (n) RETURN n
+MATCH (n: User) WHERE n.upvotes > 1000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n: User) WHERE n.upvotes > 1000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 5139
+Edge size is 0
+Took 58 ms to use view
+Non-materialized returned 5139 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V2_2 LOCAL MATCH (n) RETURN n
+MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 718883
+Edge size is 0
+Took 3693 ms to use view
+Non-materialized returned 718883 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V14_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po)) + COLLECT(DISTINCT ID(t)) + COLLECT(DISTINCT ID(po2))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po)) + COLLECT(DISTINCT ID(t)) + COLLECT(DISTINCT ID(po2))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 172792
+Edge size is 0
+Took 4159 ms to use view
+Non-materialized returned 172792 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V3_1 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT ID(po)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 WITH COLLECT(DISTINCT ID(po)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 253189
+Edge size is 0
+Took 451 ms to use view
+Non-materialized returned 253189 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V8_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 138116
+Edge size is 0
+Took 3486 ms to use view
+Non-materialized returned 138116 elements
+*********************************
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V4_2 LOCAL MATCH (n) RETURN n
+MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 7367
+Edge size is 0
+Took 2400 ms to use view
+Non-materialized returned 7367 elements
+*********************************

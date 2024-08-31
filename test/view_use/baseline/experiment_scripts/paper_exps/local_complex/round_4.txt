@@ -1,0 +1,5 @@
+baseline U5 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.upvotes > 400 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+baseline U4 MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.reputation < 850 AND po.score > 300 AND po.score < 450 RETURN po
+baseline U1 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 AND betterPost.score < 1500 AND betterPost.score > 10 RETURN betterPost
+baseline U3 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 WITH COLLECT(DISTINCT n) AS firstSet MATCH (m:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(n2:User) WHERE m.userId < n2.userId AND m.reputation > n2.reputation AND n2 IN firstSet RETURN DISTINCT n2
+baseline U2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 AND n.score < 1500 RETURN n

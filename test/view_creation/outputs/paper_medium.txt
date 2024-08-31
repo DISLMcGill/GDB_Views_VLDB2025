@@ -1,0 +1,1760 @@
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 998 milliseconds
+While Loop: 27766 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 28778ms to create views
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNn
+ViewSql is CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V4_1" IN n.views THEN [] ELSE ["V4_1"] END) + n.views
+Transaction execute: 171 milliseconds
+While Loop: 2448 milliseconds
+Transaction commit Time: 1 milliseconds
+Execution done
+There are 21463 nodes
+Took 2624ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 983 milliseconds
+While Loop: 28291 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 29291ms to create views
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_2MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_2" IN n.views THEN [] ELSE ["V6_2"] END) + n.views
+Transaction execute: 300 milliseconds
+While Loop: 1379 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 25959 nodes
+Took 1682ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 921 milliseconds
+While Loop: 27536 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 28477ms to create views
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNpo
+ViewSql is CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_1" IN po.views THEN [] ELSE ["V3_1"] END) + po.views
+Transaction execute: 186 milliseconds
+While Loop: 672 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 253189 nodes
+Took 859ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 996 milliseconds
+While Loop: 29522 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 30535ms to create views
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_1MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_1" IN m.views THEN [] ELSE ["V7_1"] END) + m.views
+Transaction execute: 405 milliseconds
+While Loop: 18383 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 77209 nodes
+Took 18792ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 987 milliseconds
+While Loop: 26701 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 27722ms to create views
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_2MATCH(n:Post)WHEREn.score<1500ANDn.score>10RETURNn
+ViewSql is CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_2" IN n.views THEN [] ELSE ["V2_2"] END) + n.views
+Transaction execute: 81 milliseconds
+While Loop: 4059 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 718883 nodes
+Took 4141ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 1122 milliseconds
+While Loop: 28542 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 29667ms to create views
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+In enterRoot ctx is CREATE VIEW ASV4_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNm
+ViewSql is CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V4_2" IN m.views THEN [] ELSE ["V4_2"] END) + m.views
+Transaction execute: 166 milliseconds
+While Loop: 2453 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 7367 nodes
+Took 2621ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 975 milliseconds
+While Loop: 27183 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 28175ms to create views
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, worstPost=Post, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(betterPost.views) THEN betterPost END).views = [] SET betterPost.views = (CASE WHEN "V5" IN betterPost.views THEN [] ELSE ["V5"] END) + betterPost.views
+Transaction execute: 193 milliseconds
+While Loop: 15566 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1719664 nodes
+Took 15762ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 1022 milliseconds
+While Loop: 25890 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 26929ms to create views
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_1MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_1" IN n.views THEN [] ELSE ["V6_1"] END) + n.views
+Transaction execute: 239 milliseconds
+While Loop: 12509 milliseconds
+Transaction commit Time: 1 milliseconds
+Execution done
+There are 59909 nodes
+Took 12751ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 942 milliseconds
+While Loop: 26952 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 27916ms to create views
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_2MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNm
+ViewSql is CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_2" IN m.views THEN [] ELSE ["V7_2"] END) + m.views
+Transaction execute: 320 milliseconds
+While Loop: 16125 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 57905 nodes
+Took 16451ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 981 milliseconds
+While Loop: 25738 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 26737ms to create views
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_1MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 1000 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_1" IN n.views THEN [] ELSE ["V1_1"] END) + n.views
+Transaction execute: 82 milliseconds
+While Loop: 137 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 5139 nodes
+Took 219ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 984 milliseconds
+While Loop: 38734 milliseconds
+Transaction commit Time: 1 milliseconds
+Execution done
+There are 1 nodes
+Took 39732ms to create views
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_2MATCH(n:User)WHEREn.upvotes>400RETURNn
+ViewSql is CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 400 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_2" IN n.views THEN [] ELSE ["V1_2"] END) + n.views
+Transaction execute: 73 milliseconds
+While Loop: 128 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 12036 nodes
+Took 201ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 959 milliseconds
+While Loop: 28689 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 29667ms to create views
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_1MATCH(n:Post)WHEREn.score<1500ANDn.score>20RETURNn
+ViewSql is CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_1" IN n.views THEN [] ELSE ["V2_1"] END) + n.views
+Transaction execute: 84 milliseconds
+While Loop: 3972 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 367709 nodes
+Took 4056ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 991 milliseconds
+While Loop: 27573 milliseconds
+Transaction commit Time: 1 milliseconds
+Execution done
+There are 1 nodes
+Took 28584ms to create views
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNpo
+ViewSql is CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_2" IN po.views THEN [] ELSE ["V3_2"] END) + po.views
+Transaction execute: 164 milliseconds
+While Loop: 4161 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 111876 nodes
+Took 4328ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 949 milliseconds
+While Loop: 28962 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 29929ms to create views
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+In enterRoot ctx is CREATE VIEW ASV4_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNm
+ViewSql is CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V4_2" IN m.views THEN [] ELSE ["V4_2"] END) + m.views
+Transaction execute: 167 milliseconds
+While Loop: 2795 milliseconds
+Transaction commit Time: 1 milliseconds
+Execution done
+There are 7367 nodes
+Took 2963ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 976 milliseconds
+While Loop: 28073 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 29065ms to create views
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_1MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_1" IN m.views THEN [] ELSE ["V7_1"] END) + m.views
+Transaction execute: 269 milliseconds
+While Loop: 16008 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 77209 nodes
+Took 16285ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 960 milliseconds
+While Loop: 30662 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 31639ms to create views
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_2MATCH(n:User)WHEREn.upvotes>400RETURNn
+ViewSql is CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 400 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_2" IN n.views THEN [] ELSE ["V1_2"] END) + n.views
+Transaction execute: 84 milliseconds
+While Loop: 154 milliseconds
+Transaction commit Time: 1 milliseconds
+Execution done
+There are 12036 nodes
+Took 239ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 954 milliseconds
+While Loop: 30187 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 31159ms to create views
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_2MATCH(n:Post)WHEREn.score<1500ANDn.score>10RETURNn
+ViewSql is CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_2" IN n.views THEN [] ELSE ["V2_2"] END) + n.views
+Transaction execute: 102 milliseconds
+While Loop: 3902 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 718883 nodes
+Took 4004ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 978 milliseconds
+While Loop: 30885 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 31892ms to create views
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNpo
+ViewSql is CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_1" IN po.views THEN [] ELSE ["V3_1"] END) + po.views
+Transaction execute: 161 milliseconds
+While Loop: 815 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 253189 nodes
+Took 979ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 1000 milliseconds
+While Loop: 28709 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 29738ms to create views
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_2MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_2" IN n.views THEN [] ELSE ["V6_2"] END) + n.views
+Transaction execute: 278 milliseconds
+While Loop: 1364 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 25959 nodes
+Took 1645ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 961 milliseconds
+While Loop: 27737 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 28713ms to create views
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_1MATCH(n:Post)WHEREn.score<1500ANDn.score>20RETURNn
+ViewSql is CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_1" IN n.views THEN [] ELSE ["V2_1"] END) + n.views
+Transaction execute: 97 milliseconds
+While Loop: 3481 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 367709 nodes
+Took 3580ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 1064 milliseconds
+While Loop: 27951 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 29040ms to create views
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNpo
+ViewSql is CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_2" IN po.views THEN [] ELSE ["V3_2"] END) + po.views
+Transaction execute: 151 milliseconds
+While Loop: 3954 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 111876 nodes
+Took 4108ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 959 milliseconds
+While Loop: 27514 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 28495ms to create views
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_1MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 1000 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_1" IN n.views THEN [] ELSE ["V1_1"] END) + n.views
+Transaction execute: 69 milliseconds
+While Loop: 130 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 5139 nodes
+Took 199ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 1113 milliseconds
+While Loop: 25890 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 27018ms to create views
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_1MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_1" IN n.views THEN [] ELSE ["V6_1"] END) + n.views
+Transaction execute: 252 milliseconds
+While Loop: 12263 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 59909 nodes
+Took 12523ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 1031 milliseconds
+While Loop: 27761 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 28809ms to create views
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNn
+ViewSql is CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V4_1" IN n.views THEN [] ELSE ["V4_1"] END) + n.views
+Transaction execute: 190 milliseconds
+While Loop: 2365 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 21463 nodes
+Took 2563ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 1008 milliseconds
+While Loop: 34731 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 35757ms to create views
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_2MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNm
+ViewSql is CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_2" IN m.views THEN [] ELSE ["V7_2"] END) + m.views
+Transaction execute: 297 milliseconds
+While Loop: 16018 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 57905 nodes
+Took 16320ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 926 milliseconds
+While Loop: 51353 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 52332ms to create views
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, worstPost=Post, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(betterPost.views) THEN betterPost END).views = [] SET betterPost.views = (CASE WHEN "V5" IN betterPost.views THEN [] ELSE ["V5"] END) + betterPost.views
+Transaction execute: 248 milliseconds
+While Loop: 16023 milliseconds
+Transaction commit Time: 1 milliseconds
+Execution done
+There are 1719664 nodes
+Took 16272ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 966 milliseconds
+While Loop: 51605 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 52625ms to create views
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_1MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_1" IN m.views THEN [] ELSE ["V7_1"] END) + m.views
+Transaction execute: 352 milliseconds
+While Loop: 18833 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 77209 nodes
+Took 19194ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 949 milliseconds
+While Loop: 53089 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 54101ms to create views
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_2MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_2" IN n.views THEN [] ELSE ["V6_2"] END) + n.views
+Transaction execute: 296 milliseconds
+While Loop: 1526 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 25959 nodes
+Took 1831ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 924 milliseconds
+While Loop: 51748 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 52725ms to create views
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNn
+ViewSql is CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V4_1" IN n.views THEN [] ELSE ["V4_1"] END) + n.views
+Transaction execute: 220 milliseconds
+While Loop: 2792 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 21463 nodes
+Took 3019ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 911 milliseconds
+While Loop: 51103 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 52068ms to create views
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_2MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNm
+ViewSql is CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_2" IN m.views THEN [] ELSE ["V7_2"] END) + m.views
+Transaction execute: 363 milliseconds
+While Loop: 16676 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 57905 nodes
+Took 17046ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 1046 milliseconds
+While Loop: 35189 milliseconds
+Transaction commit Time: 1 milliseconds
+Execution done
+There are 1 nodes
+Took 36268ms to create views
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_1MATCH(n:Post)WHEREn.score<1500ANDn.score>20RETURNn
+ViewSql is CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_1" IN n.views THEN [] ELSE ["V2_1"] END) + n.views
+Transaction execute: 82 milliseconds
+While Loop: 3739 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 367709 nodes
+Took 3821ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 948 milliseconds
+While Loop: 26342 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 27304ms to create views
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, worstPost=Post, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(betterPost.views) THEN betterPost END).views = [] SET betterPost.views = (CASE WHEN "V5" IN betterPost.views THEN [] ELSE ["V5"] END) + betterPost.views
+Transaction execute: 186 milliseconds
+While Loop: 15613 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1719664 nodes
+Took 15806ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 1008 milliseconds
+While Loop: 26920 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 27941ms to create views
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNpo
+ViewSql is CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_2" IN po.views THEN [] ELSE ["V3_2"] END) + po.views
+Transaction execute: 179 milliseconds
+While Loop: 3649 milliseconds
+Transaction commit Time: 1 milliseconds
+Execution done
+There are 111876 nodes
+Took 3831ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 917 milliseconds
+While Loop: 28443 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 29376ms to create views
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNpo
+ViewSql is CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_1" IN po.views THEN [] ELSE ["V3_1"] END) + po.views
+Transaction execute: 151 milliseconds
+While Loop: 702 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 253189 nodes
+Took 853ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 992 milliseconds
+While Loop: 27899 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 28905ms to create views
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_1MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 1000 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_1" IN n.views THEN [] ELSE ["V1_1"] END) + n.views
+Transaction execute: 69 milliseconds
+While Loop: 133 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 5139 nodes
+Took 203ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 1021 milliseconds
+While Loop: 28373 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 29407ms to create views
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+In enterRoot ctx is CREATE VIEW ASV4_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNm
+ViewSql is CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V4_2" IN m.views THEN [] ELSE ["V4_2"] END) + m.views
+Transaction execute: 161 milliseconds
+While Loop: 2703 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 7367 nodes
+Took 2867ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 932 milliseconds
+While Loop: 26688 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 27639ms to create views
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_2MATCH(n:User)WHEREn.upvotes>400RETURNn
+ViewSql is CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 400 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_2" IN n.views THEN [] ELSE ["V1_2"] END) + n.views
+Transaction execute: 75 milliseconds
+While Loop: 172 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 12036 nodes
+Took 248ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 980 milliseconds
+While Loop: 27503 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 28497ms to create views
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_1MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_1" IN n.views THEN [] ELSE ["V6_1"] END) + n.views
+Transaction execute: 267 milliseconds
+While Loop: 11396 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 59909 nodes
+Took 11665ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 943 milliseconds
+While Loop: 29299 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 30259ms to create views
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_2MATCH(n:Post)WHEREn.score<1500ANDn.score>10RETURNn
+ViewSql is CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_2" IN n.views THEN [] ELSE ["V2_2"] END) + n.views
+Transaction execute: 81 milliseconds
+While Loop: 4070 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 718883 nodes
+Took 4151ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 924 milliseconds
+While Loop: 26069 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 27011ms to create views
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_2MATCH(n:Post)WHEREn.score<1500ANDn.score>10RETURNn
+ViewSql is CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_2" IN n.views THEN [] ELSE ["V2_2"] END) + n.views
+Transaction execute: 89 milliseconds
+While Loop: 4179 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 718883 nodes
+Took 4269ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 899 milliseconds
+While Loop: 28375 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 29302ms to create views
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNn
+ViewSql is CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V4_1" IN n.views THEN [] ELSE ["V4_1"] END) + n.views
+Transaction execute: 166 milliseconds
+While Loop: 2569 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 21463 nodes
+Took 2742ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 935 milliseconds
+While Loop: 27767 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 28723ms to create views
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_2MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_2" IN n.views THEN [] ELSE ["V6_2"] END) + n.views
+Transaction execute: 267 milliseconds
+While Loop: 1726 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 25959 nodes
+Took 2000ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 949 milliseconds
+While Loop: 27447 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 28426ms to create views
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_1MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_1" IN n.views THEN [] ELSE ["V6_1"] END) + n.views
+Transaction execute: 245 milliseconds
+While Loop: 12300 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 59909 nodes
+Took 12552ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 1014 milliseconds
+While Loop: 27576 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 28613ms to create views
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNpo
+ViewSql is CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_1" IN po.views THEN [] ELSE ["V3_1"] END) + po.views
+Transaction execute: 157 milliseconds
+While Loop: 685 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 253189 nodes
+Took 847ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 960 milliseconds
+While Loop: 28450 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 29429ms to create views
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_2MATCH(n:User)WHEREn.upvotes>400RETURNn
+ViewSql is CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 400 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_2" IN n.views THEN [] ELSE ["V1_2"] END) + n.views
+Transaction execute: 86 milliseconds
+While Loop: 166 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 12036 nodes
+Took 252ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 892 milliseconds
+While Loop: 27568 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 28484ms to create views
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, worstPost=Post, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(betterPost.views) THEN betterPost END).views = [] SET betterPost.views = (CASE WHEN "V5" IN betterPost.views THEN [] ELSE ["V5"] END) + betterPost.views
+Transaction execute: 171 milliseconds
+While Loop: 15572 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1719664 nodes
+Took 15748ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 914 milliseconds
+While Loop: 26244 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 27184ms to create views
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_1MATCH(n:Post)WHEREn.score<1500ANDn.score>20RETURNn
+ViewSql is CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_1" IN n.views THEN [] ELSE ["V2_1"] END) + n.views
+Transaction execute: 80 milliseconds
+While Loop: 3747 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 367709 nodes
+Took 3828ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 995 milliseconds
+While Loop: 25461 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 26472ms to create views
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_1MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 1000 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_1" IN n.views THEN [] ELSE ["V1_1"] END) + n.views
+Transaction execute: 77 milliseconds
+While Loop: 159 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 5139 nodes
+Took 237ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 1022 milliseconds
+While Loop: 28719 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 29757ms to create views
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNpo
+ViewSql is CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_2" IN po.views THEN [] ELSE ["V3_2"] END) + po.views
+Transaction execute: 143 milliseconds
+While Loop: 3940 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 111876 nodes
+Took 4088ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 930 milliseconds
+While Loop: 28374 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 29319ms to create views
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_1MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_1" IN m.views THEN [] ELSE ["V7_1"] END) + m.views
+Transaction execute: 281 milliseconds
+While Loop: 15873 milliseconds
+Transaction commit Time: 1 milliseconds
+Execution done
+There are 77209 nodes
+Took 16159ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 956 milliseconds
+While Loop: 27440 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 28410ms to create views
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+In enterRoot ctx is CREATE VIEW ASV4_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNm
+ViewSql is CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V4_2" IN m.views THEN [] ELSE ["V4_2"] END) + m.views
+Transaction execute: 178 milliseconds
+While Loop: 2723 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 7367 nodes
+Took 2905ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 908 milliseconds
+While Loop: 28221 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 29145ms to create views
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_2MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNm
+ViewSql is CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_2" IN m.views THEN [] ELSE ["V7_2"] END) + m.views
+Transaction execute: 306 milliseconds
+While Loop: 16117 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 57905 nodes
+Took 16430ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 946 milliseconds
+While Loop: 25566 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 26537ms to create views
+CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_2MATCH(n:User)WHEREn.upvotes>400RETURNn
+ViewSql is CREATE VIEW AS V1_2 MATCH (n: User) WHERE n.upvotes > 400 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 400 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_2" IN n.views THEN [] ELSE ["V1_2"] END) + n.views
+Transaction execute: 69 milliseconds
+While Loop: 157 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 12036 nodes
+Took 226ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 1027 milliseconds
+While Loop: 27421 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 28489ms to create views
+CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+In enterRoot ctx is CREATE VIEW ASV4_1MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>200ANDn.score>200RETURNn
+ViewSql is CREATE VIEW AS V4_1 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 RETURN n
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 200 AND n.score > 200 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V4_1" IN n.views THEN [] ELSE ["V4_1"] END) + n.views
+Transaction execute: 182 milliseconds
+While Loop: 2439 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 21463 nodes
+Took 2625ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 957 milliseconds
+While Loop: 29330 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 30304ms to create views
+CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_1MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDn.reputation>m.reputationRETURNm
+ViewSql is CREATE VIEW AS V7_1 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation RETURN m
+ckqptUser, userId
+User, userId
+ckqptUser, reputation
+User, reputation
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_1" IN m.views THEN [] ELSE ["V7_1"] END) + m.views
+Transaction execute: 281 milliseconds
+While Loop: 15666 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 77209 nodes
+Took 15952ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 1095 milliseconds
+While Loop: 28065 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 29162ms to create views
+CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+In enterRoot ctx is CREATE VIEW ASV5MATCH(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNbetterPost
+ViewSql is CREATE VIEW AS V5 MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN betterPost
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, worstPost=Post, betterPost=Post}
+Return Type is NODE
+ MATCH (betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(betterPost.views) THEN betterPost END).views = [] SET betterPost.views = (CASE WHEN "V5" IN betterPost.views THEN [] ELSE ["V5"] END) + betterPost.views
+Transaction execute: 176 milliseconds
+While Loop: 15321 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1719664 nodes
+Took 15502ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 1042 milliseconds
+While Loop: 26154 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 27212ms to create views
+CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_1MATCH(n:Post)WHEREn.score<1500ANDn.score>20RETURNn
+ViewSql is CREATE VIEW AS V2_1 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 20 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_1" IN n.views THEN [] ELSE ["V2_1"] END) + n.views
+Transaction execute: 79 milliseconds
+While Loop: 3655 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 367709 nodes
+Took 3735ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 1048 milliseconds
+While Loop: 25729 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 26794ms to create views
+CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV2_2MATCH(n:Post)WHEREn.score<1500ANDn.score>10RETURNn
+ViewSql is CREATE VIEW AS V2_2 MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.score < 1500 AND n.score > 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V2_2" IN n.views THEN [] ELSE ["V2_2"] END) + n.views
+Transaction execute: 79 milliseconds
+While Loop: 4307 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 718883 nodes
+Took 4387ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 1006 milliseconds
+While Loop: 25803 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 26826ms to create views
+CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_1MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREn.reputation<850RETURNpo
+ViewSql is CREATE VIEW AS V3_1 MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p=(n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 850 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_1" IN po.views THEN [] ELSE ["V3_1"] END) + po.views
+Transaction execute: 157 milliseconds
+While Loop: 777 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 253189 nodes
+Took 934ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 998 milliseconds
+While Loop: 26337 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 27365ms to create views
+CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+In enterRoot ctx is CREATE VIEW ASV1_1MATCH(n:User)WHEREn.upvotes>1000RETURNn
+ViewSql is CREATE VIEW AS V1_1 MATCH (n: User) WHERE n.upvotes > 1000 RETURN n
+VarLables of the input is {n=User}
+Return Type is NODE
+ MATCH (n: User) WHERE n.upvotes > 1000 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V1_1" IN n.views THEN [] ELSE ["V1_1"] END) + n.views
+Transaction execute: 76 milliseconds
+While Loop: 154 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 5139 nodes
+Took 230ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 979 milliseconds
+While Loop: 25485 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 26481ms to create views
+CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_1MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_1 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_1" IN n.views THEN [] ELSE ["V6_1"] END) + n.views
+Transaction execute: 236 milliseconds
+While Loop: 11490 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 59909 nodes
+Took 11730ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 908 milliseconds
+While Loop: 28605 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 29532ms to create views
+CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+In enterRoot ctx is CREATE VIEW ASV3_2MATCHp=(n:User)-[:POSTED]-(po:Post)WHEREpo.score>38RETURNpo
+ViewSql is CREATE VIEW AS V3_2 MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 RETURN po
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, n=User, po=Post}
+Return Type is NODE
+ MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE po.score > 38 SET(CASE WHEN NOT EXISTS(po.views) THEN po END).views = [] SET po.views = (CASE WHEN "V3_2" IN po.views THEN [] ELSE ["V3_2"] END) + po.views
+Transaction execute: 176 milliseconds
+While Loop: 4317 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 111876 nodes
+Took 4497ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 983 milliseconds
+While Loop: 34390 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 35398ms to create views
+CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+In enterRoot ctx is CREATE VIEW ASV7_2MATCH(n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User)WHEREn.userId<m.userIdANDp1.score<p2.scoreRETURNm
+ViewSql is CREATE VIEW AS V7_2 MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score RETURN m
+ckqptUser, userId
+User, userId
+ckqptPost, score
+Post, score
+VarLables of the input is {p1=Post, p2=Post, _ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, m=User, n=User}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND p1.score < p2.score SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V7_2" IN m.views THEN [] ELSE ["V7_2"] END) + m.views
+Transaction execute: 279 milliseconds
+While Loop: 15686 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 57905 nodes
+Took 15972ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 1099 milliseconds
+While Loop: 27338 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 28440ms to create views
+CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+In enterRoot ctx is CREATE VIEW ASV6_2MATCH(n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post)WHEREn.reputation<850ANDworstPost.score<10ANDbetterPost.score>worstPost.score*10RETURNn
+ViewSql is CREATE VIEW AS V6_2 MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN n
+ckqptPost, score
+Post, score
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=POSTED, worstPost=Post, _ENTRY_SPECIAL_NO_REL_NAME_2=PARENT_OF, n=User, betterPost=Post}
+Return Type is NODE
+ MATCH (n:User)-[:POSTED]-(betterPost:Post)-[:PARENT_OF]-(worstPost:Post) WHERE n.reputation < 850 AND worstPost.score < 10 AND betterPost.score > worstPost.score * 10 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V6_2" IN n.views THEN [] ELSE ["V6_2"] END) + n.views
+Transaction execute: 301 milliseconds
+While Loop: 1519 milliseconds
+Transaction commit Time: 1 milliseconds
+Execution done
+There are 25959 nodes
+Took 1824ms to create views
+************************************
+neo4j graph connector set-up done.
+2
+In enterRoot ctx is CREATE VIEW ASV_testMATCH(n:Post)WHEREn.postId='3468801'RETURNn
+ViewSql is CREATE VIEW AS V_test MATCH (n:Post) WHERE n.postId = '3468801' RETURN n
+VarLables of the input is {n=Post}
+Return Type is NODE
+ MATCH (n:Post) WHERE n.postId = '3468801' SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = [] SET n.views = (CASE WHEN "V_test" IN n.views THEN [] ELSE ["V_test"] END) + n.views
+Transaction execute: 954 milliseconds
+While Loop: 28124 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 1 nodes
+Took 29101ms to create views
+CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+In enterRoot ctx is CREATE VIEW ASV4_2MATCHp=(n:Post)-[:PARENT_OF]-(m:Post)WHEREm.score>300ANDm.score<450RETURNm
+ViewSql is CREATE VIEW AS V4_2 MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 RETURN m
+VarLables of the input is {_ENTRY_SPECIAL_NO_REL_NAME_1=PARENT_OF, m=Post, n=Post}
+Return Type is NODE
+ MATCH p=(n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 300 AND m.score < 450 SET(CASE WHEN NOT EXISTS(m.views) THEN m END).views = [] SET m.views = (CASE WHEN "V4_2" IN m.views THEN [] ELSE ["V4_2"] END) + m.views
+Transaction execute: 168 milliseconds
+While Loop: 2823 milliseconds
+Transaction commit Time: 0 milliseconds
+Execution done
+There are 7367 nodes
+Took 2991ms to create views
+************************************

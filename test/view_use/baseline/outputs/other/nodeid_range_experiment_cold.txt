@@ -1,0 +1,104 @@
+neo4j graph connector set-up done.
+2
+Execution done
+Node size is 250000
+Edge size is 0
+Took 29359 ms to execute baseline query
+Baseline returned 250000 nodes (or edges)
+************************************
+neo4j graph connector set-up done.
+2
+Execution done
+Node size is 500000
+Edge size is 0
+Took 55635 ms to execute baseline query
+Baseline returned 500000 nodes (or edges)
+************************************
+neo4j graph connector set-up done.
+2
+Execution done
+Node size is 750000
+Edge size is 0
+Took 83693 ms to execute baseline query
+Baseline returned 750000 nodes (or edges)
+************************************
+neo4j graph connector set-up done.
+2
+Execution done
+Node size is 1000000
+Edge size is 0
+Took 108689 ms to execute baseline query
+Baseline returned 1000000 nodes (or edges)
+************************************
+neo4j graph connector set-up done.
+2
+Execution done
+Node size is 1250000
+Edge size is 0
+Took 132860 ms to execute baseline query
+Baseline returned 1250000 nodes (or edges)
+************************************
+neo4j graph connector set-up done.
+2
+Execution done
+Node size is 1500000
+Edge size is 0
+Took 161553 ms to execute baseline query
+Baseline returned 1500000 nodes (or edges)
+************************************
+neo4j graph connector set-up done.
+2
+Execution done
+Node size is 1750000
+Edge size is 0
+Took 185587 ms to execute baseline query
+Baseline returned 1750000 nodes (or edges)
+************************************
+neo4j graph connector set-up done.
+2
+Execution done
+Node size is 2000000
+Edge size is 0
+Took 209596 ms to execute baseline query
+Baseline returned 2000000 nodes (or edges)
+************************************
+neo4j graph connector set-up done.
+2
+Execution done
+Node size is 2250000
+Edge size is 0
+Took 231845 ms to execute baseline query
+Baseline returned 2250000 nodes (or edges)
+************************************
+neo4j graph connector set-up done.
+2
+Execution done
+Node size is 2500000
+Edge size is 0
+Took 266614 ms to execute baseline query
+Baseline returned 2500000 nodes (or edges)
+************************************
+neo4j graph connector set-up done.
+2
+Execution done
+Node size is 2750000
+Edge size is 0
+Took 296785 ms to execute baseline query
+Baseline returned 2750000 nodes (or edges)
+************************************
+neo4j graph connector set-up done.
+2
+Execution done
+Node size is 3000000
+Edge size is 0
+Took 317773 ms to execute baseline query
+Baseline returned 3000000 nodes (or edges)
+************************************
+neo4j graph connector set-up done.
+2
+Execution done
+Node size is 3250000
+Edge size is 0
+Took 350332 ms to execute baseline query
+Baseline returned 3250000 nodes (or edges)
+************************************

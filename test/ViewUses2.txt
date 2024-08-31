@@ -1,0 +1,24 @@
+* WITH VIEWS basicPostScoreFilter350 LOCAL MATCH (n) RETURN n
+* WITH VIEWS basicPostScoreRangeFilter LOCAL MATCH (n) RETURN n
+* WITH VIEWS basicUserUpvoteFilter LOCAL MATCH (n) RETURN n
+* WITH VIEWS basicUserReputationFilter LOCAL MATCH (n) RETURN n
+* WITH VIEWS UserPostingOneCondition LOCAL MATCH (n) RETURN n
+* WITH VIEWS pathQueryTwoConditions2 LOCAL MATCH (n) RETURN n
+* WITH VIEWS pathQueryRangeFilter LOCAL MATCH (n) RETURN n
+* WITH VIEWS NodeOR LOCAL MATCH (n) RETURN n
+* WITH VIEWS basicPostScoreFilter350 pathQueryTwoConditions2 LOCAL MATCH (n) WHERE n IN basicPostScoreFilter350 AND n IN pathQueryTwoConditions2 RETURN n
+* WITH VIEWS basicUserUpvoteFilter GLOBAL MATCH (n)-[:POSTED]-(p:Post) WHERE n IN basicUserUpvoteFilter RETURN p
+* * WITH VIEWS pathQueryTwoConditions2 UserPostingOneCondition GLOBAL MATCH (p1:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(p2:Post) WHERE p1 IN pathQueryTwoConditions2 AND p2 IN UserPostingOneCondition RETURN t
+* WITH VIEWS pathQueryRangeFilter basicUserUpvoteFilter GLOBAL MATCH (n:User)-[:POSTED]-(p:Post) WHERE n IN basicUserUpvoteFilter AND p IN pathQueryRangeFilter AND n.reputation > 2*p.score OR n.downvotes < p.score RETURN n
+WITH VIEWS basicPostScoreFilter350 LOCAL MATCH (n) RETURN COUNT(n)
+WITH VIEWS basicPostScoreRangeFilter LOCAL MATCH (n) RETURN COUNT(n)
+WITH VIEWS basicUserUpvoteFilter LOCAL MATCH (n) RETURN COUNT(n)
+WITH VIEWS basicUserReputationFilter LOCAL MATCH (n) RETURN COUNT(n)
+WITH VIEWS UserPostingOneCondition LOCAL MATCH (n) RETURN COUNT(n)
+WITH VIEWS pathQueryTwoConditions2 LOCAL MATCH (n) RETURN COUNT(n)
+WITH VIEWS pathQueryRangeFilter LOCAL MATCH (n) RETURN COUNT(n)
+WITH VIEWS NodeOR LOCAL MATCH (n) RETURN COUNT(n)
+WITH VIEWS basicPostScoreFilter350 pathQueryTwoConditions2 LOCAL MATCH (n) WHERE n IN basicPostScoreFilter350 AND n IN pathQueryTwoConditions2 RETURN COUNT(n)
+WITH VIEWS basicUserUpvoteFilter GLOBAL MATCH (n)-[:POSTED]-(p:Post) WHERE n IN basicUserUpvoteFilter RETURN COUNT(DISTINCT p)
+** WITH VIEWS pathQueryTwoConditions2 UserPostingOneCondition GLOBAL MATCH (p1:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(p2:Post) WHERE p1 IN pathQueryTwoConditions2 AND p2 IN UserPostingOneCondition RETURN COUNT(t)
+WITH VIEWS pathQueryRangeFilter basicUserUpvoteFilter GLOBAL MATCH (n:User)-[:POSTED]-(p:Post) WHERE n IN basicUserUpvoteFilter AND p IN pathQueryRangeFilter AND n.reputation > 2*p.score OR n.downvotes < p.score RETURN COUNT(n)

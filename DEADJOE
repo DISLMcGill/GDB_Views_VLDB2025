@@ -1,0 +1,97 @@
+
+*** These modified files were found in JOE when it aborted on Thu Aug 17 00:13:12 2023
+*** JOE was aborted by UNIX signal 1
+
+*** File '(Unnamed)'
+/home/db/mshahr8/GDB_Views/.git/COMMIT_EDITMSG
+
+*** File '/home/db/mshahr8/GDB_Views/.git/COMMIT_EDITMSG'
+Revert "updated baseline local basic data and plots with the new config files"
+The method didn't seem to work and I rolled back to the previous commit
+This reverts commit 2a581c64a1df71258fbd15134bc28efd45fba7ae.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Committer: Mohanna SHAHRAD <mshahr8@node-05.bmj.lan>
+#
+# On branch code-refactor
+# Your branch is up to date with 'origin/code-refactor'.
+#
+# Changes to be committed:
+#	modified:   src/main/Main.java
+#	modified:   src/main/Neo4jGraphConnector.java
+#	renamed:    test/evaluation_plots/baseline/baseline_local_basic_warm_medium.pdf -> test/evaluation_plots/baseline/baseline_time_local_basic_cold_medium.pdf
+#	renamed:    test/evaluation_plots/baseline/baseline_local_basic_warm_small.pdf -> test/evaluation_plots/baseline/baseline_time_local_basic_cold_small.pdf
+#	renamed:    test/evaluation_plots/baseline/baseline_local_basic_cool_medium.pdf -> test/evaluation_plots/baseline/baseline_time_local_basic_cool_medium.pdf
+#	renamed:    test/evaluation_plots/baseline/baseline_local_basic_cool_small.pdf -> test/evaluation_plots/baseline/baseline_time_local_basic_cool_small.pdf
+#	modified:   test/evaluation_plots/baseline/baseline_time_local_comlpex_medium.pdf
+#	modified:   test/evaluation_plots/baseline/baseline_time_local_comlpex_small.pdf
+#	modified:   test/evaluation_plots/other/nodeid_range_test.pdf
+#	modified:   test/view_use/baseline/baseline_local_basic_medium.csv
+#	modified:   test/view_use/baseline/baseline_local_basic_small.csv
+#	modified:   test/view_use/baseline/cold_baseline.sh
+#	modified:   test/view_use/baseline/csv_writer.py
+#	modified:   test/view_use/baseline/outputs/local_basic/cold_init_load_medium.txt
+#	modified:   test/view_use/baseline/outputs/local_basic/cold_init_load_small.txt
+#	new file:   test/view_use/baseline/outputs/local_basic/cold_medium.txt
+#	new file:   test/view_use/baseline/outputs/local_basic/cold_small.txt
+#	modified:   test/view_use/baseline/outputs/local_basic/warm_medium.txt
+#	modified:   test/view_use/baseline/outputs/local_basic/warm_small.txt
+#	modified:   test/view_use/baseline/plot_maker.py
+#
+
+*** File '* Startup Log *'
+Processing '/etc/joe/editorrc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/editorrc
+
+*** These modified files were found in JOE when it aborted on Thu Aug 17 00:13:12 2023
+*** JOE was aborted by UNIX signal 1
+
+*** File '(Unnamed)'
+/home/db/mshahr8/GDB_Views/.git/COMMIT_EDITMSG
+
+*** File '/home/db/mshahr8/GDB_Views/.git/COMMIT_EDITMSG'
+rolling back to the previous stable version.
+qsRevert "updated baseline local basic data and plots with the new config files"
+
+This reverts commit 2a581c64a1df71258fbd15134bc28efd45fba7ae.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Committer: Mohanna SHAHRAD <mshahr8@node-05.bmj.lan>
+#
+# On branch code-refactor
+# Your branch is up to date with 'origin/code-refactor'.
+#
+# Changes to be committed:
+#	modified:   src/main/Main.java
+#	modified:   src/main/Neo4jGraphConnector.java
+#	renamed:    test/evaluation_plots/baseline/baseline_local_basic_warm_medium.pdf -> test/evaluation_plots/baseline/baseline_time_local_basic_cold_medium.pdf
+#	renamed:    test/evaluation_plots/baseline/baseline_local_basic_warm_small.pdf -> test/evaluation_plots/baseline/baseline_time_local_basic_cold_small.pdf
+#	renamed:    test/evaluation_plots/baseline/baseline_local_basic_cool_medium.pdf -> test/evaluation_plots/baseline/baseline_time_local_basic_cool_medium.pdf
+#	renamed:    test/evaluation_plots/baseline/baseline_local_basic_cool_small.pdf -> test/evaluation_plots/baseline/baseline_time_local_basic_cool_small.pdf
+#	modified:   test/evaluation_plots/baseline/baseline_time_local_comlpex_medium.pdf
+#	modified:   test/evaluation_plots/baseline/baseline_time_local_comlpex_small.pdf
+#	modified:   test/evaluation_plots/other/nodeid_range_test.pdf
+#	modified:   test/view_use/baseline/baseline_local_basic_medium.csv
+#	modified:   test/view_use/baseline/baseline_local_basic_small.csv
+#	modified:   test/view_use/baseline/cold_baseline.sh
+#	modified:   test/view_use/baseline/csv_writer.py
+#	modified:   test/view_use/baseline/outputs/local_basic/cold_init_load_medium.txt
+#	modified:   test/view_use/baseline/outputs/local_basic/cold_init_load_small.txt
+#	new file:   test/view_use/baseline/outputs/local_basic/cold_medium.txt
+#	new file:   test/view_use/baseline/outputs/local_basic/cold_small.txt
+#	modified:   test/view_use/baseline/outputs/local_basic/warm_medium.txt
+#	modified:   test/view_use/baseline/outputs/local_basic/warm_small.txt
+#	modified:   test/view_use/baseline/plot_maker.py
+#
+
+*** File '* Startup Log *'
+Processing '/etc/joe/editorrc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/editorrc

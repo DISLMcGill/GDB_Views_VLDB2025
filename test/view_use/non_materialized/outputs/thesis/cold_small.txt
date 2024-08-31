@@ -1,0 +1,384 @@
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V20 LOCAL MATCH (n) RETURN n
+MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 3
+Edge size is 0
+Took 2301 ms to use view
+Non-materialized returned 3 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V7 LOCAL MATCH (n) RETURN n
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 100 AND m.score < 600 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 100 AND m.score < 600 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 114741
+Edge size is 0
+Took 1980 ms to use view
+Non-materialized returned 114741 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS GLOBAL V20 MATCH (n)-[:HAS_TAG]-(p:Post) WHERE n IN V20 RETURN p
+MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS V20
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V20 RETURN DISTINCT(p)
+Executing query: MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS V20
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V20 RETURN DISTINCT(p)
+Execution done
+Node size is 13270
+Edge size is 0
+Took 2215 ms to use view
+Non-materialized returned 13270 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V17 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 22714
+Edge size is 0
+Took 5346 ms to use view
+Non-materialized returned 22714 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V16 LOCAL MATCH (n) RETURN n
+MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 50000 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 50000 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 971805
+Edge size is 0
+Took 1785 ms to use view
+Non-materialized returned 971805 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V5 LOCAL MATCH (n) RETURN n
+MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 2
+Edge size is 0
+Took 78 ms to use view
+Non-materialized returned 2 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V8 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 11173
+Edge size is 0
+Took 911 ms to use view
+Non-materialized returned 11173 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V6 LOCAL MATCH (n) RETURN n
+MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 42081
+Edge size is 0
+Took 210 ms to use view
+Non-materialized returned 42081 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS GLOBAL V5 MATCH(n)-[:HAS_TAG]-(p:Post) WHERE n IN V5 RETURN p
+MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS V5
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V5 RETURN DISTINCT(p)
+Executing query: MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS V5
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V5 RETURN DISTINCT(p)
+Execution done
+Node size is 191539
+Edge size is 0
+Took 317 ms to use view
+Non-materialized returned 191539 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL COMPLEX V18 V19 LOCAL MATCH (n) WHERE n IN V18 AND n IN V19 RETURN n
+Both NODE
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v1 
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH v1, COLLECT(DISTINCT ID(n)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v1 
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH v1, COLLECT(DISTINCT ID(n)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Execution done
+Node size is 0
+Edge size is 0
+Took 3034 ms to use view
+Non-materialized returned 0 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V19 LOCAL MATCH (n) RETURN n
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 37
+Edge size is 0
+Took 1414 ms to use view
+Non-materialized returned 37 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL COMPLEX V1 V8 LOCAL MATCH (n) WHERE n IN V1 AND n IN V8 RETURN n
+Both NODE
+MATCH (n:Post) WHERE n.score > 350 WITH COLLECT(DISTINCT ID(n)) AS v1 
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH v1, COLLECT(DISTINCT ID(po2)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Executing query: MATCH (n:Post) WHERE n.score > 350 WITH COLLECT(DISTINCT ID(n)) AS v1 
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH v1, COLLECT(DISTINCT ID(po2)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Execution done
+Node size is 983
+Edge size is 0
+Took 2166 ms to use view
+Non-materialized returned 983 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V15 LOCAL MATCH (n) RETURN n
+MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 58015
+Edge size is 0
+Took 1976 ms to use view
+Non-materialized returned 58015 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS GLOBAL V15 MATCH (n)-[:POSTED]-(m:User) WHERE n IN V15 RETURN m
+MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS V15
+MATCH (n)-[:POSTED]-(m:User) WHERE ID(n) IN V15 RETURN DISTINCT(m)
+Executing query: MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS V15
+MATCH (n)-[:POSTED]-(m:User) WHERE ID(n) IN V15 RETURN DISTINCT(m)
+Execution done
+Node size is 3118
+Edge size is 0
+Took 1801 ms to use view
+Non-materialized returned 3118 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V18 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 16223
+Edge size is 0
+Took 1520 ms to use view
+Non-materialized returned 16223 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V4 LOCAL MATCH (n) RETURN n
+MATCH (n:User) WHERE n.reputation > 90000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User) WHERE n.reputation > 90000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 313
+Edge size is 0
+Took 98 ms to use view
+Non-materialized returned 313 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V8 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 11173
+Edge size is 0
+Took 914 ms to use view
+Non-materialized returned 11173 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS GLOBAL V5 MATCH(n)-[:HAS_TAG]-(p:Post) WHERE n IN V5 RETURN p
+MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS V5
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V5 RETURN DISTINCT(p)
+Executing query: MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS V5
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V5 RETURN DISTINCT(p)
+Execution done
+Node size is 191539
+Edge size is 0
+Took 307 ms to use view
+Non-materialized returned 191539 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V15 LOCAL MATCH (n) RETURN n
+MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 58015
+Edge size is 0
+Took 2015 ms to use view
+Non-materialized returned 58015 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V19 LOCAL MATCH (n) RETURN n
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 37
+Edge size is 0
+Took 1361 ms to use view
+Non-materialized returned 37 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS GLOBAL V20 MATCH (n)-[:HAS_TAG]-(p:Post) WHERE n IN V20 RETURN p
+MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS V20
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V20 RETURN DISTINCT(p)
+Executing query: MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS V20
+MATCH (n)-[:HAS_TAG]-(p:Post) WHERE ID(n) IN V20 RETURN DISTINCT(p)
+Execution done
+Node size is 13270
+Edge size is 0
+Took 2534 ms to use view
+Non-materialized returned 13270 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL COMPLEX V1 V8 LOCAL MATCH (n) WHERE n IN V1 AND n IN V8 RETURN n
+Both NODE
+MATCH (n:Post) WHERE n.score > 350 WITH COLLECT(DISTINCT ID(n)) AS v1 
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH v1, COLLECT(DISTINCT ID(po2)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Executing query: MATCH (n:Post) WHERE n.score > 350 WITH COLLECT(DISTINCT ID(n)) AS v1 
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 800 AND po.comments > 10 WITH v1, COLLECT(DISTINCT ID(po2)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Execution done
+Node size is 983
+Edge size is 0
+Took 2137 ms to use view
+Non-materialized returned 983 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V4 LOCAL MATCH (n) RETURN n
+MATCH (n:User) WHERE n.reputation > 90000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User) WHERE n.reputation > 90000 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 313
+Edge size is 0
+Took 97 ms to use view
+Non-materialized returned 313 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V18 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 16223
+Edge size is 0
+Took 1554 ms to use view
+Non-materialized returned 16223 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V16 LOCAL MATCH (n) RETURN n
+MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 50000 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 50000 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 971805
+Edge size is 0
+Took 1754 ms to use view
+Non-materialized returned 971805 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V20 LOCAL MATCH (n) RETURN n
+MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post)-[:HAS_TAG]-(t) WHERE n.postId = '1065111' WITH COLLECT(DISTINCT ID(t)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 3
+Edge size is 0
+Took 2276 ms to use view
+Non-materialized returned 3 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS GLOBAL V15 MATCH (n)-[:POSTED]-(m:User) WHERE n IN V15 RETURN m
+MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS V15
+MATCH (n)-[:POSTED]-(m:User) WHERE ID(n) IN V15 RETURN DISTINCT(m)
+Executing query: MATCH (p2:Post)-[:HAS_TAG]-(t) WHERE t.tagId='html' WITH COLLECT(DISTINCT ID(p2)) AS V15
+MATCH (n)-[:POSTED]-(m:User) WHERE ID(n) IN V15 RETURN DISTINCT(m)
+Execution done
+Node size is 3118
+Edge size is 0
+Took 1847 ms to use view
+Non-materialized returned 3118 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL COMPLEX V18 V19 LOCAL MATCH (n) WHERE n IN V18 AND n IN V19 RETURN n
+Both NODE
+MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v1 
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH v1, COLLECT(DISTINCT ID(n)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Executing query: MATCH (n:User)-[:POSTED]-(po:Post)-[:PARENT_OF]-(po2:Post) WHERE n.upvotes > 0 AND po.comments > 10 AND po2.comments<10 WITH COLLECT(DISTINCT ID(po2)) AS v1 
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE n.score =15 AND m.score = 50 WITH v1, COLLECT(DISTINCT ID(n)) AS v2 
+MATCH (node) WHERE ID(node) IN v1 AND ID(node) IN v2 RETURN node
+Execution done
+Node size is 0
+Edge size is 0
+Took 3018 ms to use view
+Non-materialized returned 0 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V6 LOCAL MATCH (n) RETURN n
+MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 WITH COLLECT(DISTINCT ID(n)) + COLLECT(DISTINCT ID(po))  AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 42081
+Edge size is 0
+Took 190 ms to use view
+Non-materialized returned 42081 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V7 LOCAL MATCH (n) RETURN n
+MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 100 AND m.score < 600 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Post)-[:PARENT_OF]-(m:Post) WHERE m.score > 100 AND m.score < 600 WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 114741
+Edge size is 0
+Took 1946 ms to use view
+Non-materialized returned 114741 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V5 LOCAL MATCH (n) RETURN n
+MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:Tag) WHERE n.tagId = 'java' OR n.tagId = 'html' WITH COLLECT(DISTINCT ID(n)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 2
+Edge size is 0
+Took 78 ms to use view
+Non-materialized returned 2 elements
+************************************
+neo4j graph connector set-up done.
+2
+WITH NON_MATERIALIZED VIEWS LOCAL BASIC V17 LOCAL MATCH (n) RETURN n
+MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Executing query: MATCH (n:User)-[:POSTED]-(p1:Post)-[:PARENT_OF]-(p2:Post)-[:POSTED]-(m:User) WHERE n.userId<m.userId AND n.reputation>m.reputation WITH COLLECT(DISTINCT ID(m)) AS v MATCH (n) WHERE ID(n) IN v RETURN n
+Execution done
+Node size is 22714
+Edge size is 0
+Took 5285 ms to use view
+Non-materialized returned 22714 elements
+************************************

@@ -1,0 +1,408 @@
+neo4j graph connector set-up done.
+2
+WITH VIEWS V14_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV14_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V14_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+492163
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 8482ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+4544477
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 58145ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+466280
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 7249ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+133086
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 2403ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+150434
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 2444ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+16688
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 397ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V8_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV8_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V8_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+548911
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 9185ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+50946
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 850ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+139647
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 2517ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V14_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV14_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V14_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+169396
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 2643ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+2366909
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 30664ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V9_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV9_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V9_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+181038
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 2786ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+469331
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 7363ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V10 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV10LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V10 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+20006859
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 256671ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V12_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV12_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V12_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+3329146
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 45269ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+37793
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 772ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V8_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV8_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V8_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+540540
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 9898ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V12_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV12_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V12_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+2573526
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 40195ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V11_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV11_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V11_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+2949636
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 39490ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV5LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+9202765
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 115483ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+43295
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 847ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V9_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV9_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V9_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+150434
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 2357ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V11_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV11_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V11_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+243560
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 4308ms to use view
+************************************
+neo4j graph connector set-up done.
+2
+WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+165288
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 3085ms to use view
+************************************

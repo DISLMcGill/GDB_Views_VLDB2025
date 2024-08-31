@@ -1,0 +1,2 @@
+CREATE VIEW AS V11_4 MATCH p1=(n:User)-[:POSTED]-(betterPost:Post) WHERE n.reputation < 850 WITH p1, betterPost MATCH p2=(betterPost)-[:PARENT_OF]->(worstPost:Post) WHERE worstPost.score < 10 AND betterPost.score > worstPost.score * 10 RETURN p1,p2
+WITH VIEWS V11_4 GLOBAL MATCH p1=(n:User)-[:POSTED]-(betterPost:Post) WHERE p1 IN V11_4.p1 AND n.upvotes > 400 WITH betterPost MATCH p2=(betterPost)-[:PARENT_OF]->(worstPost:Post) WHERE p2 IN V11_4.p2 WITH worstPost MATCH (m:User)-[r3:POSTED]-(worstPost) RETURN DISTINCT r3

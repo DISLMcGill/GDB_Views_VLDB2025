@@ -1,0 +1,168 @@
+########################################################################################################################
+NODE View Creation Flow
+CREATE VIEW AS V1 MATCH (n:Post) WHERE n.score > 350 RETURN n
+########################################################################################################################
+else condition in terminal
+Parser tree is
+    children:
+        - CREATE VIEW AS
+        - V1
+        - state = 80
+        - state = 81
+        - state = 82
+vql: QueryParser is updated with the tree
+Goes into the first condition check : if (vql.isViewInstant())
+processMainView() call
+viewName = v1
+fullQuery = MATCH (n:Post) WHERE n.score > 350 RETURN n
+returnSymbol = n
+mainQuery = MATCH (n:Post) WHERE n.score > 350
+returns = n
+returnArray = [n]
+typeTable.append -> [V1 -> Node]
+First Switch -> Case 'NODE'
+    FullQuery =  MATCH (n:Post) WHERE n.score > 350
+                 SET(CASE WHEN NOT EXISTS(n.views) THEN n END).views = []
+                 SET n.views = (CASE WHEN "V1" IN n.views THEN [] ELSE ["V1"] END) + n.views
+    returnSymbols = ['n']
+    returnClause: ID(n)
+    makeMiddlewareView =  MATCH (n:Post) WHERE n.score > 350 RETURN DISTINCT ID(n)
+Full_query will be printed to the terminal
+Goes to the branch: if(vql.getReturnType() == QueryParser.retType.NODE)
+    Call to connector.executeQuery
+        - nodeids is initialized
+        - check for input query validity
+        - REMOVE/SET Queries are not processed / return
+        - check if query contains 'RETURN DISTINCT ID('
+            - Start a transaction on db object
+                - result <- execute query on dbs transaction
+                - Loop over result and add nodeIds to nodeids [takes some time to do this iteration]
+                - Commit transaction
+            - return nodeids
+    NodeTable: [V1 -> nodeids]
+The loop is continued
+
+########################################################################################################################
+PATH View Creation Flow
+CREATE VIEW AS V1  MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 RETURN p
+########################################################################################################################
+else condition in terminal
+Parser tree is
+    children:
+        - CREATE VIEW AS
+        - V1
+        - state = 80
+        - state = 81
+        - state = 82
+vql: QueryParser is updated with the tree
+Goes into the first condition check : if (vql.isViewInstant())
+processMainView() call
+    viewName = v1
+    fullQuery =  MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 RETURN p
+    returnSymbol = p
+    mainQuery =  MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500
+    returns = "p" and returnArray = [p]
+    typeTable -> ('V1' -> PATH)
+    switch/case case PATH:
+        FullQuery =  MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500
+                     FOREACH(pathnode in nodes(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = []
+                     SET pathnode.views = (CASE WHEN "V1" IN pathnode.views THEN [] ELSE ["V1"] END) + pathnode.views)
+                     FOREACH(pathnode in relationships(p) | SET(CASE WHEN NOT EXISTS(pathnode.views) THEN pathnode END).views = []
+                     SET pathnode.views = (CASE WHEN "V1" IN pathnode.views THEN [] ELSE ["V1"] END) + pathnode.views)
+        makeMiddlewareView =  MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500 RETURN p
+    Goes into PATH Type condition [if(vql.getReturnType() == QueryParser.retType.PATH))]
+        getPathEdgeListQuery =  MATCH p = (n:User)-[:POSTED]-(po:Post) WHERE n.reputation < 500  RETURN [n IN relationships(p) | id(n)] as path
+        Call connector.getPathQueryRelationships(getPathEdgeListQuery) [Mengyu's addition]
+            - checks for empty input queries
+            - Begins transaction on db object
+                -
+
+Actual PathTable for the query 'CREATE VIEW AS V1 MATCH p = (n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag) WHERE n.userId = 73 RETURN p'
+
+(573407)-[HAS_TAG,5481115]->(5364666)
+(573407)-[HAS_TAG,5481114]->(5364635),
+(488829)-[HAS_TAG,5398366]->(5370639),
+(107896)-[HAS_TAG,5369885]->(5371382),
+(573407)-[HAS_TAG,5481117]->(5376688),
+(573407)-[HAS_TAG,5481116]->(5382340),
+(488829)-[HAS_TAG,5398365]->(5364636),
+(2254228)-[HAS_TAG,7193077]->(5364635),
+(2254228)-[HAS_TAG,7193079]->(5369318),
+(2254228)-[HAS_TAG,7193078]->(5364629),
+(574692)-[HAS_TAG,5807683]->(5364640),
+(574692)-[HAS_TAG,5807684]->(5369510),
+(408279)-[HAS_TAG,5434254]->(5364764),
+(408279)-[HAS_TAG,5434252]->(5364636),
+(981158)-[HAS_TAG,6227840]->(5364663),
+(408279)-[HAS_TAG,5434253]->(5368907),
+(981158)-[HAS_TAG,6227839]->(5364643),
+(981158)-[HAS_TAG,6227838]->(5364636),
+(549090)-[HAS_TAG,5365367]->(5369415),
+
+(117)-[POSTED,4461589]->(981158),
+(117)-[POSTED,3886762]->(107896),
+(117)-[POSTED,4282387]->(574692),
+(117)-[POSTED,3989351]->(408279),
+(117)-[POSTED,4208229]->(573407),
+(117)-[POSTED,3878678]->(549090),
+(117)-[POSTED,4849723]->(2254228),
+(117)-[POSTED,3935555]->(488829)
+
+Mengyu table's mechanism for 'CREATE VIEW AS V1 MATCH p = (n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag) WHERE n.userId = 73 RETURN p'
+
+4849723-7193079
+4849723-7193078
+4849723-7193077
+
+4461589-6227840
+4461589-6227839
+4461589-6227838
+
+4282387-5807684
+4282387-5807683
+
+4208229-5481117
+4208229-5481116
+4208229-5481115
+4208229-5481114
+
+3989351-5434254
+3989351-5434253
+3989351-5434252
+
+3935555-5398366
+3935555-5398365
+
+3886762-5369885
+
+3878678-5365367
+
+// From here is the reverse of the paths
+5365367-3878678
+
+5369885-3886762
+
+5398365-3935555
+5398366-3935555
+
+5434252-3989351
+5434253-3989351
+5434254-3989351
+
+5481114-4208229
+5481115-4208229
+5481116-4208229
+5481117-4208229
+
+5807683-4282387
+5807684-4282387
+
+6227838-4461589
+6227839-4461589
+6227840-4461589
+
+7193077-4849723
+7193078-4849723
+7193079-4849723
+
+CREATE VIEW AS V1 MATCH p=(n:User)-[:POSTED]-(po:Post)-[:HAS_TAG]-(t:Tag)-[:HAS_TAG]-(po2:Post)-[:POSTED]-(n) WHERE t.tagId = 'java' OR t.tagId = 'c#' RETURN p

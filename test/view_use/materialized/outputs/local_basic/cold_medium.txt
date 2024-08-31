@@ -1,0 +1,360 @@
+WITH VIEWS V14_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV14_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V14_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+1497353
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 25834ms to use view
+************************************
+WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+6338115
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 79511ms to use view
+************************************
+WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+2211595
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 29878ms to use view
+************************************
+WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+439132
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 7664ms to use view
+************************************
+WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+185538
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 3051ms to use view
+************************************
+WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+38278
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 800ms to use view
+************************************
+WITH VIEWS V8_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV8_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V8_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+1161742
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 15793ms to use view
+************************************
+WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV4_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V4_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+64106
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 1119ms to use view
+************************************
+WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+453444
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 7839ms to use view
+************************************
+WITH VIEWS V14_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV14_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V14_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+542902
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 8980ms to use view
+************************************
+WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV2_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V2_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+3234436
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 52189ms to use view
+************************************
+WITH VIEWS V9_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV9_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V9_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+227969
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 4087ms to use view
+************************************
+WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV3_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V3_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+965497
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 16976ms to use view
+************************************
+WITH VIEWS V10 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV10LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V10 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+32242943
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 459199ms to use view
+************************************
+WITH VIEWS V12_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV12_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V12_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+12584701
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 163212ms to use view
+************************************
+WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV1_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V1_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+89905
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 1783ms to use view
+************************************
+WITH VIEWS V8_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV8_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V8_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+2581914
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 33256ms to use view
+************************************
+WITH VIEWS V12_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV12_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V12_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+8700967
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 114680ms to use view
+************************************
+WITH VIEWS V11_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV11_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V11_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+7537483
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 95304ms to use view
+************************************
+WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV5LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V5 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+15326601
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 191903ms to use view
+************************************
+WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV6_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V6_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+198685
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 3899ms to use view
+************************************
+WITH VIEWS V9_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV9_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V9_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+185538
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 2786ms to use view
+************************************
+WITH VIEWS V11_2 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV11_2LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V11_2 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+1053072
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 18014ms to use view
+************************************
+WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+In enterRoot ctx is WITH VIEWSV7_1LOCALMATCH(n)RETURNn
+VarLables of the input is {}
+Return Type is DEFAULT
+FullQuery:: MATCH  (n) RETURN n
+cmd:: WITH VIEWS V7_1 LOCAL MATCH (n) RETURN n
+Scope:LOCAL
+587743
+Before calling execute query
+Before assigning rows
+After assigning rows and before commiting the transaction
+Execution done
+After the call to execute query
+Took 10041ms to use view
+************************************
