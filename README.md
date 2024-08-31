@@ -12,7 +12,7 @@ We used the Neo4j API to implement the view management system. Simply compile an
 javac -sourcepath src -cp ".:lib2/apoc-5.3.0-core.jar:./lib2/*" src/main/Main.java
 java -cp "lib2/apoc-5.3.0-core.jar:lib2/*:src/" main.Main ./test/temporary.txt
 ```
-where the 'temporary.txt' is the source file containing the test queries, either being view creation, view usage or a query directly feeding to the database(start with 'original').
+where the 'temporary.txt' is the source file containing the test queries, either being view creation, view usage or a query directly feeding to the database(start with 'original'). Notice that the Neo4j database has to be specified within test/config file before running.
 
 In addition, we also provide connection using the driver, mainly facillitating the periodic commit function from the APOC library with:
 ```
