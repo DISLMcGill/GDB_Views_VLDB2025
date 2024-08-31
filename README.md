@@ -23,6 +23,8 @@ To further enrich the grammar of our extended language, update View.g4, execute 
 ```
 java -jar lib2/antlr4-4.8-1-complete.jar src/View.g4
 ```
+#### To run with an IDE
+It is also supported to run from the terminal within an IDE. Queries are entered to the terminal directly, in the same form as from the test files.
 
 ## View declaration and usage tests
 We developed tests for both LDBC and StackOverFlow graphs with various view types, which can be found under the test/ folder, categorized by the specific type of creation/usage.
