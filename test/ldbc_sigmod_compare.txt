@@ -1,0 +1,25 @@
+#### node views ###
+VCL_L: CREATE VIEW AS VCL MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE ID(s)< 849880 RETURN COLLECTSET(c)
+WITH VIEWS VCL LOCAL MATCH (c:Comment) WHERE c IN VCL AND ID(c) < 190000  RETURN c
+
+VCL_S: CREATE VIEW AS VCL MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE ID(s)< 849880 RETURN COLLECTSET(c)
+WITH VIEWS VCL LOCAL MATCH (c:Comment) WHERE c IN VCL AND ID(c) < 35000  RETURN c
+
+VCS_L: CREATE VIEW AS VCS MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE ID(s)< 826000 RETURN COLLECTSET(c)
+WITH VIEWS VCS LOCAL MATCH (c:Comment) WHERE c IN VCS AND ID(c) < 1200000  RETURN c
+
+VCS_S: CREATE VIEW AS VCS MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE ID(s)< 826000 RETURN COLLECTSET(c)
+WITH VIEWS VCS LOCAL MATCH (c:Comment) WHERE c IN VCS AND ID(c) < 150000  RETURN c
+
+### subgraph views ###
+CREATE VIEW AS VCL MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE ID(s)< 849880 CONSTRUCT p RETURN GRAPH
+WITH VIEWS VCL LOCAL MATCH (c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE ID(c) < 80000  RETURN m
+
+CREATE VIEW AS VCL MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE ID(s)< 849880 CONSTRUCT p RETURN GRAPH
+WITH VIEWS VCL LOCAL MATCH (c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE ID(c) < 5828  RETURN m
+
+CREATE VIEW AS VCS MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE ID(s)< 826000 CONSTRUCT p RETURN GRAPH
+WITH VIEWS VCS LOCAL MATCH (c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE ID(c) < 25000  RETURN m
+
+CREATE VIEW AS VCS MATCH p=(c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE ID(s)< 826000 CONSTRUCT p RETURN GRAPH
+WITH VIEWS VCS LOCAL MATCH (c:Comment)-[:REPLY_OF]->(m:Comment)<-[:LIKES]-(s:Person)<-[:HAS_CREATOR]-(t:Post) WHERE ID(c) < 140000  RETURN m
