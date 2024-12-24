@@ -123,6 +123,8 @@ boolexpr    :
               exists '(' attribute ')'|
               function '=' attribute |
               function '=' val |
+              function '<' val |
+              function '>' val |
               attribute 'STARTS WITH' VALUE;
 attribute   : NAME('.'NAME)?  | val arithmetic attribute | attribute arithmetic val | indexing;
 val         : VALUE | NAME | CONSTANTS;

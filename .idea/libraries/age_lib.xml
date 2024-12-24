@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="age_lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib2/age_lib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib2/postgresql-42.7.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib2/antlr4-runtime-4.12.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib2/antlr4-4.12.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib2/commons-text-1.10.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib2/commons-lang3-3.14.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
